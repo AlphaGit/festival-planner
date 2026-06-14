@@ -21,7 +21,7 @@ input[type=file]{font-size:.85em}
    Card = CSS grid; --img-w / --blurb-lines kept as vars so a density mode can be
    re-added later. Areas reflow for mobile (media-object) in the @media block below. */
 #counts{margin:6px 0 14px}
-#catalog{--img-w:240px;--blurb-lines:4}
+#catalog{--img-w:260px;--blurb-lines:4}
 .movie{display:grid;grid-template-columns:var(--img-w) minmax(0,1fr) auto;
   grid-template-areas:"img info tags" "img blurb tags";
   gap:3px 14px;align-content:start;background:#fff;border:1px solid #eee;border-radius:10px;padding:12px;margin:10px 0}
@@ -30,12 +30,12 @@ input[type=file]{font-size:.85em}
 .mimg{grid-area:img;width:var(--img-w);aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:#eee;align-self:start}
 .mimg.placeholder{display:flex;align-items:center;justify-content:center;font-size:1.6em;color:#bbb}
 .minfo{grid-area:info;min-width:0}
-.mtitle{font-weight:700;font-size:1.12em;line-height:1.25}
+.mtitle{font-weight:600;font-size:1.5em;line-height:1.2}
 a.mtitle{color:#1a1a2e;text-decoration:none} a.mtitle:hover{color:#2980b9;text-decoration:underline}
-.mauthors{color:#888;font-size:.84em;margin-top:1px}
-.mmeta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:4px}
-.mrt{font-size:.78em;color:#777;font-variant-numeric:tabular-nums}
-.trk{font-size:.72em;background:#f0ece2;color:#7a6a3a;border-radius:999px;padding:2px 8px}
+.mauthors{color:#888;font-size:.94em;margin-top:2px}
+.mmeta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:6px;line-height:1.5}
+.mrt{font-size:.8em;color:#777;font-variant-numeric:tabular-nums}
+.trk{font-size:.8em;background:#f0ece2;color:#7a6a3a;border-radius:999px;padding:2px 8px}
 .mblurb{grid-area:blurb;color:#555;font-size:.86em;margin-top:4px;max-width:72ch;cursor:pointer;
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--blurb-lines);overflow:hidden}
 .mblurb.expanded{-webkit-line-clamp:initial;display:block}
@@ -138,9 +138,10 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
 @media(max-width:600px){
   body{margin:12px auto;padding:0 8px} h1{font-size:1.15em}
   /* media object: thumb + title/meta on row 1, synopsis full-width, tags full-width */
-  .movie{grid-template-columns:120px minmax(0,1fr);
+  .movie{grid-template-columns:150px minmax(0,1fr);
     grid-template-areas:"img info" "blurb blurb" "tags tags";gap:8px 10px;padding:10px}
-  .mimg{width:120px}
+  .mimg{width:150px}
+  .mtitle{font-size:1.25em}
   .tags{flex-direction:row;min-width:0}
   .tags .tag{flex:1 1 0;padding:8px 6px}
   .wizard{padding:10px 12px} .wbtn{padding:7px 9px}
