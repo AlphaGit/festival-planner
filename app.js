@@ -14,6 +14,7 @@ const effStatus = (sel, title) => { const s = sel[title]; return s === "unavaila
 let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, TRACKFILTER = "";
 let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
 let LOCATIONS = {}; // root locations map (id -> {name, address})
+let LOCKS = {}, SELECTED = null, CURRENT_LIVE = []; // timeline overrides + click state
 let painting = false, paintOff = false; // availability grid drag state
 let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_OUT = [];
 
@@ -45,6 +46,13 @@ const getPicks = () => loadJSON("picks", []);
 const setPicks = (p) => saveJSON("picks", p);
 const getBuf = () => loadJSON("buf", 30);
 const getSameBuf = () => loadJSON("samebuf", 10);
+// timeline overrides (persisted per festival)
+const SEP = "";
+const scrKey = (title, start, venue) => `${title}${SEP}${start}${SEP}${venue}`;
+const getLocks = () => loadJSON("locks", {});            // { title: screeningKey }
+const setLocks = (v) => saveJSON("locks", v);
+const getSoldOut = () => new Set(loadJSON("soldout", [])); // set of screeningKey
+const setSoldOut = (s) => saveJSON("soldout", [...s]);
 
 const HOUR = 3600000, DAYMS = 86400000;
 
@@ -101,6 +109,23 @@ async function init() {
   });
   document.addEventListener("pointerup", () => { if (painting) { painting = false; saveJSON("unavail", [...UNAVAIL]); } });
   $("availreset").addEventListener("click", () => { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); });
+  // timeline: select a screening block to reveal its action bar (ignore venue links)
+  $("board").addEventListener("click", (e) => {
+    if (e.target.closest("a")) return;
+    const blk = e.target.closest(".blk"); if (!blk) return;
+    const d = blk.dataset, k = { title: d.title, start: +d.start, end: +d.end, venue: d.venue };
+    SELECTED = (SELECTED && SELECTED.title === k.title && SELECTED.start === k.start && SELECTED.venue === k.venue) ? null : k;
+    renderActions(); drawBoard(CURRENT_LIVE);
+  });
+  // overrides panel: undo a lock / restore a sold-out screening / clear availability
+  $("overrides").addEventListener("click", (e) => {
+    const a = e.target.closest("[data-undo]"); if (!a) return;
+    const kind = a.dataset.undo, key = a.dataset.key;
+    if (kind === "lock") { const l = getLocks(); delete l[key.split(SEP)[0]]; setLocks(l); }
+    else if (kind === "soldout") { const so = getSoldOut(); so.delete(key); setSoldOut(so); }
+    else if (kind === "avail") { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); }
+    SELECTED = null; setPicks([]); solveAndShow();
+  });
   $("trackfilter").addEventListener("change", (e) => { TRACKFILTER = e.target.value; renderCatalog(); });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
   $("catalog").addEventListener("click", (e) => {
@@ -211,30 +236,42 @@ function applyCell(td) {
 function buildIncluded() {
   const sel = getSel();
   const windows = availWindows();
+  const locks = getLocks(), soldOut = getSoldOut();
   const included = [];
   for (const m of (CATALOG.movies || [])) {
     const status = sel[m.title];
     if (status !== "must" && status !== "want") continue;
+    const lockKey = locks[m.title]; // locked to this exact screening, or undefined
     const screenings = (m.screenings || []).map((s) => {
       const start = parseDT(s.start);
       const end = s.end ? parseDT(s.end) : start + (+m.runtime_minutes || 0) * 60000;
+      const key = scrKey(m.title, start, s.venue || "?");
       let invalidReason = null;
-      if (s.available === false) invalidReason = "marked unavailable (sold out / no tickets)";
-      else if (windows.length && !windows.some(([a, b]) => a <= start && end <= b)) invalidReason = "outside your availability windows";
-      return { start, end, venue: s.venue || "?", location: s.location || "", invalidReason };
+      if (lockKey) {
+        // a locked film keeps ONLY its locked screening (overrides sold-out/availability)
+        if (key !== lockKey) invalidReason = "not your locked screening";
+      } else if (soldOut.has(key)) {
+        invalidReason = "marked sold out / no tickets";
+      } else if (windows.length && !windows.some(([a, b]) => a <= start && end <= b)) {
+        invalidReason = "outside your availability";
+      }
+      return { start, end, venue: s.venue || "?", location: s.location || "", key, invalidReason };
     });
-    included.push({ title: m.title, priority: status, screenings, valid: screenings.filter((s) => !s.invalidReason) });
+    // locked films are pinned: force must so the solver never drops them
+    included.push({ title: m.title, priority: lockKey ? "must" : status, locked: !!lockKey, screenings, valid: screenings.filter((s) => !s.invalidReason) });
   }
   return included;
 }
 
 function solveAndShow() {
+  LOCKS = getLocks();
   const included = buildIncluded();
   MOVIES = included;
   PRIO = Object.fromEntries(included.map((m) => [m.title, m.priority]));
   const { cost, plans } = TiffSolver.solve(included, BUF, SAMEBUF, MAXPLANS);
   const groups = groupPlans(plans, MAXPLANS);
   computeView(groups);
+  renderOverrides();
   saveJSON("cost", cost);
   let picks = getPicks();
   if (!validPicks(picks, TREE)) picks = [];
@@ -327,7 +364,7 @@ function computeView(groups) {
   const byDay = new Map();
   for (const { t, s, opts } of usage.values()) {
     const d = dayLabel(s.start);
-    (byDay.get(d) || byDay.set(d, []).get(d)).push({ start: s.start, end: s.end, title: t, venue: s.venue, location: s.location, opts: opts.sort((a, b) => a - b) });
+    (byDay.get(d) || byDay.set(d, []).get(d)).push({ start: s.start, end: s.end, title: t, venue: s.venue, location: s.location, key: s.key, opts: opts.sort((a, b) => a - b) });
   }
   DAYS = [...byDay.entries()]
     .sort((a, b) => Math.min(...a[1].map((x) => x.start)) - Math.min(...b[1].map((x) => x.start)))
@@ -341,7 +378,8 @@ function computeView(groups) {
         label, height: (d1 - d0h) / 60000, hours,
         blocks: items.map((b) => ({
           top: (b.start - d0h) / 60000, h: (b.end - b.start) / 60000,
-          time: `${hm(b.start)}–${hm(b.end)}`, title: b.title, venue: b.venue, location: b.location, prio: PRIO[b.title], opts: b.opts,
+          time: `${hm(b.start)}–${hm(b.end)}`, title: b.title, venue: b.venue, location: b.location,
+          start: b.start, end: b.end, key: b.key, prio: PRIO[b.title], opts: b.opts,
         })),
       };
     });
@@ -377,6 +415,7 @@ function venueHtml(locId, venue) {
   return `<a class="bvenue" href="https://maps.google.com/?q=${q}" target="_blank" rel="noopener">${esc(loc.name || venue)}</a>`;
 }
 function drawBoard(live) {
+  CURRENT_LIVE = live;
   const L = [...live].sort((x, y) => x - y), nc = L.length, pos = {};
   L.forEach((o, i) => (pos[o] = i));
   const solo = nc === 1;
@@ -392,10 +431,14 @@ function drawBoard(live) {
       for (const [a, z] of runs(cols)) {
         const left = 100 * a / nc, width = 100 * (z - a + 1) / nc, full = (z - a + 1) === nc;
         const h = Math.max(b.h - 2, solo ? 28 : 18);
-        const cls = "blk " + (b.prio === "must" ? "must" : "want") + (full ? "" : " contested") + (b.h < 70 ? " small" : "") + (solo ? " solo" : "");
+        const locked = LOCKS[b.title] === b.key;
+        const isSel = SELECTED && SELECTED.title === b.title && SELECTED.start === b.start && SELECTED.venue === b.venue;
+        const cls = "blk " + (b.prio === "must" ? "must" : "want") + (full ? "" : " contested")
+          + (b.h < 70 ? " small" : "") + (solo ? " solo" : "") + (locked ? " locked" : "") + (isSel ? " selected" : "");
         bl += `<div class="${cls}" title="${esc(b.title)} — ${esc(b.venue)} — ${b.time}" `
+          + `data-title="${esc(b.title)}" data-start="${b.start}" data-end="${b.end}" data-venue="${esc(b.venue)}" `
           + `style="top:${b.top}px;height:${h}px;left:calc(${left}% + 2px);width:calc(${width}% - 5px)">`
-          + `<div class="btime">${b.time}</div><div class="btitle">${full ? "" : "★ "}${esc(b.title)}</div>`
+          + `<div class="btime">${locked ? "🔒 " : ""}${b.time}</div><div class="btitle">${full ? "" : "★ "}${esc(b.title)}</div>`
           + venueHtml(b.location, b.venue) + `</div>`;
       }
     }
@@ -407,8 +450,58 @@ function drawBoard(live) {
     html += `<div class="day"><h3>${esc(day.label)}</h3><div class="tlwrap">${heads}`
       + `<div class="tl" style="height:${day.height + 24}px;${tlw}">${hl}${vl}${bl}</div></div></div>`;
   }
-  $("board").innerHTML = html;
+  const hint = nc > 1 ? `<div class="scrollhint">↔ ${nc} options shown side by side — scroll sideways to compare them.</div>` : "";
+  $("board").innerHTML = hint + html;
 }
+
+// ---- timeline overrides: action bar for the selected block + the undo panel
+function renderActions() {
+  const el = $("blockactions");
+  if (!SELECTED) { el.hidden = true; el.innerHTML = ""; return; }
+  const { title, start, venue } = SELECTED;
+  const locked = LOCKS[title] === scrKey(title, start, venue);
+  let h = `<div class="ba-label"><b>${esc(title)}</b> · ${esc(whenLabel(start))} @ ${esc(venue)}</div><div class="ba-btns">`;
+  if (locked) {
+    h += `<button onclick="unlockSel()">🔓 Unlock</button>`;
+  } else {
+    h += `<button onclick="lockSel()">🔒 I have tickets — lock this</button>`
+      + `<button onclick="soldoutSel()">🚫 Sold out — drop this screening</button>`;
+  }
+  h += `<button onclick="cantmakeSel()">🗓 I can't make this time</button>`
+    + `<button class="ba-cancel" onclick="cancelSel()">Cancel</button></div>`;
+  el.innerHTML = h; el.hidden = false;
+}
+
+function renderOverrides() {
+  const locks = getLocks(), soldOut = [...getSoldOut()];
+  const parts = [];
+  for (const t in locks) {
+    const [, start, venue] = locks[t].split(SEP);
+    parts.push(`<span class="ov lock">🔒 ${esc(t)} · ${esc(whenLabel(+start))} @ ${esc(venue)}`
+      + `<a data-undo="lock" data-key="${esc(locks[t])}">unlock</a></span>`);
+  }
+  for (const key of soldOut) {
+    const [t, start, venue] = key.split(SEP);
+    parts.push(`<span class="ov drop">🚫 ${esc(t)} · ${esc(whenLabel(+start))} @ ${esc(venue)}`
+      + `<a data-undo="soldout" data-key="${esc(key)}">restore</a></span>`);
+  }
+  if (UNAVAIL.size) parts.push(`<span class="ov avail">🗓 ${UNAVAIL.size} blocked time slot${UNAVAIL.size === 1 ? "" : "s"}`
+    + `<a data-undo="avail">clear</a></span>`);
+  $("overrides").innerHTML = parts.length ? `<span class="ov-h">Overrides:</span> ${parts.join(" ")}` : "";
+}
+
+// apply an override then re-solve from a clean slate (the option tree changes)
+function resolveOverrides() { SELECTED = null; setPicks([]); solveAndShow(); renderActions(); }
+function addUnavailRange(start, end) {
+  const day = start - (start % DAYMS), h0 = Math.floor((start - day) / HOUR), h1 = Math.ceil((end - day) / HOUR);
+  for (let h = h0; h < h1; h++) UNAVAIL.add(day + "|" + h);
+  saveJSON("unavail", [...UNAVAIL]); renderAvailGrid();
+}
+window.lockSel = () => { const { title, start, venue } = SELECTED; const l = getLocks(); l[title] = scrKey(title, start, venue); setLocks(l); resolveOverrides(); };
+window.unlockSel = () => { const l = getLocks(); delete l[SELECTED.title]; setLocks(l); resolveOverrides(); };
+window.soldoutSel = () => { const { title, start, venue } = SELECTED; const so = getSoldOut(); so.add(scrKey(title, start, venue)); setSoldOut(so); resolveOverrides(); };
+window.cantmakeSel = () => { addUnavailRange(SELECTED.start, SELECTED.end); resolveOverrides(); };
+window.cancelSel = () => { SELECTED = null; renderActions(); drawBoard(CURRENT_LIVE); };
 
 const nodeAt = (picks) => { let n = TREE; for (const i of picks) n = n.branches[i].child; return n; };
 const nodeOpts = (node) => ("option" in node ? [node.option] : [...new Set(node.branches.flatMap((b) => b.options))]);

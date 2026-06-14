@@ -89,6 +89,23 @@ a.mtitle{color:#2980b9;text-decoration:none} a.mtitle:hover{text-decoration:unde
 a.bvenue{color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:underline}
 .blk.small .bvenue{display:none} .blk.small{padding-top:1px}
 .blk.solo{font-size:.92em} .blk.solo .btitle{font-size:1.05em}
+.blk{cursor:pointer}
+.blk.locked{border-left-color:#1e8a4c;box-shadow:0 0 0 2px #1e8a4c inset}
+.blk.selected{outline:3px solid #2980b9;outline-offset:-3px;z-index:4}
+/* timeline overrides: action bar + undo panel */
+.blockactions{position:sticky;top:0;z-index:10;background:#fff;border:2px solid #2980b9;border-radius:10px;padding:10px 14px;margin:8px 0;font-size:.85em}
+.ba-label{margin-bottom:8px}
+.ba-btns{display:flex;gap:8px;flex-wrap:wrap}
+.ba-btns button{font-size:1em;background:#fafafa;border:1px solid #ddd;border-radius:8px;padding:7px 12px;cursor:pointer}
+.ba-btns button:hover{background:#fdf6e3;border-color:#e6a817}
+.ba-btns .ba-cancel{color:#777}
+.scrollhint{font-size:.8em;color:#777;margin:6px 0 0}
+.overrides{margin:8px 0;font-size:.85em}
+.overrides:empty{display:none}
+.ov-h{color:#777;font-weight:600;margin-right:4px}
+.ov{display:inline-block;background:#f6f6f6;border:1px solid #e2e2e2;border-radius:999px;padding:3px 10px;margin:2px}
+.ov.lock{background:#eafaf0;border-color:#bce5cc} .ov.drop{background:#fdecea;border-color:#f3c2bc}
+.ov a{margin-left:8px;color:#2980b9;cursor:pointer;text-decoration:underline}
 .conflict ul{margin:4px 0}
 .alwaysout{margin:12px 0;background:#f6f6f6;border:1px solid #ddd;border-radius:8px;padding:10px 14px}
 .alwaysout summary{cursor:pointer;font-weight:600}
@@ -97,6 +114,7 @@ a.bvenue{color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:unde
   .movie{flex-direction:column;align-items:stretch} .tags{justify-content:flex-start}
   .wizard{padding:10px 12px} .wbtn{padding:7px 9px}
   .hline span{font-size:.62em} .blk{font-size:.72em;padding:2px 5px}
+  .ba-btns{flex-direction:column} .ba-btns button{width:100%;text-align:left}
 }
 </style>
 </head>
@@ -148,7 +166,9 @@ a.bvenue{color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:unde
     <span class="muted" id="optcount"></span>
   </div>
   <div id="glob"></div>
+  <div id="overrides" class="overrides"></div>
   <div id="wiz" class="wizard"></div>
+  <div id="blockactions" class="blockactions" hidden></div>
   <div id="board"></div>
 </section>
 
