@@ -13,6 +13,7 @@ const effStatus = (sel, title) => { const s = sel[title]; return s === "unavaila
 // ---- module state (set per solve, read by the board/wizard renderers)
 let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, TRACKFILTER = "";
 let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
+let LOCATIONS = {}; // root locations map (id -> {name, address})
 let painting = false, paintOff = false; // availability grid drag state
 let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_OUT = [];
 
@@ -121,6 +122,7 @@ async function init() {
 
 function useCatalog(cat) {
   CATALOG = cat;
+  LOCATIONS = cat.locations || {};
   const name = cat.festival || "Festival";
   $("festival").textContent = name;
   document.title = name + " Planner";
@@ -157,19 +159,24 @@ function renderCatalog() {
     const cur = effStatus(sel, m.title);
     counts[cur]++;
     if (TRACKFILTER && !(m.tracks || []).includes(TRACKFILTER)) continue;
-    const scr = (m.screenings || [])
-      .map((s) => `${whenLabel(parseDT(s.start))}${s.available === false ? " (no tickets)" : ""} · ${esc(s.venue || "?")}`)
-      .join("<br>");
     const btns = STATUSES.map((st) =>
       `<button class="tag ${st}${cur === st ? " on" : ""}" data-title="${esc(m.title)}" data-status="${st}">${STATUS_LABEL[st]}</button>`
     ).join("");
-    const blurb = m.blurb ? `<div class="mblurb">${esc(m.blurb)}</div>` : "";
-    const img = m.image_url ? `<img class="mimg" src="${esc(m.image_url)}" alt="" loading="lazy">` : "";
+    const blurb = m.blurb
+      ? `<div class="mblurb">${esc(m.blurb)}</div>`
+      : `<div class="mblurb muted">(no synopsis)</div>`;
+    const img = m.image_url
+      ? `<img class="mimg" src="${esc(m.image_url)}" alt="" loading="lazy">`
+      : `<div class="mimg placeholder">🎬</div>`;
     const trk = (m.tracks || []).length
       ? `<div class="mtracks">${m.tracks.map((id) => `<span class="trk">${esc(trackNames[id] || id)}</span>`).join("")}</div>`
       : "";
-    rows += `<div class="movie">${img}<div class="minfo"><div class="mtitle">${esc(m.title)}</div>`
-      + `${trk}${blurb}<div class="mscr">${scr}</div></div><div class="tags">${btns}</div></div>`;
+    const titleHtml = m.source_url
+      ? `<a class="mtitle" href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`
+      : `<div class="mtitle">${esc(m.title)}</div>`;
+    const authors = m.authors ? `<div class="mauthors">${esc(m.authors)}</div>` : "";
+    rows += `<div class="movie">${img}<div class="minfo">${titleHtml}`
+      + `${authors}${blurb}${trk}</div><div class="tags">${btns}</div></div>`;
   }
   $("catalog").innerHTML = rows;
   $("counts").innerHTML =
@@ -214,7 +221,7 @@ function buildIncluded() {
       let invalidReason = null;
       if (s.available === false) invalidReason = "marked unavailable (sold out / no tickets)";
       else if (windows.length && !windows.some(([a, b]) => a <= start && end <= b)) invalidReason = "outside your availability windows";
-      return { start, end, venue: s.venue || "?", invalidReason };
+      return { start, end, venue: s.venue || "?", location: s.location || "", invalidReason };
     });
     included.push({ title: m.title, priority: status, screenings, valid: screenings.filter((s) => !s.invalidReason) });
   }
@@ -320,7 +327,7 @@ function computeView(groups) {
   const byDay = new Map();
   for (const { t, s, opts } of usage.values()) {
     const d = dayLabel(s.start);
-    (byDay.get(d) || byDay.set(d, []).get(d)).push({ start: s.start, end: s.end, title: t, venue: s.venue, opts: opts.sort((a, b) => a - b) });
+    (byDay.get(d) || byDay.set(d, []).get(d)).push({ start: s.start, end: s.end, title: t, venue: s.venue, location: s.location, opts: opts.sort((a, b) => a - b) });
   }
   DAYS = [...byDay.entries()]
     .sort((a, b) => Math.min(...a[1].map((x) => x.start)) - Math.min(...b[1].map((x) => x.start)))
@@ -334,7 +341,7 @@ function computeView(groups) {
         label, height: (d1 - d0h) / 60000, hours,
         blocks: items.map((b) => ({
           top: (b.start - d0h) / 60000, h: (b.end - b.start) / 60000,
-          time: `${hm(b.start)}–${hm(b.end)}`, title: b.title, venue: b.venue, prio: PRIO[b.title], opts: b.opts,
+          time: `${hm(b.start)}–${hm(b.end)}`, title: b.title, venue: b.venue, location: b.location, prio: PRIO[b.title], opts: b.opts,
         })),
       };
     });
@@ -361,6 +368,14 @@ function runs(cols) { // contiguous runs of column indices -> [[a,b],...]
   for (let k = 1; k <= cols.length; k++) { const c = cols[k]; if (c !== p + 1) { r.push([a, p]); a = c; } p = c; }
   return r;
 }
+// venue label for a timeline block. If the screening's location resolves in the
+// catalog's locations map, link it to the default maps app; else plain venue text.
+function venueHtml(locId, venue) {
+  const loc = LOCATIONS[locId];
+  if (!loc) return `<div class="bvenue">${esc(venue)}</div>`;
+  const q = encodeURIComponent(loc.address || loc.name || venue);
+  return `<a class="bvenue" href="https://maps.google.com/?q=${q}" target="_blank" rel="noopener">${esc(loc.name || venue)}</a>`;
+}
 function drawBoard(live) {
   const L = [...live].sort((x, y) => x - y), nc = L.length, pos = {};
   L.forEach((o, i) => (pos[o] = i));
@@ -381,7 +396,7 @@ function drawBoard(live) {
         bl += `<div class="${cls}" title="${esc(b.title)} — ${esc(b.venue)} — ${b.time}" `
           + `style="top:${b.top}px;height:${h}px;left:calc(${left}% + 2px);width:calc(${width}% - 5px)">`
           + `<div class="btime">${b.time}</div><div class="btitle">${full ? "" : "★ "}${esc(b.title)}</div>`
-          + `<div class="bvenue">${esc(b.venue)}</div></div>`;
+          + venueHtml(b.location, b.venue) + `</div>`;
       }
     }
     const heads = nc > 1
