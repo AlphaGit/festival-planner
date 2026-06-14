@@ -15,6 +15,7 @@ h1{font-size:1.4em;margin:.2em 0} .muted{color:#777} [hidden]{display:none}
 button{font:inherit} .btn{background:#e6a817;color:#fff;border:none;border-radius:8px;padding:8px 16px;cursor:pointer;font-weight:600}
 .btn:hover{background:#cf9410} .btn:disabled{background:#ccc;cursor:not-allowed}
 .btn.ghost{background:none;color:#2980b9;border:1px solid #cfe0ee}
+.updatebar:not([hidden]){position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;gap:12px;background:#1a1a2e;color:#fff;border-radius:10px;padding:10px 16px;box-shadow:0 4px 16px rgba(0,0,0,.25);font-size:.9em;max-width:calc(100% - 32px)}
 input[type=file]{font-size:.85em}
 /* ---- view 1: catalog tagging */
 #counts{margin:6px 0 14px}
@@ -186,9 +187,48 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
   <div id="board"></div>
 </section>
 
+<div id="update" class="updatebar" hidden>✨ A new version is available. <button class="btn">Update now</button></div>
+
 <script src="logic-solver.bundle.js"></script>
 <script src="solver.js"></script>
 <script src="app.js"></script>
-<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");</script>
+<script>
+// Service worker + "new version available" prompt. Updating only swaps cached
+// assets and reloads — localStorage selections (tiff:<festival>:sel/:picks) are
+// never touched, so the user's tagging/picks survive.
+if ("serviceWorker" in navigator) {
+  let pendingReload = false;
+  const showUpdate = (worker) => {
+    const bar = document.getElementById("update");
+    if (!bar || bar.dataset.shown) return;
+    bar.dataset.shown = "1";
+    bar.hidden = false;
+    bar.querySelector("button").onclick = () => {
+      pendingReload = true;
+      worker.postMessage({ type: "SKIP_WAITING" });
+    };
+  };
+  // Reload once the accepted update takes control. Gated on pendingReload so the
+  // first-install claim (no user action) doesn't reload unprompted.
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (pendingReload) location.reload();
+  });
+  navigator.serviceWorker.register("sw.js").then((reg) => {
+    if (reg.waiting && navigator.serviceWorker.controller) showUpdate(reg.waiting);
+    reg.addEventListener("updatefound", () => {
+      const nw = reg.installing;
+      if (!nw) return;
+      nw.addEventListener("statechange", () => {
+        // installed + existing controller => this is an update, not first install
+        if (nw.state === "installed" && navigator.serviceWorker.controller) showUpdate(nw);
+      });
+    });
+    // Check for a newer version now and whenever connectivity returns.
+    const check = () => { if (navigator.onLine) reg.update().catch(() => {}); };
+    check();
+    addEventListener("online", check);
+  });
+}
+</script>
 </body>
 </html>

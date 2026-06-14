@@ -1,7 +1,7 @@
 // Offline cache for the static planner. Cache-first: serve from cache, fall back
 // to network. Bump CACHE when any listed asset changes (old caches are purged).
 // ponytail: precache the whole app — it's 5 files, no need for runtime caching.
-const CACHE = "planner-v2";
+const CACHE = "planner-v5";
 const ASSETS = [
   ".",
   "index.html",
@@ -13,7 +13,14 @@ const ASSETS = [
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  // No skipWaiting: a new SW stays "waiting" so the page can prompt the user
+  // before it takes over (see the update banner in index.html).
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+});
+
+// Page posts this when the user accepts the update; then we activate.
+self.addEventListener("message", (e) => {
+  if (e.data && e.data.type === "SKIP_WAITING") self.skipWaiting();
 });
 
 self.addEventListener("activate", (e) => {
