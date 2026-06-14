@@ -13,6 +13,7 @@ app.js / solver.js already consume.
 runtime_minutes = shortest screening block across ALL listings (incl. P&I),
 which is the pure film runtime; public blocks include intros/Q&A and run longer.
 """
+import html
 import json
 import re
 import sys
@@ -22,6 +23,12 @@ from datetime import datetime
 URL = "https://www.tiff.net/festivalfilmlist"
 FESTIVAL = "TIFF 2025"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+
+
+def strip_html(s):
+    # ponytail: blurbs only carry inline tags (<em>, <strong>); regex is enough,
+    # no parser dependency. unescape after so &amp; -> & not &amp;lt; artifacts.
+    return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
 
 
 def slugify(s):
@@ -77,7 +84,7 @@ def build(data):
         movies.append({
             "title": it["title"],
             "authors": ", ".join(it.get("directors") or []),
-            "blurb": it.get("description") or "",
+            "blurb": strip_html(it.get("description") or ""),
             "image_url": ("https:" + img) if img.startswith("//") else img,
             "source_url": "https://www.tiff.net" + it["url"] if it.get("url", "").startswith("/") else it.get("url", ""),
             "tracks": [slugify(p) for p in it.get("webProgrammes", [])],
