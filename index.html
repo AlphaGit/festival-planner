@@ -80,6 +80,9 @@ a.mtitle{color:#2980b9;text-decoration:none} a.mtitle:hover{text-decoration:unde
 .wreset{background:none;border:none;color:#2980b9;cursor:pointer;padding:0;margin-top:8px}
 .day h3{margin:26px 0 6px;border-bottom:2px solid #ddd;padding-bottom:4px}
 .tlwrap{overflow-x:auto}
+/* right-edge fade + arrow on multi-option timelines: more to scroll sideways */
+.day.scrollx{position:relative}
+.day.scrollx::after{content:"›";position:absolute;top:34px;right:0;bottom:8px;width:30px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:1.4em;font-weight:700;color:#bbb;pointer-events:none;background:linear-gradient(to right,transparent,rgba(0,0,0,.07))}
 .optrow{display:grid;margin-left:52px;position:sticky;top:0;background:#fafafa;z-index:5}
 .och{text-align:center;font-size:.75em;font-weight:700;color:#666;padding:3px 0;cursor:pointer;border-radius:4px}
 .och:hover{background:#fdf6e3}
@@ -87,14 +90,13 @@ a.mtitle{color:#2980b9;text-decoration:none} a.mtitle:hover{text-decoration:unde
 .hline{position:absolute;left:0;right:0;border-top:1px dashed #ececec}
 .hline span{position:absolute;left:-52px;top:-8px;font-size:.7em;color:#999}
 .vline{position:absolute;top:0;bottom:0;border-left:1px dashed #e8e8e8}
-.blk{position:absolute;box-sizing:border-box;background:#fff;border:1px solid #ddd;border-left:4px solid #999;border-radius:6px;padding:3px 7px;overflow:hidden;font-size:.78em;line-height:1.3}
+.blk{position:absolute;box-sizing:border-box;background:#fff;border:1px solid #ddd;border-left:4px solid #999;border-radius:6px;padding:3px 7px;overflow:hidden;font-size:.92em;line-height:1.3}
 .blk.must{border-left-color:#c0392b} .blk.want{border-left-color:#2980b9}
 .blk.contested{outline:2px dashed #e6a817;outline-offset:-2px;background:#fffdf5;z-index:2}
 .btime{font-variant-numeric:tabular-nums;color:#555;font-size:.85em}
-.btitle{font-weight:600} .bvenue{color:#777;font-size:.85em;display:block}
+.btitle{font-weight:600;font-size:1.05em} .bvenue{color:#777;font-size:.85em;display:block}
 a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:underline}
 .blk.small .bvenue{display:none} .blk.small{padding-top:1px}
-.blk.solo{font-size:.92em} .blk.solo .btitle{font-size:1.05em}
 .blk{cursor:pointer}
 .blk.locked{border-left-color:#1e8a4c;box-shadow:0 0 0 2px #1e8a4c inset}
 .blk.selected{outline:3px solid #2980b9;outline-offset:-3px;z-index:4}

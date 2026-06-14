@@ -432,7 +432,6 @@ function drawBoard(live) {
   CURRENT_LIVE = live;
   const L = [...live].sort((x, y) => x - y), nc = L.length, pos = {};
   L.forEach((o, i) => (pos[o] = i));
-  const solo = nc === 1;
   let html = "";
   for (const day of DAYS) {
     const vis = day.blocks.filter((b) => b.opts.some((o) => live.includes(o)));
@@ -444,11 +443,11 @@ function drawBoard(live) {
       const cols = b.opts.filter((o) => live.includes(o)).map((o) => pos[o]).sort((x, y) => x - y);
       for (const [a, z] of runs(cols)) {
         const left = 100 * a / nc, width = 100 * (z - a + 1) / nc, full = (z - a + 1) === nc;
-        const h = Math.max(b.h - 2, solo ? 28 : 18);
+        const h = Math.max(b.h - 2, 28);
         const locked = LOCKS[b.title] === b.key;
         const isSel = SELECTED && SELECTED.title === b.title && SELECTED.start === b.start && SELECTED.venue === b.venue;
         const cls = "blk " + (b.prio === "must" ? "must" : "want") + (full ? "" : " contested")
-          + (b.h < 70 ? " small" : "") + (solo ? " solo" : "") + (locked ? " locked" : "") + (isSel ? " selected" : "");
+          + (b.h < 70 ? " small" : "") + (locked ? " locked" : "") + (isSel ? " selected" : "");
         bl += `<div class="${cls}" title="${esc(b.title)} — ${esc(b.venue)} — ${b.time}" `
           + `data-title="${esc(b.title)}" data-start="${b.start}" data-end="${b.end}" data-venue="${esc(b.venue)}" `
           + `style="top:${b.top}px;height:${h}px;left:calc(${left}% + 2px);width:calc(${width}% - 5px)">`
@@ -461,7 +460,7 @@ function drawBoard(live) {
       + L.map((o) => `<div class="och" onclick="drawBoard([${o}])" title="show only option ${o}">O${o}</div>`).join("") + "</div>"
       : "";
     const tlw = nc > 1 ? `min-width:${nc * 110}px` : "";
-    html += `<div class="day"><h3>${esc(day.label)}</h3><div class="tlwrap">${heads}`
+    html += `<div class="day${nc > 1 ? " scrollx" : ""}"><h3>${esc(day.label)}</h3><div class="tlwrap">${heads}`
       + `<div class="tl" style="height:${day.height + 24}px;${tlw}">${hl}${vl}${bl}</div></div></div>`;
   }
   const hint = nc > 1 ? `<div class="scrollhint">↔ ${nc} options shown side by side — scroll sideways to compare them.</div>` : "";
