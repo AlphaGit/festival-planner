@@ -139,6 +139,9 @@ async function init() {
   $("trackfilter").addEventListener("change", (e) => { TRACKFILTER = e.target.value; renderCatalog(); });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
   $("catalog").addEventListener("click", (e) => {
+    // progressive disclosure: click a clamped synopsis to expand/collapse it
+    const bl = e.target.closest(".mblurb:not(.muted)");
+    if (bl) { bl.classList.toggle("expanded"); return; }
     const b = e.target.closest("button[data-title]");
     if (!b) return;
     const sel = getSel();
@@ -198,20 +201,24 @@ function renderCatalog() {
       `<button class="tag ${st}${cur === st ? " on" : ""}" data-title="${esc(m.title)}" data-status="${st}">${STATUS_LABEL[st]}</button>`
     ).join("");
     const blurb = m.blurb
-      ? `<div class="mblurb">${esc(m.blurb)}</div>`
+      ? `<div class="mblurb" title="Click to expand">${esc(m.blurb)}</div>`
       : `<div class="mblurb muted">(no synopsis)</div>`;
     const img = m.image_url
       ? `<img class="mimg" src="${esc(m.image_url)}" alt="" loading="lazy">`
       : `<div class="mimg placeholder">🎬</div>`;
-    const trk = (m.tracks || []).length
-      ? `<div class="mtracks">${m.tracks.map((id) => `<span class="trk">${esc(trackNames[id] || id)}</span>`).join("")}</div>`
-      : "";
+    // meta row: track badge(s) + runtime + screening count (only what the catalog has)
+    const trk = (m.tracks || []).map((id) => `<span class="trk">${esc(trackNames[id] || id)}</span>`).join("");
+    const rt = m.runtime_minutes;
+    const runtime = rt ? `<span class="mrt">${rt >= 60 ? `${(rt / 60 | 0)}h ${pad(rt % 60)}m` : `${rt}m`}</span>` : "";
+    const nScr = (m.screenings || []).length;
+    const screenings = nScr ? `<span class="mrt">· ${nScr} screening${nScr > 1 ? "s" : ""}</span>` : "";
     const titleHtml = m.source_url
       ? `<a class="mtitle" href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`
       : `<div class="mtitle">${esc(m.title)}</div>`;
     const authors = m.authors ? `<div class="mauthors">${esc(m.authors)}</div>` : "";
-    rows += `<div class="movie">${img}<div class="minfo">${titleHtml}`
-      + `${authors}${blurb}${trk}</div><div class="tags">${btns}</div></div>`;
+    rows += `<div class="movie">${img}`
+      + `<div class="minfo">${titleHtml}${authors}<div class="mmeta">${trk}${runtime}${screenings}</div></div>`
+      + `${blurb}<div class="tags">${btns}</div></div>`;
   }
   $("catalog").innerHTML = rows;
   $("counts").innerHTML =
