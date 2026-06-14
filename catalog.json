@@ -1,11 +1,23 @@
 {
   "festival": "TIFF 2025",
-  "buffer_minutes": 30,
-  "same_venue_buffer_minutes": 10,
+  "tracks": {
+    "gala": "Gala Presentations",
+    "special": "Special Presentations",
+    "centrepiece": "Centrepiece",
+    "discovery": "Discovery",
+    "platform": "Platform",
+    "wavelengths": "Wavelengths",
+    "midnight": "Midnight Madness",
+    "docs": "TIFF Docs",
+    "primetime": "Primetime",
+    "shortcuts": "Short Cuts"
+  },
   "movies": [
     {
       "title": "Bouchra",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 83,
       "screenings": [
         {
@@ -34,7 +46,9 @@
     },
     {
       "title": "Dead Lover",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 84,
       "screenings": [
         {
@@ -54,7 +68,9 @@
     },
     {
       "title": "Dog 51",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 104,
       "screenings": [
         {
@@ -74,7 +90,9 @@
     },
     {
       "title": "Dust Bunny",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 106,
       "screenings": [
         {
@@ -99,7 +117,9 @@
     },
     {
       "title": "Eternal Return",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 115,
       "screenings": [
         {
@@ -128,7 +148,9 @@
     },
     {
       "title": "Eternity",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 113,
       "screenings": [
         {
@@ -157,7 +179,9 @@
     },
     {
       "title": "Exit 8",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 95,
       "screenings": [
         {
@@ -177,7 +201,9 @@
     },
     {
       "title": "Frankenstein",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 149,
       "screenings": [
         {
@@ -218,7 +244,9 @@
     },
     {
       "title": "Good Boy",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 110,
       "screenings": [
         {
@@ -247,7 +275,9 @@
     },
     {
       "title": "JUNK WORLD",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 104,
       "screenings": [
         {
@@ -271,7 +301,9 @@
     },
     {
       "title": "Nadja",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 97,
       "screenings": [
         {
@@ -282,7 +314,9 @@
     },
     {
       "title": "Obsession",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 108,
       "screenings": [
         {
@@ -311,7 +345,9 @@
     },
     {
       "title": "Space Cadet",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 86,
       "screenings": [
         {
@@ -335,7 +371,9 @@
     },
     {
       "title": "A Useful Ghost",
-      "priority": "must",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 130,
       "screenings": [
         {
@@ -359,7 +397,9 @@
     },
     {
       "title": "Arco",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 88,
       "screenings": [
         {
@@ -379,7 +419,9 @@
     },
     {
       "title": "Babystar",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 98,
       "screenings": [
         {
@@ -403,7 +445,9 @@
     },
     {
       "title": "Bayaan",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 118,
       "screenings": [
         {
@@ -427,7 +471,9 @@
     },
     {
       "title": "California Schemin'",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 107,
       "screenings": [
         {
@@ -461,7 +507,9 @@
     },
     {
       "title": "Dandelion's Odyssey",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 77,
       "screenings": [
         {
@@ -485,7 +533,9 @@
     },
     {
       "title": "Egghead Republic",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 97,
       "screenings": [
         {
@@ -509,7 +559,9 @@
     },
     {
       "title": "Follies",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 102,
       "screenings": [
         {
@@ -529,7 +581,9 @@
     },
     {
       "title": "The Fox King",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 94,
       "screenings": [
         {
@@ -549,7 +603,9 @@
     },
     {
       "title": "Franz",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 127,
       "screenings": [
         {
@@ -582,7 +638,9 @@
     },
     {
       "title": "Fuck My Son!",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 94,
       "screenings": [
         {
@@ -602,7 +660,9 @@
     },
     {
       "title": "The Furious",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 113,
       "screenings": [
         {
@@ -631,7 +691,9 @@
     },
     {
       "title": "Ghost School",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 88,
       "screenings": [
         {
@@ -651,7 +713,9 @@
     },
     {
       "title": "Good Fortune",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 98,
       "screenings": [
         {
@@ -672,7 +736,9 @@
     },
     {
       "title": "Hen",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 96,
       "screenings": [
         {
@@ -701,7 +767,9 @@
     },
     {
       "title": "I Swear",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 121,
       "screenings": [
         {
@@ -730,7 +798,9 @@
     },
     {
       "title": "Karmadonna",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 118,
       "screenings": [
         {
@@ -759,7 +829,9 @@
     },
     {
       "title": "The Last Viking",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 116,
       "screenings": [
         {
@@ -783,7 +855,9 @@
     },
     {
       "title": "Little Amélie or the Character of Rain",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 78,
       "screenings": [
         {
@@ -803,7 +877,9 @@
     },
     {
       "title": "Project Y",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 110,
       "screenings": [
         {
@@ -837,7 +913,9 @@
     },
     {
       "title": "Retreat",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 107,
       "screenings": [
         {
@@ -866,7 +944,9 @@
     },
     {
       "title": "Sacrifice",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 103,
       "screenings": [
         {
@@ -892,7 +972,9 @@
     },
     {
       "title": "Scarlet",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 111,
       "screenings": [
         {
@@ -920,7 +1002,9 @@
     },
     {
       "title": "Short Cuts 2025 Programme 01",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 100,
       "screenings": [
         {
@@ -940,7 +1024,9 @@
     },
     {
       "title": "Short Cuts 2025 Programme 03",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 99,
       "screenings": [
         {
@@ -960,7 +1046,9 @@
     },
     {
       "title": "Short Cuts 2025 Programme 04",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 99,
       "screenings": [
         {
@@ -980,7 +1068,9 @@
     },
     {
       "title": "Short Cuts 2025 Programme 05",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 100,
       "screenings": [
         {
@@ -1000,7 +1090,9 @@
     },
     {
       "title": "Short Cuts 2025 Programme 06",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 105,
       "screenings": [
         {
@@ -1020,7 +1112,9 @@
     },
     {
       "title": "Short Cuts 2025 / Strange Cuts",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 93,
       "screenings": [
         {
@@ -1040,7 +1134,9 @@
     },
     {
       "title": "Sk+te'kmujue'katik (At the Place of Ghosts)",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 87,
       "screenings": [
         {
@@ -1065,7 +1161,9 @@
     },
     {
       "title": "Steal Away",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 113,
       "screenings": [
         {
@@ -1094,7 +1192,9 @@
     },
     {
       "title": "The Testament of Ann Lee",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 135,
       "screenings": [
         {
@@ -1125,7 +1225,9 @@
     },
     {
       "title": "Train Dreams",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 102,
       "screenings": [
         {
@@ -1154,7 +1256,9 @@
     },
     {
       "title": "Uiksaringitara (Wrong Husband)",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 100,
       "screenings": [
         {
@@ -1178,7 +1282,9 @@
     },
     {
       "title": "Wake Up Dead Man: A Knives Out Mystery",
-      "priority": "want",
+      "blurb": "",
+      "image_url": "",
+      "tracks": [],
       "runtime_minutes": 144,
       "screenings": [
         {

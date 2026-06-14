@@ -5,11 +5,13 @@
 "use strict";
 
 const MAXPLANS = 8;
-const STATUSES = ["must", "want", "skip", "unavailable"];
-const STATUS_LABEL = { must: "Must", want: "Want", skip: "Not interested", unavailable: "No tickets" };
+const STATUSES = ["must", "want", "skip"];
+const STATUS_LABEL = { must: "Must", want: "Want", skip: "Not interested/not available" };
+// effective status: default to skip; fold legacy "unavailable" into skip
+const effStatus = (sel, title) => { const s = sel[title]; return s === "unavailable" ? "skip" : (s || "skip"); };
 
 // ---- module state (set per solve, read by the board/wizard renderers)
-let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10;
+let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, TRACKFILTER = "";
 let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_OUT = [];
 
 // ---- small utils
@@ -38,11 +40,16 @@ const getSel = () => loadJSON("sel", {});
 const setSel = (sel) => saveJSON("sel", sel);
 const getPicks = () => loadJSON("picks", []);
 const setPicks = (p) => saveJSON("picks", p);
+const getBuf = () => loadJSON("buf", 30);
+const getSameBuf = () => loadJSON("samebuf", 10);
 
 // =====================================================================  LOAD
 async function init() {
   $("solve").addEventListener("click", solveAndShow);
   $("back").addEventListener("click", showView1);
+  $("buf").addEventListener("change", (e) => { BUF = +e.target.value || 30; saveJSON("buf", BUF); });
+  $("samebuf").addEventListener("change", (e) => { SAMEBUF = +e.target.value || 10; saveJSON("samebuf", SAMEBUF); });
+  $("trackfilter").addEventListener("change", (e) => { TRACKFILTER = e.target.value; renderCatalog(); });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
   $("catalog").addEventListener("click", (e) => {
     const b = e.target.closest("button[data-title]");
@@ -63,12 +70,19 @@ async function init() {
 
 function useCatalog(cat) {
   CATALOG = cat;
-  BUF = +cat.buffer_minutes || 30;
-  SAMEBUF = +cat.same_venue_buffer_minutes || 10;
   const name = cat.festival || "Festival";
   $("festival").textContent = name;
   document.title = name + " Planner";
   $("hint").textContent = "";
+  // buffers are user options, persisted per festival (defaults 30 / 10)
+  BUF = +getBuf() || 30;
+  SAMEBUF = +getSameBuf() || 10;
+  $("buf").value = BUF;
+  $("samebuf").value = SAMEBUF;
+  // track filter options from the root tracks map
+  const tracks = cat.tracks || {};
+  $("trackfilter").innerHTML = `<option value="">All tracks</option>`
+    + Object.entries(tracks).map(([id, name]) => `<option value="${esc(id)}">${esc(name)}</option>`).join("");
   renderCatalog();
   // if every film is already tagged (and something's worth solving), jump to results
   const sel = getSel();
@@ -82,23 +96,30 @@ function useCatalog(cat) {
 // =====================================================================  VIEW 1
 function renderCatalog() {
   const sel = getSel();
-  const counts = { must: 0, want: 0, skip: 0, unavailable: 0, untagged: 0 };
+  const counts = { must: 0, want: 0, skip: 0 };
+  const trackNames = CATALOG.tracks || {};
   let rows = "";
   for (const m of (CATALOG.movies || [])) {
-    const cur = sel[m.title] || "";
-    if (cur) counts[cur]++; else counts.untagged++;
+    const cur = effStatus(sel, m.title);
+    counts[cur]++;
+    if (TRACKFILTER && !(m.tracks || []).includes(TRACKFILTER)) continue;
     const scr = (m.screenings || [])
       .map((s) => `${whenLabel(parseDT(s.start))}${s.available === false ? " (no tickets)" : ""} · ${esc(s.venue || "?")}`)
       .join("<br>");
     const btns = STATUSES.map((st) =>
       `<button class="tag ${st}${cur === st ? " on" : ""}" data-title="${esc(m.title)}" data-status="${st}">${STATUS_LABEL[st]}</button>`
     ).join("");
-    rows += `<div class="movie"><div class="minfo"><div class="mtitle">${esc(m.title)}</div>`
-      + `<div class="mscr">${scr}</div></div><div class="tags">${btns}</div></div>`;
+    const blurb = m.blurb ? `<div class="mblurb">${esc(m.blurb)}</div>` : "";
+    const img = m.image_url ? `<img class="mimg" src="${esc(m.image_url)}" alt="" loading="lazy">` : "";
+    const trk = (m.tracks || []).length
+      ? `<div class="mtracks">${m.tracks.map((id) => `<span class="trk">${esc(trackNames[id] || id)}</span>`).join("")}</div>`
+      : "";
+    rows += `<div class="movie">${img}<div class="minfo"><div class="mtitle">${esc(m.title)}</div>`
+      + `${trk}${blurb}<div class="mscr">${scr}</div></div><div class="tags">${btns}</div></div>`;
   }
   $("catalog").innerHTML = rows;
   $("counts").innerHTML =
-    `<b>${counts.must}</b> must · <b>${counts.want}</b> want · ${counts.skip} skipped · ${counts.unavailable} no-tickets · ${counts.untagged} untagged`;
+    `<b>${counts.must}</b> must · <b>${counts.want}</b> want · ${counts.skip} not interested`;
   $("solve").disabled = counts.must + counts.want === 0;
 }
 

@@ -16,7 +16,22 @@ input[type=file]{font-size:.85em}
 /* ---- view 1: catalog tagging */
 #counts{margin:6px 0 14px}
 .movie{display:flex;gap:14px;align-items:center;justify-content:space-between;background:#fff;border:1px solid #eee;border-radius:10px;padding:10px 14px;margin:8px 0}
+.mimg{width:54px;height:78px;object-fit:cover;border-radius:6px;flex:0 0 auto;background:#eee}
+.minfo{flex:1 1 auto}
+.mtracks{display:flex;gap:5px;flex-wrap:wrap;margin-top:4px}
+.trk{font-size:.72em;background:#f0ece2;color:#7a6a3a;border-radius:999px;padding:2px 8px}
+.filterbar{margin:6px 0 10px}
+.filterbar select{font:inherit;padding:5px 8px;border-radius:8px;border:1px solid #ddd}
 .mtitle{font-weight:600} .mscr{color:#888;font-size:.82em;margin-top:3px}
+.mblurb{color:#555;font-size:.86em;margin-top:3px;max-width:60ch}
+.opts{margin:6px 0 14px;background:#fff;border:1px solid #eee;border-radius:10px;padding:6px 14px}
+.opts summary{cursor:pointer;font-weight:600;color:#555;font-size:.9em}
+.opts label{display:block;margin:10px 0;font-size:.9em}
+.opts input{width:64px;margin-left:8px}
+.help{margin:6px 0 12px;background:#fff;border:1px solid #eee;border-radius:10px;padding:6px 14px}
+.help summary{cursor:pointer;font-weight:600;color:#555;font-size:.9em}
+.help ol,.help ul{margin:8px 0;padding-left:20px;font-size:.9em;color:#444}
+.help li{margin:3px 0}
 .tags{display:flex;gap:6px;flex-wrap:wrap;flex:0 0 auto}
 .tag{border:1px solid #ddd;background:#fafafa;border-radius:999px;padding:5px 12px;cursor:pointer;font-size:.85em;color:#555}
 .tag:hover{border-color:#bbb}
@@ -76,7 +91,28 @@ input[type=file]{font-size:.85em}
 <!-- VIEW 1 — tag the catalog -->
 <section id="view1" hidden>
   <p class="muted">Tag each film, then solve. Your choices are saved on this device.</p>
+  <details class="help">
+    <summary>How this works</summary>
+    <ol>
+      <li>Tag each film below, then press <b>Solve</b>.</li>
+      <li>Answer the questions in the wizard — each choice narrows the schedule.</li>
+      <li>You end with a conflict-free schedule to follow.</li>
+    </ol>
+    <ul>
+      <li><b>Must</b> — takes absolute priority; kept at the cost of other films.</li>
+      <li><b>Want</b> — desirable; kept when it fits.</li>
+      <li><b>Not interested / not available</b> — discarded (the default).</li>
+    </ul>
+  </details>
   <div id="counts" class="muted"></div>
+  <details class="opts">
+    <summary>Scheduling options</summary>
+    <label>Buffer between screenings (minutes)
+      <input type="number" id="buf" min="0" step="5" value="30"></label>
+    <label>Buffer at the same venue (minutes)
+      <input type="number" id="samebuf" min="0" step="5" value="10"></label>
+  </details>
+  <div class="filterbar"><label>Track: <select id="trackfilter"><option value="">All tracks</option></select></label></div>
   <div id="catalog"></div>
   <p><button id="solve" class="btn" disabled>Solve →</button></p>
 </section>
