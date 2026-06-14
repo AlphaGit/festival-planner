@@ -122,10 +122,10 @@ async function init() {
   $("overrides").addEventListener("click", (e) => {
     const a = e.target.closest("[data-undo]"); if (!a) return;
     const kind = a.dataset.undo, key = a.dataset.key;
-    if (kind === "lock") { const l = getLocks(); delete l[key.split(SEP)[0]]; setLocks(l); }
-    else if (kind === "soldout") { const so = getSoldOut(); so.delete(key); setSoldOut(so); }
+    if (kind === "lock") { const l = getLocks(); delete l[key.split(SEP)[0]]; refreshAfterLock(l); return; } // lock doesn't affect schedule
+    if (kind === "soldout") { const so = getSoldOut(); so.delete(key); setSoldOut(so); }
     else if (kind === "avail") { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); }
-    SELECTED = null; setPicks([]); solveAndShow();
+    resolveOverrides();
   });
   $("trackfilter").addEventListener("change", (e) => { TRACKFILTER = e.target.value; renderCatalog(); });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
@@ -264,7 +264,19 @@ function buildIncluded() {
   return included;
 }
 
+// stable identity of a branch choice: the film you end up watching at this slot —
+// b.watch for a "watch X" branch, else the film(s) gained by skipping. Uses film
+// titles (stable across re-solves), not option indices (which are reassigned).
+const branchSig = (n, b) => { const before = inter(nodeOpts(n), "keep"); return b.watch || inter(b.options, "keep").filter((t) => !before.includes(t)).sort().join("|"); };
+// describe current picks as (when, sig) against the live TREE, so we can re-apply
+// the ones that still exist after the tree is rebuilt.
+const picksToChoices = (picks) => { const out = []; let n = TREE; for (const i of picks) { if (!n || !n.branches || !n.branches[i]) break; const b = n.branches[i]; out.push({ when: b.when, sig: branchSig(n, b) }); n = b.child; } return out; };
+// re-apply choices to a new tree, keeping the longest matching prefix (user only
+// re-picks where the new options actually diverge from before).
+const choicesToPicks = (choices, tree) => { const picks = []; let n = tree; for (const c of choices) { if (!n.branches) break; const idx = n.branches.findIndex((b) => b.when === c.when && branchSig(n, b) === c.sig); if (idx < 0) break; picks.push(idx); n = n.branches[idx].child; } return picks; };
+
 function solveAndShow() {
+  const prevChoices = TREE ? picksToChoices(getPicks()) : null; // null = fresh load, use stored picks as-is
   LOCKS = getLocks();
   const included = buildIncluded();
   MOVIES = included;
@@ -274,8 +286,9 @@ function solveAndShow() {
   computeView(groups);
   renderOverrides();
   saveJSON("cost", cost);
-  let picks = getPicks();
+  let picks = prevChoices ? choicesToPicks(prevChoices, TREE) : getPicks();
   if (!validPicks(picks, TREE)) picks = [];
+  if (!("branches" in nodeAt(picks))) RESOLVE_NOTICE = false; // nothing left to choose -> no "review" prompt
   showView2();
   render(picks);
 }
@@ -496,14 +509,18 @@ function renderOverrides() {
 }
 
 // apply an override then re-solve from a clean slate (the option tree changes)
-function resolveOverrides() { SELECTED = null; RESOLVE_NOTICE = true; setPicks([]); solveAndShow(); renderActions(); }
+function resolveOverrides() { SELECTED = null; RESOLVE_NOTICE = true; solveAndShow(); renderActions(); } // solveAndShow re-applies still-valid picks
 function addUnavailRange(start, end) {
   const day = start - (start % DAYMS), h0 = Math.floor((start - day) / HOUR), h1 = Math.ceil((end - day) / HOUR);
   for (let h = h0; h < h1; h++) UNAVAIL.add(day + "|" + h);
   saveJSON("unavail", [...UNAVAIL]); renderAvailGrid();
 }
-window.lockSel = () => { const { title, start, venue } = SELECTED; const l = getLocks(); l[title] = scrKey(title, start, venue); setLocks(l); resolveOverrides(); };
-window.unlockSel = () => { const l = getLocks(); delete l[SELECTED.title]; setLocks(l); resolveOverrides(); };
+// lock/unlock = "I have tickets" on the already-scheduled screening: just record
+// it so future re-solves keep it pinned. Doesn't change the current schedule, so
+// don't re-run the solver or reset the wizard.
+function refreshAfterLock(l) { setLocks(l); LOCKS = l; SELECTED = null; renderOverrides(); renderActions(); drawBoard(CURRENT_LIVE); }
+window.lockSel = () => { const { title, start, venue } = SELECTED; const l = getLocks(); l[title] = scrKey(title, start, venue); refreshAfterLock(l); };
+window.unlockSel = () => { const l = getLocks(); delete l[SELECTED.title]; refreshAfterLock(l); };
 window.soldoutSel = () => { const { title, start, venue } = SELECTED; const so = getSoldOut(); so.add(scrKey(title, start, venue)); setSoldOut(so); resolveOverrides(); };
 window.cantmakeSel = () => { addUnavailRange(SELECTED.start, SELECTED.end); resolveOverrides(); };
 window.cancelSel = () => { SELECTED = null; renderActions(); drawBoard(CURRENT_LIVE); };
@@ -529,7 +546,8 @@ function render(picks) {
     h += '<div class="wtrail">'; let n = TREE;
     picks.forEach((idx, k) => {
       const b = n.branches[idx];
-      h += `<span class="wcrumb">${b.when}: ${b.watch ? "▶ " + esc(b.watch) : "(nothing)"}<a onclick="render([${picks.slice(0, k)}])">✕</a></span>`;
+      const before = inter(nodeOpts(n), "keep"), watch = b.watch || inter(b.options, "keep").filter((t) => !before.includes(t)).join(" / ");
+      h += `<span class="wcrumb">${b.when}: ${watch ? "▶ " + esc(watch) : "(nothing)"}<a onclick="render([${picks.slice(0, k)}])">✕</a></span>`;
       n = b.child;
     });
     h += "</div>";
@@ -553,7 +571,9 @@ function render(picks) {
     node.branches.forEach((b, idx) => {
       const bk = inter(b.options, "keep"), bd = inter(b.options, "drop");
       const gain = bk.filter((t) => !keep.includes(t)), lose = bd.filter((t) => !drop.includes(t));
-      const label = b.watch ? "Watch " + esc(b.watch) : "Skip this slot (watch nothing here)";
+      const label = b.watch ? "Watch " + esc(b.watch)
+        : gain.length ? "Watch " + gain.map(esc).join(" / ") + " instead"
+        : "Skip this slot (watch nothing here)";
       h += `<button class="wbtn" onclick="render([${picks.concat(idx)}])"><b>${label}</b>`
         + `<div class="leads">→ leads to: ` + gain.map((t) => chip(t, "get")).join("") + lose.map((t) => chip(t, "lose")).join("")
         + (gain.length || lose.length ? "" : '<span class="muted">narrows timing only</span>') + "</div></button>";
