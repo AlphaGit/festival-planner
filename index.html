@@ -92,7 +92,7 @@ a.mtitle{color:#2980b9;text-decoration:none} a.mtitle:hover{text-decoration:unde
 .blk.contested{outline:2px dashed #e6a817;outline-offset:-2px;background:#fffdf5;z-index:2}
 .btime{font-variant-numeric:tabular-nums;color:#555;font-size:.85em}
 .btitle{font-weight:600} .bvenue{color:#777;font-size:.85em;display:block}
-a.bvenue{color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:underline}
+a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:underline}
 .blk.small .bvenue{display:none} .blk.small{padding-top:1px}
 .blk.solo{font-size:.92em} .blk.solo .btitle{font-size:1.05em}
 .blk{cursor:pointer}
@@ -106,6 +106,7 @@ a.bvenue{color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:unde
 .ba-btns button:hover{background:#fdf6e3;border-color:#e6a817}
 .ba-btns .ba-cancel{color:#777}
 .scrollhint{font-size:.8em;color:#777;margin:6px 0 0}
+.boardhelp{font-size:.85em;color:#555;background:#f6f6f6;border:1px solid #e6e6e6;border-radius:8px;padding:8px 12px;margin:10px 0 4px}
 .overrides{margin:8px 0;font-size:.85em}
 .overrides:empty{display:none}
 .ov-h{color:#777;font-weight:600;margin-right:4px}
@@ -175,6 +176,7 @@ a.bvenue{color:#2980b9;text-decoration:none} a.bvenue:hover{text-decoration:unde
   <div id="overrides" class="overrides"></div>
   <div id="wiz" class="wizard"></div>
   <div id="blockactions" class="blockactions" hidden></div>
+  <div class="boardhelp">👆 Tap any screening in the timeline to: <b>🔒 lock it in</b> (you already have tickets — kept across re-solves), <b>🚫 mark it sold out</b> (drop just that screening), or <b>🗓 block that time</b> (can't attend — frees the slot for other films).</div>
   <div id="board"></div>
 </section>
 
