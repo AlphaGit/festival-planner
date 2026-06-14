@@ -28,6 +28,20 @@ input[type=file]{font-size:.85em}
 .opts summary{cursor:pointer;font-weight:600;color:#555;font-size:.9em}
 .opts label{display:block;margin:10px 0;font-size:.9em}
 .opts input{width:64px;margin-left:8px}
+.availopt{margin:10px 0;font-size:.9em}
+.availopt>div:first-child{color:#555;margin-bottom:6px}
+.lgnd{display:inline-block;width:18px;height:18px;border-radius:3px;border:1px solid #ccc;vertical-align:-4px;text-align:center;line-height:18px;font-size:12px;font-weight:700}
+.lgnd.free{background:#1e8a4c;color:#fff} .lgnd.off{background:#c0392b;color:#fff}
+#avail{overflow-x:auto}
+.availgrid{border-collapse:collapse;user-select:none;font-size:.72em}
+.availgrid th{font-weight:600;color:#666;padding:2px 5px;text-align:center;white-space:nowrap}
+.availgrid th.hh{text-align:right;color:#999;font-variant-numeric:tabular-nums;font-weight:500}
+.availgrid .cell{min-width:34px;height:20px;border:1px solid #fff;background:#1e8a4c;color:#fff;cursor:pointer;text-align:center;line-height:20px;font-size:1.05em;font-weight:700;touch-action:none}
+.availgrid .cell::after{content:"✓"}
+.availgrid .cell.off{background:#c0392b}
+.availgrid .cell.off::after{content:"✕"}
+.availgrid .cell:hover{outline:2px solid #e6a817;outline-offset:-2px}
+#availreset{margin-top:8px;padding:4px 10px;font-size:.85em}
 .help{margin:6px 0 12px;background:#fff;border:1px solid #eee;border-radius:10px;padding:6px 14px}
 .help summary{cursor:pointer;font-weight:600;color:#555;font-size:.9em}
 .help ol,.help ul{margin:8px 0;padding-left:20px;font-size:.9em;color:#444}
@@ -105,15 +119,21 @@ input[type=file]{font-size:.85em}
     </ul>
   </details>
   <div id="counts" class="muted"></div>
+  <div class="filterbar"><label>Track: <select id="trackfilter"><option value="">All tracks</option></select></label></div>
+  <div id="catalog"></div>
   <details class="opts">
     <summary>Scheduling options</summary>
     <label>Buffer between screenings (minutes)
       <input type="number" id="buf" min="0" step="5" value="30"></label>
     <label>Buffer at the same venue (minutes)
       <input type="number" id="samebuf" min="0" step="5" value="10"></label>
+    <div class="availopt">
+      <div>Availability — <span class="lgnd free">✓</span> free, <span class="lgnd off">✕</span> can't attend.
+        Click or drag to mark times you can't go. All free by default.</div>
+      <div id="avail"></div>
+      <button id="availreset" class="btn ghost" type="button">Reset (all available)</button>
+    </div>
   </details>
-  <div class="filterbar"><label>Track: <select id="trackfilter"><option value="">All tracks</option></select></label></div>
-  <div id="catalog"></div>
   <p><button id="solve" class="btn" disabled>Solve →</button></p>
 </section>
 

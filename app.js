@@ -12,6 +12,8 @@ const effStatus = (sel, title) => { const s = sel[title]; return s === "unavaila
 
 // ---- module state (set per solve, read by the board/wizard renderers)
 let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, TRACKFILTER = "";
+let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
+let painting = false, paintOff = false; // availability grid drag state
 let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_OUT = [];
 
 // ---- small utils
@@ -43,12 +45,61 @@ const setPicks = (p) => saveJSON("picks", p);
 const getBuf = () => loadJSON("buf", 30);
 const getSameBuf = () => loadJSON("samebuf", 10);
 
+const HOUR = 3600000, DAYMS = 86400000;
+
+// Availability grid derived from the catalog's screening times: which days exist
+// and which hour-blocks (hours can exceed 24 for after-midnight slots) to show.
+function computeGrid() {
+  const days = new Set();
+  let minH = 24, maxH = 0, any = false;
+  for (const m of (CATALOG.movies || [])) for (const s of (m.screenings || [])) {
+    const start = parseDT(s.start), dayMs = start - (start % DAYMS);
+    const sh = (start - dayMs) / HOUR, eh = sh + (+m.runtime_minutes || 0) / 60;
+    days.add(dayMs); minH = Math.min(minH, Math.floor(sh)); maxH = Math.max(maxH, Math.ceil(eh)); any = true;
+  }
+  if (!any) return { days: [], hours: [] };
+  const hours = [];
+  for (let h = minH; h < maxH; h++) hours.push(h);
+  return { days: [...days].sort((a, b) => a - b), hours };
+}
+
+// Collapse the "can't attend" cell set into [start,end] windows per day (contiguous
+// runs of free hours). Empty set => [] (no restriction). Pure: tested by _availTest.
+function windowsFromCells(days, hours, unavail) {
+  if (!unavail.size) return [];
+  const out = [];
+  for (const d of days) {
+    let runStart = null;
+    for (const hr of hours) {
+      const free = !unavail.has(d + "|" + hr);
+      if (free && runStart === null) runStart = hr;
+      if (!free && runStart !== null) { out.push([d + runStart * HOUR, d + hr * HOUR]); runStart = null; }
+    }
+    if (runStart !== null) out.push([d + runStart * HOUR, d + (hours[hours.length - 1] + 1) * HOUR]);
+  }
+  return out;
+}
+const availWindows = () => windowsFromCells(GRID.days, GRID.hours, UNAVAIL);
+
 // =====================================================================  LOAD
 async function init() {
   $("solve").addEventListener("click", solveAndShow);
   $("back").addEventListener("click", showView1);
   $("buf").addEventListener("change", (e) => { BUF = +e.target.value || 30; saveJSON("buf", BUF); });
   $("samebuf").addEventListener("change", (e) => { SAMEBUF = +e.target.value || 10; saveJSON("samebuf", SAMEBUF); });
+  // availability grid: click or drag (mouse/touch/pen) to paint "can't attend".
+  // On touch the pointer is captured to the start cell, so we hit-test by coordinates.
+  $("avail").addEventListener("pointerdown", (e) => {
+    const td = e.target.closest("td.cell"); if (!td) return;
+    e.preventDefault(); painting = true; paintOff = !UNAVAIL.has(td.dataset.k); applyCell(td);
+  });
+  document.addEventListener("pointermove", (e) => {
+    if (!painting) return;
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const td = el && el.closest && el.closest("td.cell"); if (td) applyCell(td);
+  });
+  document.addEventListener("pointerup", () => { if (painting) { painting = false; saveJSON("unavail", [...UNAVAIL]); } });
+  $("availreset").addEventListener("click", () => { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); });
   $("trackfilter").addEventListener("change", (e) => { TRACKFILTER = e.target.value; renderCatalog(); });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
   $("catalog").addEventListener("click", (e) => {
@@ -79,6 +130,9 @@ function useCatalog(cat) {
   SAMEBUF = +getSameBuf() || 10;
   $("buf").value = BUF;
   $("samebuf").value = SAMEBUF;
+  GRID = computeGrid();
+  UNAVAIL = new Set(loadJSON("unavail", []));
+  renderAvailGrid();
   // track filter options from the root tracks map
   const tracks = cat.tracks || {};
   $("trackfilter").innerHTML = `<option value="">All tracks</option>`
@@ -123,12 +177,33 @@ function renderCatalog() {
   $("solve").disabled = counts.must + counts.want === 0;
 }
 
+// availability grid (day columns × hour rows; hours may exceed 24 for late slots)
+const dayHdr = (ms) => { const d = new Date(ms); return `${WD[d.getUTCDay()].slice(0, 3)} ${MO[d.getUTCMonth()].slice(0, 3)} ${pad(d.getUTCDate())}`; };
+function renderAvailGrid() {
+  const { days, hours } = GRID;
+  if (!days.length) { $("avail").innerHTML = '<p class="muted">No screenings to schedule.</p>'; return; }
+  let h = `<table class="availgrid"><thead><tr><th></th>${days.map((d) => `<th>${dayHdr(d)}</th>`).join("")}</tr></thead><tbody>`;
+  for (const hr of hours) {
+    h += `<tr><th class="hh">${pad(hr % 24)}:00</th>`;
+    for (const d of days) {
+      const k = d + "|" + hr;
+      h += `<td class="cell${UNAVAIL.has(k) ? " off" : ""}" data-k="${k}"></td>`;
+    }
+    h += "</tr>";
+  }
+  $("avail").innerHTML = h + "</tbody></table>";
+}
+function applyCell(td) {
+  const k = td.dataset.k;
+  if (paintOff) { UNAVAIL.add(k); td.classList.add("off"); }
+  else { UNAVAIL.delete(k); td.classList.remove("off"); }
+}
+
 // =====================================================================  SOLVE
 // Build the included movie objects (must/want) with validated screenings.
 function buildIncluded() {
   const sel = getSel();
-  const windows = (CATALOG.availability || []).map((w) =>
-    typeof w === "object" ? [parseDT(w.start), parseDT(w.end)] : null).filter(Boolean);
+  const windows = availWindows();
   const included = [];
   for (const m of (CATALOG.movies || [])) {
     const status = sel[m.title];
@@ -375,4 +450,16 @@ function showView1() { $("view2").hidden = true; $("view1").hidden = false; scro
 function showView2() { $("view1").hidden = true; $("view2").hidden = false; scrollTo(0, 0); }
 
 window.render = render; window.drawBoard = drawBoard; // referenced by inline onclick
+
+// runnable check for the availability cell->window conversion (run `_availTest()`)
+window._availTest = () => {
+  const eq = (a, b) => JSON.stringify(a) === JSON.stringify(b), W = (h) => h * HOUR;
+  const days = [0], hours = [9, 10, 11, 12];
+  console.assert(eq(windowsFromCells(days, hours, new Set()), []), "no removals => no restriction");
+  console.assert(eq(windowsFromCells(days, hours, new Set(["0|11"])), [[W(9), W(11)], [W(12), W(13)]]), "split around a gap");
+  console.assert(eq(windowsFromCells(days, hours, new Set(["0|12"])), [[W(9), W(12)]]), "trailing hour removed");
+  console.assert(eq(windowsFromCells(days, hours, new Set(["0|9"])), [[W(10), W(13)]]), "leading hour removed");
+  return "ok";
+};
+
 init();
