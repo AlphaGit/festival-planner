@@ -216,7 +216,7 @@ function renderCatalog() {
       ? `<a class="mtitle" href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`
       : `<div class="mtitle">${esc(m.title)}</div>`;
     const authors = m.authors ? `<div class="mauthors">${esc(m.authors)}</div>` : "";
-    rows += `<div class="movie">${img}`
+    rows += `<div class="movie ${cur}">${img}`
       + `<div class="minfo">${titleHtml}${authors}<div class="mmeta">${trk}${runtime}${screenings}</div></div>`
       + `${blurb}<div class="tags">${btns}</div></div>`;
   }
