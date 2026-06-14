@@ -99,16 +99,25 @@ async function init() {
   $("samebuf").addEventListener("change", (e) => { SAMEBUF = +e.target.value || 10; saveJSON("samebuf", SAMEBUF); });
   // availability grid: click or drag (mouse/touch/pen) to paint "can't attend".
   // On touch the pointer is captured to the start cell, so we hit-test by coordinates.
+  // touch: tap toggles one cell, swipe (any direction) scrolls the grid — so a
+  // move/cancel before pointerup means "scroll", not "paint". mouse/pen: drag-paint.
+  let tapCell = null;
   $("avail").addEventListener("pointerdown", (e) => {
     const td = e.target.closest("td.cell"); if (!td) return;
+    if (e.pointerType === "touch") { tapCell = td; return; } // defer; let the browser scroll
     e.preventDefault(); painting = true; paintOff = !UNAVAIL.has(td.dataset.k); applyCell(td);
   });
   document.addEventListener("pointermove", (e) => {
+    if (tapCell && e.pointerType === "touch") tapCell = null; // moved => it's a scroll, not a tap
     if (!painting) return;
     const el = document.elementFromPoint(e.clientX, e.clientY);
     const td = el && el.closest && el.closest("td.cell"); if (td) applyCell(td);
   });
-  document.addEventListener("pointerup", () => { if (painting) { painting = false; saveJSON("unavail", [...UNAVAIL]); } });
+  document.addEventListener("pointercancel", () => { tapCell = null; });
+  document.addEventListener("pointerup", () => {
+    if (tapCell) { paintOff = !UNAVAIL.has(tapCell.dataset.k); applyCell(tapCell); tapCell = null; saveJSON("unavail", [...UNAVAIL]); }
+    if (painting) { painting = false; saveJSON("unavail", [...UNAVAIL]); }
+  });
   $("availreset").addEventListener("click", () => { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); });
   // timeline: select a screening block to reveal its action bar (ignore venue links)
   $("board").addEventListener("click", (e) => {

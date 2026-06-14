@@ -3,6 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#2980b9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
 <title>Festival screening planner</title>
 <style>
 body{font-family:-apple-system,Segoe UI,sans-serif;margin:20px auto;max-width:1280px;color:#1a1a2e;background:#fafafa;padding:0 16px}
@@ -38,8 +41,9 @@ a.mtitle{color:#2980b9;text-decoration:none} a.mtitle:hover{text-decoration:unde
 #avail{overflow-x:auto}
 .availgrid{border-collapse:collapse;user-select:none;font-size:.72em}
 .availgrid th{font-weight:600;color:#666;padding:2px 5px;text-align:center;white-space:nowrap}
-.availgrid th.hh{text-align:right;color:#999;font-variant-numeric:tabular-nums;font-weight:500}
-.availgrid .cell{min-width:34px;height:20px;border:1px solid #fff;background:#1e8a4c;color:#fff;cursor:pointer;text-align:center;line-height:20px;font-size:1.05em;font-weight:700;touch-action:none}
+.availgrid th.hh{text-align:right;color:#999;font-variant-numeric:tabular-nums;font-weight:500;position:sticky;left:0;z-index:1;background:#fafafa;padding-right:7px}
+.availgrid thead th:first-child{position:sticky;left:0;z-index:2;background:#fafafa}
+.availgrid .cell{min-width:34px;height:20px;border:1px solid #fff;background:#1e8a4c;color:#fff;cursor:pointer;text-align:center;line-height:20px;font-size:1.05em;font-weight:700}
 .availgrid .cell::after{content:"✓"}
 .availgrid .cell.off{background:#c0392b}
 .availgrid .cell.off::after{content:"✕"}
@@ -185,5 +189,6 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
 <script src="logic-solver.bundle.js"></script>
 <script src="solver.js"></script>
 <script src="app.js"></script>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js");</script>
 </body>
 </html>

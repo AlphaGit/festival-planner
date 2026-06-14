@@ -83,3 +83,5 @@ codes: 0 = all fit, 2 = some dropped, 1 = input error.
 - No build step for the browser app; no framework in tests. Keep it that way.
 - Non-trivial solver/parse changes leave one runnable check behind
   (`TiffSolver._selfTest()` in the browser; `test_tiff_solver.py` for Python).
+- All development happens on `main` — no feature branches. Commit and push
+  straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.
