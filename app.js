@@ -15,6 +15,7 @@ let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, TRACKFILTER = "";
 let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
 let LOCATIONS = {}; // root locations map (id -> {name, address})
 let LOCKS = {}, SELECTED = null, CURRENT_LIVE = []; // timeline overrides + click state
+let RESOLVE_NOTICE = false; // show "scroll up, options updated" banner after a re-solve
 let painting = false, paintOff = false; // availability grid drag state
 let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_OUT = [];
 
@@ -451,7 +452,11 @@ function drawBoard(live) {
       + `<div class="tl" style="height:${day.height + 24}px;${tlw}">${hl}${vl}${bl}</div></div></div>`;
   }
   const hint = nc > 1 ? `<div class="scrollhint">↔ ${nc} options shown side by side — scroll sideways to compare them.</div>` : "";
-  $("board").innerHTML = hint + html;
+  const notice = RESOLVE_NOTICE
+    ? `<div class="updnotice" onclick="document.getElementById('wiz').scrollIntoView({behavior:'smooth'});this.remove()">✓ Schedule updated${NOPT > 1 ? ` — ${NOPT} options now` : ""} — tap to review ↑</div>`
+    : "";
+  RESOLVE_NOTICE = false;
+  $("board").innerHTML = notice + hint + html;
 }
 
 // ---- timeline overrides: action bar for the selected block + the undo panel
@@ -491,7 +496,7 @@ function renderOverrides() {
 }
 
 // apply an override then re-solve from a clean slate (the option tree changes)
-function resolveOverrides() { SELECTED = null; setPicks([]); solveAndShow(); renderActions(); }
+function resolveOverrides() { SELECTED = null; RESOLVE_NOTICE = true; setPicks([]); solveAndShow(); renderActions(); }
 function addUnavailRange(start, end) {
   const day = start - (start % DAYMS), h0 = Math.floor((start - day) / HOUR), h1 = Math.ceil((end - day) / HOUR);
   for (let h = h0; h < h1; h++) UNAVAIL.add(day + "|" + h);
@@ -515,8 +520,11 @@ const chip = (t, kind) => `<span class="chip ${kind}${PRIO[t] === "must" ? " mus
 function render(picks) {
   setPicks(picks);
   const node = nodeAt(picks), live = nodeOpts(node);
+  const final = "option" in node;
   drawBoard(live);
-  let h = '<p class="muted">Pick a screening at each step. Each choice drops the ruled-out options from the timeline below; the last choice leaves one clean schedule.</p>';
+  let h = final
+    ? ""
+    : '<p class="muted">Pick a screening at each step. Each choice drops the ruled-out options from the timeline below; the last choice leaves one clean schedule.</p>';
   if (picks.length) {
     h += '<div class="wtrail">'; let n = TREE;
     picks.forEach((idx, k) => {
@@ -527,8 +535,9 @@ function render(picks) {
     h += "</div>";
   }
   const keep = inter(live, "keep"), drop = inter(live, "drop");
-  if ("option" in node) {
-    h += `<div class="wfinal"><h4>→ Option ${node.option} — keeps ${keep.length}, gives up ${drop.length}</h4>`;
+  if (final) {
+    h += `<div class="wfinal done"><div class="wdone">✓ Your schedule is set</div>`;
+    h += `<h4>Keeps ${keep.length} film${keep.length === 1 ? "" : "s"}${drop.length ? `, gives up ${drop.length}` : ""}</h4>`;
     h += "<div>" + keep.map((t) => chip(t, "get")).join("") + drop.map((t) => chip(t, "lose")).join("") + "</div>";
     const rs = REASONS[node.option] || {};
     if (Object.keys(rs).length) {
@@ -536,6 +545,7 @@ function render(picks) {
       for (const t in rs) h += `<strong>${esc(t)}</strong><ul>` + rs[t].map((r) => `<li>${esc(r)}</li>`).join("") + "</ul>";
       h += "</details>";
     }
+    h += `<p class="muted" style="margin:8px 0 0">This is your schedule — follow the timeline below. Edit a pick via the steps above, or start over.</p>`;
     h += "</div>";
   } else {
     h += `<p class="muted" style="margin:6px 0 0">Locked in: ${keep.length} kept${drop.length ? ", " + drop.length + " dropped" : ""}.</p>`;
@@ -555,7 +565,7 @@ function render(picks) {
 
 // ---- navigation
 function showView1() { $("view2").hidden = true; $("view1").hidden = false; scrollTo(0, 0); }
-function showView2() { $("view1").hidden = true; $("view2").hidden = false; scrollTo(0, 0); }
+function showView2() { const entering = $("view2").hidden; $("view1").hidden = true; $("view2").hidden = false; if (entering) scrollTo(0, 0); }
 
 window.render = render; window.drawBoard = drawBoard; // referenced by inline onclick
 
