@@ -20,7 +20,7 @@ input[type=file]{font-size:.85em}
 /* ---- view 1: catalog tagging */
 #counts{margin:6px 0 14px}
 .movie{display:flex;gap:14px;align-items:center;justify-content:space-between;background:#fff;border:1px solid #eee;border-radius:10px;padding:10px 14px;margin:8px 0}
-.mimg{width:54px;height:78px;object-fit:cover;border-radius:6px;flex:0 0 auto;background:#eee}
+.mimg{width:120px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:0 0 auto;background:#eee}
 .mimg.placeholder{display:flex;align-items:center;justify-content:center;font-size:1.4em;color:#bbb}
 .minfo{flex:1 1 auto}
 a.mtitle{color:#2980b9;text-decoration:none} a.mtitle:hover{text-decoration:underline}
@@ -126,6 +126,7 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
 @media(max-width:600px){
   body{margin:12px auto;padding:0 8px} h1{font-size:1.15em}
   .movie{flex-direction:column;align-items:stretch} .tags{justify-content:flex-start}
+  .mimg{width:50%}
   .wizard{padding:10px 12px} .wbtn{padding:7px 9px}
   .hline span{font-size:.62em} .blk{font-size:.72em;padding:2px 5px}
   .ba-btns{flex-direction:column} .ba-btns button{width:100%;text-align:left}
@@ -151,7 +152,7 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
     <ul>
       <li><b>Must</b> — takes absolute priority; kept at the cost of other films.</li>
       <li><b>Want</b> — desirable; kept when it fits.</li>
-      <li><b>Not interested / not available</b> — discarded (the default).</li>
+      <li><b>Won't</b> — discarded (the default).</li>
     </ul>
   </details>
   <div id="counts" class="muted"></div>

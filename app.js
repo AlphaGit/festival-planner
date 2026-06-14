@@ -6,7 +6,7 @@
 
 const MAXPLANS = 8;
 const STATUSES = ["must", "want", "skip"];
-const STATUS_LABEL = { must: "Must", want: "Want", skip: "Not interested/not available" };
+const STATUS_LABEL = { must: "Must", want: "Want", skip: "Won't" };
 // effective status: default to skip; fold legacy "unavailable" into skip
 const effStatus = (sel, title) => { const s = sel[title]; return s === "unavailable" ? "skip" : (s || "skip"); };
 
@@ -215,7 +215,7 @@ function renderCatalog() {
   }
   $("catalog").innerHTML = rows;
   $("counts").innerHTML =
-    `<b>${counts.must}</b> must · <b>${counts.want}</b> want · ${counts.skip} not interested`;
+    `<b>${counts.must}</b> must · <b>${counts.want}</b> want · ${counts.skip} won't`;
   $("solve").disabled = counts.must + counts.want === 0;
 }
 
