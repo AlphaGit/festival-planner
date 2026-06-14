@@ -1,0 +1,1252 @@
+{
+  "festival": "TIFF 2025",
+  "buffer_minutes": 30,
+  "same_venue_buffer_minutes": 10,
+  "movies": [
+    {
+      "title": "Bouchra",
+      "priority": "must",
+      "runtime_minutes": 83,
+      "screenings": [
+        {
+          "start": "2025-09-04 21:15",
+          "venue": "Scotiabank 10",
+          "available": false
+        },
+        {
+          "start": "2025-09-05 21:15",
+          "venue": "TIFF Lightbox 3"
+        },
+        {
+          "start": "2025-09-06 17:30",
+          "venue": "Scotiabank 9"
+        },
+        {
+          "start": "2025-09-10 12:20",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-12 15:00",
+          "venue": "Scotiabank 11"
+        }
+      ]
+    },
+    {
+      "title": "Dead Lover",
+      "priority": "must",
+      "runtime_minutes": 84,
+      "screenings": [
+        {
+          "start": "2025-09-10 15:00",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 23:59",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-14 12:05",
+          "venue": "Scotiabank 4"
+        }
+      ]
+    },
+    {
+      "title": "Dog 51",
+      "priority": "must",
+      "runtime_minutes": 104,
+      "screenings": [
+        {
+          "start": "2025-09-04 21:30",
+          "venue": "Scotiabank 13",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 13:00",
+          "venue": "Scotiabank 14"
+        },
+        {
+          "start": "2025-09-12 18:15",
+          "venue": "TIFF Lightbox 2"
+        }
+      ]
+    },
+    {
+      "title": "Dust Bunny",
+      "priority": "must",
+      "runtime_minutes": 106,
+      "screenings": [
+        {
+          "start": "2025-09-08 23:59",
+          "venue": "Royal Alexandra Theatre",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-09 09:15",
+          "venue": "Scotiabank 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 21:25",
+          "venue": "Scotiabank 13"
+        },
+        {
+          "start": "2025-09-12 12:15",
+          "venue": "Scotiabank 1"
+        }
+      ]
+    },
+    {
+      "title": "Eternal Return",
+      "priority": "must",
+      "runtime_minutes": 115,
+      "screenings": [
+        {
+          "start": "2025-09-08 11:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        },
+        {
+          "start": "2025-09-09 09:25",
+          "venue": "Scotiabank 14",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 18:35",
+          "venue": "Scotiabank 4"
+        },
+        {
+          "start": "2025-09-11 12:00",
+          "venue": "Scotiabank 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 11:30",
+          "venue": "Roy Thomson Hall"
+        }
+      ]
+    },
+    {
+      "title": "Eternity",
+      "priority": "must",
+      "runtime_minutes": 113,
+      "screenings": [
+        {
+          "start": "2025-09-07 21:30",
+          "venue": "Roy Thomson Hall",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-08 12:30",
+          "venue": "Scotiabank 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 13:30",
+          "venue": "Roy Thomson Hall"
+        },
+        {
+          "start": "2025-09-11 18:35",
+          "venue": "Scotiabank 4"
+        },
+        {
+          "start": "2025-09-14 18:00",
+          "venue": "Scotiabank 13"
+        }
+      ]
+    },
+    {
+      "title": "Exit 8",
+      "priority": "must",
+      "runtime_minutes": 95,
+      "screenings": [
+        {
+          "start": "2025-09-04 15:45",
+          "venue": "Scotiabank 11",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 21:00",
+          "venue": "Scotiabank 10"
+        },
+        {
+          "start": "2025-09-12 21:45",
+          "venue": "Scotiabank 3"
+        }
+      ]
+    },
+    {
+      "title": "Frankenstein",
+      "priority": "must",
+      "runtime_minutes": 149,
+      "screenings": [
+        {
+          "start": "2025-09-08 18:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-09 09:00",
+          "venue": "TIFF Lightbox 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 11:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        },
+        {
+          "start": "2025-09-10 17:30",
+          "venue": "TIFF Lightbox 1"
+        },
+        {
+          "start": "2025-09-11 11:15",
+          "venue": "TIFF Lightbox 3"
+        },
+        {
+          "start": "2025-09-12 18:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        },
+        {
+          "start": "2025-09-13 11:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        },
+        {
+          "start": "2025-09-14 09:00",
+          "venue": "TIFF Lightbox 2"
+        }
+      ]
+    },
+    {
+      "title": "Good Boy",
+      "priority": "must",
+      "runtime_minutes": 110,
+      "screenings": [
+        {
+          "start": "2025-09-05 12:00",
+          "venue": "TIFF Lightbox 1"
+        },
+        {
+          "start": "2025-09-06 09:30",
+          "venue": "TIFF Lightbox 2",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 19:30",
+          "venue": "Scotiabank 2"
+        },
+        {
+          "start": "2025-09-08 11:30",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-12 12:15",
+          "venue": "Scotiabank 14"
+        }
+      ]
+    },
+    {
+      "title": "JUNK WORLD",
+      "priority": "must",
+      "runtime_minutes": 104,
+      "screenings": [
+        {
+          "start": "2025-09-06 18:30",
+          "venue": "Scotiabank 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-11 23:59",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-12 21:15",
+          "venue": "Scotiabank 14"
+        },
+        {
+          "start": "2025-09-14 15:35",
+          "venue": "Scotiabank 7"
+        }
+      ]
+    },
+    {
+      "title": "Nadja",
+      "priority": "must",
+      "runtime_minutes": 97,
+      "screenings": [
+        {
+          "start": "2025-09-12 22:00",
+          "venue": "TIFF Lightbox 4"
+        }
+      ]
+    },
+    {
+      "title": "Obsession",
+      "priority": "must",
+      "runtime_minutes": 108,
+      "screenings": [
+        {
+          "start": "2025-09-05 23:59",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-06 09:00",
+          "venue": "Scotiabank 4",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 18:15",
+          "venue": "Scotiabank 8"
+        },
+        {
+          "start": "2025-09-11 18:00",
+          "venue": "Scotiabank 1"
+        },
+        {
+          "start": "2025-09-11 21:15",
+          "venue": "Scotiabank 6",
+          "available": false
+        }
+      ]
+    },
+    {
+      "title": "Space Cadet",
+      "priority": "must",
+      "runtime_minutes": 86,
+      "screenings": [
+        {
+          "start": "2025-09-05 21:15",
+          "venue": "Scotiabank 9",
+          "available": false
+        },
+        {
+          "start": "2025-09-11 17:30",
+          "venue": "TIFF Lightbox 3"
+        },
+        {
+          "start": "2025-09-12 13:30",
+          "venue": "Scotiabank 13"
+        },
+        {
+          "start": "2025-09-13 15:35",
+          "venue": "Scotiabank 7"
+        }
+      ]
+    },
+    {
+      "title": "A Useful Ghost",
+      "priority": "must",
+      "runtime_minutes": 130,
+      "screenings": [
+        {
+          "start": "2025-09-04 12:05",
+          "venue": "Scotiabank 4",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 14:45",
+          "venue": "Scotiabank 3"
+        },
+        {
+          "start": "2025-09-11 18:30",
+          "venue": "Scotiabank 11"
+        },
+        {
+          "start": "2025-09-13 16:15",
+          "venue": "Scotiabank 6"
+        }
+      ]
+    },
+    {
+      "title": "Arco",
+      "priority": "want",
+      "runtime_minutes": 88,
+      "screenings": [
+        {
+          "start": "2025-09-06 17:00",
+          "venue": "Scotiabank 6",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 15:00",
+          "venue": "Scotiabank 2"
+        },
+        {
+          "start": "2025-09-12 17:30",
+          "venue": "Royal Alexandra Theatre"
+        }
+      ]
+    },
+    {
+      "title": "Babystar",
+      "priority": "want",
+      "runtime_minutes": 98,
+      "screenings": [
+        {
+          "start": "2025-09-05 19:00",
+          "venue": "TIFF Lightbox 4"
+        },
+        {
+          "start": "2025-09-06 09:00",
+          "venue": "Scotiabank 9",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 11:45",
+          "venue": "Scotiabank 4"
+        },
+        {
+          "start": "2025-09-12 12:30",
+          "venue": "Scotiabank 3"
+        }
+      ]
+    },
+    {
+      "title": "Bayaan",
+      "priority": "want",
+      "runtime_minutes": 118,
+      "screenings": [
+        {
+          "start": "2025-09-05 15:45",
+          "venue": "Scotiabank 14",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 15:55",
+          "venue": "Scotiabank 14"
+        },
+        {
+          "start": "2025-09-08 21:15",
+          "venue": "Scotiabank 6"
+        },
+        {
+          "start": "2025-09-10 21:15",
+          "venue": "Scotiabank 13"
+        }
+      ]
+    },
+    {
+      "title": "California Schemin'",
+      "priority": "want",
+      "runtime_minutes": 107,
+      "screenings": [
+        {
+          "start": "2025-09-06 15:00",
+          "venue": "TIFF Lightbox 1",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-07 11:40",
+          "venue": "Scotiabank 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 20:45",
+          "venue": "Scotiabank 2"
+        },
+        {
+          "start": "2025-09-10 11:55",
+          "venue": "Scotiabank 2",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 15:30",
+          "venue": "Scotiabank 13"
+        },
+        {
+          "start": "2025-09-14 08:50",
+          "venue": "Scotiabank 4"
+        }
+      ]
+    },
+    {
+      "title": "Dandelion's Odyssey",
+      "priority": "want",
+      "runtime_minutes": 77,
+      "screenings": [
+        {
+          "start": "2025-09-04 16:00",
+          "venue": "Scotiabank 12",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 18:50",
+          "venue": "Scotiabank 7"
+        },
+        {
+          "start": "2025-09-10 16:30",
+          "venue": "Scotiabank 12"
+        },
+        {
+          "start": "2025-09-12 09:20",
+          "venue": "Scotiabank 11"
+        }
+      ]
+    },
+    {
+      "title": "Egghead Republic",
+      "priority": "want",
+      "runtime_minutes": 97,
+      "screenings": [
+        {
+          "start": "2025-09-04 12:30",
+          "venue": "Scotiabank 14",
+          "available": false
+        },
+        {
+          "start": "2025-09-05 21:30",
+          "venue": "Scotiabank 3"
+        },
+        {
+          "start": "2025-09-06 21:00",
+          "venue": "Scotiabank 9"
+        },
+        {
+          "start": "2025-09-12 21:50",
+          "venue": "Scotiabank 9"
+        }
+      ]
+    },
+    {
+      "title": "Follies",
+      "priority": "want",
+      "runtime_minutes": 102,
+      "screenings": [
+        {
+          "start": "2025-09-04 09:00",
+          "venue": "TIFF Lightbox 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 14:30",
+          "venue": "TIFF Lightbox 3"
+        },
+        {
+          "start": "2025-09-11 14:00",
+          "venue": "Scotiabank 14"
+        }
+      ]
+    },
+    {
+      "title": "The Fox King",
+      "priority": "want",
+      "runtime_minutes": 94,
+      "screenings": [
+        {
+          "start": "2025-09-09 11:45",
+          "venue": "Scotiabank 6",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 18:15",
+          "venue": "Scotiabank 10"
+        },
+        {
+          "start": "2025-09-10 21:40",
+          "venue": "Scotiabank 8"
+        }
+      ]
+    },
+    {
+      "title": "Franz",
+      "priority": "want",
+      "runtime_minutes": 127,
+      "screenings": [
+        {
+          "start": "2025-09-05 14:45",
+          "venue": "Scotiabank 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-05 17:45",
+          "venue": "TIFF Lightbox 1"
+        },
+        {
+          "start": "2025-09-06 18:00",
+          "venue": "Scotiabank 10"
+        },
+        {
+          "start": "2025-09-10 18:15",
+          "venue": "Scotiabank 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 12:15",
+          "venue": "Scotiabank 9"
+        },
+        {
+          "start": "2025-09-14 12:25",
+          "venue": "Scotiabank 9"
+        }
+      ]
+    },
+    {
+      "title": "Fuck My Son!",
+      "priority": "want",
+      "runtime_minutes": 94,
+      "screenings": [
+        {
+          "start": "2025-09-10 23:59",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-11 09:15",
+          "venue": "Scotiabank 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-11 16:00",
+          "venue": "Scotiabank 12"
+        }
+      ]
+    },
+    {
+      "title": "The Furious",
+      "priority": "want",
+      "runtime_minutes": 113,
+      "screenings": [
+        {
+          "start": "2025-09-06 23:59",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-07 14:45",
+          "venue": "Scotiabank 8",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 21:15",
+          "venue": "Scotiabank 7"
+        },
+        {
+          "start": "2025-09-11 13:30",
+          "venue": "Scotiabank 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 18:30",
+          "venue": "Scotiabank 7"
+        }
+      ]
+    },
+    {
+      "title": "Ghost School",
+      "priority": "want",
+      "runtime_minutes": 88,
+      "screenings": [
+        {
+          "start": "2025-09-04 21:50",
+          "venue": "Scotiabank 9",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 14:30",
+          "venue": "Scotiabank 10"
+        },
+        {
+          "start": "2025-09-10 15:25",
+          "venue": "Scotiabank 8"
+        }
+      ]
+    },
+    {
+      "title": "Good Fortune",
+      "priority": "want",
+      "runtime_minutes": 98,
+      "screenings": [
+        {
+          "start": "2025-09-06 21:30",
+          "venue": "Roy Thomson Hall",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-07 09:15",
+          "venue": "Scotiabank 13",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 17:45",
+          "venue": "Scotiabank 2"
+        }
+      ]
+    },
+    {
+      "title": "Hen",
+      "priority": "want",
+      "runtime_minutes": 96,
+      "screenings": [
+        {
+          "start": "2025-09-07 21:00",
+          "venue": "Scotiabank 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 14:30",
+          "venue": "TIFF Lightbox 3"
+        },
+        {
+          "start": "2025-09-09 18:00",
+          "venue": "Scotiabank 5"
+        },
+        {
+          "start": "2025-09-11 09:45",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 13:15",
+          "venue": "Scotiabank 8"
+        }
+      ]
+    },
+    {
+      "title": "I Swear",
+      "priority": "want",
+      "runtime_minutes": 121,
+      "screenings": [
+        {
+          "start": "2025-09-07 09:45",
+          "venue": "Scotiabank 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 12:00",
+          "venue": "TIFF Lightbox 1"
+        },
+        {
+          "start": "2025-09-09 15:00",
+          "venue": "Scotiabank 4"
+        },
+        {
+          "start": "2025-09-11 09:00",
+          "venue": "Scotiabank 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-11 15:30",
+          "venue": "TIFF Lightbox 1"
+        }
+      ]
+    },
+    {
+      "title": "Karmadonna",
+      "priority": "want",
+      "runtime_minutes": 118,
+      "screenings": [
+        {
+          "start": "2025-09-09 08:55",
+          "venue": "Scotiabank 8",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 23:59",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-10 21:50",
+          "venue": "Scotiabank 9"
+        },
+        {
+          "start": "2025-09-12 12:10",
+          "venue": "Scotiabank 8",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 15:45",
+          "venue": "Scotiabank 9"
+        }
+      ]
+    },
+    {
+      "title": "The Last Viking",
+      "priority": "want",
+      "runtime_minutes": 116,
+      "screenings": [
+        {
+          "start": "2025-09-05 09:15",
+          "venue": "Scotiabank 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 17:45",
+          "venue": "TIFF Lightbox 2"
+        },
+        {
+          "start": "2025-09-09 21:45",
+          "venue": "TIFF Lightbox 4"
+        },
+        {
+          "start": "2025-09-13 20:45",
+          "venue": "TIFF Lightbox 3"
+        }
+      ]
+    },
+    {
+      "title": "Little Amélie or the Character of Rain",
+      "priority": "want",
+      "runtime_minutes": 78,
+      "screenings": [
+        {
+          "start": "2025-09-04 12:10",
+          "venue": "Scotiabank 8",
+          "available": false
+        },
+        {
+          "start": "2025-09-13 12:30",
+          "venue": "TIFF Lightbox 2"
+        },
+        {
+          "start": "2025-09-14 14:45",
+          "venue": "Scotiabank 4"
+        }
+      ]
+    },
+    {
+      "title": "Project Y",
+      "priority": "want",
+      "runtime_minutes": 110,
+      "screenings": [
+        {
+          "start": "2025-09-08 08:55",
+          "venue": "Scotiabank 8",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 21:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-11 09:30",
+          "venue": "Scotiabank 6",
+          "available": false
+        },
+        {
+          "start": "2025-09-11 15:45",
+          "venue": "Scotiabank 3"
+        },
+        {
+          "start": "2025-09-12 19:15",
+          "venue": "Scotiabank 2"
+        },
+        {
+          "start": "2025-09-13 09:00",
+          "venue": "TIFF Lightbox 3"
+        }
+      ]
+    },
+    {
+      "title": "Retreat",
+      "priority": "want",
+      "runtime_minutes": 107,
+      "screenings": [
+        {
+          "start": "2025-09-06 12:30",
+          "venue": "Scotiabank 11",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 11:15",
+          "venue": "TIFF Lightbox 3"
+        },
+        {
+          "start": "2025-09-09 21:40",
+          "venue": "Scotiabank 8"
+        },
+        {
+          "start": "2025-09-10 09:30",
+          "venue": "Scotiabank 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-14 09:10",
+          "venue": "Scotiabank 9"
+        }
+      ]
+    },
+    {
+      "title": "Sacrifice",
+      "priority": "want",
+      "runtime_minutes": 103,
+      "screenings": [
+        {
+          "start": "2025-09-06 21:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-07 12:15",
+          "venue": "Scotiabank 2",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 18:45",
+          "venue": "Scotiabank 1"
+        },
+        {
+          "start": "2025-09-11 08:40",
+          "venue": "Scotiabank 2",
+          "available": false
+        }
+      ]
+    },
+    {
+      "title": "Scarlet",
+      "priority": "want",
+      "runtime_minutes": 111,
+      "screenings": [
+        {
+          "start": "2025-09-10 08:40",
+          "venue": "Scotiabank 13",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 20:45",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-11 15:10",
+          "venue": "Scotiabank 2"
+        },
+        {
+          "start": "2025-09-12 12:00",
+          "venue": "Scotiabank 11"
+        },
+        {
+          "start": "2025-09-13 12:00",
+          "venue": "Scotiabank 1"
+        }
+      ]
+    },
+    {
+      "title": "Short Cuts 2025 Programme 01",
+      "priority": "want",
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-04 16:15",
+          "venue": "Scotiabank 2",
+          "available": false
+        },
+        {
+          "start": "2025-09-04 19:45",
+          "venue": "Scotiabank 2"
+        },
+        {
+          "start": "2025-09-09 22:00",
+          "venue": "Scotiabank 14"
+        }
+      ]
+    },
+    {
+      "title": "Short Cuts 2025 Programme 03",
+      "priority": "want",
+      "runtime_minutes": 99,
+      "screenings": [
+        {
+          "start": "2025-09-06 21:45",
+          "venue": "Scotiabank 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 20:15",
+          "venue": "Scotiabank 13"
+        },
+        {
+          "start": "2025-09-11 15:20",
+          "venue": "Scotiabank 4"
+        }
+      ]
+    },
+    {
+      "title": "Short Cuts 2025 Programme 04",
+      "priority": "want",
+      "runtime_minutes": 99,
+      "screenings": [
+        {
+          "start": "2025-09-07 12:30",
+          "venue": "Scotiabank 9",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 18:30",
+          "venue": "TIFF Lightbox 1"
+        },
+        {
+          "start": "2025-09-12 18:00",
+          "venue": "Scotiabank 13"
+        }
+      ]
+    },
+    {
+      "title": "Short Cuts 2025 Programme 05",
+      "priority": "want",
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-08 09:00",
+          "venue": "Scotiabank 10",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 18:00",
+          "venue": "Scotiabank 14"
+        },
+        {
+          "start": "2025-09-13 08:30",
+          "venue": "Scotiabank 5"
+        }
+      ]
+    },
+    {
+      "title": "Short Cuts 2025 Programme 06",
+      "priority": "want",
+      "runtime_minutes": 105,
+      "screenings": [
+        {
+          "start": "2025-09-09 09:25",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 17:00",
+          "venue": "Scotiabank 14"
+        },
+        {
+          "start": "2025-09-13 20:00",
+          "venue": "Scotiabank 13"
+        }
+      ]
+    },
+    {
+      "title": "Short Cuts 2025 / Strange Cuts",
+      "priority": "want",
+      "runtime_minutes": 93,
+      "screenings": [
+        {
+          "start": "2025-09-04 10:45",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-05 21:45",
+          "venue": "Scotiabank 13"
+        },
+        {
+          "start": "2025-09-11 21:00",
+          "venue": "Scotiabank 10"
+        }
+      ]
+    },
+    {
+      "title": "Sk+te'kmujue'katik (At the Place of Ghosts)",
+      "priority": "want",
+      "runtime_minutes": 87,
+      "screenings": [
+        {
+          "start": "2025-09-06 11:30",
+          "venue": "Scotiabank 7",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 15:30",
+          "venue": "TIFF Lightbox 2"
+        },
+        {
+          "start": "2025-09-07 14:30",
+          "venue": "Scotiabank 14"
+        },
+        {
+          "start": "2025-09-10 16:00",
+          "venue": "Scotiabank 6",
+          "available": false
+        }
+      ]
+    },
+    {
+      "title": "Steal Away",
+      "priority": "want",
+      "runtime_minutes": 113,
+      "screenings": [
+        {
+          "start": "2025-09-05 20:30",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-06 09:15",
+          "venue": "Scotiabank 3",
+          "available": false
+        },
+        {
+          "start": "2025-09-06 18:45",
+          "venue": "Scotiabank 3"
+        },
+        {
+          "start": "2025-09-11 08:50",
+          "venue": "Scotiabank 4",
+          "available": false
+        },
+        {
+          "start": "2025-09-12 10:00",
+          "venue": "Scotiabank 13"
+        }
+      ]
+    },
+    {
+      "title": "The Testament of Ann Lee",
+      "priority": "want",
+      "runtime_minutes": 135,
+      "screenings": [
+        {
+          "start": "2025-09-06 09:00",
+          "venue": "TIFF Lightbox 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-07 21:00",
+          "venue": "TIFF Lightbox 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-08 09:00",
+          "venue": "TIFF Lightbox 5",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 17:30",
+          "venue": "TIFF Lightbox 1",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-10 09:30",
+          "venue": "TIFF Lightbox 1"
+        }
+      ]
+    },
+    {
+      "title": "Train Dreams",
+      "priority": "want",
+      "runtime_minutes": 102,
+      "screenings": [
+        {
+          "start": "2025-09-08 08:15",
+          "venue": "TIFF Lightbox 1",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 17:30",
+          "venue": "Royal Alexandra Theatre",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-10 12:15",
+          "venue": "TIFF Lightbox 2"
+        },
+        {
+          "start": "2025-09-10 15:45",
+          "venue": "TIFF Lightbox 4"
+        },
+        {
+          "start": "2025-09-12 12:45",
+          "venue": "TIFF Lightbox 4"
+        }
+      ]
+    },
+    {
+      "title": "Uiksaringitara (Wrong Husband)",
+      "priority": "want",
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-08 17:00",
+          "venue": "Royal Alexandra Theatre"
+        },
+        {
+          "start": "2025-09-09 08:45",
+          "venue": "Scotiabank 2",
+          "available": false
+        },
+        {
+          "start": "2025-09-09 14:30",
+          "venue": "Scotiabank 1"
+        },
+        {
+          "start": "2025-09-14 09:30",
+          "venue": "Scotiabank 6"
+        }
+      ]
+    },
+    {
+      "title": "Wake Up Dead Man: A Knives Out Mystery",
+      "priority": "want",
+      "runtime_minutes": 144,
+      "screenings": [
+        {
+          "start": "2025-09-06 18:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-07 08:30",
+          "venue": "TIFF Lightbox 1",
+          "note": "Premium"
+        },
+        {
+          "start": "2025-09-09 08:45",
+          "venue": "TIFF Lightbox 2",
+          "available": false
+        },
+        {
+          "start": "2025-09-10 09:00",
+          "venue": "TIFF Lightbox 5"
+        },
+        {
+          "start": "2025-09-10 19:00",
+          "venue": "TIFF Lightbox 4"
+        },
+        {
+          "start": "2025-09-11 14:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        },
+        {
+          "start": "2025-09-12 14:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        },
+        {
+          "start": "2025-09-13 21:45",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre"
+        }
+      ]
+    }
+  ],
+  "availability": [
+    {
+      "start": "2025-09-04 19:00",
+      "end": "2025-09-05 04:00"
+    },
+    {
+      "start": "2025-09-05 19:00",
+      "end": "2025-09-06 04:00"
+    },
+    {
+      "start": "2025-09-06 19:00",
+      "end": "2025-09-07 04:00"
+    },
+    {
+      "start": "2025-09-07 19:00",
+      "end": "2025-09-08 04:00"
+    },
+    {
+      "start": "2025-09-08 19:00",
+      "end": "2025-09-09 04:00"
+    },
+    {
+      "start": "2025-09-09 19:00",
+      "end": "2025-09-10 04:00"
+    },
+    {
+      "start": "2025-09-10 00:00",
+      "end": "2025-09-15 04:00"
+    }
+  ]
+}

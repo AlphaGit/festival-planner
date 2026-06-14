@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Festival screening planner</title>
+<style>
+body{font-family:-apple-system,Segoe UI,sans-serif;margin:20px auto;max-width:1280px;color:#1a1a2e;background:#fafafa;padding:0 16px}
+h1{font-size:1.4em;margin:.2em 0} .muted{color:#777} [hidden]{display:none}
+.topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:2px solid #ddd;padding-bottom:10px;margin-bottom:14px}
+.topbar h1{flex:1 1 auto}
+button{font:inherit} .btn{background:#e6a817;color:#fff;border:none;border-radius:8px;padding:8px 16px;cursor:pointer;font-weight:600}
+.btn:hover{background:#cf9410} .btn:disabled{background:#ccc;cursor:not-allowed}
+.btn.ghost{background:none;color:#2980b9;border:1px solid #cfe0ee}
+input[type=file]{font-size:.85em}
+/* ---- view 1: catalog tagging */
+#counts{margin:6px 0 14px}
+.movie{display:flex;gap:14px;align-items:center;justify-content:space-between;background:#fff;border:1px solid #eee;border-radius:10px;padding:10px 14px;margin:8px 0}
+.mtitle{font-weight:600} .mscr{color:#888;font-size:.82em;margin-top:3px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;flex:0 0 auto}
+.tag{border:1px solid #ddd;background:#fafafa;border-radius:999px;padding:5px 12px;cursor:pointer;font-size:.85em;color:#555}
+.tag:hover{border-color:#bbb}
+.tag.must.on{background:#fdecea;border-color:#c0392b;color:#c0392b;font-weight:700}
+.tag.want.on{background:#eaf2fb;border-color:#2980b9;color:#2980b9;font-weight:700}
+.tag.skip.on{background:#eee;border-color:#999;color:#555;font-weight:700}
+.tag.unavailable.on{background:#f3f3f3;border-color:#aaa;color:#888;font-weight:700;text-decoration:line-through}
+/* ---- view 2: wizard + board (ported from the CLI renderer) */
+.wizard{background:#fff;border:2px solid #e6a817;border-radius:10px;padding:12px 16px;margin:14px 0}
+.wtrail{margin:0 0 8px}
+.wcrumb{display:inline-block;font-size:.85em;background:#fdf3dc;border:1px solid #f0d68a;border-radius:6px;padding:3px 8px;margin:2px 4px 2px 0}
+.wcrumb a{color:#c0392b;text-decoration:none;margin-left:6px;cursor:pointer;font-weight:700}
+.wq{font-weight:700;margin:8px 0 4px}
+.wbtn{display:block;width:100%;text-align:left;background:#fafafa;border:1px solid #ddd;border-radius:8px;padding:8px 12px;margin:6px 0;cursor:pointer}
+.wbtn:hover{background:#fdf6e3;border-color:#e6a817} .wbtn b{font-size:1.02em}
+.leads{font-size:.85em;margin-top:3px}
+.chip{display:inline-block;padding:1px 8px;border-radius:12px;margin:2px;font-size:.8em;background:#f0f0f0}
+.chip.get{background:#e8f7ee;color:#1e7a44;border:1px solid #bce5cc;font-weight:600}
+.chip.lose{background:#fdecea;color:#c0392b;border:1px solid #f3c2bc;text-decoration:line-through}
+.chip.must{font-weight:700}
+.wfinal{background:#f4faf6;border:1px solid #bce5cc;border-radius:8px;padding:10px 14px;margin-top:8px}
+.wfinal h4{margin:.2em 0} .wreasons{font-size:.85em;color:#555;margin-top:6px} .wreasons ul{margin:2px 0}
+.wreset{background:none;border:none;color:#2980b9;cursor:pointer;padding:0;margin-top:8px}
+.day h3{margin:26px 0 6px;border-bottom:2px solid #ddd;padding-bottom:4px}
+.tlwrap{overflow-x:auto}
+.optrow{display:grid;margin-left:52px;position:sticky;top:0;background:#fafafa;z-index:5}
+.och{text-align:center;font-size:.75em;font-weight:700;color:#666;padding:3px 0;cursor:pointer;border-radius:4px}
+.och:hover{background:#fdf6e3}
+.tl{position:relative;margin-left:52px;border-left:1px solid #e0e0e0}
+.hline{position:absolute;left:0;right:0;border-top:1px dashed #ececec}
+.hline span{position:absolute;left:-52px;top:-8px;font-size:.7em;color:#999}
+.vline{position:absolute;top:0;bottom:0;border-left:1px dashed #e8e8e8}
+.blk{position:absolute;box-sizing:border-box;background:#fff;border:1px solid #ddd;border-left:4px solid #999;border-radius:6px;padding:3px 7px;overflow:hidden;font-size:.78em;line-height:1.3}
+.blk.must{border-left-color:#c0392b} .blk.want{border-left-color:#2980b9}
+.blk.contested{outline:2px dashed #e6a817;outline-offset:-2px;background:#fffdf5;z-index:2}
+.btime{font-variant-numeric:tabular-nums;color:#555;font-size:.85em}
+.btitle{font-weight:600} .bvenue{color:#777;font-size:.85em}
+.blk.small .bvenue{display:none} .blk.small{padding-top:1px}
+.blk.solo{font-size:.92em} .blk.solo .btitle{font-size:1.05em}
+.conflict ul{margin:4px 0}
+.alwaysout{margin:12px 0;background:#f6f6f6;border:1px solid #ddd;border-radius:8px;padding:10px 14px}
+.alwaysout summary{cursor:pointer;font-weight:600}
+@media(max-width:600px){
+  body{margin:12px auto;padding:0 8px} h1{font-size:1.15em}
+  .movie{flex-direction:column;align-items:stretch} .tags{justify-content:flex-start}
+  .wizard{padding:10px 12px} .wbtn{padding:7px 9px}
+  .hline span{font-size:.62em} .blk{font-size:.72em;padding:2px 5px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <h1>🎬 <span id="festival">Festival</span> Planner</h1>
+</div>
+<p id="hint" class="muted">Loading catalog…</p>
+
+<!-- VIEW 1 — tag the catalog -->
+<section id="view1" hidden>
+  <p class="muted">Tag each film, then solve. Your choices are saved on this device.</p>
+  <div id="counts" class="muted"></div>
+  <div id="catalog"></div>
+  <p><button id="solve" class="btn" disabled>Solve →</button></p>
+</section>
+
+<!-- VIEW 2 — options + wizard + schedule -->
+<section id="view2" hidden>
+  <div class="topbar" style="border:none;margin-bottom:0">
+    <button id="back" class="btn ghost">← Back to catalog</button>
+    <span class="muted" id="optcount"></span>
+  </div>
+  <div id="glob"></div>
+  <div id="wiz" class="wizard"></div>
+  <div id="board"></div>
+</section>
+
+<script src="logic-solver.bundle.js"></script>
+<script src="solver.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
