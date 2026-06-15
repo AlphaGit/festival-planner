@@ -138,6 +138,29 @@
       ]
     },
     {
+      "title": "100 Sunset",
+      "authors": "Kunsang Kyirong",
+      "blurb": "In this mesmerizing film by Kunsang Kyirong, the deepening bond between two young women threatens to have repercussions throughout a community of Tibetan immigrants living in an apartment complex in west Toronto. Indeed, one of the most impressive aspects of this fully realized first feature is Kyirong’s ability to combine a detailed portrait of this wider network of intersecting lives with a similarly specific and empathetic look at two people resisting the roles they’ve been assigned.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/ioXmvG5OGvodIyImVqZ68/c86df5a874eeed3310c50980d5b78454/100-Sunset_still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/100-sunset",
+      "tracks": [
+        "discovery"
+      ],
+      "runtime_minutes": 99,
+      "screenings": [
+        {
+          "start": "2025-09-06 21:45",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        },
+        {
+          "start": "2025-09-07 11:30",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
       "title": "A Life Illuminated",
       "authors": "Tasha Van Zandt",
       "blurb": "Marine biologist Dr. Edie Widder goes on a journey to the ocean depths hoping to capture the phenomenon of bioluminescence like it’s never been seen on camera before, from director Tasha Van Zandt and the production company behind Fire of Love.",
@@ -190,6 +213,57 @@
           "start": "2025-09-13 12:45",
           "venue": "Scotiabank 6",
           "location": "scotiabank-6"
+        }
+      ]
+    },
+    {
+      "title": "A Poet",
+      "authors": "Simón Mesa Soto",
+      "blurb": "Balancing wry, uncomfortable comedy with a perceptive take on Colombia’s current social milieu to tell a tale of hope lost and found, Simón Mesa Soto’s second feature — which won the Un Certain Regard Special Jury Prize this year at Cannes — follows hapless Oscar Restrepo. Once a promising man of letters in his native Medellín, Restrepo is painfully coming to terms with the fact that his writing — maybe even his personality — isn’t taking him anywhere as he gets older… and he's not aging gracefully.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2tosnGOXrFwt252xsAs8RJ/54080a6dd6a0c6364a9f1c209841027e/A-Poetl_01.webp",
+      "source_url": "https://www.tiff.net/films/a-poet",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 120,
+      "screenings": [
+        {
+          "start": "2025-09-09 17:00",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6"
+        },
+        {
+          "start": "2025-09-12 18:15",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "A Private Life",
+      "authors": "Rebecca Zlotowski",
+      "blurb": "Academy Award winner Jodie Foster stars in this scintillating, slyly comic psychological thriller from French director Rebecca Zlotowski (TIFF ’22’s Other People's Children ), in which a suspicious death yields a series of twists that lead back to old grievances — and maybe even to past lives. Lilian (Foster), an American psychoanalyst in Paris, is devastated to learn that her client Paula (Virginie Efira) has taken her own life.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4VFlxxmEv59GuAKCGshDd0/f0134122cad95acbf0c054504dbaea77/a-private-life-01.jpg",
+      "source_url": "https://www.tiff.net/films/a-private-life",
+      "tracks": [
+        "gala-presentations"
+      ],
+      "runtime_minutes": 107,
+      "screenings": [
+        {
+          "start": "2025-09-09 17:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
+        {
+          "start": "2025-09-10 12:15",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-11 14:45",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
         }
       ]
     },
@@ -361,6 +435,29 @@
       ]
     },
     {
+      "title": "Arco",
+      "authors": "Ugo Bienvenu",
+      "blurb": "The concept of time travel gets a unique, magical spin in Ugo Bienvenu’s visually rich animated adventure Arco, produced by Natalie Portman (whose voice is also featured). The film’s premise is that rainbows are actually time travellers from our future.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3IMztOJUQpJitHk3S0rkBZ/8239d40f13950d75d6523527e3ad0aa5/ARCO_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/arco",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 88,
+      "screenings": [
+        {
+          "start": "2025-09-07 15:00",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-12 17:30",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        }
+      ]
+    },
+    {
       "title": "As We Breathe",
       "authors": "Seyhmus Altun",
       "blurb": "When a chemical fire spreads smoke across her village, young Esma must help her father manage new and old troubles in this brutal and powerful look at a rural Anatolian family.",
@@ -378,6 +475,29 @@
         },
         {
           "start": "2025-09-08 19:15",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
+        }
+      ]
+    },
+    {
+      "title": "BLKNWS: Terms & Conditions",
+      "authors": "Kahlil Joseph",
+      "blurb": "In one of the year’s most auspicious feature debuts, celebrated artist and filmmaker Kahlil Joseph offers a galvanizing, shapeshifting exploration of Black history, identity, and possibility conceived as a cinematic experience that mirrors the sonic textures of an album.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/51ItsExx2fb382QwDf6nqh/668a6543cc0f7480aefb7b36393a2895/BLKNWS-Terms-_-Conditions_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/blknws-terms-conditions",
+      "tracks": [
+        "wavelengths"
+      ],
+      "runtime_minutes": 113,
+      "screenings": [
+        {
+          "start": "2025-09-05 18:30",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-06 21:50",
           "venue": "Scotiabank 7",
           "location": "scotiabank-7"
         }
@@ -441,6 +561,34 @@
           "start": "2025-09-14 18:45",
           "venue": "Scotiabank 3",
           "location": "scotiabank-3"
+        }
+      ]
+    },
+    {
+      "title": "Ballad of a Small Player",
+      "authors": "Edward Berger",
+      "blurb": "Brimming with mystery and awash in atmospherics, this seductive character study from Oscar-winning director Edward Berger ( Conclave, TIFF ’24) stars Oscar nominee Colin Farrell as a travelling gambler and Oscar winner Tilda Swinton as the dogged detective determined to track him down. In his green velvet suit and kid gloves, with his pencil moustache and posh accent, Lord Freddy Doyle (Farrell) plays the part of the international high roller, living the lush life at a luxury hotel in Macao.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2DORJbH5exX02uubpyUgZ6/d8f5414acb0fd30926ba7ccab3c64c2b/Ballad-of-a-Small-Player_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/ballad-of-a-small-player",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 101,
+      "screenings": [
+        {
+          "start": "2025-09-09 15:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-10 14:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-13 09:30",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
         }
       ]
     },
@@ -653,29 +801,6 @@
       ]
     },
     {
-      "title": "BLKNWS: Terms & Conditions",
-      "authors": "Kahlil Joseph",
-      "blurb": "In one of the year’s most auspicious feature debuts, celebrated artist and filmmaker Kahlil Joseph offers a galvanizing, shapeshifting exploration of Black history, identity, and possibility conceived as a cinematic experience that mirrors the sonic textures of an album.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/51ItsExx2fb382QwDf6nqh/668a6543cc0f7480aefb7b36393a2895/BLKNWS-Terms-_-Conditions_Still_HERO.jpg",
-      "source_url": "https://www.tiff.net/films/blknws-terms-conditions",
-      "tracks": [
-        "wavelengths"
-      ],
-      "runtime_minutes": 113,
-      "screenings": [
-        {
-          "start": "2025-09-05 18:30",
-          "venue": "Scotiabank 11",
-          "location": "scotiabank-11"
-        },
-        {
-          "start": "2025-09-06 21:50",
-          "venue": "Scotiabank 7",
-          "location": "scotiabank-7"
-        }
-      ]
-    },
-    {
       "title": "Blood Lines",
       "authors": "Gail Maurice",
       "blurb": "The second feature from director Gail Maurice (ROSIE, TIFF ’22) is a singular film: a Métis same-sex romance led by actor Dana Solomon, who is a revelation.",
@@ -695,6 +820,57 @@
           "start": "2025-09-10 11:30",
           "venue": "TIFF Lightbox 3",
           "location": "tiff-lightbox-3"
+        }
+      ]
+    },
+    {
+      "title": "Blue Heron",
+      "authors": "Sophy Romvari",
+      "blurb": "Formally inventive and emotionally impactful, Sophy Romvari’s feature debut more than fulfills the potential the Toronto-based filmmaker displayed in her acclaimed series of short films. Like many of those predecessors, Blue Heron is acutely personal.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1exAmGj8RFvtLi36hhGuM9/19c6615b2366dda3a57610f3beb9bed1/Blue-Heron_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/blue-heron",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 90,
+      "screenings": [
+        {
+          "start": "2025-09-09 15:30",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-10 21:30",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-12 17:00",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        }
+      ]
+    },
+    {
+      "title": "Blue Moon",
+      "authors": "Richard Linklater",
+      "blurb": "In Blue Moon, director Richard Linklater ( Hit Man, TIFF ’23, and at this year’s Festival with Nouvelle Vague ) crafts a riveting chamber piece set in real time at Sardi’s on the historic night in 1943 of Richard Rodgers’ (Andrew Scott) greatest triumph: the premiere of Oklahoma! Ethan Hawke (also at the Festival in The Lowdown ) delivers a charming, lived-in performance as Rodgers’ former collaborator, lyricist Lorenz Hart, an alcoholic and marginally closeted raconteur grappling with the fact that Rodgers’ biggest success now belongs to a new partnership with Oscar Hammerstein.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4KU8ICYftwGrl8FZXlr1XG/4ac697e4c7b48fc0f5d5130067a4cf80/BlueMoon_01.jpg",
+      "source_url": "https://www.tiff.net/films/blue-moon",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-08 18:15",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-09 21:45",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
         }
       ]
     },
@@ -816,6 +992,39 @@
       ]
     },
     {
+      "title": "Carolina Caroline",
+      "authors": "Adam Carter Rehmeier",
+      "blurb": "In his latest slice of anarchic Americana, writer-director Adam Carter Rehmeier first introduces us to the always effervescent Samara Weaving ( Guns Akimbo, TIFF ’19) as Caroline. Listless and living a small life in a small town, she dutifully cares for her single father (Jon Gries) though she longs to break from her dusty and dull world.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6gddNRZ1U4TzyW9Nnu7rVb/2d15606a7800cd344d2dc8a8e205bb5b/Carolina-Caroline_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/carolina-caroline",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 105,
+      "screenings": [
+        {
+          "start": "2025-09-05 21:00",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-06 18:30",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-13 19:00",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-14 18:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        }
+      ]
+    },
+    {
       "title": "Charlie Harper",
       "authors": "Tom Dean, Mac Eldridge",
       "blurb": "CODA breakout Emilia Jones and Nick Robinson (The Kings of Summer) star in this charming, grounded love story from first-time filmmakers Mac Eldridge and Tom Dean.",
@@ -835,6 +1044,34 @@
           "start": "2025-09-06 14:45",
           "venue": "Scotiabank 4",
           "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "Christy",
+      "authors": "David Michôd",
+      "blurb": "By turns devastating and triumphant, the latest from Australian auteur David Michôd ( Animal Kingdom ) chronicles the astonishing life of groundbreaking women’s boxer Christy Martin. Featuring career-best performances from Sydney Sweeney (TIFF ’24’s Eden ) and Ben Foster (TIFF ’24’s Sharp Corner ), Christy is a fierce tale of self-actualization in the face of terrifying adversity.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4mGflNOhCGnx9pQz0fLizF/7eeb464ac3b06bf79a6411a3b73a8084/Christy_HERO.webp",
+      "source_url": "https://www.tiff.net/films/christy",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 135,
+      "screenings": [
+        {
+          "start": "2025-09-05 14:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-06 11:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-10 20:00",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
         }
       ]
     },
@@ -901,6 +1138,34 @@
       ]
     },
     {
+      "title": "Cover-Up",
+      "authors": "Laura Poitras, Mark Obenhaus",
+      "blurb": "“It’s complicated to know who to trust. I barely trust you guys,” says Seymour Hersh.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5QRpex60nnM0PF3Vh7a2jH/1ac0dd40f20f993d01c3f5a655e6cdd6/Untitled_Laura_Poitras_still_01.jpg",
+      "source_url": "https://www.tiff.net/films/cover-up",
+      "tracks": [
+        "tiff-docs"
+      ],
+      "runtime_minutes": 117,
+      "screenings": [
+        {
+          "start": "2025-09-10 20:30",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-11 20:45",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        },
+        {
+          "start": "2025-09-14 12:15",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        }
+      ]
+    },
+    {
       "title": "Dandelion's Odyssey",
       "authors": "Momoko Seto",
       "blurb": "Four dandelion achenes escape the nuclear destruction of Earth, launching themselves into the corners of space and working together to survive on a strange new world in this landmark hybrid of live-action and animated storytelling.",
@@ -925,6 +1190,80 @@
           "start": "2025-09-12 09:20",
           "venue": "Scotiabank 11",
           "location": "scotiabank-11"
+        }
+      ]
+    },
+    {
+      "title": "Days and Nights in the Forest",
+      "authors": "Satyajit Ray",
+      "blurb": "Lesser known but deeply revered, Days and Nights in the Forest by legendary Bengali filmmaker Satyajit Ray re-emerges as a masterwork in this stunning new restoration. The loose plot is set in motion as four young men from Calcutta head to the Palamau forest in Eastern Bihar for some rest and relaxation, only to have their ideals and assumptions challenged.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/FS9DUBg8If3v2MM5DVSxh/a37807c29ae72e64de8021580588faa5/Days-and-Nights-in-the-Forest_Still_02.jpg",
+      "source_url": "https://www.tiff.net/films/days-and-nights-in-the-forest",
+      "tracks": [
+        "tiff-classics"
+      ],
+      "runtime_minutes": 116,
+      "screenings": [
+        {
+          "start": "2025-09-07 21:15",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        }
+      ]
+    },
+    {
+      "title": "Dead Lover",
+      "authors": "Grace Glowicki",
+      "blurb": "Writer-director Grace Glowicki stars as a wily gravedigger whose stench has left her bereft of amorous suitors. That is, until a horny dandy (co-writer Ben Petrie) with a penchant for her fetid funk enters this vibrantly chiaroscuro picture.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/67zHEfWTCzuT8LK8xyqsGz/39c117908e9cebb8e729e4c79417e99b/Dead-Lover_Still_02.jpg",
+      "source_url": "https://www.tiff.net/films/dead-lover",
+      "tracks": [
+        "midnight-madness"
+      ],
+      "runtime_minutes": 84,
+      "screenings": [
+        {
+          "start": "2025-09-13 23:59",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-14 12:05",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "Dead Man's Wire",
+      "authors": "Gus Van Sant",
+      "blurb": "In films like To Die For, Elephant, and Milk, Oscar nominee Gus Van Sant has used cinema as a means of mirroring American life in all its extremes and complexities. Graced with captivating performances from Bill Skarsgård, Oscar nominee Colman Domingo, and Oscar winner Al Pacino (also at the Festival in Easy’s Waltz ), Dead Man's Wire finds Van Sant returning to that based-on-real-events mode, tapping into the culture’s hunger for outlaw folk heroes who seek to wrest control from the privileged elite.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/pmpAZ8cVRQrX7znUE3nrc/e7ad26f7ec69386288653fc97a1fa962/Dead-Mans-Wire-01.jpg",
+      "source_url": "https://www.tiff.net/films/dead-mans-wire",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 104,
+      "screenings": [
+        {
+          "start": "2025-09-07 12:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-08 15:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-11 12:30",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-14 18:50",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
         }
       ]
     },
@@ -1073,6 +1412,29 @@
       ]
     },
     {
+      "title": "Dry Leaf",
+      "authors": "Alexandre Koberidze",
+      "blurb": "Among the year’s most radical and mesmerizing experiments in form, Dry Leaf — the third feature from Georgian auteur Alexandre Koberidze — is a moving ode to uncertainty, the impermanence of nature, and the strength of family bonds. The film’s loose plot is set in motion by the disappearance of sports photographer Lisa, in the midst of a project to document football pitches across rural Georgia.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1d0w3gWTqI3eETcepJducV/9869f23e6561198b70cf270a8f69b9de/Dry-Leaf_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/dry-leaf",
+      "tracks": [
+        "wavelengths"
+      ],
+      "runtime_minutes": 186,
+      "screenings": [
+        {
+          "start": "2025-09-07 18:45",
+          "venue": "Scotiabank 10",
+          "location": "scotiabank-10"
+        },
+        {
+          "start": "2025-09-13 19:30",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        }
+      ]
+    },
+    {
       "title": "Duse",
       "authors": "Pietro Marcello",
       "blurb": "Visionary Italian auteur Pietro Marcello (TIFF ’19 Platform Award winner Martin Eden) forges this feverish late life portrait of legendary Italian stage actress Eleonora Duse, played by a towering Valeria Bruni Tedeschi.",
@@ -1125,6 +1487,44 @@
           "start": "2025-09-12 12:15",
           "venue": "Scotiabank 1",
           "location": "scotiabank-1"
+        }
+      ]
+    },
+    {
+      "title": "EPiC: Elvis Presley in Concert",
+      "authors": "Baz Luhrmann",
+      "blurb": "Baz Luhrmann’s extraordinary documentary may be the most poignant account of Elvis Presley’s life and career to date, featuring long-lost footage from his epochal 1970s residency in Las Vegas.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1wvl1uwtSoqkkJ8MQyKyAR/0236f401d50b134acc51e3329fbc32f6/EPiC-Elvis-Presley-in-Concert_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/epic-elvis-presley-in-concert",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 126,
+      "screenings": [
+        {
+          "start": "2025-09-06 14:45",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-07 20:00",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        },
+        {
+          "start": "2025-09-12 19:30",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        },
+        {
+          "start": "2025-09-13 20:30",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        },
+        {
+          "start": "2025-09-14 14:15",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
         }
       ]
     },
@@ -1214,40 +1614,63 @@
       ]
     },
     {
-      "title": "EPiC: Elvis Presley in Concert",
-      "authors": "Baz Luhrmann",
-      "blurb": "Baz Luhrmann’s extraordinary documentary may be the most poignant account of Elvis Presley’s life and career to date, featuring long-lost footage from his epochal 1970s residency in Las Vegas.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1wvl1uwtSoqkkJ8MQyKyAR/0236f401d50b134acc51e3329fbc32f6/EPiC-Elvis-Presley-in-Concert_Still_01.jpg",
-      "source_url": "https://www.tiff.net/films/epic-elvis-presley-in-concert",
+      "title": "Eleanor the Great",
+      "authors": "Scarlett Johansson",
+      "blurb": "Thoughtful, provocative, and funny, Scarlett Johansson’s feature directorial debut is an affecting character study about storytelling as a means of understanding who we are and the perils of appropriation. Showcasing the singular charisma of 95-year-old Oscar nominee June Squibb ( The Humans, TIFF ’21, Nebraska ), Eleanor the Great reminds us that it's never too late to get yourself into a whole lot of trouble.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5YXbYKs3FkVuP9wvHcjOzd/b7de7907fe7e14ad5a72828bf3943e79/eleanor-the-great-01.jpg",
+      "source_url": "https://www.tiff.net/films/eleanor-the-great",
       "tracks": [
-        "special-presentations"
+        "gala-presentations"
       ],
-      "runtime_minutes": 126,
+      "runtime_minutes": 98,
       "screenings": [
         {
-          "start": "2025-09-06 14:45",
-          "venue": "VISA Screening Room at the Princess of Wales Theatre",
-          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+          "start": "2025-09-08 17:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
         },
         {
-          "start": "2025-09-07 20:00",
-          "venue": "Scotiabank 12",
-          "location": "scotiabank-12"
+          "start": "2025-09-09 11:30",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
         },
         {
-          "start": "2025-09-12 19:30",
-          "venue": "Scotiabank 12",
-          "location": "scotiabank-12"
+          "start": "2025-09-12 13:15",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
         },
         {
-          "start": "2025-09-13 20:30",
-          "venue": "Scotiabank 12",
-          "location": "scotiabank-12"
+          "start": "2025-09-14 13:00",
+          "venue": "Scotiabank 10",
+          "location": "scotiabank-10"
+        }
+      ]
+    },
+    {
+      "title": "Erupcja",
+      "authors": "Pete Ohs",
+      "blurb": "While on vacation in Poland, Bethany (Charli xcx) breaks away from a romantic itinerary planned by her doting boyfriend, Rob (Will Madden), fearing that a marriage proposal is imminent. Reuniting instead with an old friend, Nel (Lena Góra), the two women rekindle a uniquely combustible chemistry over the course of a few days in a chaste but burning tryst predicated on sapphic synchronicity and a mutual penchant for poetry.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5O0kBFeXIyNbSKUbtwEpfq/b0312e4744b24ca42c4635dbd2314d43/ERUPCJA_STILL_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/erupcja",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 71,
+      "screenings": [
+        {
+          "start": "2025-09-04 15:45",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
         },
         {
-          "start": "2025-09-14 14:15",
-          "venue": "Scotiabank 12",
-          "location": "scotiabank-12"
+          "start": "2025-09-05 21:40",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        },
+        {
+          "start": "2025-09-14 12:10",
+          "venue": "Scotiabank 8",
+          "location": "scotiabank-8"
         }
       ]
     },
@@ -1359,6 +1782,29 @@
       ]
     },
     {
+      "title": "Follies",
+      "authors": "Eric K. Boulianne",
+      "blurb": "A big-hearted look at the complexities of contemporary relationships, Eric K. Boulianne’s debut feature may also be the year’s most hilarious movie.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3idiZIb5qUlTiXMK9g8dib/2a3a94c2305882e27f2494d95eaa2b40/follies-01.jpg",
+      "source_url": "https://www.tiff.net/films/follies",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 102,
+      "screenings": [
+        {
+          "start": "2025-09-10 14:30",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-11 14:00",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
       "title": "Forastera",
       "authors": "Lucía Aleñar Iglesias",
       "blurb": "During a sun-soaked summer in Mallorca, a family mourns the loss of its matriarch — only for teenage Cata to quietly step into her grandmother’s role, in this tender, beautifully crafted debut about grief, memory, and the strange echoes that live within us.",
@@ -1378,6 +1824,54 @@
           "start": "2025-09-09 21:15",
           "venue": "Scotiabank 10",
           "location": "scotiabank-10"
+        }
+      ]
+    },
+    {
+      "title": "Frankenstein",
+      "authors": "Guillermo del Toro",
+      "blurb": "Pan's Labyrinth, Hellboy, and the Oscar-winning The Shape of Water transformed what monsters mean to us, steeping their outsider narratives in deep emotion and grand tragedy. But the pinnacle on Guillermo del Toro’s horizon was always Mary Shelley's gothic masterpiece from 1818.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5fKKl6QjAyrX3Z40tPbpXF/f76932d04536c7a62a0ffa49a637a56b/Frankenstein_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/frankenstein",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 149,
+      "screenings": [
+        {
+          "start": "2025-09-08 18:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-09 11:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-10 17:30",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-11 11:15",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-12 18:00",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-13 11:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-14 09:00",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
         }
       ]
     },
@@ -1645,6 +2139,72 @@
       ]
     },
     {
+      "title": "Hamlet",
+      "authors": "Aneil Karia",
+      "blurb": "Shakespeare’s most enduring tragedy finds bold new life in Aneil Karia’s fierce, full-blooded adaptation, set in present-day London’s vibrant South Asian community. Anchored by a resonant and complex performance from Riz Ahmed in the title role, this is Hamlet as you’ve never seen it.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2BEoRXN7ByEABqTKdojbN1/3b4098d9e40b75e1e9b0db85e743587a/Hamlet_01.jpg",
+      "source_url": "https://www.tiff.net/films/hamlet",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 114,
+      "screenings": [
+        {
+          "start": "2025-09-05 18:15",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2025-09-07 14:45",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-12 18:45",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        }
+      ]
+    },
+    {
+      "title": "Hamnet",
+      "authors": "Chloé Zhao",
+      "blurb": "In William Shakespeare’s day, the names Hamlet and Hamnet were interchangeable. The newest film by Chloé Zhao, director of TIFF ’20 People’s Choice Award winner Nomadland, also an Oscar winner, uses that context as the basis for a tender exploration of Shakespeare’s domestic life, connecting a family tragedy to one of his most famous works.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1jyeBKzXhxKNwzkLCDX29F/7147f8976644b5ac906f65b4df8162c2/hamnet.jpg",
+      "source_url": "https://www.tiff.net/films/hamnet",
+      "tracks": [
+        "gala-presentations"
+      ],
+      "runtime_minutes": 125,
+      "screenings": [
+        {
+          "start": "2025-09-07 13:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
+        {
+          "start": "2025-09-08 18:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-11 14:00",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-12 09:10",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-13 12:30",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        }
+      ]
+    },
+    {
       "title": "Hedda",
       "authors": "Nia DaCosta",
       "blurb": "Transplanted to mid-century England, Candyman director Nia DaCosta’s bold reimagining of Henrik Ibsen’s play features a magnetic lead performance from Tessa Thompson (Passing) in a fresh, feminist game of power.",
@@ -1771,6 +2331,57 @@
           "start": "2025-09-13 14:30",
           "venue": "Scotiabank 4",
           "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "I Swear",
+      "authors": "Kirk Jones",
+      "blurb": "Based on an inspirational true story, I Swear charts the remarkable journey of a Scottish man whose life was irrevocably changed by the sudden onset of Tourette's syndrome. A bright, funny, football-mad lad with everything ahead of him, 15-year-old John Davidson’s life seemingly splinters in 1983 when he develops uncontrollable vocal and physical tics at a time when Tourette’s was barely understood, even by doctors.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5SHjtfZ3X1saqRMeiNkaY7/bcadc8910fda83393129fc49f04bef0e/I-SWEAR_TIFF-25-1.jpg",
+      "source_url": "https://www.tiff.net/films/i-swear",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 121,
+      "screenings": [
+        {
+          "start": "2025-09-07 12:00",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-09 15:00",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        },
+        {
+          "start": "2025-09-11 15:30",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        }
+      ]
+    },
+    {
+      "title": "If I Had Legs I'd Kick You",
+      "authors": "Mary Bronstein",
+      "blurb": "For Linda (Rose Byrne), being a working wife and mother in Montauk is not a life of serenity and joy but stress and anxiety. Her daughter is suffering from an unknown disease and is hooked up to a constantly beeping medical device.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1PunCgwN5w3zoLo8iOimOl/31d9a61c3902a0c2d8c78a1f765e74cd/If-I-Had-Legs-I-d-Kick-You_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/if-i-had-legs-id-kick-you",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 113,
+      "screenings": [
+        {
+          "start": "2025-09-12 20:30",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-13 12:00",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
         }
       ]
     },
@@ -1916,6 +2527,34 @@
       ]
     },
     {
+      "title": "It Was Just an Accident",
+      "authors": "Jafar Panahi",
+      "blurb": "Like so many of Jafar Panahi’s films, Palme d’Or winner It Was Just An Accident opens inside a vehicle. Its driver, Eghbal (Ebrahim Azizi), is heading home with his wife (Afssaneh Najmabadi) and daughter (Delmaz Najafi) when he hits a dog, killing the poor animal and destroying his engine.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/18v1x7ST3qbAOiecnVjZjC/241334e4430b2542dfa4b753a32f755b/IT-WAS-JUST-AN-ACCIDENT_still_HERO_High-Res_.jpg",
+      "source_url": "https://www.tiff.net/films/it-was-just-an-accident",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 105,
+      "screenings": [
+        {
+          "start": "2025-09-09 20:45",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-10 15:30",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-13 21:15",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
       "title": "It Would Be Night in Caracas",
       "authors": "Mariana Rondón, Marité Ugás",
       "blurb": "In a collapsing Caracas, Adelaida buries her mother and returns home to find it seized by a violent militia. As society crumbles around her, she must risk everything — even her identity — to survive. A powerful, urgent human drama.",
@@ -1940,6 +2579,34 @@
           "start": "2025-09-12 21:35",
           "venue": "Scotiabank 4",
           "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "JUNK WORLD",
+      "authors": "Takahide Hori",
+      "blurb": "A surprise attack on a joint expedition between humans and their emancipated clones becomes the freaky fulcrum for a dimension-hopping, time-travel fable set over a millennia before Takahide Hori’s original subterranean stop-motion animated opus, Junk Head.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5or1Ya0mAcoW4TINXarqCd/93cca5831c2639a565938e7856eddb05/Junk-World_Still_Hero.jpg",
+      "source_url": "https://www.tiff.net/films/junk-world",
+      "tracks": [
+        "midnight-madness"
+      ],
+      "runtime_minutes": 104,
+      "screenings": [
+        {
+          "start": "2025-09-11 23:59",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-12 21:15",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        },
+        {
+          "start": "2025-09-14 15:35",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
         }
       ]
     },
@@ -2044,34 +2711,6 @@
       ]
     },
     {
-      "title": "JUNK WORLD",
-      "authors": "Takahide Hori",
-      "blurb": "A surprise attack on a joint expedition between humans and their emancipated clones becomes the freaky fulcrum for a dimension-hopping, time-travel fable set over a millennia before Takahide Hori’s original subterranean stop-motion animated opus, Junk Head.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5or1Ya0mAcoW4TINXarqCd/93cca5831c2639a565938e7856eddb05/Junk-World_Still_Hero.jpg",
-      "source_url": "https://www.tiff.net/films/junk-world",
-      "tracks": [
-        "midnight-madness"
-      ],
-      "runtime_minutes": 104,
-      "screenings": [
-        {
-          "start": "2025-09-11 23:59",
-          "venue": "Royal Alexandra Theatre",
-          "location": "royal-alexandra-theatre"
-        },
-        {
-          "start": "2025-09-12 21:15",
-          "venue": "Scotiabank 14",
-          "location": "scotiabank-14"
-        },
-        {
-          "start": "2025-09-14 15:35",
-          "venue": "Scotiabank 7",
-          "location": "scotiabank-7"
-        }
-      ]
-    },
-    {
       "title": "Karmadonna",
       "authors": "Aleksandar Radivojević",
       "blurb": "Aleksandar Radivojević (co-writer of A Serbian Film) makes his directorial debut with an audacious satirical thriller about an expectant mother (Jelena Djokić) who receives a phone call from a deity that demands she obey a list of murderous instructions.",
@@ -2096,6 +2735,29 @@
           "start": "2025-09-13 15:45",
           "venue": "Scotiabank 9",
           "location": "scotiabank-9"
+        }
+      ]
+    },
+    {
+      "title": "Kokuho",
+      "authors": "Lee Sang-il",
+      "blurb": "An unexpected smash hit at the Japanese box office, Kokuho is Lee Sang-il’s long-gestating passion project, born from a 15-year fascination with Kabuki and onnagata (men playing women on stage). When novelist Shūichi Yoshida — with whom Lee had previously collaborated on films like Villain and Rage — began serializing Kokuho, Lee recognized it as the perfect cinematic canvas to weave an irreplaceable story of heritage, cultural preservation, and identity, shaped both on and by the stage.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7ff9viQ1Nzc9Z7RmnjjDue/e349256aaf127413324f3949162543db/Kokuho_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/kokuho",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 174,
+      "screenings": [
+        {
+          "start": "2025-09-11 20:00",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-12 19:00",
+          "venue": "Scotiabank 10",
+          "location": "scotiabank-10"
         }
       ]
     },
@@ -2217,6 +2879,29 @@
       ]
     },
     {
+      "title": "Little Amélie or the Character of Rain",
+      "authors": "Maïlys Vallade, Liane-Cho Han",
+      "blurb": "Based on Amélie Nothomb’s bestselling novel The Character of Rain, the magical animated feature Little Amélie or the Character of Rain looks at the world through the eyes of a Belgian girl living in Japan and approaching her third birthday. The film traces Amélie’s growing understanding of the world, balancing the joy of discovery with unexpected tragedy.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6H7IVPblB3VEDlYkAmT4Rr/ecc9e15258e656827681f9125bd436a4/Little-AmeÌ_lie-or-the-Character-of-Rain_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/little-amlie-or-the-character-of-rain",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 78,
+      "screenings": [
+        {
+          "start": "2025-09-13 12:30",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2025-09-14 14:45",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
       "title": "Little Lorraine",
       "authors": "Andy Hines",
       "blurb": "A small town in Cape Breton becomes home to an international drug smuggling ring, featuring Stephen Amell, Stephen McHattie, Sean Astin and Colombian musician J Balvin.",
@@ -2315,6 +3000,57 @@
           "start": "2025-09-13 17:00",
           "venue": "Scotiabank 2",
           "location": "scotiabank-2"
+        }
+      ]
+    },
+    {
+      "title": "Maddie's Secret",
+      "authors": "John Early",
+      "blurb": "In Maddie’s Secret, essential alt-comedian cum director John Early plays the titular Maddie Ralph, a major foodie who works as a dishwasher at a trendy Los Angeles food content creation company. While her life seems picturesque — perfect hubby (Eric Rahill), wild lesbian bestie (Kate Berlant), and a cupboard full of women-owned ethically-sourced chili crisp to boot — she simultaneously conceals a dark past with a severe eating disorder.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1gmg9826429w8vTdlvpVCw/dfe96523d0afbb84802c777f17c619a9/Maddie-s-Secret_Still_Hero.jpg",
+      "source_url": "https://www.tiff.net/films/maddies-secret",
+      "tracks": [
+        "discovery"
+      ],
+      "runtime_minutes": 98,
+      "screenings": [
+        {
+          "start": "2025-09-04 17:30",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-05 18:15",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-14 18:30",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        }
+      ]
+    },
+    {
+      "title": "Magellan",
+      "authors": "Lav Diaz",
+      "blurb": "Longtime TIFF favourite Lav Diaz returns with Magellan, a grand, decolonial retelling of the 16th-century Portuguese explorer’s life and career. Celebrated international star Gael García Bernal delivers a bold performance as the film’s lead, who we encounter initially as a rebellious idealist, angered by the narrow-minded avarice of kings.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7po3yhrgOvnuDwihlEq03O/a7d6ecc6892f373dbf6521b7219e2e29/Magellan_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/magellan",
+      "tracks": [
+        "wavelengths"
+      ],
+      "runtime_minutes": 160,
+      "screenings": [
+        {
+          "start": "2025-09-08 17:30",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-09 20:15",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6"
         }
       ]
     },
@@ -2453,6 +3189,34 @@
       ]
     },
     {
+      "title": "Mile End Kicks",
+      "authors": "Chandler Levack",
+      "blurb": "Chandler Levack’s widely anticipated follow-up to her directorial debut, I Like Movies (TIFF ’22), stars Barbie Ferreira as a young music critic writing for a male-centric indie publication who takes a leap into adulthood, even though she is little prepared. With shades of Almost Famous — both feature Jay Baruchel and follow a music journalist — Mile End Kicks, set in 2011 Montreal, instead offers a feminine point of view.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3jHx5DNkT6txJyN5E5uble/a2e70a45603fabfd4848b4afb85f3a54/mile-end-kicks-01.webp",
+      "source_url": "https://www.tiff.net/films/mile-end-kicks",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 111,
+      "screenings": [
+        {
+          "start": "2025-09-04 20:30",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-09 11:55",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-13 09:00",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        }
+      ]
+    },
+    {
       "title": "Milk Teeth",
       "authors": "Mihai Mincan",
       "blurb": "As revolution looms in 1980s Romania, young Maria must suddenly grapple with the horrors of adulthood when her sister disappears without a trace.",
@@ -2472,6 +3236,57 @@
           "start": "2025-09-11 19:00",
           "venue": "Scotiabank 5",
           "location": "scotiabank-5"
+        }
+      ]
+    },
+    {
+      "title": "Miroirs No. 3",
+      "authors": "Christian Petzold",
+      "blurb": "With customary elegance and concision, German auteur Christian Petzold delivers another sly, quietly foreboding psychodrama in the form of both fever dream and fairy tale. A magnetic Paula Beer — in her fourth collaboration with the director — plays Laura, a morose music student from Berlin who, during an out-of-town excursion, miraculously survives a car crash with barely a scratch.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3S5f9p1Qm4Dh3FvBZXsO88/f6e19330557859b2465519b0d19181b9/Miroirs-No.-3_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/miroirs-no-3",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 86,
+      "screenings": [
+        {
+          "start": "2025-09-06 18:00",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-13 19:05",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        }
+      ]
+    },
+    {
+      "title": "Modern Whore",
+      "authors": "Nicole Bazuin",
+      "blurb": "An impassioned and insightful rebuttal to the assumptions, misconceptions, and faulty representations that surround sex work and sex workers, Modern Whore may also be the most audacious and engaging movie ever made about the oldest profession. Successfully expanding on their 2020 short film and book of the same name, director Nicole Bazuin and subject and co-writer Andrea Werhun take viewers on a very eventful journey through Werhun’s experiences as an escort and exotic dancer, a career she began when she was a university student in Toronto.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4E7nelpzNVuHPvKOFNmZQg/fdd4b626969572b655fce51dd9fd841c/Modern_Whore_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/modern-whore",
+      "tracks": [
+        "tiff-docs"
+      ],
+      "runtime_minutes": 80,
+      "screenings": [
+        {
+          "start": "2025-09-05 18:25",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-07 16:30",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-13 21:50",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
         }
       ]
     },
@@ -2527,6 +3342,29 @@
       ]
     },
     {
+      "title": "Motor City",
+      "authors": "Potsy Ponciroli",
+      "blurb": "Part operatic fever dream, part adrenaline-soaked action epic, Motor City is a visceral revenge tale set against the industrial backdrop of 1970s Detroit. John Miller (Alan Ritchson from TV’s Reacher ), a blue-collar auto worker, has his world ripped apart when he’s framed by a ruthless local gangster (a supremely unsettling Ben Foster) and sent to prison.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6dzgBE0K9QkEp2lZnBR0sc/864d67d4076ae6b708abacb486891f96/MotorCity_still-01.jpg",
+      "source_url": "https://www.tiff.net/films/motor-city",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 103,
+      "screenings": [
+        {
+          "start": "2025-09-04 20:45",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-05 14:15",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        }
+      ]
+    },
+    {
       "title": "My Father's Shadow",
       "authors": "Akinola Davies Jr.",
       "blurb": "Winner of the Caméra d’Or Special Mention at Cannes, My Father’s Shadow is a stunning debut set in 1993 Lagos; a lyrical, emotionally resonant story of two brothers reconnecting with their distant father over a single, transformative day.",
@@ -2551,6 +3389,47 @@
           "start": "2025-09-13 08:45",
           "venue": "Scotiabank 10",
           "location": "scotiabank-10"
+        }
+      ]
+    },
+    {
+      "title": "Mārama",
+      "authors": "Taratoa Stappard",
+      "blurb": "Taratoa Stappard’s brooding debut feature plunges us into the dour moors of 1859 North Yorkshire, where the British Empire’s reach casts long and twisted shadows. Mary Stevens (Ariāna Osborne), a young Māori teacher from Aotearoa (New Zealand), arrives in search of family truths, only to find the man who summoned her already dead and no clear path home.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5NP7eF2ezvoUrOj4GmgHhm/185688d0e2f960be3975b486f9963876/Marama_01.jpg",
+      "source_url": "https://www.tiff.net/films/marama",
+      "tracks": [
+        "discovery"
+      ],
+      "runtime_minutes": 89,
+      "screenings": [
+        {
+          "start": "2025-09-07 21:30",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6"
+        },
+        {
+          "start": "2025-09-08 12:30",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        }
+      ]
+    },
+    {
+      "title": "NO DRAMA | Short Film Showcase World Premiere",
+      "authors": "",
+      "blurb": "Universal, Monkeypaw Productions, and the Toronto International Film Festival invite you to the showcase of the NO DRAMA Short Films  at TIFF 50.\r\n\r\nFive filmmakers from around the world explore horror across cultures, time, environments, and society in a series of short films, featuring performances from Jerry O’Connell, Keyla Monterroso Mejia, Josh Tedeku, and more.\r\n\r\nOpening remarks will be delivered by Jordan Peele, Universal Pictures President Peter Cramer, and TIFF CEO Cameron Bailey.\r\n\r\nThe screening will be followed by a moderated Q&A with the NO DRAMA filmmakers.\r\n\r\n A global short-film development initiative for writer-directors passionate about horror-centered storytelling, NO DRAMA provides resources and support at every stage of the filmmaking process, with a strong focus on each filmmaker’s individual needs, strengths, and areas of professional growth. The program builds on Universal and Monkeypaw’s shared commitment to supporting breakout filmmakers.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2Osd66rImPhAJdfM2mdQTL/320f3c3538fbb48ea92b881cde5b96c5/Copy_of_NO_DRAMA_RSVP_Invites__1_.jpg",
+      "source_url": "https://www.tiff.net/films/no-drama-short-films-showcase",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 95,
+      "screenings": [
+        {
+          "start": "2025-09-06 18:30",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
         }
       ]
     },
@@ -2619,6 +3498,29 @@
       ]
     },
     {
+      "title": "Nika & Madison",
+      "authors": "Eva Thomas",
+      "blurb": "Nika & Madison expands upon First Nations (Walpole Island First Nation) director Eva Thomas’ short film Redlights (TIFF ’23), which was propelled by what are called Starlight Tours — where Canadian police officers drive Indigenous people to isolated locations outside of city limits, and dump them there, putting them in danger of frostbite, hypothermia, and, all too often, a frozen death. In Thomas’ solo directorial feature debut, Madison (Star Slade) returns home to her community from university, greeted by her less-than-enthusiastic former best friend and cousin, Nika (Ellyn Jade).",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3QWN9Cakzj7Zvp8QwnEou5/1c7890128b68f72fe4ee6c548b4677c5/Nika-and-Madison_01.jpg",
+      "source_url": "https://www.tiff.net/films/nika-and-madison",
+      "tracks": [
+        "discovery"
+      ],
+      "runtime_minutes": 87,
+      "screenings": [
+        {
+          "start": "2025-09-07 15:45",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-08 18:00",
+          "venue": "Scotiabank 5",
+          "location": "scotiabank-5"
+        }
+      ]
+    },
+    {
       "title": "Nino",
       "authors": "Pauline Loquès",
       "blurb": "A sudden diagnosis leaves Nino, a young man in his late 20s, facing mortality with grace, quiet humour, and the company of family and friends over the course of his birthday weekend, all anchored by Quebec actor Théodore Pellerin’s soulful performance.",
@@ -2642,20 +3544,63 @@
       ]
     },
     {
-      "title": "NO DRAMA | Short Film Showcase World Premiere",
-      "authors": "",
-      "blurb": "Universal, Monkeypaw Productions, and the Toronto International Film Festival invite you to the showcase of the NO DRAMA Short Films  at TIFF 50.\r\n\r\nFive filmmakers from around the world explore horror across cultures, time, environments, and society in a series of short films, featuring performances from Jerry O’Connell, Keyla Monterroso Mejia, Josh Tedeku, and more.\r\n\r\nOpening remarks will be delivered by Jordan Peele, Universal Pictures President Peter Cramer, and TIFF CEO Cameron Bailey.\r\n\r\nThe screening will be followed by a moderated Q&A with the NO DRAMA filmmakers.\r\n\r\n A global short-film development initiative for writer-directors passionate about horror-centered storytelling, NO DRAMA provides resources and support at every stage of the filmmaking process, with a strong focus on each filmmaker’s individual needs, strengths, and areas of professional growth. The program builds on Universal and Monkeypaw’s shared commitment to supporting breakout filmmakers.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2Osd66rImPhAJdfM2mdQTL/320f3c3538fbb48ea92b881cde5b96c5/Copy_of_NO_DRAMA_RSVP_Invites__1_.jpg",
-      "source_url": "https://www.tiff.net/films/no-drama-short-films-showcase",
+      "title": "Nirvanna the Band the Show the Movie",
+      "authors": "Matt Johnson",
+      "blurb": "For the uninitiated, Matt Johnson and Jay McCarrol’s Nirvanna The Band The Show was a cult web series where its two creators portrayed hyperactive, hap-witted versions of themselves as a musical duo desperately failing to book a gig at the storied Toronto venue The Rivoli. Their hilarious misadventures continued a decade later across two seasons of a Spike Jonze–produced television series, and both iterations brilliantly blended Matt and Jay’s fictional exploits with hysterically incredible real-world public interactions.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/315WRohbOktV7ftH0NCQg7/895152df91c9d573991ad61e7f999323/Nirvanna-the-Band-the-Show-the-Movie_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/nirvanna-the-band-the-show-the-movie",
       "tracks": [
-        "special-events"
+        "midnight-madness"
       ],
-      "runtime_minutes": 95,
+      "runtime_minutes": 98,
       "screenings": [
         {
-          "start": "2025-09-06 18:30",
+          "start": "2025-09-04 23:59",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-08 19:30",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        },
+        {
+          "start": "2025-09-13 10:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        }
+      ]
+    },
+    {
+      "title": "No Other Choice",
+      "authors": "Park Chan-wook",
+      "blurb": "Park Chan-wook, last at the Festival with the acclaimed Decision To Leave (’22), is a master of incisive, darkly comic tales. Featuring megastar Lee Byung Hun, Park Chan-wook’s latest film transplants a crime novel by the great Donald E.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1ZJRwZkGIfYYh7WhdsgWmM/9d6b87b3f8be8019409e38532929e532/NoOtherChoice_still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/no-other-choice",
+      "tracks": [
+        "gala-presentations"
+      ],
+      "runtime_minutes": 139,
+      "screenings": [
+        {
+          "start": "2025-09-08 21:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
+        {
+          "start": "2025-09-09 20:45",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-11 11:30",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-13 17:30",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
         }
       ]
     },
@@ -2707,6 +3652,34 @@
           "start": "2025-09-14 18:45",
           "venue": "Scotiabank 10",
           "location": "scotiabank-10"
+        }
+      ]
+    },
+    {
+      "title": "Nouvelle Vague",
+      "authors": "Richard Linklater",
+      "blurb": "Jean-Luc Godard’s Breathless heralded the arrival of the French New Wave, revolutionizing the way we make, watch, and think about cinema. The latest from Oscar-nominated director Richard Linklater — also at the Festival with Blue Moon — is a love letter to Godard’s legendary 1960 feature debut, meticulously recreating the circumstances of its creation in the youthful spirit of its source material.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5g0Q8lFF9WebcrlxdmTWIk/2e056e1c5420a4c2444c25a5dfc7bf8b/Nouvelle-Vague_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/nouvelle-vague",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 106,
+      "screenings": [
+        {
+          "start": "2025-09-09 18:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-10 21:00",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-14 10:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
         }
       ]
     },
@@ -2939,6 +3912,29 @@
       ]
     },
     {
+      "title": "Orwell: 2+2=5",
+      "authors": "Raoul Peck",
+      "blurb": "George Orwell titled his dystopian 1949 novel 1984, but it feels utterly current in 2025 when phrases like “Big Brother is watching you” might refer to Big Government, Big Business, or Big Technology. Orwell is overdue for a fresh look and filmmaker Raoul Peck makes for an incisive and stirring guide.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/29a0bFPduyt4C41f3KTJsD/6368288873a7b47b9c7728fe33663b76/ORWELL_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/orwell-2-2-5",
+      "tracks": [
+        "tiff-docs"
+      ],
+      "runtime_minutes": 119,
+      "screenings": [
+        {
+          "start": "2025-09-08 14:45",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        },
+        {
+          "start": "2025-09-09 12:10",
+          "venue": "Scotiabank 8",
+          "location": "scotiabank-8"
+        }
+      ]
+    },
+    {
       "title": "Our Father",
       "authors": "Goran Stankovic",
       "blurb": "Based on true events, Goran Stankovic’s Our Father portrays a recovering addict in an isolated Serbian monastery where not even God can save him from the extreme treatment methods of an authoritarian patriarch.",
@@ -2985,6 +3981,34 @@
       ]
     },
     {
+      "title": "Palestine 36",
+      "authors": "Annemarie Jacir",
+      "blurb": "For her latest project, Annemarie Jacir faced a towering challenge. She had a bigger budget and the chance to work on a far larger scale than her earlier features, Wajib, When I Saw You, and Salt of This Sea.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7tGyvF59P1kJZwq4aaXBnj/fecc414cbfbc10fc5f8075c87d50d59e/Palestine-36_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/palestine-36",
+      "tracks": [
+        "gala-presentations"
+      ],
+      "runtime_minutes": 118,
+      "screenings": [
+        {
+          "start": "2025-09-05 13:00",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
+        {
+          "start": "2025-09-07 13:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        },
+        {
+          "start": "2025-09-12 11:15",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        }
+      ]
+    },
+    {
       "title": "Palimpsest: the Story of a Name",
       "authors": "Mary Stephen",
       "blurb": "Veteran filmmaker Mary Stephen digs into her own family past to uncover the long-hidden origins of her Western surname, revealing a story of colonialism and contested remembrance.",
@@ -3004,6 +4028,29 @@
           "start": "2025-09-12 12:25",
           "venue": "Scotiabank 9",
           "location": "scotiabank-9"
+        }
+      ]
+    },
+    {
+      "title": "Peak Everything",
+      "authors": "Anne Émond",
+      "blurb": "Writer-director Anne Émond ( Night #1, TIFF ’11) has reinvented the romantic comedy for the age of ecological anxiety. Winsomely pairing Patrick Hivon (TIFF ’17’s Les affamés ) and Piper Perabo ( Coyote Ugly ), Peak Everything suggests that there is no better time to open your heart than when the world seems on the cusp of collapse.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1TeTakipTwb1XQiwmdaT0p/07ff6bfeaff07221a17312d3b57f24a7/Peak-Everything_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/peak-everything",
+      "tracks": [
+        "gala-presentations"
+      ],
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-13 18:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-13 20:00",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
         }
       ]
     },
@@ -3134,6 +4181,29 @@
       ]
     },
     {
+      "title": "Primavera",
+      "authors": "Damiano Michieletto",
+      "blurb": "Early 18th century. Venice, Italy.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2EaWs0E9tqpltCI5GgSuos/634a1d6f733531e201ec2f8a754e50e8/Primavera_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/primavera",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 110,
+      "screenings": [
+        {
+          "start": "2025-09-06 14:45",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-07 15:20",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
       "title": "Project Y",
       "authors": "Lee Hwan",
       "blurb": "With two magnetic leads (Han So-hee and Jun Jong-seo), adrenaline-fuelled action, and a gripping story of wounded childhood and desperate survival, Project Y delivers both high-stakes thrills and emotional depth. One of the most anticipated Korean films of the year.",
@@ -3186,6 +4256,29 @@
           "start": "2025-09-11 18:25",
           "venue": "Scotiabank 13",
           "location": "scotiabank-13"
+        }
+      ]
+    },
+    {
+      "title": "Renoir",
+      "authors": "Chie Hayakawa",
+      "blurb": "In Renoir, Chie Hayakawa ( Plan 75, TIFF ’22) captures the ineffable transition from childhood to adolescence with a cinematic touch reminiscent of the famed French painter’s Impressionist style. Hayakawa’s film reflects the psychological intricacy of loss and grief through luminous frames seamlessly connected into episodes.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/mCO4OW9ZX6WAB8aViCuoI/bbadb95eb2804f6f9417341645b85fab/Renoir_Still_Hero.jpg",
+      "source_url": "https://www.tiff.net/films/renoir",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 118,
+      "screenings": [
+        {
+          "start": "2025-09-06 21:15",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-11 19:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
         }
       ]
     },
@@ -3424,6 +4517,67 @@
       ]
     },
     {
+      "title": "Scarlet",
+      "authors": "Mamoru Hosoda",
+      "blurb": "The ambitious and epic Scarlet, the much anticipated latest from Academy Award–nominated anime master Mamoru Hosoda, evokes Shakespeare’s most famous tragedy. The film follows a young girl as she seeks to avenge her father’s death at the hands of her uncle Claudius.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7a7F0lAGjrs72gKP2lu6FJ/6228450e8b90672683bb688287b2f036/Scarlet_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/scarlet",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 111,
+      "screenings": [
+        {
+          "start": "2025-09-10 20:45",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-11 15:10",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-12 12:00",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-13 12:00",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        }
+      ]
+    },
+    {
+      "title": "Sentimental Value",
+      "authors": "Joachim Trier",
+      "blurb": "With its extraordinary performances and wealth of insight as the story of a family struggling to face its rocky history and confronting the price of living for one’s art, Joachim Trier’s new feature represents another high watermark for the Norwegian director. The winner of the Grand Prix at this year’s Cannes festival, Sentimental Value portrays the myriad repercussions of a once-great filmmaker’s effort to recapture his past glory.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/39JjFRY9bhEXWCMfYZW57h/d09d22d852ec8e74460349a895408f92/Sentimental-Value_02.jpg",
+      "source_url": "https://www.tiff.net/films/sentimental-value",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 135,
+      "screenings": [
+        {
+          "start": "2025-09-04 21:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-05 18:00",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-13 15:05",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        }
+      ]
+    },
+    {
       "title": "She Has No Name",
       "authors": "Peter Ho-Sun Chan",
       "blurb": "Based on a true story, this engrossing crime drama from director Peter Ho-Sun Chan (TIFF ’13’s American Dreams in China) stars Zhang Ziyi (TIFF ’00’s Crouching Tiger, Hidden Dragon) as a woman falsely accused of killing her husband in 1940s Shanghai.",
@@ -3636,6 +4790,39 @@
       ]
     },
     {
+      "title": "Silent Friend",
+      "authors": "Ildikó Enyedi",
+      "blurb": "Set in a botanical garden within a medieval German university town, Silent Friend centres on a majestic Ginkgo biloba tree — which can famously live up to 1,000 years — that silently observes humans over the centuries. In 1908, steadfast Grete (Luna Wedler) is seeking admission to the botany department of a prestigious institution.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2mmhIw4mqi8XlhwmzKqcVq/4136ee415a7f84e3876fdf5e3bb495bf/Silent-Friend_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/silent-friend",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 147,
+      "screenings": [
+        {
+          "start": "2025-09-08 20:15",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-09 19:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-13 15:15",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-14 12:15",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        }
+      ]
+    },
+    {
       "title": "Sink",
       "authors": "Zain Duraie",
       "blurb": "Zain Duraie’s debut feature is a magnificent portrait of a mother struggling with her son’s unravelling mental state in a film buoyed by the sublime camerawork of Farouk Laâridh (Four Daughters).",
@@ -3659,6 +4846,85 @@
       ]
     },
     {
+      "title": "Sirât",
+      "authors": "Oliver Laxe",
+      "blurb": "A winner of this year’s Cannes Competition Jury Prize, Sirât is a gripping, visceral, and metaphysical excursion by Galician filmmaker and Festival favourite Oliver Laxe ( Mimosas, TIFF ’16; Fire Will Come, TIFF ’19). Sergi López plays Luis, a man desperately searching for his missing daughter Marina throughout the harsh southern deserts of Morocco, along with his young son Esteban (Bruno Núñez Arjona) and their dog Pipa.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2qsMu7g05UoQXALqiWb0uN/b82ba78c839b048561599680caa5a561/Sirat_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/sirat",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 115,
+      "screenings": [
+        {
+          "start": "2025-09-05 21:05",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-06 22:00",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-13 15:30",
+          "venue": "Scotiabank 10",
+          "location": "scotiabank-10"
+        }
+      ]
+    },
+    {
+      "title": "Sk+te'kmujue'katik (At the Place of Ghosts)",
+      "authors": "Bretten Hannam",
+      "blurb": "Directed by L'nu filmmaker Bretten Hannam ( Wildhood, TIFF ’21), Sk+te'kmujue'katik (At the Place of Ghosts) is an eerie thriller focusing on two Mi’kmaw brothers confronting their past trauma. Mise’l (Blake Alec Miranda) and Antle (Forrest Goodluck) are siblings who have drifted apart after experiencing unimaginable horrors in their shared past.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7Cn5H1DZJk2Fdqr0HkDHVC/7887be0099dcd7cd3cd66c8f244b39db/At_the_Place_of_Ghosts_01.webp",
+      "source_url": "https://www.tiff.net/films/sktekmujuekatik-at-the-place-of-ghosts",
+      "tracks": [
+        "platform"
+      ],
+      "runtime_minutes": 87,
+      "screenings": [
+        {
+          "start": "2025-09-06 15:30",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2025-09-07 14:30",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
+      "title": "Sound of Falling",
+      "authors": "Mascha Schilinski",
+      "blurb": "Alongside the river Elbe between Berlin and Hamburg, a family farm sits in a particularly tumultuous region, one that saw both world wars and defined East and West Germany. Mascha Schilinski’s Sound of Falling braids together the lives of four generations of inhabitants of this place: Alma (Hanna Heckt) in the early 20th century, Erika (Lea Drinda) in the 1940s, Angelika (Lena Urzendowsky) in the 1980s, and Lenka (Laeni Geiseler) in the present.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7HIk2Y7El6ds9FNqi5HmDA/a667a520a8d9abe3242b01de484e253c/Sound-of-Falling_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/sound-of-falling",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 155,
+      "screenings": [
+        {
+          "start": "2025-09-07 17:45",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2025-09-08 19:00",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-13 19:30",
+          "venue": "Scotiabank 9",
+          "location": "scotiabank-9"
+        }
+      ]
+    },
+    {
       "title": "Sound of Metal",
       "authors": "Darius Marder",
       "blurb": "",
@@ -3673,6 +4939,34 @@
           "start": "2025-09-06 22:00",
           "venue": "Cinema Park at David Pecaut Square",
           "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
+      "title": "Space Cadet",
+      "authors": "Kid Koala",
+      "blurb": "Based on acclaimed Canadian musician and deejay Kid Koala’s award-winning graphic novel of the same name, Space Cadet is a dialogue-free animated film that portrays the tender story of a young girl, Celeste, and the first-generation Guardianbot she loves. Celeste is in an astronaut academy and, while her mom is in space, Robot takes care of her.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/13578rwboKZqAP3zI4FIqz/c7e70cdea82bc5471018f3aee3ee5121/Space-Cadet-01.jpg",
+      "source_url": "https://www.tiff.net/films/space-cadet",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 86,
+      "screenings": [
+        {
+          "start": "2025-09-11 17:30",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-12 13:30",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-13 15:35",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
         }
       ]
     },
@@ -3733,6 +5027,34 @@
       ]
     },
     {
+      "title": "Still Single",
+      "authors": "Jamal Burger, Jukan Tateisi",
+      "blurb": "Even when compared with the most charismatic figures who serve up magic on a plate every night in the world’s most celebrated restaurants, Masaki Saito may be one of a kind. As the first of Canada’s chefs to be accorded two Michelin stars — an honour bestowed in 2022 — this high priest of sushi omakase has helped elevate Toronto’s culinary scene to unprecedented heights.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7iloVNdT9FnZc8K2tEAxDV/fb21eac3f3ae0a7ad66b5e18d9de95ff/StillSingle_still_Hero.jpg",
+      "source_url": "https://www.tiff.net/films/still-single",
+      "tracks": [
+        "tiff-docs"
+      ],
+      "runtime_minutes": 93,
+      "screenings": [
+        {
+          "start": "2025-09-05 15:00",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-06 22:00",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        },
+        {
+          "start": "2025-09-13 09:10",
+          "venue": "Scotiabank 9",
+          "location": "scotiabank-9"
+        }
+      ]
+    },
+    {
       "title": "Swiped",
       "authors": "Rachel Lee Goldenberg",
       "blurb": "Starring Lily James, this drama from director Rachel Lee Goldenberg (Unpregnant) is inspired by the real-life story of Bumble founder Whitney Wolfe Herd.",
@@ -3757,6 +5079,24 @@
           "start": "2025-09-12 18:00",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
+        }
+      ]
+    },
+    {
+      "title": "TTC Free Screening",
+      "authors": "",
+      "blurb": "TIFF has once again partnered with the TTC to give Torontonians greater access to Festival films. On Saturday, September 13 at 3:00 PM, fans are invited to the Royal Alexandra Theatre for the TTC Free Screening of a surprise TIFF 50 Official Selection. Tickets go on sale Tuesday September 2, using promo code: TIFFTTC.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2Gt7WqovsttjTr4rrihO4S/f8244d13c81e7ae69de682e29a44f5e7/TIFF50_BG.jpg",
+      "source_url": "https://www.tiff.net/films/ttc-free-screening",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 110,
+      "screenings": [
+        {
+          "start": "2025-09-13 15:00",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
         }
       ]
     },
@@ -3803,6 +5143,29 @@
           "start": "2025-09-13 21:40",
           "venue": "Scotiabank 8",
           "location": "scotiabank-8"
+        }
+      ]
+    },
+    {
+      "title": "The Blue Trail",
+      "authors": "Gabriel Mascaro",
+      "blurb": "Brazilian auteur Gabriel Mascaro made waves at the Festival in 2015 with Neon Bull. He returns to premiere his latest, The Blue Trail, which departs from a dystopian near future and takes us on an unexpected journey of self-discovery and determination.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7bDmBnOfKVqifMVS9XFfWT/15b075f1d1719c457ff438390bc94286/THE_BLUE_TRAIL_Still_2.jpg",
+      "source_url": "https://www.tiff.net/films/the-blue-trail",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 86,
+      "screenings": [
+        {
+          "start": "2025-09-10 13:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        },
+        {
+          "start": "2025-09-11 18:55",
+          "venue": "Scotiabank 9",
+          "location": "scotiabank-9"
         }
       ]
     },
@@ -3865,6 +5228,39 @@
           "start": "2025-09-12 18:15",
           "venue": "Scotiabank 14",
           "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
+      "title": "The Christophers",
+      "authors": "Steven Soderbergh",
+      "blurb": "This incisively witty chamber comedy from Oscar winner and Festival fixture Steven Soderbergh ushers us into a tangled web of art, commerce, and long-brewing resentments. Written by Men in Black scenarist Ed Solomon and featuring an acerbic turn from the great Ian McKellen, The Christophers is one of Soderbergh’s most delicious entertainments in years.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1u3ZvugVIYzlpsx0j4EQdl/551742bf841b9d6419039535fe5b2433/THE-CHRISTOPHERS_STILL-1.jpg",
+      "source_url": "https://www.tiff.net/films/the-christophers",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-07 18:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-08 18:25",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-12 09:00",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2025-09-13 21:00",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
         }
       ]
     },
@@ -4176,6 +5572,29 @@
       ]
     },
     {
+      "title": "The Love That Remains",
+      "authors": "Hlynur Pálmason",
+      "blurb": "The end of a marriage brings major tectonic shifts in the lives of everyone it affects. In that respect, things are no different for the family portrayed in Hlynur Pálmason’s fourth feature.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2XI2Pa7e043emz9s6OT92Y/75946c08f3460a0d5cf9a5634903cec6/THE_LOVE_THAT_REMAINS__Still_1.jpg",
+      "source_url": "https://www.tiff.net/films/the-love-that-remains",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 109,
+      "screenings": [
+        {
+          "start": "2025-09-08 11:55",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-10 22:00",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        }
+      ]
+    },
+    {
       "title": "The Lowdown",
       "authors": "Sterlin Harjo",
       "blurb": "Opening the tenth year of Primetime, Sterlin Harjo’s The Lowdown is a modern noir set in Tulsa, with Ethan Hawke playing Lee Raybon, a latter-day Philip Marlowe.",
@@ -4278,6 +5697,29 @@
       ]
     },
     {
+      "title": "The President's Cake",
+      "authors": "Hasan Hadi",
+      "blurb": "Hasan Hadi’s heartbreaking The President’s Cake, a multiple award winner at Cannes, is an unforgettable look at a country crushed by poverty and international sanctions — and ruled by a sadistic, greedy, and vain tyrant. In 1990s Iraq, young Lamia (Baneen Ahmed Nayyef) lives with her ailing grandmother, Bibi (Waheeda Thabet Khreiba), eking out an existence in a remote village where the best means of travel is by meshouf, a kind of canoe.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3zBLU4XM0hfHbpj1urxXZ0/9ede660762c861b1d76874318df37a20/the-presidents-cake-01.jpg",
+      "source_url": "https://www.tiff.net/films/the-presidents-cake",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 105,
+      "screenings": [
+        {
+          "start": "2025-09-10 19:00",
+          "venue": "Scotiabank 11",
+          "location": "scotiabank-11"
+        },
+        {
+          "start": "2025-09-12 18:45",
+          "venue": "Scotiabank 9",
+          "location": "scotiabank-9"
+        }
+      ]
+    },
+    {
       "title": "The Road Between Us: The Ultimate Rescue",
       "authors": "Barry Avrich",
       "blurb": "Combining new interviews with footage from October 7, 2023, Canadian documentarian Barry Avrich recounts how retired general Noam Tibon journeyed from Tel Aviv to the Nahal Oz kibbutz seeking to rescue his son and his family from Hamas attack.",
@@ -4338,6 +5780,34 @@
           "start": "2025-09-12 16:00",
           "venue": "Scotiabank 2",
           "location": "scotiabank-2"
+        }
+      ]
+    },
+    {
+      "title": "The Secret Agent",
+      "authors": "Kleber Mendonça Filho",
+      "blurb": "Brazilian filmmaker and TIFF veteran Kleber Mendonça Filho delivers one of the year’s greatest films with The Secret Agent, a sly, genre-bending political thriller starring Wagner Moura in a brilliant performance as Marcelo, a technology researcher on the lam in 1977 during Brazil’s notorious military dictatorship. The film begins with Marcelo headed to the northern city of Recife — the filmmaker’s oft-portrayed hometown — seeking asylum and to be closer to his young son.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/75fK2FcStCHFhbDqu1rnLG/366dac92e440b07eba7babde51dfb463/The-Secret-Agent_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/the-secret-agent",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 158,
+      "screenings": [
+        {
+          "start": "2025-09-07 20:00",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-08 19:00",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
+        },
+        {
+          "start": "2025-09-12 12:00",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6"
         }
       ]
     },
@@ -4487,6 +5957,67 @@
       ]
     },
     {
+      "title": "The Voice of Hind Rajab",
+      "authors": "Kaouther Ben Hania",
+      "blurb": "On January 29, 2024, Red Crescent volunteers in Gaza received a desperate call from a family trapped in a car under Israeli military fire. Moments later, only six-year-old Hind Rajab remained on the line, begging to be rescued.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5pl0By73VFIyspdNegpyF8/e04a93118e06118b3da63e11d9e403f4/The-Voice-of-Hind-Rajab_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/the-voice-of-hind-rajab",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 89,
+      "screenings": [
+        {
+          "start": "2025-09-07 21:30",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2025-09-08 16:00",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        },
+        {
+          "start": "2025-09-13 21:30",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        }
+      ]
+    },
+    {
+      "title": "The Wizard of the Kremlin",
+      "authors": "Olivier Assayas",
+      "blurb": "Versatile auteur Olivier Assayas ( Personal Shopper, TIFF ’16) adopts a dazzlingly broad canvas to capture this searing insider’s chronicle of post–Cold War Russia. Adapted by Assayas and acclaimed author Emmanuel Carrère from Giuliano da Empoli's 2022 novel, The Wizard of the Kremlin stars Oscar winner Alicia Vikander, Oscar nominees Jude Law and Jeffrey Wright, and Paul Dano ( The Fablemans, TIFF ’22) as players in a geopolitical drama where gamesmanship and governance become chillingly blurred.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2y1NQNEETlYNgJOtQGPVuu/ba64c030f85d526bc52833ea4c5bc523/Kremlin_hero.jpg",
+      "source_url": "https://www.tiff.net/films/the-wizard-of-the-kremlin",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 156,
+      "screenings": [
+        {
+          "start": "2025-09-10 17:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-11 21:30",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-12 09:30",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-14 08:40",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        }
+      ]
+    },
+    {
       "title": "The World of Love",
       "authors": "Yoon Ga-eun",
       "blurb": "In this powerful, emotionally layered drama, a spirited teenager confronts buried pain, while director Yoon Ga-eun explores the quiet resilience it takes to own one’s story — and future.",
@@ -4594,6 +6125,39 @@
       ]
     },
     {
+      "title": "Train Dreams",
+      "authors": "Clint Bentley",
+      "blurb": "Set in the Pacific Northwest during the early decades of the 20th century, Train Dreams is a captivating character study that unfolds in a world of natural splendour and voracious industry. Adapted from two-time Pulitzer Prize finalist Denis Johnson’s 2011 novella, the latest from director Clint Bentley (TIFF ’21’s Jockey ) features an exquisite lead performance by Joel Edgerton, alongside memorable supporting turns from Oscar nominees Felicity Jones and William H.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/40R7IuBCHfoMqVmv3IhwW0/c781e275e2bfae7decf805b7191805e8/Train-Dreams_Stills_02.jpg",
+      "source_url": "https://www.tiff.net/films/train-dreams",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 102,
+      "screenings": [
+        {
+          "start": "2025-09-09 17:30",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-10 12:15",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2025-09-10 15:45",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        },
+        {
+          "start": "2025-09-12 12:45",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        }
+      ]
+    },
+    {
       "title": "True North",
       "authors": "Michèle Stephenson",
       "blurb": "Michèle Stephenson’s moving documentary centres on the 1969 student protests against racism at Montreal’s Concordia University and their contribution to the story of Black liberation.",
@@ -4617,20 +6181,30 @@
       ]
     },
     {
-      "title": "TTC Free Screening",
-      "authors": "",
-      "blurb": "TIFF has once again partnered with the TTC to give Torontonians greater access to Festival films. On Saturday, September 13 at 3:00 PM, fans are invited to the Royal Alexandra Theatre for the TTC Free Screening of a surprise TIFF 50 Official Selection. Tickets go on sale Tuesday September 2, using promo code: TIFFTTC.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2Gt7WqovsttjTr4rrihO4S/f8244d13c81e7ae69de682e29a44f5e7/TIFF50_BG.jpg",
-      "source_url": "https://www.tiff.net/films/ttc-free-screening",
+      "title": "Tuner",
+      "authors": "Daniel Roher",
+      "blurb": "Having acutely sensitive hearing is both a blessing and a curse for Niki White as played by Leo Woodall in Daniel Roher’s first narrative feature. Though his auditory condition ended a promising musical career, it’s been a boon for his job as a piano tuner.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3UqF0J6XW3GqTosviIup2G/9550dd01bfb079a12bd1f80a5a59c24f/Tuner_Still_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/tuner",
       "tracks": [
-        "special-events"
+        "special-presentations"
       ],
-      "runtime_minutes": 110,
+      "runtime_minutes": 109,
       "screenings": [
         {
-          "start": "2025-09-13 15:00",
-          "venue": "Royal Alexandra Theatre",
-          "location": "royal-alexandra-theatre"
+          "start": "2025-09-08 14:45",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-09 11:55",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
+        },
+        {
+          "start": "2025-09-13 16:00",
+          "venue": "Scotiabank 3",
+          "location": "scotiabank-3"
         }
       ]
     },
@@ -4659,6 +6233,57 @@
           "start": "2025-09-12 08:50",
           "venue": "Scotiabank 4",
           "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "Two Prosecutors",
+      "authors": "Sergei Loznitsa",
+      "blurb": "Just 20 years after the revolution that rippled across the globe and still reverberates today, Two Prosecutors opens inside a men’s prison in the town of Bryansk, 400 kilometres from Moscow. It’s 1937, the height of Stalin’s Great Terror, and inside a dank cell, an old man is tasked with the burning letters of interned prisoners, each asserting that their confessions to the NKVD (the USSR’s secret service) were forced.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3txi4dS6TchQnbVyiu49bk/2c0aae0480072e74b4a0ef7185c5ac9c/Two-Prosecutors_Clip_03.jpg",
+      "source_url": "https://www.tiff.net/films/two-prosecutors",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 118,
+      "screenings": [
+        {
+          "start": "2025-09-09 14:30",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2025-09-10 14:30",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "Uiksaringitara (Wrong Husband)",
+      "authors": "Zacharias Kunuk",
+      "blurb": "Celebrated Inuk director Zacharias Kunuk returns to the Festival with his latest offering, a captivating, epic, historical drama about an arranged marriage, set 4,000 years ago. Seamlessly blending the supernatural with verité realism, Uiksaringitara ( Wrong Husband ) follows a boy, Sapa (Haiden Angutimarik), and a girl, Kaujak (Theresia Kappianaq), whose union in marriage is promised by their families from birth.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4hpKyCsEZ0ouaYr3ABk2SV/8408471fcb101274f9d07ea80f8e43f8/WH-HQ-STILL-1.jpg",
+      "source_url": "https://www.tiff.net/films/uiksaringitara-wrong-husband",
+      "tracks": [
+        "special-presentations"
+      ],
+      "runtime_minutes": 100,
+      "screenings": [
+        {
+          "start": "2025-09-08 17:00",
+          "venue": "Royal Alexandra Theatre",
+          "location": "royal-alexandra-theatre"
+        },
+        {
+          "start": "2025-09-09 14:30",
+          "venue": "Scotiabank 1",
+          "location": "scotiabank-1"
+        },
+        {
+          "start": "2025-09-14 09:30",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6"
         }
       ]
     },
@@ -4781,6 +6406,34 @@
       ]
     },
     {
+      "title": "Wasteman",
+      "authors": "Cal McMau",
+      "blurb": "In his debut feature, Wasteman director Cal McMau peels back the conventions of the prison drama to reveal something raw, intimate, and unsettling. Set within a claustrophobic and often brutal UK prison, Wasteman conjures a world where hyper-masculinity is identity and armour, and where even a flicker of vulnerability can be fatal.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/gKGtUPpFT2o7v9RtyTKYG/7d2a3333a7ebb5de93592f61da55575b/Wasteman-01.jpg",
+      "source_url": "https://www.tiff.net/films/wasteman",
+      "tracks": [
+        "centrepiece"
+      ],
+      "runtime_minutes": 90,
+      "screenings": [
+        {
+          "start": "2025-09-06 18:25",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13"
+        },
+        {
+          "start": "2025-09-08 15:30",
+          "venue": "Scotiabank 9",
+          "location": "scotiabank-9"
+        },
+        {
+          "start": "2025-09-14 19:10",
+          "venue": "Scotiabank 14",
+          "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
       "title": "Wavelengths 1: Map of Traces",
       "authors": "",
       "blurb": "",
@@ -4854,6 +6507,44 @@
           "start": "2025-09-11 21:45",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
+        }
+      ]
+    },
+    {
+      "title": "While the Green Grass Grows: A Diary in Seven Parts",
+      "authors": "Peter Mettler",
+      "blurb": "Important note: Due to the length of the film, each of the film’s two screenings will play in two parts over successive days. In the first screening, Chapters 1–4 will play September 7 and Chapters 5–7 will play September 8.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/39jreHDR3wDvGBQ8Tsbwbp/73943f3cfd065ae35bd1869d89d8f780/While-the-Green-Grass-Grows_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/while-the-green-grass-grows-a-diary-in-seven-parts",
+      "tracks": [
+        "tiff-docs"
+      ],
+      "runtime_minutes": 420,
+      "screenings": [
+        {
+          "start": "2025-09-07 16:30",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        },
+        {
+          "start": "2025-09-08 19:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4"
+        },
+        {
+          "start": "2025-09-11 15:35",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
+        },
+        {
+          "start": "2025-09-12 14:45",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7"
+        },
+        {
+          "start": "2025-10-12 11:30",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5"
         }
       ]
     },
