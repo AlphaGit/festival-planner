@@ -1225,6 +1225,16 @@
       "runtime_minutes": 126,
       "screenings": [
         {
+          "start": "2025-09-06 14:45",
+          "venue": "VISA Screening Room at the Princess of Wales Theatre",
+          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2025-09-07 20:00",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        },
+        {
           "start": "2025-09-12 19:30",
           "venue": "Scotiabank 12",
           "location": "scotiabank-12"
@@ -1280,6 +1290,21 @@
       ],
       "runtime_minutes": 143,
       "screenings": [
+        {
+          "start": "2025-09-07 21:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
+        {
+          "start": "2025-09-08 13:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
+        {
+          "start": "2025-09-11 18:35",
+          "venue": "Scotiabank 4",
+          "location": "scotiabank-4"
+        },
         {
           "start": "2025-09-14 18:00",
           "venue": "Scotiabank 13",
@@ -1579,6 +1604,11 @@
       ],
       "runtime_minutes": 98,
       "screenings": [
+        {
+          "start": "2025-09-06 21:30",
+          "venue": "Roy Thomson Hall",
+          "location": "roy-thomson-hall"
+        },
         {
           "start": "2025-09-07 17:45",
           "venue": "Scotiabank 2",
