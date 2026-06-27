@@ -9,16 +9,10 @@ screening times/venues), it finds conflict-free schedules that keep every
 "must-watch" and as many "want-to-watch" films as possible, and presents the
 trade-offs so a human can choose between equally-optimal options.
 
-It exists in two independent forms:
-
-1. **Static browser app** (the primary product) — runs entirely client-side,
-   no server, no build step. This is what users interact with.
-2. **Python CLI** (`tiff_solver.py`) — the original/reference implementation.
-   Same algorithm, renders a standalone HTML report. Kept for batch use and as
-   the spec the browser app was ported from.
-
-The two share no code. Keep them behaviourally consistent if you touch the
-solver semantics (drop cost, buffers, option enumeration).
+It's a **static browser app** — runs entirely client-side, no server, no build
+step. This is the whole product. A small helper, `scrape_tiff.py` (pure Python
+stdlib), regenerates `catalog.json` from the TIFF site; it is the only Python
+left in the repo and shares no code with the app.
 
 ## Browser app
 
@@ -39,8 +33,8 @@ Files (load order matters in `index.html`):
   `explainConflicts`, plus the board/wizard renderers.
 - `index.html` — the two views, all CSS.
 - `catalog.json` — the festival catalog. Edit `festival` / `movies` for a new
-  event. Format mirrors the YAML the Python CLI reads (no per-film priority —
-  that's the user's job in View 1).
+  event, or regenerate with `scrape_tiff.py` (no per-film priority — that's the
+  user's job in View 1).
 
 ### Run it
 
@@ -65,16 +59,10 @@ Chrome.
   of the large equal-cost plateau when enumerating options. logic-solver does it
   in ~0.2s. Do not "simplify" back to a hand-rolled solver.
 
-## Python CLI
+## Catalog scraper
 
-```sh
-uv sync
-uv run python tiff_solver.py schedule.yaml --html plan.html --json plan.json
-uv run python test_tiff_solver.py      # assert-based tests, no framework
-```
-
-Uses OR-Tools CP-SAT (hard dependency, declared in `pyproject.toml`). Exit
-codes: 0 = all fit, 2 = some dropped, 1 = input error.
+`scrape_tiff.py` — pure Python stdlib, no dependencies. Run `python3
+scrape_tiff.py` to regenerate `catalog.json` from the TIFF site.
 
 ## Conventions
 
@@ -82,6 +70,6 @@ codes: 0 = all fit, 2 = some dropped, 1 = input error.
   days ago (supply-chain hygiene).
 - No build step for the browser app; no framework in tests. Keep it that way.
 - Non-trivial solver/parse changes leave one runnable check behind
-  (`TiffSolver._selfTest()` in the browser; `test_tiff_solver.py` for Python).
+  (`TiffSolver._selfTest()` in the browser).
 - All development happens on `main` — no feature branches. Commit and push
   straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.

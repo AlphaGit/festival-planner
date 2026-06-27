@@ -23,9 +23,7 @@ until you're left with one schedule to follow.
 The app runs entirely in your browser. No accounts, no server, nothing leaves
 your device. It's also a PWA — installable and works offline.
 
-## Two ways to run it
-
-### Browser app (the product)
+## Running it
 
 Static client-side app, no build step. Serve over HTTP (the catalog is
 `fetch`ed, which `file://` blocks):
@@ -38,26 +36,14 @@ Files: `index.html` (views + CSS), `app.js` (catalog loading, tagging, wizard,
 timeline), `solver.js` (the scheduling model), `logic-solver.bundle.js`
 (vendored SAT solver), `catalog.json` (the festival data).
 
-### Python CLI (reference implementation)
-
-Same algorithm, renders a standalone HTML report. Useful for batch runs.
-
-```sh
-uv sync
-uv run python tiff_solver.py schedule.yaml --html plan.html --json plan.json
-```
-
 ## Using a different festival
 
-Replace `catalog.json` (browser) or supply your own YAML (CLI). The format lists
-films, each with one or more screenings (time + venue). No per-film priority in
-the data — that's what you set by tagging.
+Replace `catalog.json`. The format lists films, each with one or more screenings
+(time + venue). No per-film priority in the data — that's what you set by
+tagging. `scrape_tiff.py` (pure stdlib: `python3 scrape_tiff.py`) regenerates
+`catalog.json` from the TIFF site.
 
 ## Tests
-
-```sh
-uv run python test_tiff_solver.py   # Python, assert-based, no framework
-```
 
 The browser solver has an in-page self-check: `TiffSolver._selfTest()`.
 
