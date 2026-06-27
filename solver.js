@@ -27,7 +27,7 @@
     return a.end + gap <= b.start || b.end + gap <= a.start;
   }
 
-  function solve(movies, buf, sameBuf, maxPlans) {
+  function solve(movies, buf, sameBuf, maxPlans, prioritizeFirst) {
     const L = root.LogicSolver;
     if (!L) throw new Error("logic-solver.bundle.js must be loaded before solver.js");
     if (!movies.length) return { cost: 0, plans: [{}] };
@@ -64,12 +64,42 @@
       return p;
     };
 
+    // Secondary objective (tie-break only): prefer earlier screenings. Rank each
+    // movie's valid screenings by start (0 = earliest); the penalty for watching
+    // it is that rank, with a soft 1.5x bias toward must-watches (must=3, want=2)
+    // so a must yields its earlier slot only once 2+ want-slots would benefit.
+    // This is a SEPARATE weightedSum from drop cost, minimized WITHIN each
+    // drop-set via assumptions — it can never change which films are kept, nor
+    // hide a keep/drop option. Off (or with no multi-screening movies) -> no-op.
+    const lateTerms = [], lateWeights = [];
+    if (prioritizeFirst) {
+      movies.forEach((m, i) => {
+        const order = m.valid.map((_, k) => k).sort((a, b) =>
+          m.valid[a].start - m.valid[b].start || (m.valid[a].venue < m.valid[b].venue ? -1 : 1));
+        const w = m.priority === "must" ? 3 : 2;
+        order.forEach((k, rank) => { if (rank) { lateTerms.push(xvar(i, k)); lateWeights.push(rank * w); } });
+      });
+    }
+    const lateSum = lateTerms.length ? L.weightedSum(lateTerms, lateWeights) : null;
+    // minimize lateness for a FIXED drop-set (via solveAssuming — non-permanent).
+    const earliest = (so, dropAssump) => {
+      if (!lateSum) return so;
+      let best = so, bestLate = best.getWeightedSum(lateTerms, lateWeights);
+      while (bestLate > 0) {
+        const better = s.solveAssuming(L.and(dropAssump, L.lessThan(lateSum, L.constantBits(bestLate))));
+        if (!better) break;
+        best = better; bestLate = best.getWeightedSum(lateTerms, lateWeights);
+      }
+      return best;
+    };
+
     const plans = [];
     let cur = opt;
     while (cur && plans.length < maxPlans) {
-      plans.push(planOf(cur));
       // forbid this exact set of dropped movies so the next solve differs in WHICH it drops
-      s.forbid(L.and(...movies.map((m, i) => (cur.evaluate(dvar(i)) ? dvar(i) : L.not(dvar(i))))));
+      const dropAssump = L.and(...movies.map((m, i) => (cur.evaluate(dvar(i)) ? dvar(i) : L.not(dvar(i)))));
+      plans.push(planOf(earliest(cur, dropAssump)));
+      s.forbid(dropAssump);
       cur = s.solve();
     }
     return { cost, plans };
@@ -97,6 +127,32 @@
     ], 30, 10, 8);
     assert(fit.cost === 0 && fit.plans.length === 1 && fit.plans[0].X && fit.plans[0].Y, "all-fit failed");
     assert(building("Scotiabank 12") === "scotiabank", "building strip failed");
+
+    // ---- prioritize-first (5th arg = true) ----
+    // lone want, two free screenings listed late-then-early -> earlier is chosen
+    const early = solve([
+      { title: "Solo", priority: "want", valid: [at(14, 0, 60, "A"), at(10, 0, 60, "A")] },
+    ], 30, 10, 8, true);
+    assert(early.plans[0].Solo.start === Date.UTC(2024, 2, 6, 10, 0), "prioritize-first should pick the earliest screening");
+    // must vs one competing want: must keeps its early slot (3*0+2*1=2 beats 3*1+2*0=3)
+    const mw = solve([
+      { title: "M", priority: "must", valid: [at(10, 0, 60, "A"), at(16, 0, 60, "A")] },
+      { title: "W", priority: "want", valid: [at(10, 0, 60, "A"), at(12, 0, 60, "A")] },
+    ], 30, 10, 8, true);
+    assert(mw.cost === 0, "must-vs-want should fit both, got cost " + mw.cost);
+    assert(mw.plans[0].M.start === Date.UTC(2024, 2, 6, 10, 0), "must should take its early slot");
+    assert(mw.plans[0].W.start === Date.UTC(2024, 2, 6, 12, 0), "want should yield to the must");
+    // two wants outvote one must: must yields to 13:00 (3) so both wants go early (2+2=4)
+    const agg = solve([
+      { title: "M", priority: "must", valid: [at(9, 0, 60, "A"), at(13, 0, 60, "A")] },
+      { title: "W1", priority: "want", valid: [at(9, 0, 60, "A"), at(11, 0, 60, "A")] },
+      { title: "W2", priority: "want", valid: [at(11, 0, 60, "A"), at(13, 0, 60, "A")] },
+    ], 30, 10, 8, true);
+    assert(agg.cost === 0, "aggregate case should fit all three, got cost " + agg.cost);
+    assert(agg.plans[0].M.start === Date.UTC(2024, 2, 6, 13, 0), "must should yield to two wants");
+    assert(agg.plans[0].W1.start === Date.UTC(2024, 2, 6, 9, 0), "W1 should be early");
+    assert(agg.plans[0].W2.start === Date.UTC(2024, 2, 6, 11, 0), "W2 should be early");
+
     console.log("solver.js self-test passed");
   }
 

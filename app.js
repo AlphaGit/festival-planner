@@ -11,7 +11,7 @@ const STATUS_LABEL = { must: "Must", want: "Want", skip: "Skip" };
 const effStatus = (sel, title) => { const s = sel[title]; return s === "unavailable" ? "skip" : (s || "skip"); };
 
 // ---- module state (set per solve, read by the board/wizard renderers)
-let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, TRACKFILTER = "";
+let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, PRIOFIRST = true, TRACKFILTER = "";
 let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
 let LOCATIONS = {}; // root locations map (id -> {name, address})
 let LOCKS = {}, SELECTED = null, CURRENT_LIVE = []; // timeline overrides + click state
@@ -47,6 +47,7 @@ const getPicks = () => loadJSON("picks", []);
 const setPicks = (p) => saveJSON("picks", p);
 const getBuf = () => loadJSON("buf", 30);
 const getSameBuf = () => loadJSON("samebuf", 10);
+const getPrioFirst = () => loadJSON("prioritizefirst", true);
 // timeline overrides (persisted per festival)
 const SEP = "";
 const scrKey = (title, start, venue) => `${title}${SEP}${start}${SEP}${venue}`;
@@ -97,6 +98,7 @@ async function init() {
   $("back").addEventListener("click", showView1);
   $("buf").addEventListener("change", (e) => { BUF = +e.target.value || 30; saveJSON("buf", BUF); });
   $("samebuf").addEventListener("change", (e) => { SAMEBUF = +e.target.value || 10; saveJSON("samebuf", SAMEBUF); });
+  $("priofirst").addEventListener("change", (e) => { PRIOFIRST = e.target.checked; saveJSON("prioritizefirst", PRIOFIRST); });
   // availability grid: click or drag (mouse/touch/pen) to paint "can't attend".
   // On touch the pointer is captured to the start cell, so we hit-test by coordinates.
   // touch: tap toggles one cell, swipe (any direction) scrolls the grid — so a
@@ -168,8 +170,10 @@ function useCatalog(cat) {
   // buffers are user options, persisted per festival (defaults 30 / 10)
   BUF = +getBuf() || 30;
   SAMEBUF = +getSameBuf() || 10;
+  PRIOFIRST = getPrioFirst();
   $("buf").value = BUF;
   $("samebuf").value = SAMEBUF;
+  $("priofirst").checked = PRIOFIRST;
   GRID = computeGrid();
   UNAVAIL = new Set(loadJSON("unavail", []));
   renderAvailGrid();
@@ -297,7 +301,7 @@ function solveAndShow() {
   const included = buildIncluded();
   MOVIES = included;
   PRIO = Object.fromEntries(included.map((m) => [m.title, m.priority]));
-  const { cost, plans } = TiffSolver.solve(included, BUF, SAMEBUF, MAXPLANS);
+  const { cost, plans } = TiffSolver.solve(included, BUF, SAMEBUF, MAXPLANS, PRIOFIRST);
   const groups = groupPlans(plans, MAXPLANS);
   computeView(groups);
   renderOverrides();

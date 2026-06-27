@@ -21,16 +21,21 @@ Files (load order matters in `index.html`):
 - `logic-solver.bundle.js` — vendored MiniSat (logic-solver 2.0.1), bundled to a
   single IIFE global `LogicSolver`. **Do not edit by hand.** Rebuild from npm
   with esbuild if it ever needs updating. MIT-licensed.
-- `solver.js` — exposes `TiffSolver.solve(movies, buf, sameBuf, maxPlans) ->
-  { cost, plans }`. Builds a boolean model (one var per screening + a drop var
-  per film; `exactlyOne` per film; `atMostOne` per conflicting screening pair),
-  minimizes weighted drop cost (must = 1000, want = 1), then enumerates distinct
-  optimal drop-sets by `forbid`-ing each and re-solving.
+- `solver.js` — exposes `TiffSolver.solve(movies, buf, sameBuf, maxPlans,
+  prioritizeFirst) -> { cost, plans }`. Builds a boolean model (one var per
+  screening + a drop var per film; `exactlyOne` per film; `atMostOne` per
+  conflicting screening pair), minimizes weighted drop cost (must = 1000,
+  want = 1), then enumerates distinct optimal drop-sets by `forbid`-ing each and
+  re-solving. When `prioritizeFirst` is set (default in the UI), a strictly
+  subordinate secondary objective biases each kept film toward its earlier
+  screenings — minimized *within* each drop-set via `solveAssuming` so it never
+  changes which films are kept. Penalty = chronological rank, soft-weighted
+  must=3/want=2. `cost` stays drop-cost only.
 - `app.js` — everything else: loads `catalog.json`, **View 1** (tag each film
   must/want/skip/no-tickets, persisted to `localStorage`), runs the solver, then
   **View 2** (decision wizard + a timeline that collapses to one schedule as you
-  choose). Pure functions ported from the Python: `splitCommon`, `decisionTree`,
-  `explainConflicts`, plus the board/wizard renderers.
+  choose). Pure functions: `splitCommon`, `decisionTree`, `explainConflicts`,
+  plus the board/wizard renderers.
 - `index.html` — the two views, all CSS.
 - `catalog.json` — the festival catalog. Edit `festival` / `movies` for a new
   event, or regenerate with `scrape_tiff.py` (no per-film priority — that's the
