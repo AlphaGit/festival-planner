@@ -74,7 +74,8 @@ scrape_tiff.py` to regenerate `catalog.json` from the TIFF site.
 - Dependencies: before adding/pinning any, confirm the version was published ≥7
   days ago (supply-chain hygiene).
 - No build step for the browser app; no framework in tests. Keep it that way.
-- Non-trivial solver/parse changes leave one runnable check behind
-  (`TiffSolver._selfTest()` in the browser).
+- Non-trivial solver/parse changes leave one runnable check behind: extend
+  `test_solver.js` (run `node test_solver.js` — plain assert, no framework) and
+  the in-browser `TiffSolver._selfTest()` smoke check.
 - All development happens on `main` — no feature branches. Commit and push
   straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.

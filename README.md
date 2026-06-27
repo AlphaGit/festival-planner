@@ -45,7 +45,11 @@ tagging. `scrape_tiff.py` (pure stdlib: `python3 scrape_tiff.py`) regenerates
 
 ## Tests
 
-The browser solver has an in-page self-check: `TiffSolver._selfTest()`.
+```sh
+node test_solver.js   # plain assert, no framework, no deps
+```
+
+The browser solver also has an in-page self-check: `TiffSolver._selfTest()`.
 
 ## Contributing
 
