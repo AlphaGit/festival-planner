@@ -182,6 +182,34 @@ check("a locked want is kept end-to-end even when a must-watch wants the same sl
   assert(groups.every((g) => !g.rep.BigMust), "the must yields to the held ticket");
 });
 
+check("two clashing locked tickets become a wizard choice; the rest of the plan stays", () => {
+  // Two held tickets for overlapping screenings can't both be honoured. Rather
+  // than silently dropping one, the app surfaces both as options so the user
+  // resolves the clash in the wizard — and unrelated films stay scheduled.
+  reset("CLASH");
+  CATALOG = { festival: "CLASH", movies: [
+    { title: "TicketA", runtime_minutes: 60, screenings: [{ start: "2025-09-07 19:00", venue: "X" }] },
+    { title: "TicketB", runtime_minutes: 60, screenings: [{ start: "2025-09-07 19:00", venue: "Y" }] }, // overlaps A
+    { title: "Other", runtime_minutes: 60, screenings: [{ start: "2025-09-07 12:00", venue: "Z" }] },   // unrelated, fits
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  setSel({ TicketA: "want", TicketB: "want", Other: "want" });
+  setLocks({
+    TicketA: scrKey("TicketA", parseDT("2025-09-07 19:00"), "X"),
+    TicketB: scrKey("TicketB", parseDT("2025-09-07 19:00"), "Y"),
+  });
+  const inc = buildIncluded();
+  MOVIES = inc; PRIO = Object.fromEntries(inc.map((m) => [m.title, m.priority])); // set as solveAndShow does
+  const groups = groupPlans(TiffSolver.solve(inc, BUF, SAMEBUF, MAXPLANS, PRIOFIRST).plans, MAXPLANS);
+  computeView(groups);
+  eq(NOPT, 2, "the clash yields exactly two options");
+  eqJSON(groups.map((g) => (g.rep.TicketA ? "A" : "B")).sort(), ["A", "B"], "each option keeps a different ticket");
+  assert(TREE.branches && TREE.branches.length === 2, "the wizard asks the user to choose at the clash");
+  eqJSON(TREE.branches.map((b) => b.watch).sort(), ["TicketA", "TicketB"], "one branch per ticket");
+  assert(groups.every((g) => g.rep.Other), "unrelated films stay scheduled — the plan continues");
+  assert(!ALWAYS_OUT.includes("TicketA") && !ALWAYS_OUT.includes("TicketB"), "neither ticket is flagged impossible");
+});
+
 // =============================================================================
 // 5. Option grouping (groupPlans)
 // =============================================================================

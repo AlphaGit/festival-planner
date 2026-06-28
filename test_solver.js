@@ -15,7 +15,7 @@ eval(
   fs.readFileSync(path.join(__dirname, "solver.js"), "utf8")
 );
 const { solve, compatible, building } = globalThis.TiffSolver;
-const { check, assert, eq, report } = require("./test_harness.js");
+const { check, assert, eq, eqJSON, report } = require("./test_harness.js");
 
 // All times are wall-clock UTC (tz-agnostic), matching the app. Same date so
 // only the hour/minute matters.
@@ -217,6 +217,17 @@ check("a locked screening outranks a competing must, even when it's only a want"
   ], 30, 10, 8);
   r.plans.forEach((p) => { assert(p.Locked, "held ticket kept"); assert(!p.Must, "must yields to the ticket"); });
   eq(r.plans.length, 1, "dropping the lock is never an option");
+});
+
+check("two clashing locks degrade to a user choice — two options, each keeping one", () => {
+  // Held tickets for overlapping screenings: infeasible to keep both, so the
+  // solver offers both resolutions rather than silently picking one.
+  const r = solve([
+    { title: "A", priority: "want", locked: true, valid: [at(19, 0, 60, "X")] },
+    { title: "B", priority: "want", locked: true, valid: [at(19, 0, 60, "Y")] }, // overlaps A
+  ], 30, 10, 8);
+  eq(r.plans.length, 2, "both resolutions offered");
+  eqJSON(r.plans.map((p) => kept(p).join("|")).sort(), ["A", "B"], "one option per surviving ticket");
 });
 
 check("the in-browser _selfTest() also passes here", () => {
