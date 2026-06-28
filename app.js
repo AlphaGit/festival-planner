@@ -13,6 +13,7 @@ const effStatus = (sel, title) => { const s = sel[title]; return s === "unavaila
 // ---- module state (set per solve, read by the board/wizard renderers)
 let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, PRIOFIRST = true;
 let TRACKSOFF = new Set(), TIERSOFF = new Set(); // View 1 chips: hidden curatorial tracks / disallowed access tiers
+let VENUEPREF = new Set(); // scheduling setting: building keys marked "preferred"
 let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
 let LOCATIONS = {}; // root locations map (id -> {name, address})
 let LOCKS = {}, SELECTED = null, CURRENT_LIVE = []; // timeline overrides + click state
@@ -55,6 +56,8 @@ const getTracksOff = () => loadJSON("tracksoff", []);
 const setTracksOff = (v) => saveJSON("tracksoff", v);
 const getTiersOff = () => loadJSON("tiersoff", (CATALOG && CATALOG.disabledAccessTiers) || []);
 const setTiersOff = (v) => saveJSON("tiersoff", v);
+const getVenuePref = () => loadJSON("venuepref", []); // building keys; default none = no-op
+const setVenuePref = (v) => saveJSON("venuepref", v);
 // timeline overrides (persisted per festival)
 const SEP = "";
 const scrKey = (title, start, venue) => `${title}${SEP}${start}${SEP}${venue}`;
@@ -155,6 +158,11 @@ async function init() {
     const c = e.target.closest("[data-tier]"); if (!c) return;
     toggleSet(TIERSOFF, c.dataset.tier); setTiersOff([...TIERSOFF]); renderChips(); renderCatalog();
   });
+  // preferred-venue chips (scheduling setting) — applied on the next solve
+  $("venuechips").addEventListener("click", (e) => {
+    const c = e.target.closest("[data-venue]"); if (!c) return;
+    toggleSet(VENUEPREF, c.dataset.venue); setVenuePref([...VENUEPREF]); renderChips();
+  });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
   $("catalog").addEventListener("click", (e) => {
     // progressive disclosure: click a clamped synopsis to expand/collapse it
@@ -192,6 +200,7 @@ function useCatalog(cat) {
   $("priofirst").checked = PRIOFIRST;
   TRACKSOFF = new Set(getTracksOff());
   TIERSOFF = new Set(getTiersOff());
+  VENUEPREF = new Set(getVenuePref());
   GRID = computeGrid();
   UNAVAIL = new Set(loadJSON("unavail", []));
   renderAvailGrid();
@@ -224,10 +233,34 @@ function renderChips() {
     .map(([id, name]) => `<button type="button" class="chipf${TRACKSOFF.has(id) ? " off" : ""}" data-track="${esc(id)}">${esc(name)}</button>`).join("");
   const tiers = CATALOG.accessTiers || {};
   const row = $("tieropt");
-  if (!Object.keys(tiers).length) { row.hidden = true; return; }
-  row.hidden = false;
-  $("tierchips").innerHTML = Object.entries(tiers)
-    .map(([id, name]) => `<button type="button" class="chipf access${TIERSOFF.has(id) ? " off" : ""}" data-tier="${esc(id)}">${esc(name)}</button>`).join("");
+  if (!Object.keys(tiers).length) { row.hidden = true; }
+  else {
+    row.hidden = false;
+    $("tierchips").innerHTML = Object.entries(tiers)
+      .map(([id, name]) => `<button type="button" class="chipf access${TIERSOFF.has(id) ? " off" : ""}" data-tier="${esc(id)}">${esc(name)}</button>`).join("");
+  }
+  // preferred-venue chips (building-level). Hidden when <2 buildings (nothing to rank).
+  const buildings = venueBuildings();
+  const vrow = $("venueopt"), keys = Object.keys(buildings);
+  if (keys.length < 2) { vrow.hidden = true; return; }
+  vrow.hidden = false;
+  $("venuechips").innerHTML = Object.entries(buildings)
+    .sort((a, b) => a[1].localeCompare(b[1]))
+    .map(([key, name]) => `<button type="button" class="chipf ${VENUEPREF.has(key) ? "pref" : "vplain"}" data-venue="${esc(key)}">${VENUEPREF.has(key) ? "★ " : ""}${esc(name)}</button>`).join("");
+}
+
+// Distinct buildings across all venues: building-key (TiffSolver.building) ->
+// display name (the venue string minus a trailing room number, original case).
+// Building-level so "Scotiabank 4/6/12" collapse to one "Scotiabank" toggle.
+function venueBuildings() {
+  const out = {};
+  for (const m of (CATALOG.movies || []))
+    for (const s of (m.screenings || [])) {
+      const v = s.venue || "?";
+      const key = TiffSolver.building(v);
+      if (!(key in out)) out[key] = v.replace(/\s+\d+$/, "").trim() || v;
+    }
+  return out;
 }
 
 // =====================================================================  VIEW 1
@@ -317,8 +350,10 @@ function buildIncluded() {
       } else if (windows.length && !windows.some(([a, b]) => a <= start && end <= b)) {
         invalidReason = "outside your availability";
       }
-      // keep the original screening fields; overlay parsed times + validation
-      return { ...s, start, end, venue: s.venue || "?", location: s.location || "", key, invalidReason };
+      // keep the original screening fields; overlay parsed times + validation.
+      // preferred: venue's building is in the user's preferred set (scheduling bias).
+      return { ...s, start, end, venue: s.venue || "?", location: s.location || "", key, invalidReason,
+        preferred: VENUEPREF.has(TiffSolver.building(s.venue || "?")) };
     });
     // locked films are pinned: force must so the solver never drops them.
     // Spread the catalog movie so included films keep its full shape (title,
@@ -357,11 +392,13 @@ function solveAndShow() {
   render(picks);
 }
 
-// group optimal plans by the SET of kept movies; one representative each, most first.
+// group optimal plans by their full schedule (kept films AND which screening each
+// is at) so genuine venue/time trade-offs stay distinct; one rep per schedule,
+// most films first. Identical schedules still merge (variant count).
 function groupPlans(plans, maxPlans) {
   const groups = new Map();
   for (const p of plans) {
-    const key = Object.keys(p).filter((t) => p[t]).sort().join("|");
+    const key = Object.keys(p).sort().map((t) => `${t}=${p[t] ? p[t].start + "|" + p[t].venue : "x"}`).join(";");
     const g = groups.get(key) || { rep: p, variants: 0 };
     g.variants++; groups.set(key, g);
   }

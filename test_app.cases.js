@@ -8,7 +8,7 @@
 // (and __dirname) are in lexical scope and resolve relative to the repo root.
 const { check, assert, eq, eqJSON, report } = require("./test_harness.js");
 const T = (h, min) => Date.UTC(2025, 8, 10, h, min || 0);          // a fixed festival day
-const reset = (festival) => { localStorage.clear(); CATALOG = { festival: festival || "Test Fest", movies: [] }; };
+const reset = (festival) => { localStorage.clear(); VENUEPREF = new Set(); CATALOG = { festival: festival || "Test Fest", movies: [] }; };
 
 // =============================================================================
 // 1. Date parsing & formatting — wall-clock UTC, timezone-agnostic (CLAUDE.md)
@@ -214,18 +214,68 @@ check("two clashing locked tickets become a wizard choice; the rest of the plan 
 // 5. Option grouping (groupPlans)
 // =============================================================================
 
-check("groupPlans dedupes by kept-set, counts variants, most-kept first, respects cap", () => {
-  const s = (start) => ({ start, end: start + 1, venue: "V" });
+check("groupPlans keys by full schedule (films AND slots), merges only identical, most-kept first, respects cap", () => {
+  // Venue/time-distinct schedules are distinct options; only byte-identical ones
+  // merge as variants. (The solver emits one plan per genuinely distinct schedule.)
+  const s = (start, venue) => ({ start, end: start + 1, venue: venue || "V" });
   const plans = [
     { A: s(1), B: s(1), C: null },
-    { A: s(1), B: s(2), C: null }, // same kept-set {A,B}, different time
+    { A: s(1), B: s(1), C: null }, // identical schedule -> merges
+    { A: s(1), B: s(2), C: null }, // same kept-set {A,B} but B at a later slot -> distinct option
     { A: s(1), B: null, C: null }, // kept-set {A}
   ];
   const g = groupPlans(plans, 8);
-  eq(g.length, 2, "two distinct kept-sets");
-  assert(g[0].rep.A && g[0].rep.B, "the bigger keep-set sorts first");
-  eq(g.find((x) => x.rep.A && x.rep.B).variants, 2, "two variants collapsed into one option");
+  eq(g.length, 3, "three distinct schedules (two share a kept-set but differ by slot)");
+  assert(g[0].rep.A && g[0].rep.B, "a bigger keep-set sorts first");
+  eq(g.find((x) => x.rep.A && x.rep.B && x.rep.B.start === 1).variants, 2, "identical schedules collapse");
   eq(groupPlans(plans, 1).length, 1, "honours maxPlans cap");
+});
+
+// =============================================================================
+// 5b. Preferred venues (building grouping + preferred flag + end-to-end conflict)
+// =============================================================================
+
+check("venue prefs: buildings group rooms; buildIncluded flags preferred screenings", () => {
+  reset("VENUE");
+  CATALOG = { festival: "VENUE", movies: [
+    { title: "F", runtime_minutes: 60, screenings: [
+      { start: "2025-09-07 10:00", venue: "Scotiabank 4" },
+      { start: "2025-09-07 14:00", venue: "TIFF Lightbox 1" },
+    ] },
+    { title: "G", runtime_minutes: 60, screenings: [
+      { start: "2025-09-08 10:00", venue: "Scotiabank 6" },
+    ] },
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  const b = venueBuildings();
+  eqJSON(Object.keys(b).sort(), ["scotiabank", "tiff lightbox"], "Scotiabank 4/6 collapse to one building");
+  eq(b["scotiabank"], "Scotiabank", "display name strips the room number");
+  VENUEPREF = new Set(["scotiabank"]);
+  renderChips(); // smoke: the venue-chip render path executes without throwing
+  setSel({ F: "want", G: "want" });
+  const F = buildIncluded().find((m) => m.title === "F");
+  eq(F.valid.find((s) => s.venue === "Scotiabank 4").preferred, true, "Scotiabank flagged preferred");
+  eq(F.valid.find((s) => s.venue === "TIFF Lightbox 1").preferred, false, "Lightbox not preferred");
+});
+
+check("venue prefs: a venue/time conflict becomes a wizard choice end-to-end", () => {
+  reset("VCONF");
+  CATALOG = { festival: "VCONF", movies: [
+    { title: "F", runtime_minutes: 60, screenings: [
+      { start: "2025-09-07 10:00", venue: "Hall A" },       // non-preferred, early
+      { start: "2025-09-07 18:00", venue: "Scotiabank 4" }, // preferred, late
+    ] },
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  VENUEPREF = new Set(["scotiabank"]);
+  setSel({ F: "want" });
+  const inc = buildIncluded();
+  MOVIES = inc; PRIO = Object.fromEntries(inc.map((m) => [m.title, m.priority]));
+  const groups = groupPlans(TiffSolver.solve(inc, BUF, SAMEBUF, MAXPLANS, PRIOFIRST).plans, MAXPLANS);
+  computeView(groups);
+  eq(NOPT, 2, "earlier vs preferred-venue => two options");
+  eqJSON(groups.map((g) => g.rep.F.venue).sort(), ["Hall A", "Scotiabank 4"], "one option per venue/time");
+  assert(TREE.branches && TREE.branches.length === 2, "the wizard asks which screening of F");
 });
 
 // =============================================================================

@@ -8,8 +8,10 @@
 // films) where a hand-rolled search blows up on the equal-cost plateau.
 //
 // Input:  movies = [{ title, priority: "must"|"want", locked?: bool,
-//                      valid: [{ start, end, venue }] }]   // start/end = epoch ms
-// Output: { cost, plans } where each plan is { [title]: screening | null }.
+//                      valid: [{ start, end, venue, preferred? }] }] // start/end = epoch ms
+// Output: { cost, plans, truncated } where each plan is { [title]: screening | null }.
+//         preferred (a screening at a user-preferred venue) never changes cost — it
+//         only surfaces genuine venue/time trade-offs as extra equal-cost options.
 //
 // Usage: <script src="logic-solver.bundle.js"></script>
 //        <script src="solver.js"></script>   then TiffSolver.solve(...)
@@ -98,16 +100,57 @@
       return best;
     };
 
-    const plans = [];
-    let cur = opt;
-    while (cur && plans.length < maxPlans) {
-      // forbid this exact set of dropped movies so the next solve differs in WHICH it drops
-      const dropAssump = L.and(...movies.map((m, i) => (cur.evaluate(dvar(i)) ? dvar(i) : L.not(dvar(i)))));
-      plans.push(planOf(earliest(cur, dropAssump)));
-      s.forbid(dropAssump);
+    // ---- venue preference (binary, building-level) --------------------------
+    // A valid screening may carry preferred:true (its venue is in the user's
+    // preferred set). p_i = "movie i sits at a preferred venue" = OR of its
+    // preferred xvars. We enumerate distinct (drop-set + preferred-venue profile)
+    // optima instead of just distinct drop-sets, then Pareto-filter so only
+    // GENUINE trade-offs survive as options — preferred-but-later vs
+    // non-preferred-but-earlier, or two films that can't both reach a preferred
+    // venue. Branching only matters for a film with a MIX of preferred/non-pref
+    // valid screenings; with none, `venueActive` is false and this is the exact
+    // old path (distinct drop-sets only) — a true no-op when no venue is marked.
+    // Venue is never scored: cost stays drop-cost, so a profile that would cost a
+    // dropped film is never enumerated. The user decides every surfaced conflict.
+    const prefIdx = movies.map((m) => m.valid.map((s, k) => (s.preferred ? k : -1)).filter((k) => k >= 0));
+    const prefExpr = movies.map((m, i) => (prefIdx[i].length ? L.or(...prefIdx[i].map((k) => xvar(i, k))) : null));
+    const venueActive = movies.some((m, i) => prefIdx[i].length > 0 && prefIdx[i].length < m.valid.length);
+    const atPref = (so, i) => prefIdx[i].some((k) => so.evaluate(xvar(i, k)));
+    // assumption pinning a solution's drop-set (+ preferred-venue profile when active)
+    const profileOf = (so) => L.and(...movies.flatMap((m, i) => {
+      const terms = [so.evaluate(dvar(i)) ? dvar(i) : L.not(dvar(i))];
+      if (venueActive && prefExpr[i]) terms.push(atPref(so, i) ? prefExpr[i] : L.not(prefExpr[i]));
+      return terms;
+    }));
+    const lateOf = (so) => (lateSum ? so.getWeightedSum(lateTerms, lateWeights) : 0);
+
+    // enumerate distinct optima; collapse time within each profile.
+    const ENUM_CAP = venueActive ? Math.max(maxPlans * 8, 64) : maxPlans;
+    const raw = [];
+    let cur = opt, truncated = false;
+    while (cur && raw.length < ENUM_CAP) {
+      const pa = profileOf(cur);
+      const best = earliest(cur, pa); // lateness-min WITHIN this drop-set + profile
+      const keptIdx = movies.map((_, i) => i).filter((i) => !best.evaluate(dvar(i)));
+      raw.push({ so: best, keptSig: keptIdx.join(","), keptN: keptIdx.length,
+        pref: new Set(keptIdx.filter((i) => atPref(best, i))), late: lateOf(best) });
+      s.forbid(pa); // never repeat this (drop-set, profile)
       cur = s.solve();
     }
-    return { cost, plans };
+    if (cur) truncated = true; // hit ENUM_CAP — more optima exist than we explored
+
+    // Pareto-filter per kept-set: drop a schedule when another with the SAME kept
+    // set is at least as good on BOTH axes (preferred-venue set ⊇, lateness ≤) and
+    // strictly better on one. Survivors are the genuine venue/time trade-offs.
+    const superset = (a, b) => { for (const x of b) if (!a.has(x)) return false; return true; };
+    const dominated = (e) => raw.some((o) => o !== e && o.keptSig === e.keptSig
+      && superset(o.pref, e.pref) && o.late <= e.late
+      && (o.pref.size > e.pref.size || o.late < e.late));
+    const survivors = raw.filter((e) => !venueActive || !dominated(e));
+    survivors.sort((a, b) => b.keptN - a.keptN); // most films kept first (stable)
+    if (survivors.length > maxPlans) truncated = true;
+    const plans = survivors.slice(0, maxPlans).map((e) => planOf(e.so));
+    return { cost, plans, truncated };
   }
 
   // ---- self-check: TiffSolver._selfTest() (needs logic-solver loaded).
@@ -157,6 +200,15 @@
     assert(agg.plans[0].M.start === Date.UTC(2024, 2, 6, 13, 0), "must should yield to two wants");
     assert(agg.plans[0].W1.start === Date.UTC(2024, 2, 6, 9, 0), "W1 should be early");
     assert(agg.plans[0].W2.start === Date.UTC(2024, 2, 6, 11, 0), "W2 should be early");
+
+    // ---- venue preference: a preferred-but-late vs non-preferred-but-early slot
+    // is a genuine trade-off -> two equal-cost options, both keeping the film.
+    const vp = solve([
+      { title: "V", priority: "want", valid: [at(10, 0, 60, "A"), { ...at(14, 0, 60, "B"), preferred: true }] },
+    ], 30, 10, 8, true);
+    assert(vp.plans.length === 2, "venue conflict should surface two options, got " + vp.plans.length);
+    vp.plans.forEach((p) => assert(p.V, "both venue options keep the film"));
+    assert(new Set(vp.plans.map((p) => p.V.venue)).size === 2, "the two options differ by venue");
 
     console.log("solver.js self-test passed");
   }

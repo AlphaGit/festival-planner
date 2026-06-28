@@ -23,6 +23,7 @@ const at = (h, min, dur, venue) => { const start = Date.UTC(2025, 8, 10, h, min 
 const T = (h, min) => Date.UTC(2025, 8, 10, h, min || 0);
 const kept = (plan) => Object.keys(plan).filter((t) => plan[t]).sort();
 const distinctDropSets = (plans) => new Set(plans.map((p) => kept(p).join("|"))).size;
+const P = (s) => ({ ...s, preferred: true }); // mark a screening's venue as preferred
 
 // =============================================================================
 // Group A — core solver behaviour (was only covered by the in-browser self-test)
@@ -228,6 +229,67 @@ check("two clashing locks degrade to a user choice — two options, each keeping
   ], 30, 10, 8);
   eq(r.plans.length, 2, "both resolutions offered");
   eqJSON(r.plans.map((p) => kept(p).join("|")).sort(), ["A", "B"], "one option per surviving ticket");
+});
+
+// =============================================================================
+// Group D — venue preference (binary, building-level). Preferred never changes
+// cost; it only surfaces genuine venue/time trade-offs as extra equal-cost
+// options. No preferred flag anywhere => exact old behaviour (Groups A–C cover that).
+// =============================================================================
+
+check("venue: preferred-late vs non-preferred-early -> two options (genuine conflict)", () => {
+  const r = solve([
+    { title: "X", priority: "want", valid: [at(10, 0, 60, "A"), P(at(14, 0, 60, "B"))] },
+  ], 30, 10, 8, true);
+  eq(r.plans.length, 2, "both the earlier and the preferred-venue slot are offered");
+  r.plans.forEach((p) => assert(p.X, "every option keeps X"));
+  eqJSON(r.plans.map((p) => p.X.venue).sort(), ["A", "B"], "options differ by venue/time");
+});
+
+check("venue: preferred IS the earliest -> no conflict, just take it", () => {
+  const r = solve([
+    { title: "X", priority: "want", valid: [P(at(10, 0, 60, "B")), at(14, 0, 60, "A")] },
+  ], 30, 10, 8, true);
+  eq(r.plans.length, 1, "non-preferred-later slot is dominated, not surfaced");
+  eq(r.plans[0].X.venue, "B", "the preferred (and earliest) venue is chosen");
+});
+
+check("venue: two preferred venues -> no conflict, earliest preferred", () => {
+  const r = solve([
+    { title: "X", priority: "want", valid: [P(at(14, 0, 60, "B")), P(at(10, 0, 60, "A"))] },
+  ], 30, 10, 8, true);
+  eq(r.plans.length, 1, "both preferred => equal => collapse");
+  eq(r.plans[0].X.start, T(10), "earliest among preferred");
+});
+
+check("venue: prioritize-first OFF -> preferred just wins, no conflict surfaced", () => {
+  const r = solve([
+    { title: "X", priority: "want", valid: [at(10, 0, 60, "A"), P(at(14, 0, 60, "B"))] },
+  ], 30, 10, 8, false);
+  eq(r.plans.length, 1, "no earliness axis => no trade-off => bias to preferred");
+  eq(r.plans[0].X.venue, "B", "preferred venue chosen");
+});
+
+check("venue: two independent conflicts -> per-film Pareto front", () => {
+  const r = solve([
+    { title: "X", priority: "want", valid: [at(9, 0, 60, "A"), P(at(15, 0, 60, "P"))] },
+    { title: "Y", priority: "want", valid: [at(11, 0, 60, "B"), P(at(17, 0, 60, "Q"))] },
+  ], 30, 10, 8, true);
+  eq(r.plans.length, 4, "{}, {X}, {Y}, {X,Y} preferred-venue combinations");
+  const prefCount = (p) => [p.X, p.Y].filter((s) => /[PQ]/.test(s.venue)).length;
+  eqJSON(r.plans.map(prefCount).sort(), [0, 1, 1, 2], "one option per point on the front");
+});
+
+check("venue: a preferred slot that would cost a drop is never offered", () => {
+  // X's preferred screening clashes with the must M; honouring it would drop M
+  // (higher cost), so it's never enumerated — X stays at its non-preferred slot.
+  const r = solve([
+    { title: "M", priority: "must", valid: [at(10, 0, 60, "A")] },
+    { title: "X", priority: "want", valid: [P(at(10, 0, 60, "A")), at(14, 0, 60, "B")] },
+  ], 30, 10, 8, true);
+  eq(r.plans.length, 1, "no equal-cost venue alternative exists");
+  assert(r.plans[0].M && r.plans[0].X, "both kept");
+  eq(r.plans[0].X.venue, "B", "X takes its non-preferred slot to keep the must");
 });
 
 check("the in-browser _selfTest() also passes here", () => {

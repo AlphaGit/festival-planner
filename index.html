@@ -51,6 +51,8 @@ a.mtitle{color:#1a1a2e;text-decoration:none} a.mtitle:hover{color:#2980b9;text-d
 .chipf:hover{border-color:#9b9}
 .chipf.access{background:#e9f0f7;border-color:#bcd;color:#2f5a86}
 .chipf.off{background:#f4f4f4;border-color:#ddd;color:#aaa;text-decoration:line-through}
+.chipf.pref{background:#fff3d6;border-color:#e3bf66;color:#7a5a12;font-weight:600}
+.chipf.vplain{background:#f5f5f5;border-color:#ddd;color:#888}
 .opts{margin:6px 0 14px;background:#fff;border:1px solid #eee;border-radius:10px;padding:6px 14px}
 .opts summary{cursor:pointer;font-weight:600;color:#555;font-size:.9em}
 .opts label{display:block;margin:10px 0;font-size:.9em}
@@ -202,6 +204,10 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
     <label>Buffer at the same venue (minutes)
       <input type="number" id="samebuf" min="0" step="5" value="10"></label>
     <label><input type="checkbox" id="priofirst" checked style="width:auto;margin:0 6px 0 0;vertical-align:middle">Prioritize first screenings (prefer earlier showtimes)</label>
+    <div id="venueopt" class="chiprow" hidden>
+      <span class="chiphead"><span class="chiplbl">Preferred venues</span><span class="chiphint">★ preferred wins on ties; when it clashes with an earlier showtime, both become options to choose</span></span>
+      <span id="venuechips" class="chips"></span>
+    </div>
     <div class="availopt">
       <div>Availability — <span class="lgnd free">✓</span> free, <span class="lgnd off">✕</span> can't attend.
         Click or drag to mark times you can't go. All free by default.</div>
