@@ -81,6 +81,18 @@ check("among mutually-conflicting films, keeping the must is cheapest", () => {
   r.plans.forEach((p) => { assert(p.M, "must kept"); eq(kept(p).length, 1); });
 });
 
+check("maximises wants kept: drops the one film that blocks two, not the two", () => {
+  // W1 (10:00–13:00) overlaps both W2 and W3; W2 and W3 don't overlap each other.
+  // Keep W1 -> drop 2 wants (cost 2). Drop W1 -> keep 2 (cost 1). Min wants dropped.
+  const r = solve([
+    { title: "W1", priority: "want", valid: [at(10, 0, 180, "X")] },
+    { title: "W2", priority: "want", valid: [at(10, 30, 60, "Y")] },
+    { title: "W3", priority: "want", valid: [at(12, 0, 60, "Z")] },
+  ], 30, 10, 8);
+  eq(r.cost, 1, "drop exactly one want");
+  r.plans.forEach((p) => { assert(!p.W1, "drop the film that blocks two"); assert(p.W2 && p.W3, "keep the other two"); });
+});
+
 // Flex has two screenings; whichever it takes frees a different B-venue want.
 const FLEX = [
   { title: "Flex", priority: "want", valid: [at(10, 0, 90, "A"), at(14, 0, 90, "A")] },

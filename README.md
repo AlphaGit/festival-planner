@@ -46,10 +46,13 @@ tagging. `scrape_tiff.py` (pure stdlib: `python3 scrape_tiff.py`) regenerates
 ## Tests
 
 ```sh
-node test_solver.js   # plain assert, no framework, no deps
+node test_solver.js && node test_app.js   # plain assert, no framework, no deps
 ```
 
-The browser solver also has an in-page self-check: `TiffSolver._selfTest()`.
+`test_solver.js` covers scheduling correctness; `test_app.js` covers app
+behaviour (tagging, availability, screening validation, the decision wizard,
+pick reconciliation, persistence). The browser solver also has an in-page
+self-check: `TiffSolver._selfTest()`.
 
 ## Contributing
 
