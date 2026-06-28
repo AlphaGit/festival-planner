@@ -320,7 +320,7 @@ function buildIncluded() {
       return { start, end, venue: s.venue || "?", location: s.location || "", key, invalidReason };
     });
     // locked films are pinned: force must so the solver never drops them
-    included.push({ title: m.title, priority: lockKey ? "must" : status, locked: !!lockKey, screenings, valid: screenings.filter((s) => !s.invalidReason) });
+    included.push({ title: m.title, source_url: m.source_url, priority: lockKey ? "must" : status, locked: !!lockKey, screenings, valid: screenings.filter((s) => !s.invalidReason) });
   }
   return included;
 }
