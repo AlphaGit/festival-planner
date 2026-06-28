@@ -24,8 +24,9 @@ Files (load order matters in `index.html`):
 - `solver.js` — exposes `TiffSolver.solve(movies, buf, sameBuf, maxPlans,
   prioritizeFirst) -> { cost, plans }`. Builds a boolean model (one var per
   screening + a drop var per film; `exactlyOne` per film; `atMostOne` per
-  conflicting screening pair), minimizes weighted drop cost (must = 1000,
-  want = 1), then enumerates distinct optimal drop-sets by `forbid`-ing each and
+  conflicting screening pair), minimizes weighted drop cost (locked = 1e6,
+  must = 1000, want = 1 — a `locked` film is a held ticket, so it outranks any
+  must), then enumerates distinct optimal drop-sets by `forbid`-ing each and
   re-solving. When `prioritizeFirst` is set (default in the UI), a strictly
   subordinate secondary objective biases each kept film toward its earlier
   screenings — minimized *within* each drop-set via `solveAssuming` so it never
@@ -77,7 +78,7 @@ scrape_tiff.py` to regenerate `catalog.json` from the TIFF site.
 - Non-trivial changes leave a runnable check behind (plain assert, no framework):
   `node test_solver.js` (scheduling) and `node test_app.js` (app.js behaviour).
   The latter evals the un-modularised app headlessly behind a tiny DOM shim — its
-  cases live in `test_app.cases.js`. Keep the in-browser `TiffSolver._selfTest()`
-  smoke check too.
+  cases live in `test_app.cases.js`. Both share `test_harness.js` (check/assert/
+  eq/report). Keep the in-browser `TiffSolver._selfTest()` smoke check too.
 - All development happens on `main` — no feature branches. Commit and push
   straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.

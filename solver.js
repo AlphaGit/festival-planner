@@ -2,12 +2,12 @@
 //
 // Models the schedule as a boolean satisfiability problem and solves it with
 // logic-solver (MiniSat, bundled in logic-solver.bundle.js — load that FIRST).
-// Minimizes weighted drop cost (must = 1000, want = 1), then enumerates the
-// distinct optimal drop-sets (the "options") by forbidding each found drop-set
-// and re-solving. Fast and exact even on dense catalogs (~50 films) where a
-// hand-rolled search blows up on the equal-cost plateau.
+// Minimizes weighted drop cost (locked = 1e6, must = 1000, want = 1), then
+// enumerates the distinct optimal drop-sets (the "options") by forbidding each
+// found drop-set and re-solving. Fast and exact even on dense catalogs (~50
+// films) where a hand-rolled search blows up on the equal-cost plateau.
 //
-// Input:  movies = [{ title, priority: "must"|"want",
+// Input:  movies = [{ title, priority: "must"|"want", locked?: bool,
 //                      valid: [{ start, end, venue }] }]   // start/end = epoch ms
 // Output: { cost, plans } where each plan is { [title]: screening | null }.
 //
@@ -16,6 +16,11 @@
 (function (root) {
   "use strict";
   const MUST_COST = 1000; // dropping a must costs this; dropping a want costs 1
+  // A locked film is a held ticket — it must outrank any must *preference*. 1e6 is
+  // strictly above MUST_COST * the most films a catalog has (~50), so dropping a
+  // lock is never optimal unless it's literally infeasible (e.g. two locks clash).
+  // ponytail: bump if catalogs ever exceed ~1000 films.
+  const LOCK_COST = 1e6;
 
   // "Scotiabank 6" and "Scotiabank 12" are rooms in the same building.
   function building(venue) {
@@ -47,7 +52,7 @@
           }));
 
     const dvars = movies.map((_, i) => dvar(i));
-    const weights = movies.map((m) => (m.priority === "must" ? MUST_COST : 1));
+    const weights = movies.map((m) => (m.locked ? LOCK_COST : m.priority === "must" ? MUST_COST : 1));
     let sol = s.solve();
     if (!sol) return { cost: 0, plans: [{}] }; // unreachable: dropping everything is always feasible
     const opt = s.minimizeWeightedSum(sol, dvars, weights);

@@ -4,14 +4,9 @@
 // Plain assert, no framework, matching test_solver.js. Tests target behaviour /
 // the app's promises, not rendered HTML.
 
-let pass = 0, fail = 0;
-function check(name, fn) {
-  try { fn(); pass++; }
-  catch (e) { fail++; console.error("FAIL  " + name + "\n        " + (e && e.message)); }
-}
-const assert = (c, m) => { if (!c) throw new Error(m || "assertion failed"); };
-const eq = (a, b, m) => assert(a === b, (m ? m + ": " : "") + "expected " + JSON.stringify(b) + ", got " + JSON.stringify(a));
-const eqJSON = (a, b, m) => eq(JSON.stringify(a), JSON.stringify(b), m);
+// require works here: test_app.js evals this in its module scope, so `require`
+// (and __dirname) are in lexical scope and resolve relative to the repo root.
+const { check, assert, eq, eqJSON, report } = require("./test_harness.js");
 const T = (h, min) => Date.UTC(2025, 8, 10, h, min || 0);          // a fixed festival day
 const reset = (festival) => { localStorage.clear(); CATALOG = { festival: festival || "Test Fest", movies: [] }; };
 
@@ -169,6 +164,24 @@ check("buildIncluded invalidates screenings outside the availability windows", (
   eq(inc.valid[0].start, parseDT("2025-09-07 10:00"));
 });
 
+check("a locked want is kept end-to-end even when a must-watch wants the same slot", () => {
+  // The full promise of "I have tickets — lock this": the held screening survives
+  // in every optimal option, and the competing must yields — even though the
+  // locked film is only tagged 'want'.
+  reset("LOCK");
+  CATALOG = { festival: "LOCK", movies: [
+    { title: "Ticketed", runtime_minutes: 60, screenings: [{ start: "2025-09-07 19:00", venue: "X" }] },
+    { title: "BigMust", runtime_minutes: 60, screenings: [{ start: "2025-09-07 19:00", venue: "X" }] }, // same slot -> conflict
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  setSel({ Ticketed: "want", BigMust: "must" }); // Ticketed is only a want...
+  setLocks({ Ticketed: scrKey("Ticketed", parseDT("2025-09-07 19:00"), "X") }); // ...but I hold a ticket
+  const { plans } = TiffSolver.solve(buildIncluded(), BUF, SAMEBUF, MAXPLANS, PRIOFIRST);
+  const groups = groupPlans(plans, MAXPLANS);
+  assert(groups.every((g) => g.rep.Ticketed), "locked want survives in every option");
+  assert(groups.every((g) => !g.rep.BigMust), "the must yields to the held ticket");
+});
+
 // =============================================================================
 // 5. Option grouping (groupPlans)
 // =============================================================================
@@ -306,6 +319,4 @@ check("storage is namespaced per festival — renaming orphans (never reads) old
   eqJSON(getSel(), { M: "must" }, "old festival's tags are still intact");
 });
 
-// ---- report -----------------------------------------------------------------
-console.log(`\n[app] ${pass} passed, ${fail} failed`);
-if (fail) process.exit(1);
+report("app");

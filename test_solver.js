@@ -15,15 +15,7 @@ eval(
   fs.readFileSync(path.join(__dirname, "solver.js"), "utf8")
 );
 const { solve, compatible, building } = globalThis.TiffSolver;
-
-// ---- tiny harness -----------------------------------------------------------
-let pass = 0, fail = 0;
-function check(name, fn) {
-  try { fn(); pass++; }
-  catch (e) { fail++; console.error("FAIL  " + name + "\n        " + e.message); }
-}
-const assert = (c, m) => { if (!c) throw new Error(m || "assertion failed"); };
-const eq = (a, b, m) => assert(a === b, (m ? m + ": " : "") + "expected " + b + ", got " + a);
+const { check, assert, eq, report } = require("./test_harness.js");
 
 // All times are wall-clock UTC (tz-agnostic), matching the app. Same date so
 // only the hour/minute matters.
@@ -212,10 +204,23 @@ check("reported cost is drop-cost only, never inflated by lateness", () => {
   eq(r.cost, 1, "exactly one want dropped; lateness adds nothing");
 });
 
+// =============================================================================
+// Group C — locked screenings (a held ticket outranks a must *preference*)
+// =============================================================================
+
+check("a locked screening outranks a competing must, even when it's only a want", () => {
+  // Locked want and a must both want the same single slot. The held ticket wins;
+  // the must yields. No optimal option drops the lock.
+  const r = solve([
+    { title: "Locked", priority: "want", locked: true, valid: [at(19, 0, 60, "X")] },
+    { title: "Must", priority: "must", valid: [at(19, 0, 60, "X")] },
+  ], 30, 10, 8);
+  r.plans.forEach((p) => { assert(p.Locked, "held ticket kept"); assert(!p.Must, "must yields to the ticket"); });
+  eq(r.plans.length, 1, "dropping the lock is never an option");
+});
+
 check("the in-browser _selfTest() also passes here", () => {
   globalThis.TiffSolver._selfTest();
 });
 
-// ---- report -----------------------------------------------------------------
-console.log(`\n${pass} passed, ${fail} failed`);
-process.exit(fail ? 1 : 0);
+report("solver");
