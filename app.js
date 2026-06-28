@@ -486,7 +486,7 @@ function runs(cols) { // contiguous runs of column indices -> [[a,b],...]
 function venueHtml(locId, venue) {
   const loc = LOCATIONS[locId];
   if (!loc) return `<div class="bvenue">${esc(venue)}</div>`;
-  const q = encodeURIComponent(loc.address || loc.name || venue);
+  const q = encodeURIComponent([loc.name, loc.address].filter(Boolean).join(", ") || venue);
   return `<a class="bvenue" href="https://maps.google.com/?q=${q}" target="_blank" rel="noopener">${esc(loc.name || venue)}</a>`;
 }
 function drawBoard(live) {

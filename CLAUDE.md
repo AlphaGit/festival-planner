@@ -70,6 +70,13 @@ Chrome.
 `scrape_tiff.py` — pure Python stdlib, no dependencies. Run `python3
 scrape_tiff.py` to regenerate `catalog.json` from the TIFF site.
 
+**Venue addresses.** Each `locations[<id>].address` powers the Google Maps link
+in the timeline (View 2). The scraper does not yet pull addresses from the TIFF
+pages, so a fresh `catalog.json` may have empty `address` fields for new venues —
+fill them in by hand (research the venue address online) after re-scraping.
+Existing TIFF 2025 venues are already populated. Ideally `scrape_tiff.py` would
+scrape these too; until it does, treat empty addresses as a manual follow-up.
+
 ## Conventions
 
 - Dependencies: before adding/pinning any, confirm the version was published ≥7
