@@ -317,10 +317,13 @@ function buildIncluded() {
       } else if (windows.length && !windows.some(([a, b]) => a <= start && end <= b)) {
         invalidReason = "outside your availability";
       }
-      return { start, end, venue: s.venue || "?", location: s.location || "", key, invalidReason };
+      // keep the original screening fields; overlay parsed times + validation
+      return { ...s, start, end, venue: s.venue || "?", location: s.location || "", key, invalidReason };
     });
-    // locked films are pinned: force must so the solver never drops them
-    included.push({ title: m.title, source_url: m.source_url, priority: lockKey ? "must" : status, locked: !!lockKey, screenings, valid: screenings.filter((s) => !s.invalidReason) });
+    // locked films are pinned: force must so the solver never drops them.
+    // Spread the catalog movie so included films keep its full shape (title,
+    // source_url, blurb, ...) — overlay only the schedule-computed fields.
+    included.push({ ...m, priority: lockKey ? "must" : status, locked: !!lockKey, screenings, valid: screenings.filter((s) => !s.invalidReason) });
   }
   return included;
 }
