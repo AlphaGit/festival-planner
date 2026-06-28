@@ -2,9 +2,12 @@
 """Scrape the TIFF films list into catalog.json (the browser app's format).
 
 TIFF serves the entire festival as one JSON blob at /festivalfilmlist — no
-per-film page scraping needed. We keep only public, non-cancelled, in-person
-screenings (drop Press & Industry / Market / digital), and emit the same shape
-app.js / solver.js already consume.
+per-film page scraping needed. We keep non-cancelled, in-person screenings and
+classify each by audience: public screenings carry no access tier, Press &
+Industry / Market ones are tagged `accessTiers: ["press-industry"]` (a
+screening-level axis, distinct from movie-level curatorial tracks). Digital and
+other restricted audiences are dropped. We emit the same shape app.js /
+solver.js already consume.
 
     python3 scrape_tiff.py                 # fetch live -> catalog.json
     python3 scrape_tiff.py raw.json        # use a saved blob instead of fetching
@@ -12,6 +15,9 @@ app.js / solver.js already consume.
 
 runtime_minutes = shortest screening block across ALL listings (incl. P&I),
 which is the pure film runtime; public blocks include intros/Q&A and run longer.
+
+P&I ships disabled by default (disabledAccessTiers): most users can't attend
+press screenings, so they're hidden until a user marks they hold that access.
 """
 import html
 import json
@@ -23,6 +29,9 @@ from datetime import datetime
 URL = "https://www.tiff.net/festivalfilmlist"
 FESTIVAL = "TIFF 2025"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
+
+PI_TIER = "press-industry"
+PI_TIER_NAME = "Press & Industry"
 
 
 def strip_html(s):
@@ -40,12 +49,22 @@ def block_minutes(s):
     return int((datetime.strptime(s["endTime"], fmt) - datetime.strptime(s["startTime"], fmt)).total_seconds() // 60)
 
 
-def is_public(s):
-    return (
-        "General Public" in (s.get("audienceType") or "")
-        and not s.get("cancelled")
-        and (s.get("venue") or {}).get("venueType") == "physical"
-    )
+def access_tiers(s):
+    """Access tiers for a KEPT screening, or None to drop it.
+
+    [] = public; ["press-industry"] = Press & Industry / Market. TIFF's
+    audienceType is "General Public" for public showings and a combo of
+    accreditation passes otherwise ("Buyers Pass,Pro Pass,Guest,Press Passes",
+    "Buyers Pass", ...) — every non-public accreditation is an industry/press
+    showing, so anything that isn't public (and has some audience) is P&I.
+    Cancelled, digital, and audience-less rows are dropped (None).
+    """
+    if s.get("cancelled") or (s.get("venue") or {}).get("venueType") != "physical":
+        return None
+    aud = (s.get("audienceType") or "").strip()
+    if not aud:
+        return None
+    return [] if "General Public" in aud else [PI_TIER]
 
 
 def fetch(src):
@@ -59,26 +78,27 @@ def fetch(src):
 
 def build(data):
     tracks, locations, movies = {}, {}, []
+    any_pi = False
     for it in data["items"]:
-        pub = [s for s in it["scheduleItems"] if is_public(s)]
-        if not pub:
-            continue  # digital-only / industry-only / talks with no public screening
+        kept = [(s, t) for s in it["scheduleItems"] if (t := access_tiers(s)) is not None]
+        if not kept:
+            continue  # digital-only / cancelled / no public or P&I screening
 
         for prog in it.get("webProgrammes", []):
             tracks.setdefault(slugify(prog), prog)
 
         screenings = []
-        for s in sorted(pub, key=lambda x: x["startTime"]):
+        for s, tiers in sorted(kept, key=lambda x: x[0]["startTime"]):
             room = s["venue"]["room"]
             loc = slugify(room)
             locations.setdefault(loc, {"name": room, "address": ""})
-            screenings.append({
-                "start": s["startTime"][:16],          # "YYYY-MM-DD HH:MM"
-                "venue": room,
-                "location": loc,
-            })
+            sc = {"start": s["startTime"][:16], "venue": room, "location": loc}  # "YYYY-MM-DD HH:MM"
+            if tiers:
+                sc["accessTiers"] = tiers
+                any_pi = True
+            screenings.append(sc)
 
-        # pure runtime = shortest block over every listing, not just public ones
+        # pure runtime = shortest block over every listing, not just kept ones
         runtime = min(block_minutes(s) for s in it["scheduleItems"])
         img = it.get("img") or ""
         movies.append({
@@ -96,6 +116,8 @@ def build(data):
     return {
         "festival": FESTIVAL,
         "tracks": dict(sorted(tracks.items(), key=lambda kv: kv[1])),
+        "accessTiers": {PI_TIER: PI_TIER_NAME} if any_pi else {},
+        "disabledAccessTiers": [PI_TIER] if any_pi else [],
         "locations": dict(sorted(locations.items())),
         "movies": movies,
     }
@@ -109,5 +131,6 @@ if __name__ == "__main__":
         json.dump(cat, f, indent=2, ensure_ascii=False)
         f.write("\n")
     sc = sum(len(m["screenings"]) for m in cat["movies"])
-    print(f"{out}: {len(cat['movies'])} films, {sc} public screenings, "
+    pi = sum(1 for m in cat["movies"] for s in m["screenings"] if s.get("accessTiers"))
+    print(f"{out}: {len(cat['movies'])} films, {sc} screenings ({pi} P&I), "
           f"{len(cat['locations'])} venues, {len(cat['tracks'])} tracks")

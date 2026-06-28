@@ -41,8 +41,16 @@ a.mtitle{color:#1a1a2e;text-decoration:none} a.mtitle:hover{color:#2980b9;text-d
   display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--blurb-lines);overflow:hidden}
 .mblurb.expanded{-webkit-line-clamp:initial;display:block}
 .mblurb.muted{font-style:italic;cursor:default}
-.filterbar{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:6px 0 10px}
-.filterbar select{font:inherit;padding:5px 8px;border-radius:8px;border:1px solid #ddd}
+.filterbar{display:flex;flex-direction:column;gap:8px;margin:6px 0 12px}
+.chiprow{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.chiphead{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:3px 6px}
+.chiplbl{font-weight:600;font-size:.85em;color:#555}
+.chiphint{font-size:.78em;color:#999}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chipf{border:1px solid #cdb;background:#eef5ee;color:#3a5a3a;border-radius:999px;padding:3px 10px;cursor:pointer;font:inherit;font-size:.8em}
+.chipf:hover{border-color:#9b9}
+.chipf.access{background:#e9f0f7;border-color:#bcd;color:#2f5a86}
+.chipf.off{background:#f4f4f4;border-color:#ddd;color:#aaa;text-decoration:line-through}
 .opts{margin:6px 0 14px;background:#fff;border:1px solid #eee;border-radius:10px;padding:6px 14px}
 .opts summary{cursor:pointer;font-weight:600;color:#555;font-size:.9em}
 .opts label{display:block;margin:10px 0;font-size:.9em}
@@ -174,7 +182,16 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
     </ul>
   </details>
   <div id="counts" class="muted"></div>
-  <div class="filterbar"><label>Track: <select id="trackfilter"><option value="">All tracks</option></select></label></div>
+  <div class="filterbar">
+    <div class="chiprow">
+      <span class="chiphead"><span class="chiplbl">Show programs</span><span class="chiphint">filters this list only</span></span>
+      <span id="trackchips" class="chips"></span>
+    </div>
+    <div id="tieropt" class="chiprow" hidden>
+      <span class="chiphead"><span class="chiplbl">Allowed access</span><span class="chiphint">screenings you can attend — and the only ones scheduled</span></span>
+      <span id="tierchips" class="chips"></span>
+    </div>
+  </div>
   <div id="catalog"></div>
   <details class="opts">
     <summary>Scheduling options</summary>

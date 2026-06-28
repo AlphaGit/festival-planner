@@ -347,4 +347,91 @@ check("storage is namespaced per festival — renaming orphans (never reads) old
   eqJSON(getSel(), { M: "must" }, "old festival's tags are still intact");
 });
 
+// =============================================================================
+// 10. Access tiers + track chips (View 1 visibility & scheduling)
+// =============================================================================
+
+check("screeningAllowed: public always allowed; a tiered screening is gated by TIERSOFF", () => {
+  TIERSOFF = new Set();
+  assert(screeningAllowed({ venue: "X" }), "no accessTiers => public => allowed");
+  assert(screeningAllowed({ accessTiers: [], venue: "X" }), "empty accessTiers => public");
+  assert(screeningAllowed({ accessTiers: ["press-industry"] }), "tier allowed when its chip is on");
+  TIERSOFF = new Set(["press-industry"]);
+  assert(!screeningAllowed({ accessTiers: ["press-industry"] }), "tier disallowed when its chip is off");
+  assert(screeningAllowed({ venue: "X" }), "public still allowed while a tier is off");
+});
+
+check("movieVisible: P&I-only film hidden when access off; dual film stays via its public slot", () => {
+  TRACKSOFF = new Set(); TIERSOFF = new Set(["press-industry"]);
+  const piOnly = { title: "PI", tracks: ["x"], screenings: [{ start: "a", accessTiers: ["press-industry"] }] };
+  const dual = { title: "D", tracks: ["x"], screenings: [{ start: "a" }, { start: "b", accessTiers: ["press-industry"] }] };
+  assert(!movieVisible(piOnly), "P&I-only hidden when access not allowed");
+  assert(movieVisible(dual), "dual film visible via its public screening");
+  TIERSOFF = new Set();
+  assert(movieVisible(piOnly), "P&I-only appears once access is allowed");
+});
+
+check("movieVisible: a track chip hides its films, but only when ALL their tracks are off", () => {
+  TRACKSOFF = new Set(["galas"]); TIERSOFF = new Set();
+  assert(!movieVisible({ title: "G", tracks: ["galas"], screenings: [{ start: "a" }] }), "all tracks off => hidden");
+  assert(movieVisible({ title: "G2", tracks: ["galas", "docs"], screenings: [{ start: "a" }] }), "shown via another on track");
+  TRACKSOFF = new Set();
+});
+
+check("buildIncluded drops disallowed-tier screenings; allowing the tier re-adds them", () => {
+  reset("AT1");
+  CATALOG = { festival: "AT1", accessTiers: { "press-industry": "P&I" }, disabledAccessTiers: ["press-industry"], movies: [
+    { title: "Dual", runtime_minutes: 60, tracks: ["t"], screenings: [
+      { start: "2025-09-07 10:00", venue: "X" },
+      { start: "2025-09-07 14:00", venue: "Y", accessTiers: ["press-industry"] },
+    ] },
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  TRACKSOFF = new Set(); TIERSOFF = new Set(["press-industry"]); // P&I off (the default)
+  setSel({ Dual: "must" });
+  let inc = buildIncluded()[0];
+  eq(inc.screenings.length, 1, "only the public screening is a candidate");
+  eq(inc.valid[0].start, parseDT("2025-09-07 10:00"), "and it's the public one");
+  TIERSOFF = new Set(); // mark P&I allowed
+  inc = buildIncluded()[0];
+  eq(inc.screenings.length, 2, "the P&I screening becomes a candidate once access is allowed");
+  TIERSOFF = new Set();
+});
+
+check("a P&I-only film tagged must has no candidates while access is off (never booked)", () => {
+  reset("AT2");
+  CATALOG = { festival: "AT2", accessTiers: { "press-industry": "P&I" }, disabledAccessTiers: ["press-industry"], movies: [
+    { title: "Market", runtime_minutes: 60, tracks: ["t"], screenings: [{ start: "2025-09-07 10:00", venue: "X", accessTiers: ["press-industry"] }] },
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  TRACKSOFF = new Set(); TIERSOFF = new Set(["press-industry"]);
+  setSel({ Market: "must" });
+  eq(buildIncluded()[0].valid.length, 0, "no allowed screenings => nothing to schedule");
+  TIERSOFF = new Set();
+  eq(buildIncluded()[0].valid.length, 1, "allowing access makes it schedulable");
+  TIERSOFF = new Set();
+});
+
+check("track chips never affect scheduling — a track-hidden must still has candidates", () => {
+  reset("AT3");
+  CATALOG = { festival: "AT3", movies: [
+    { title: "G", runtime_minutes: 60, tracks: ["galas"], screenings: [{ start: "2025-09-07 10:00", venue: "X" }] },
+  ] };
+  GRID = computeGrid(); UNAVAIL = new Set();
+  TRACKSOFF = new Set(["galas"]); TIERSOFF = new Set();
+  setSel({ G: "must" });
+  assert(!movieVisible(CATALOG.movies[0]), "hidden from the View 1 list");
+  eq(buildIncluded()[0].valid.length, 1, "but still scheduled — tracks are view-only");
+  TRACKSOFF = new Set();
+});
+
+check("getTiersOff defaults to the catalog's disabledAccessTiers until the user overrides", () => {
+  reset("AT4");
+  CATALOG = { festival: "AT4", disabledAccessTiers: ["press-industry"], movies: [] };
+  eqJSON(getTiersOff(), ["press-industry"], "first load: P&I off by default");
+  setTiersOff([]); // user marks they hold P&I access
+  eqJSON(getTiersOff(), [], "override persists");
+  eqJSON(getTracksOff(), [], "tracks default all-on");
+});
+
 report("app");

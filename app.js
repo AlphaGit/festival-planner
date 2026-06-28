@@ -11,7 +11,8 @@ const STATUS_LABEL = { must: "Must", want: "Want", skip: "Skip" };
 const effStatus = (sel, title) => { const s = sel[title]; return s === "unavailable" ? "skip" : (s || "skip"); };
 
 // ---- module state (set per solve, read by the board/wizard renderers)
-let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, PRIOFIRST = true, TRACKFILTER = "";
+let CATALOG = null, MOVIES = [], BUF = 30, SAMEBUF = 10, PRIOFIRST = true;
+let TRACKSOFF = new Set(), TIERSOFF = new Set(); // View 1 chips: hidden curatorial tracks / disallowed access tiers
 let GRID = { days: [], hours: [] }, UNAVAIL = new Set();
 let LOCATIONS = {}; // root locations map (id -> {name, address})
 let LOCKS = {}, SELECTED = null, CURRENT_LIVE = []; // timeline overrides + click state
@@ -48,6 +49,12 @@ const setPicks = (p) => saveJSON("picks", p);
 const getBuf = () => loadJSON("buf", 30);
 const getSameBuf = () => loadJSON("samebuf", 10);
 const getPrioFirst = () => loadJSON("prioritizefirst", true);
+// chip state, persisted per festival. tracks default all-on (off-set empty);
+// access tiers default to the catalog's disabledAccessTiers (e.g. P&I off).
+const getTracksOff = () => loadJSON("tracksoff", []);
+const setTracksOff = (v) => saveJSON("tracksoff", v);
+const getTiersOff = () => loadJSON("tiersoff", (CATALOG && CATALOG.disabledAccessTiers) || []);
+const setTiersOff = (v) => saveJSON("tiersoff", v);
 // timeline overrides (persisted per festival)
 const SEP = "";
 const scrKey = (title, start, venue) => `${title}${SEP}${start}${SEP}${venue}`;
@@ -138,7 +145,16 @@ async function init() {
     else if (kind === "avail") { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); }
     resolveOverrides();
   });
-  $("trackfilter").addEventListener("change", (e) => { TRACKFILTER = e.target.value; renderCatalog(); });
+  // chip rows: toggle a curatorial track (view) or an access tier (view + schedulability)
+  const toggleSet = (set, k) => { set.has(k) ? set.delete(k) : set.add(k); };
+  $("trackchips").addEventListener("click", (e) => {
+    const c = e.target.closest("[data-track]"); if (!c) return;
+    toggleSet(TRACKSOFF, c.dataset.track); setTracksOff([...TRACKSOFF]); renderChips(); renderCatalog();
+  });
+  $("tierchips").addEventListener("click", (e) => {
+    const c = e.target.closest("[data-tier]"); if (!c) return;
+    toggleSet(TIERSOFF, c.dataset.tier); setTiersOff([...TIERSOFF]); renderChips(); renderCatalog();
+  });
   // catalog tagging via event delegation (titles may contain quotes/apostrophes)
   $("catalog").addEventListener("click", (e) => {
     // progressive disclosure: click a clamped synopsis to expand/collapse it
@@ -174,13 +190,12 @@ function useCatalog(cat) {
   $("buf").value = BUF;
   $("samebuf").value = SAMEBUF;
   $("priofirst").checked = PRIOFIRST;
+  TRACKSOFF = new Set(getTracksOff());
+  TIERSOFF = new Set(getTiersOff());
   GRID = computeGrid();
   UNAVAIL = new Set(loadJSON("unavail", []));
   renderAvailGrid();
-  // track filter options from the root tracks map
-  const tracks = cat.tracks || {};
-  $("trackfilter").innerHTML = `<option value="">All tracks</option>`
-    + Object.entries(tracks).map(([id, name]) => `<option value="${esc(id)}">${esc(name)}</option>`).join("");
+  renderChips();
   renderCatalog();
   // if every film is already tagged (and something's worth solving), jump to results
   const sel = getSel();
@@ -189,6 +204,30 @@ function useCatalog(cat) {
   const anyPicked = movies.some((m) => sel[m.title] === "must" || sel[m.title] === "want");
   if (allTagged && anyPicked) solveAndShow();
   else showView1();
+}
+
+// ---- chip visibility (pure given TRACKSOFF / TIERSOFF). Tested by test_app.
+// A screening is "allowed" if it needs no special access (no/empty accessTiers)
+// or the user marked one of its tiers allowed. Public always shows.
+const screeningAllowed = (s) => !s.accessTiers || !s.accessTiers.length || s.accessTiers.some((t) => !TIERSOFF.has(t));
+// A movie shows in View 1 when at least one curatorial track is on (no tracks =>
+// always) AND it has at least one allowed screening (hides P&I-only when P&I off).
+const movieVisible = (m) =>
+  ((m.tracks || []).length === 0 || (m.tracks || []).some((t) => !TRACKSOFF.has(t)))
+  && (m.screenings || []).some(screeningAllowed);
+
+// Render the two View 1 chip rows: curatorial tracks (view filter) and access
+// tiers ("allowed access" — also gates which screenings are schedulable).
+function renderChips() {
+  const tracks = CATALOG.tracks || {};
+  $("trackchips").innerHTML = Object.entries(tracks)
+    .map(([id, name]) => `<button type="button" class="chipf${TRACKSOFF.has(id) ? " off" : ""}" data-track="${esc(id)}">${esc(name)}</button>`).join("");
+  const tiers = CATALOG.accessTiers || {};
+  const row = $("tieropt");
+  if (!Object.keys(tiers).length) { row.hidden = true; return; }
+  row.hidden = false;
+  $("tierchips").innerHTML = Object.entries(tiers)
+    .map(([id, name]) => `<button type="button" class="chipf access${TIERSOFF.has(id) ? " off" : ""}" data-tier="${esc(id)}">${esc(name)}</button>`).join("");
 }
 
 // =====================================================================  VIEW 1
@@ -200,7 +239,7 @@ function renderCatalog() {
   for (const m of (CATALOG.movies || [])) {
     const cur = effStatus(sel, m.title);
     counts[cur]++;
-    if (TRACKFILTER && !(m.tracks || []).includes(TRACKFILTER)) continue;
+    if (!movieVisible(m)) continue;
     const btns = STATUSES.map((st) =>
       `<button class="tag ${st}${cur === st ? " on" : ""}" data-title="${esc(m.title)}" data-status="${st}">${STATUS_LABEL[st]}</button>`
     ).join("");
@@ -214,7 +253,7 @@ function renderCatalog() {
     const trk = (m.tracks || []).map((id) => `<span class="trk">${esc(trackNames[id] || id)}</span>`).join("");
     const rt = m.runtime_minutes;
     const runtime = rt ? `<span class="mrt">${rt >= 60 ? `${(rt / 60 | 0)}h ${pad(rt % 60)}m` : `${rt}m`}</span>` : "";
-    const nScr = (m.screenings || []).length;
+    const nScr = (m.screenings || []).filter(screeningAllowed).length;
     const screenings = nScr ? `<span class="mrt">· ${nScr} screening${nScr > 1 ? "s" : ""}</span>` : "";
     const titleHtml = m.source_url
       ? `<a class="mtitle" href="${esc(m.source_url)}" target="_blank" rel="noopener">${esc(m.title)} ↗</a>`
@@ -263,7 +302,9 @@ function buildIncluded() {
     const status = sel[m.title];
     if (status !== "must" && status !== "want") continue;
     const lockKey = locks[m.title]; // locked to this exact screening, or undefined
-    const screenings = (m.screenings || []).map((s) => {
+    // only "allowed" screenings are schedulable candidates — a disallowed access
+    // tier (e.g. P&I when you don't hold that access) is never booked.
+    const screenings = (m.screenings || []).filter(screeningAllowed).map((s) => {
       const start = parseDT(s.start);
       const end = s.end ? parseDT(s.end) : start + (+m.runtime_minutes || 0) * 60000;
       const key = scrKey(m.title, start, s.venue || "?");
