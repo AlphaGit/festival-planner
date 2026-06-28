@@ -89,3 +89,7 @@ scrape these too; until it does, treat empty addresses as a manual follow-up.
   eq/report). Keep the in-browser `TiffSolver._selfTest()` smoke check too.
 - All development happens on `main` — no feature branches. Commit and push
   straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.
+- Service worker cache: every requested change must bump `CACHE` in `sw.js`
+  using semantic versioning (`planner-vMAJOR.MINOR.PATCH`) — patch for fixes,
+  minor for features, major for breaking changes. Bumping purges old caches so
+  clients pick up the new assets.

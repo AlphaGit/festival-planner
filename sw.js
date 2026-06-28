@@ -1,7 +1,8 @@
 // Offline cache for the static planner. Cache-first: serve from cache, fall back
-// to network. Bump CACHE when any listed asset changes (old caches are purged).
+// to network. Bump CACHE (semver) on every requested change so old caches are
+// purged and clients pick up the new assets — see CLAUDE.md.
 // ponytail: precache the whole app — it's 5 files, no need for runtime caching.
-const CACHE = "planner-v12";
+const CACHE = "planner-v1.0.0";
 const ASSETS = [
   ".",
   "index.html",

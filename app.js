@@ -539,6 +539,8 @@ function renderActions() {
   const { title, start, venue } = SELECTED;
   const locked = LOCKS[title] === scrKey(title, start, venue);
   let h = `<div class="ba-label"><b>${esc(title)}</b> · ${esc(whenLabel(start))} @ ${esc(venue)}</div><div class="ba-btns">`;
+  const ticketUrl = (MOVIES.find((m) => m.title === title) || {}).source_url;
+  if (ticketUrl) h += `<a class="ba-tickets" href="${esc(ticketUrl)}" target="_blank" rel="noopener">🎟 Get tickets ↗</a>`;
   if (locked) {
     h += `<button onclick="unlockSel()">🔓 Unlock</button>`;
   } else {
