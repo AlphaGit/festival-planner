@@ -12,6 +12,9 @@
 body{font-family:-apple-system,Segoe UI,sans-serif;margin:20px auto;max-width:1280px;color:#1a1a2e;background:#fafafa;padding:0 16px}
 h1{font-size:1.4em;margin:.2em 0} .muted{color:#777} [hidden]{display:none}
 .footer{margin-top:2em;padding-top:1em;border-top:1px solid #eee;font-size:.85em;text-align:center}
+dialog{border:none;border-radius:10px;padding:18px 22px;max-width:26em;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+dialog::backdrop{background:rgba(26,26,46,.55)}
+dialog h3{margin:.2em 0 .6em} dialog ul{padding-left:20px} dialog li{margin:6px 0}
 .topbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:2px solid #ddd;padding-bottom:10px;margin-bottom:14px}
 .topbar h1{flex:1 1 auto}
 button{font:inherit} .btn{background:#e6a817;color:#fff;border:none;border-radius:8px;padding:8px 16px;cursor:pointer;font-weight:600}
@@ -237,8 +240,23 @@ a.bvenue{display:inline-block;color:#2980b9;text-decoration:none} a.bvenue:hover
 
 <footer class="muted footer">
   Built with ♥ by <a href="https://github.com/AlphaGit">Alpha</a> ·
-  <a href="https://github.com/AlphaGit/festival-planner">source</a>
+  <a href="#" onclick="document.getElementById('support').showModal();return false">Support me</a> ·
+  <a href="https://github.com/AlphaGit/festival-planner">Source</a>
 </footer>
+
+<dialog id="support">
+  <h3>Thanks for the thought!</h3>
+  <p>I build this for the love of it — and to give something useful back to the
+  community. It's free, and I don't ask for anything in return.</p>
+  <p>That said, if this planner made your festival a little easier and you'd
+  genuinely like to give something back, that always makes my day:</p>
+  <ul>
+    <li>Interac e-Transfer to <a href="mailto:alphagma@gmail.com">alphagma@gmail.com</a></li>
+    <li><a href="https://www.paypal.com/donate?business=alphagma%40gmail.com&currency_code=CAD" target="_blank" rel="noopener">PayPal</a> to alphagma@gmail.com</li>
+  </ul>
+  <p>Either way — enjoy the festival!</p>
+  <button class="btn" onclick="this.closest('dialog').close()">Close</button>
+</dialog>
 
 <script src="logic-solver.bundle.js"></script>
 <script src="solver.js"></script>
