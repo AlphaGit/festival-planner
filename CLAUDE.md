@@ -81,6 +81,9 @@ scrape these too; until it does, treat empty addresses as a manual follow-up.
 
 - Dependencies: before adding/pinning any, confirm the version was published ≥7
   days ago (supply-chain hygiene).
+- Visual style (colors, typography, component look) follows
+  `BRANDING_GUIDELINES.md` — TIFF-inspired black/white/red. Pick colors from
+  its palette table; don't introduce new hues.
 - No build step for the browser app; no framework in tests. Keep it that way.
 - Non-trivial changes leave a runnable check behind (plain assert, no framework):
   `node test_solver.js` (scheduling) and `node test_app.js` (app.js behaviour).
