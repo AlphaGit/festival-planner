@@ -64,6 +64,9 @@ button{font:inherit} .btn{background:var(--ink);color:var(--on-ink);border:none;
 .btn.ghost{background:none;color:var(--ink);border:1px solid var(--ink)}
 .btn.ghost:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 .updatebar:not([hidden]){position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:1000;display:flex;align-items:center;gap:12px;background:var(--ink);color:var(--on-ink);border-radius:10px;padding:10px 16px;box-shadow:0 4px 16px rgba(0,0,0,.25);font-size:.9em;max-width:calc(100% - 32px)}
+/* invert the button inside the dark chrome bar so it reads as clickable */
+.updatebar .btn{background:var(--on-ink);color:var(--ink)}
+.updatebar .btn:hover{background:var(--accent);color:#fff}
 input[type=file]{font-size:.85em}
 /* ---- view 1: catalog tagging
    Card = CSS grid; --img-w / --blurb-lines kept as vars so a density mode can be
