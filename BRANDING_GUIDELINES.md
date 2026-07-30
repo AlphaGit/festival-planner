@@ -45,3 +45,17 @@ Rules of thumb:
   `theme_color #1d1d1d`, `background_color #ffffff`.
 
 When adding UI, pick colors from the table above — no new hues.
+
+## Dark theme
+
+All colors live as CSS custom properties in `index.html` (`:root` = light,
+`:root[data-theme=dark]` = dark). **Never hardcode a palette hex in a rule —
+use the tokens**, so both themes stay in sync. Theme resolution (head script):
+saved choice (`localStorage tiff:theme`) > OS `prefers-color-scheme` > dark
+when undetectable. Switcher: the `#theme` select in the topbar.
+
+Dark values keep the same hues: neutrals become dark grays (`#161616` bg,
+`#ececec` text), the accent stays `#d62400` for fills/borders but text-red
+brightens to `#ff6a4d` (`--accent-ink`) for contrast, red/green tints get dark
+equivalents, and black/white chrome inverts (`--ink`/`--on-ink` — buttons are
+white in dark mode). "Want" markers invert with it (`--want`/`--on-want`).
