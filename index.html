@@ -104,9 +104,10 @@ a.mtitle{color:var(--text);text-decoration:none} a.mtitle:hover{color:var(--acce
 .opts summary{cursor:pointer;font-weight:600;color:var(--muted);font-size:.9em}
 .opts label{display:block;margin:10px 0;font-size:.9em}
 .opts input{width:64px;margin-left:8px}
+.optsep{border-top:1px solid var(--border-soft);padding-top:10px;margin-top:12px}
 .availopt{margin:10px 0;font-size:.9em}
 .availopt>div:first-child{color:var(--muted);margin-bottom:6px}
-.lgnd{display:inline-block;width:18px;height:18px;border-radius:3px;border:1px solid var(--border2);vertical-align:-4px;text-align:center;line-height:18px;font-size:12px;font-weight:700}
+.lgnd{display:inline-block;width:18px;height:18px;border-radius:3px;border:1px solid var(--border2);vertical-align:middle;text-align:center;line-height:18px;font-size:12px;font-weight:700}
 .lgnd.free{background:var(--green);color:#fff} .lgnd.off{background:var(--accent);color:#fff}
 #avail{overflow-x:auto}
 .availgrid{border-collapse:collapse;user-select:none;font-size:.72em}
@@ -255,12 +256,12 @@ a.bvenue{display:inline-block;color:var(--accent-ink);text-decoration:none} a.bv
       <input type="number" id="buf" min="0" step="5" value="30"></label>
     <label>Buffer at the same venue (minutes)
       <input type="number" id="samebuf" min="0" step="5" value="10"></label>
-    <label><input type="checkbox" id="priofirst" checked style="width:auto;margin:0 6px 0 0;vertical-align:middle">Prioritize first screenings (prefer earlier showtimes)</label>
-    <div id="venueopt" class="chiprow" hidden>
+    <label class="optsep"><input type="checkbox" id="priofirst" checked style="width:auto;margin:0 6px 0 0;vertical-align:middle">Prioritize first screenings (prefer earlier showtimes)</label>
+    <div id="venueopt" class="chiprow optsep" hidden>
       <span class="chiphead"><span class="chiplbl">Preferred venues</span><span class="chiphint">★ preferred wins on ties; when it clashes with an earlier showtime, both become options to choose</span></span>
       <span id="venuechips" class="chips"></span>
     </div>
-    <div class="availopt">
+    <div class="availopt optsep">
       <div>Availability — <span class="lgnd free">✓</span> free, <span class="lgnd off">✕</span> can't attend.
         Click or drag to mark times you can't go. All free by default.</div>
       <div id="avail"></div>
