@@ -293,7 +293,7 @@ a.bvenue{display:inline-block;color:var(--accent-ink);text-decoration:none} a.bv
 <footer class="muted footer">
   Built with ♥ by <a href="https://github.com/AlphaGit">Alpha</a> ·
   <a href="#" onclick="document.getElementById('support').showModal();return false">Support me</a> ·
-  <a href="https://github.com/AlphaGit/festival-planner">Source</a>
+  <a href="https://github.com/AlphaGit/festival-planner">Source</a><span id="ver"></span>
 </footer>
 
 <dialog id="support">
@@ -315,6 +315,12 @@ a.bvenue{display:inline-block;color:var(--accent-ink);text-decoration:none} a.bv
 <script src="app.js"></script>
 <script>
 document.getElementById("theme").value = localStorage.getItem("tiff:theme") || "";
+// Footer version, read from sw.js's CACHE constant — the one spot that's
+// bumped on every change, so this can never drift.
+fetch("sw.js").then((r) => r.text()).then((t) => {
+  const m = t.match(/planner-v([\d.]+)/);
+  if (m) document.getElementById("ver").textContent = " · v" + m[1];
+}).catch(() => {});
 // Service worker + "new version available" prompt. Updating only swaps cached
 // assets and reloads — localStorage selections (tiff:<festival>:sel/:picks) are
 // never touched, so the user's tagging/picks survive.
