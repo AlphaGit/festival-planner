@@ -1144,7 +1144,7 @@
     },
     {
       "title": "Below",
-      "authors": "Jamie Childs, Jesse McKeown",
+      "authors": "Jamie Childs",
       "blurb": "Something monstrous lurks off the coast in this suspenseful, Newfoundland-set limited series, starring Josh Hartnett (Trap) and Mackenzie Davis (Station Eleven).",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/27RuOBOr9HASJ0ljbcaxCW/3a0c6afb471580a10e52315659aa6989/Below_01.webp",
       "source_url": "https://www.tiff.net/films/below",
@@ -1593,7 +1593,7 @@
     },
     {
       "title": "Closing Night",
-      "authors": "",
+      "authors": "Cody Fern",
       "blurb": "Naomi Watts, Sarah Paulson, and Odessa A’zion deliver powerhouse performances in Cody Fern’s sensational feature debut, where a hardened movie star reunites with the deliciously messy family she left behind decades earlier.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3mYd1dgu2uJ0oK72GeSe5Z/3baa3739114395e7541b60ea699c43d3/Closing-Night_Still_HERO.jpg",
       "source_url": "https://www.tiff.net/films/closing-night",
@@ -2675,7 +2675,7 @@
       "tracks": [
         "special-presentations"
       ],
-      "runtime_minutes": 106,
+      "runtime_minutes": 107,
       "screenings": [
         {
           "start": "2026-09-11 17:30",
@@ -3958,7 +3958,7 @@
     {
       "title": "Like Magic",
       "authors": "Melissa Saavedra Gil",
-      "blurb": "Blending archival footage, personal testimony and a decades-long search for answers, Melissa Saavedra Gil transforms a childhood tragedy into a powerful exploration of memory, truth, and healing. An intimate and deeply resonant debut that illuminates both a personal story and a generation shaped by violence.",
+      "blurb": "Blending archival footage, personal testimony, and a decades-long search for answers, Melissa Saavedra Gil transforms a childhood tragedy into a powerful exploration of memory, truth, and healing. An intimate and deeply resonant debut that illuminates both a personal story and a generation shaped by violence.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3GbbUocpT7NqUWtrhrdkQn/442bf31920027ee5a68f809385c52b7d/Like-Magic_Still_HERO.jpg",
       "source_url": "https://www.tiff.net/films/like-magic",
       "tracks": [
@@ -4843,6 +4843,22 @@
       "runtime_minutes": 110,
       "screenings": [
         {
+          "start": "2026-09-10 09:05",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7",
+          "accessTiers": [
+            "press-industry"
+          ]
+        },
+        {
+          "start": "2026-09-11 11:50",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6",
+          "accessTiers": [
+            "press-industry"
+          ]
+        },
+        {
           "start": "2026-09-13 14:00",
           "venue": "Roy Thomson Hall",
           "location": "roy-thomson-hall"
@@ -5266,7 +5282,7 @@
     {
       "title": "REDEFINED | Short Film Showcase",
       "authors": "",
-      "blurb": "Catch the premiere of REDEFINED at the Toronto International Film Festival and streaming worldwide on the NFB. Following the screening, there will be a Q&A with the filmmakers.",
+      "blurb": "Catch the premiere of REDEFINED at the Toronto International Film Festival and streaming worldwide on the NFB. Following the screening, join us for a Q&A with the filmmakers.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2OT2NTcgolVYhX4NR9pgp1/211111cbee0bcfdc2e772ba71a1455bf/Redefined_TIFF",
       "source_url": "https://www.tiff.net/films/redefined-short-film-showcase",
       "tracks": [
@@ -5932,7 +5948,7 @@
     },
     {
       "title": "Spirit Guardians: The Last Secret of the First Emperor",
-      "authors": "Nguyen Phan Quang Binh",
+      "authors": "Nguyễn Phan Quang Binh",
       "blurb": "The largest production in Vietnamese history, this sweeping epic from Nguyễn Phan Quang Binh (The Floating Lives) transports us to the Đinh dynasty, when a band of fearless warriors set out on a secret mission to safeguard a sacred mystery.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/27uFfCVhm8c6oVwFW1U971/5a4359fed9a71385d396d3a835aa9dd9/Spirit-Guardians-The-Last-Secret-of-the-First-Emperor_Still_01.jpg",
       "source_url": "https://www.tiff.net/films/spirit-guardians-the-last-secret-of-the-first-emperor",
@@ -6437,7 +6453,7 @@
       "title": "The Betrayers",
       "authors": "David Bezmozgis",
       "blurb": "In adapting his own literary prize-winner, Toronto’s David Bezmozgis delivers a deft political thriller about the limits of love and loyalty.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1GI63mTMlknaY3mqaMVqPF/6862ce6d50564fd3be0daa33f3212848/The-Betrayers_01.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2guI32zbd94ItnRdBWB4ou/351d29f2d97aafe420af74051c997da3/The-Betrayers_05.webp",
       "source_url": "https://www.tiff.net/films/the-betrayers",
       "tracks": [
         "centrepiece"
@@ -7730,7 +7746,7 @@
       "tracks": [
         "centrepiece"
       ],
-      "runtime_minutes": 109,
+      "runtime_minutes": 112,
       "screenings": [
         {
           "start": "2026-09-17 09:25",
