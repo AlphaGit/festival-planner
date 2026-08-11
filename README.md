@@ -7,7 +7,7 @@ finds conflict-free schedules that keep every must-watch and as many
 want-to-watch films as possible, then walks you through the remaining choices
 until you're left with one schedule to follow.
 
-**Live:** https://planner.alphasmanifesto.com (currently loaded with TIFF 2025).
+**Live:** https://planner.alphasmanifesto.com (currently loaded with TIFF 2026).
 
 ## How it works
 
@@ -46,13 +46,13 @@ tagging. `scrape_tiff.py` (pure stdlib: `python3 scrape_tiff.py`) regenerates
 ## Tests
 
 ```sh
-node test_solver.js && node test_app.js   # plain assert, no framework, no deps
+node test_solver.js && node test_app.js && python3 test_scrape.py   # plain assert, no framework, no deps
 ```
 
 `test_solver.js` covers scheduling correctness; `test_app.js` covers app
 behaviour (tagging, availability, screening validation, the decision wizard,
-pick reconciliation, persistence). The browser solver also has an in-page
-self-check: `TiffSolver._selfTest()`.
+pick reconciliation, persistence); `test_scrape.py` covers the catalog scraper.
+The browser solver also has an in-page self-check: `TiffSolver._selfTest()`.
 
 ## Contributing
 

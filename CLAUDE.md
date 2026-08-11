@@ -68,14 +68,25 @@ Chrome.
 ## Catalog scraper
 
 `scrape_tiff.py` — pure Python stdlib, no dependencies. Run `python3
-scrape_tiff.py` to regenerate `catalog.json` from the TIFF site.
+scrape_tiff.py` to regenerate `catalog.json` from the TIFF site. Checks:
+`python3 test_scrape.py`.
+
+**The site is behind an AWS WAF.** A plain request to `/festivalfilmlist` gets
+HTTP 202 with an empty body (JS challenge). The scraper detects that and retries
+through `r.jina.ai`, which renders the page in a real browser. If that proxy ever
+fails, open the URL in your own browser, save the page, and pass the file:
+`python3 scrape_tiff.py saved.html` — `parse_blob` handles a saved DOM (inline
+blurb tags promoted to elements, soft-wrap newlines) as well as raw JSON.
+
+**Screenings appear late.** TIFF publishes the lineup weeks before the schedule;
+until the schedule drops, every `scheduleItems` is empty and the scraper exits
+non-zero rather than overwriting `catalog.json` with a filmless catalog.
 
 **Venue addresses.** Each `locations[<id>].address` powers the Google Maps link
-in the timeline (View 2). The scraper does not yet pull addresses from the TIFF
-pages, so a fresh `catalog.json` may have empty `address` fields for new venues —
-fill them in by hand (research the venue address online) after re-scraping.
-Existing TIFF 2025 venues are already populated. Ideally `scrape_tiff.py` would
-scrape these too; until it does, treat empty addresses as a manual follow-up.
+in the timeline (View 2). The film list carries no addresses, so the scraper
+copies them forward from the existing `catalog.json` by location id — only
+genuinely new venues come out blank, and the run prints which ones. Fill those in
+by hand (research the address online); they persist through later re-scrapes.
 
 ## Conventions
 
@@ -86,7 +97,8 @@ scrape these too; until it does, treat empty addresses as a manual follow-up.
   its palette table; don't introduce new hues.
 - No build step for the browser app; no framework in tests. Keep it that way.
 - Non-trivial changes leave a runnable check behind (plain assert, no framework):
-  `node test_solver.js` (scheduling) and `node test_app.js` (app.js behaviour).
+  `node test_solver.js` (scheduling), `node test_app.js` (app.js behaviour) and
+  `python3 test_scrape.py` (catalog scraper).
   The latter evals the un-modularised app headlessly behind a tiny DOM shim — its
   cases live in `test_app.cases.js`. Both share `test_harness.js` (check/assert/
   eq/report). Keep the in-browser `TiffSolver._selfTest()` smoke check too.

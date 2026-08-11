@@ -21,13 +21,20 @@ press screenings, so they're hidden until a user marks they hold that access.
 """
 import html
 import json
+import os
 import re
 import sys
 import urllib.request
 from datetime import datetime
+from html.parser import HTMLParser
 
 URL = "https://www.tiff.net/festivalfilmlist"
-FESTIVAL = "TIFF 2025"
+# ponytail: tiff.net sits behind an AWS WAF JS challenge, so a plain request gets
+# HTTP 202 + an empty body. r.jina.ai renders the page in a real browser and
+# returns the JSON. Ceiling: third-party proxy — if it dies, save the page from
+# your own browser and pass the file (`python3 scrape_tiff.py saved.html`).
+PROXY_URL = "https://r.jina.ai/" + URL
+FESTIVAL = "TIFF 2026"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
 PI_TIER = "press-industry"
@@ -67,16 +74,71 @@ def access_tiers(s):
     return [] if "General Public" in aud else [PI_TIER]
 
 
+class _TextNodes(HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.parts = []
+
+    def handle_data(self, d):
+        self.parts.append(d)
+
+
+def parse_blob(text):
+    """Parse the film-list JSON out of raw JSON, a proxy response, or saved HTML.
+
+    tiff.net serves the blob as text/html, so a browser "Save As" yields a
+    parsed DOM: the inline <em> tags from film blurbs became real elements and
+    soft-wrap newlines landed in the text. Text nodes keep their order, so
+    joining them recovers the JSON — minus the inline tags strip_html drops
+    anyway. r.jina.ai prepends a header, hence the slice to the first key.
+    """
+    if text.lstrip().startswith("<"):
+        p = _TextNodes()
+        p.feed(text)
+        text = "".join(p.parts)
+    # Both renderers inject raw newlines (soft wrap in a saved page, leading
+    # blank lines via the proxy). A newline inside a JSON string must be
+    # escaped, so every raw one is an artifact; between tokens it's just
+    # whitespace. Collapsing to a space is therefore lossless either way.
+    # (`[^\S\n]` = whitespace but not a newline: a saved page wraps at &nbsp;
+    # too, which decodes to U+00A0 and would otherwise survive as a stray space)
+    text = re.sub(r"[^\S\n]*\n\s*", " ", text)
+    return json.loads(text[text.index('{"filters"'):].rstrip())
+
+
+def get(url, headers=None):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, **(headers or {})})
+    with urllib.request.urlopen(req, timeout=120) as r:
+        return r.read().decode("utf-8", "replace")
+
+
 def fetch(src):
     if src and src != "-":
-        with open(src) as f:
-            return json.load(f)
-    req = urllib.request.Request(URL, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+        with open(src, encoding="utf-8") as f:
+            return parse_blob(f.read())
+    body = get(URL)
+    if not body.strip():  # HTTP 202, empty body: AWS WAF challenge
+        print("tiff.net returned a WAF challenge; retrying via r.jina.ai", file=sys.stderr)
+        body = get(PROXY_URL, {"x-return-format": "text"})
+    return parse_blob(body)
 
 
-def build(data):
+def prior_addresses(path):
+    """Venue addresses already filled in by hand, keyed by location id.
+
+    The film list carries no addresses, so they're researched manually once
+    (see CLAUDE.md). Carrying them across a re-scrape means only genuinely new
+    venues need looking up.
+    """
+    if not os.path.exists(path):
+        return {}
+    with open(path, encoding="utf-8") as f:
+        prev = json.load(f)
+    return {k: v["address"] for k, v in prev.get("locations", {}).items() if v.get("address")}
+
+
+def build(data, addresses=None):
+    addresses = addresses or {}
     tracks, locations, movies = {}, {}, []
     any_pi = False
     for it in data["items"]:
@@ -91,7 +153,7 @@ def build(data):
         for s, tiers in sorted(kept, key=lambda x: x[0]["startTime"]):
             room = s["venue"]["room"]
             loc = slugify(room)
-            locations.setdefault(loc, {"name": room, "address": ""})
+            locations.setdefault(loc, {"name": room, "address": addresses.get(loc, "")})
             sc = {"start": s["startTime"][:16], "venue": room, "location": loc}  # "YYYY-MM-DD HH:MM"
             if tiers:
                 sc["accessTiers"] = tiers
@@ -126,7 +188,10 @@ def build(data):
 if __name__ == "__main__":
     src = sys.argv[1] if len(sys.argv) > 1 else None
     out = sys.argv[2] if len(sys.argv) > 2 else "catalog.json"
-    cat = build(fetch(src))
+    cat = build(fetch(src), prior_addresses(out))
+    if not cat["movies"]:
+        sys.exit("no screenings in the film list — TIFF hasn't published the "
+                 "schedule yet. catalog.json left untouched.")
     with open(out, "w") as f:
         json.dump(cat, f, indent=2, ensure_ascii=False)
         f.write("\n")
@@ -134,3 +199,6 @@ if __name__ == "__main__":
     pi = sum(1 for m in cat["movies"] for s in m["screenings"] if s.get("accessTiers"))
     print(f"{out}: {len(cat['movies'])} films, {sc} screenings ({pi} P&I), "
           f"{len(cat['locations'])} venues, {len(cat['tracks'])} tracks")
+    missing = sorted(k for k, v in cat["locations"].items() if not v["address"])
+    if missing:
+        print(f"venues needing an address by hand: {', '.join(missing)}")
