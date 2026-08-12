@@ -484,4 +484,31 @@ check("getTiersOff defaults to the catalog's disabledAccessTiers until the user 
   eqJSON(getTracksOff(), [], "tracks default all-on");
 });
 
+// =============================================================================
+// Synopsis rendering & expand state
+// =============================================================================
+
+check("rich() renders em/strong and escapes everything else", () => {
+  eq(rich("<em>Hamnet</em> screens"), "<em>Hamnet</em> screens");
+  eq(rich("<strong>Note</strong>"), "<strong>Note</strong>");
+  eq(rich("Q&A tonight"), "Q&amp;A tonight");
+  // the catalog is first-party, but a blurb still must not be able to add markup
+  eq(rich('<img src=x onerror="alert(1)">'), "&lt;img src=x onerror=&quot;alert(1)&quot;&gt;");
+  eq(rich("<script>alert(1)</script>"), "&lt;script&gt;alert(1)&lt;/script&gt;");
+  // a tag with attributes never passes; the bare closer does (it's half a pair,
+  // and the scraper only ever emits balanced ones — a stray closer is inert)
+  eq(rich("<em class=x>a</em>"), "&lt;em class=x&gt;a</em>");
+});
+
+check("expanded synopses survive a re-render (tagging must not collapse them)", () => {
+  EXPANDED.clear();
+  setExpanded("Hamnet", true);
+  setExpanded("Nuremberg", true);
+  assert(EXPANDED.has("Hamnet") && EXPANDED.has("Nuremberg"), "both stay open");
+  setExpanded("Hamnet", false);
+  assert(!EXPANDED.has("Hamnet"), "collapsing forgets it");
+  assert(EXPANDED.has("Nuremberg"), "the other is untouched");
+  EXPANDED.clear();
+});
+
 report("app");

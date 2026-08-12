@@ -71,7 +71,20 @@ check("screenings are chronological", [s["start"] for s in m["screenings"]]
       == ["2026-09-11 18:30", "2026-09-12 09:00"])
 check("P&I tier tagged on the right screening", m["screenings"][1]["accessTiers"] == [st.PI_TIER])
 check("runtime is the shortest block", m["runtime_minutes"] == 95)
-check("blurb is stripped and unescaped", m["blurb"] == "Wow & more.")
+check("blurb keeps em, unescapes entities", m["blurb"] == "<em>Wow</em> & more.")
+
+# --- blurb markup: keep <em>/<strong>, drop the rest, always balanced ---------
+check("i and b fold into em and strong",
+      st.strip_html("<i>a</i> <b>c</b>") == "<em>a</em> <strong>c</strong>")
+check("other tags are dropped, their text kept",
+      st.strip_html("<p>a</p><a href='#'>b</a>") == "ab")
+check("script and style content is dropped",
+      st.strip_html("a<script>evil()</script><style>i{}</style>b") == "ab")
+# TIFF's own data ships orphan closers ("Three Goodbyes</em>" with no opener) —
+# passing one through would italicise the rest of the page
+check("orphan closing tag is dropped", st.strip_html("Three Goodbyes</em>, TIFF") == "Three Goodbyes, TIFF")
+check("unclosed tags are closed", st.strip_html("<em>a <strong>b") == "<em>a <strong>b</strong></em>")
+check("attributes are dropped", st.strip_html('<em class="x">a</em>') == "<em>a</em>")
 check("image url is absolutised", m["image_url"] == "https://img.example/a.webp")
 check("source url is absolutised", m["source_url"] == "https://www.tiff.net/films/a-b")
 check("track slugified", m["tracks"] == ["gala-presentations"] and

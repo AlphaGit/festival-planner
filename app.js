@@ -20,10 +20,19 @@ let LOCKS = {}, SELECTED = null, CURRENT_LIVE = []; // timeline overrides + clic
 let RESOLVE_NOTICE = false; // show "scroll up, options updated" banner after a re-solve
 let painting = false, paintOff = false; // availability grid drag state
 let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_OUT = [];
+// Titles whose synopsis the user expanded. Tagging a film re-renders the whole
+// catalog, so the open/closed state has to live outside the markup or every
+// must/want/skip would snap the blurb shut again. Not persisted — view state.
+const EXPANDED = new Set();
+const setExpanded = (title, open) => { open ? EXPANDED.add(title) : EXPANDED.delete(title); return open; };
 
 // ---- small utils
 const $ = (id) => document.getElementById(id);
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+// Blurbs keep the source's <em>/<strong> (the scraper drops every other tag).
+// Escape the lot, then re-allow only those two — nothing else in a blurb can
+// become markup, whatever the catalog says.
+const rich = (s) => esc(s).replace(/&lt;(\/?)(em|strong)&gt;/g, "<$1$2>");
 const WD = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const MO = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const pad = (n) => String(n).padStart(2, "0");
@@ -167,7 +176,7 @@ async function init() {
   $("catalog").addEventListener("click", (e) => {
     // progressive disclosure: click a clamped synopsis to expand/collapse it
     const bl = e.target.closest(".mblurb:not(.muted)");
-    if (bl) { bl.classList.toggle("expanded"); return; }
+    if (bl) { setExpanded(bl.dataset.title, bl.classList.toggle("expanded")); return; }
     const b = e.target.closest("button[data-title]");
     if (!b) return;
     const sel = getSel();
@@ -277,7 +286,7 @@ function renderCatalog() {
       `<button class="tag ${st}${cur === st ? " on" : ""}" data-title="${esc(m.title)}" data-status="${st}">${STATUS_LABEL[st]}</button>`
     ).join("");
     const blurb = m.blurb
-      ? `<div class="mblurb" title="Click to expand">${esc(m.blurb)}</div>`
+      ? `<div class="mblurb${EXPANDED.has(m.title) ? " expanded" : ""}" data-title="${esc(m.title)}" title="Click to expand">${rich(m.blurb)}</div>`
       : `<div class="mblurb muted">(no synopsis)</div>`;
     const img = m.image_url
       ? `<img class="mimg" src="${esc(m.image_url)}" alt="" loading="lazy">`

@@ -19,7 +19,6 @@ which is the pure film runtime; public blocks include intros/Q&A and run longer.
 P&I ships disabled by default (disabledAccessTiers): most users can't attend
 press screenings, so they're hidden until a user marks they hold that access.
 """
-import html
 import json
 import os
 import re
@@ -41,10 +40,55 @@ PI_TIER = "press-industry"
 PI_TIER_NAME = "Press & Industry"
 
 
+KEEP_TAGS = {"em": "em", "i": "em", "strong": "strong", "b": "strong"}
+
+
+class _Inline(HTMLParser):
+    """Blurb text keeping only <em>/<strong> — <i>/<b> fold into them.
+
+    Those two are the whole of TIFF's blurb markup (film titles in italics,
+    the odd bold lead-in) and the only tags the app renders, so everything
+    else is dropped. Tags are balanced on the way out: a page saved from a
+    browser loses the opening tags but keeps their closers as text, and a
+    stray `</em>` would otherwise ride into the catalog.
+    """
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.out, self.open, self.skip = [], [], 0
+
+    def handle_starttag(self, tag, attrs):
+        if tag in ("script", "style"):  # their text is code, not blurb
+            self.skip += 1
+        elif t := KEEP_TAGS.get(tag):
+            self.open.append(t)
+            self.out.append(f"<{t}>")
+
+    def handle_endtag(self, tag):
+        if tag in ("script", "style"):
+            self.skip = max(0, self.skip - 1)
+            return
+        t = KEEP_TAGS.get(tag)
+        if t and t in self.open:
+            while self.open:  # close anything still nested inside it first
+                x = self.open.pop()
+                self.out.append(f"</{x}>")
+                if x == t:
+                    break
+
+    def text(self):
+        return "".join(self.out + [f"</{t}>" for t in reversed(self.open)]).strip()
+
+    def handle_data(self, d):
+        if not self.skip:
+            self.out.append(d)
+
+
 def strip_html(s):
-    # ponytail: blurbs only carry inline tags (<em>, <strong>); regex is enough,
-    # no parser dependency. unescape after so &amp; -> & not &amp;lt; artifacts.
-    return html.unescape(re.sub(r"<[^>]+>", "", s)).strip()
+    p = _Inline()
+    p.feed(s)
+    p.close()
+    return p.text()
 
 
 def slugify(s):

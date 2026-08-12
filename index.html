@@ -184,6 +184,8 @@ a.bvenue{display:inline-block;color:var(--accent-ink);text-decoration:none} a.bv
 .ba-label{margin-bottom:8px}
 .ba-btns{display:flex;gap:8px;flex-wrap:wrap}
 .ba-btns button{font-size:1em;background:var(--bg2);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:7px 12px;cursor:pointer}
+/* border-box: these go width:100% on mobile, and padding+border must stay inside it */
+.ba-btns button,.ba-btns a.ba-tickets{box-sizing:border-box;max-width:100%}
 .ba-btns button:hover{background:var(--red-hover);border-color:var(--accent)}
 .ba-btns .ba-cancel{color:var(--faint)}
 .ba-btns a.ba-tickets{font-size:1em;background:var(--ink);color:var(--on-ink);border:1px solid var(--ink);border-radius:2px;padding:7px 12px;text-decoration:none}
@@ -204,6 +206,8 @@ a.bvenue{display:inline-block;color:var(--accent-ink);text-decoration:none} a.bv
   /* media object: thumb + title/meta on row 1, synopsis full-width, tags full-width */
   .movie{grid-template-columns:150px minmax(0,1fr);
     grid-template-areas:"img info" "blurb blurb" "tags tags";gap:8px 10px;padding:10px}
+  /* narrower column, so show more of the synopsis before it clamps */
+  #catalog{--blurb-lines:6}
   .mimg{width:150px}
   .mtitle{font-size:1.25em}
   .tags{flex-direction:row;min-width:0}
