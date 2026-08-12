@@ -150,6 +150,20 @@ def parse_blob(text):
     return json.loads(text[text.index('{"filters"'):].rstrip())
 
 
+def markup_intact(data):
+    """False if a renderer ate the blurbs' opening tags.
+
+    TIFF writes closing tags as `<\\/em>` (JSON escapes the slash), which an
+    HTML parser keeps as plain text — while `<em>` is a valid tag, so it
+    becomes an element and vanishes into the DOM. Any browser-rendered copy
+    (the r.jina.ai proxy, a saved page) therefore comes back with orphan
+    closers: structure survives, emphasis doesn't. Cheap to detect, and it
+    silently cost us the italics in a whole catalog once.
+    """
+    d = " ".join(i.get("description") or "" for i in data.get("items", []))
+    return d.count("<em>") >= d.count("</em>")
+
+
 def get(url, headers=None):
     req = urllib.request.Request(url, headers={"User-Agent": UA, **(headers or {})})
     with urllib.request.urlopen(req, timeout=120) as r:
@@ -232,7 +246,8 @@ def build(data, addresses=None):
 if __name__ == "__main__":
     src = sys.argv[1] if len(sys.argv) > 1 else None
     out = sys.argv[2] if len(sys.argv) > 2 else "catalog.json"
-    cat = build(fetch(src), prior_addresses(out))
+    data = fetch(src)
+    cat = build(data, prior_addresses(out))
     if not cat["movies"]:
         sys.exit("no screenings in the film list — TIFF hasn't published the "
                  "schedule yet. catalog.json left untouched.")
@@ -246,3 +261,11 @@ if __name__ == "__main__":
     missing = sorted(k for k, v in cat["locations"].items() if not v["address"])
     if missing:
         print(f"venues needing an address by hand: {', '.join(missing)}")
+    if not markup_intact(data):
+        print("WARNING: this copy came through a renderer — blurbs lost their "
+              "<em>/<strong>. Schedule data is fine. For emphasis, save the raw "
+              "response instead: open the URL in a browser and run\n"
+              "  fetch(location.href).then(r=>r.text()).then(t=>{const a=document"
+              ".createElement('a');a.href=URL.createObjectURL(new Blob([t]));"
+              "a.download='festivalfilmlist.json';a.click()})\n"
+              f"then re-run: python3 {sys.argv[0]} festivalfilmlist.json")

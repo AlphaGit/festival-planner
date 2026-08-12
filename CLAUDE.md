@@ -78,6 +78,16 @@ fails, open the URL in your own browser, save the page, and pass the file:
 `python3 scrape_tiff.py saved.html` — `parse_blob` handles a saved DOM (inline
 blurb tags promoted to elements, soft-wrap newlines) as well as raw JSON.
 
+**Anything browser-rendered loses blurb emphasis.** TIFF serves the blob as
+`text/html` and writes closing tags as `<\/em>` (JSON escapes the slash). An HTML
+parser keeps that as text but treats `<em>` as a real tag, so it becomes an
+element and disappears — the proxy and a saved page both return orphan closers.
+Schedule data is unaffected; only `<em>`/`<strong>` are lost, and once a whole
+catalog shipped without italics because of it. `markup_intact()` detects the
+orphans and the run prints how to fix it: open the URL in a browser and save the
+raw response with `fetch(location.href).then(r=>r.text())`, then pass that file.
+Use a raw save whenever blurbs matter; the proxy is fine for a schedule refresh.
+
 **Screenings appear late.** TIFF publishes the lineup weeks before the schedule;
 until the schedule drops, every `scheduleItems` is empty and the scraper exits
 non-zero rather than overwriting `catalog.json` with a filmless catalog.

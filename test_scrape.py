@@ -95,6 +95,15 @@ check("new venue left blank for manual lookup", cat["locations"]["scotiabank-3"]
 check("P&I tier declared and disabled by default",
       cat["accessTiers"] == {st.PI_TIER: st.PI_TIER_NAME} and cat["disabledAccessTiers"] == [st.PI_TIER])
 
+# --- markup loss detector ----------------------------------------------------
+# a browser-rendered copy keeps `<\\/em>` as text but swallows `<em>` as an
+# element, so orphan closers are the tell that emphasis was lost
+check("intact markup passes", st.markup_intact(BLOB))
+check("orphan closers are caught",
+      not st.markup_intact({"items": [{"description": "Three Goodbyes</em>, TIFF"}]}))
+check("no markup at all is fine", st.markup_intact({"items": [{"description": "plain"}]}))
+check("missing descriptions are fine", st.markup_intact({"items": [{}]}))
+
 # a pre-schedule film list (every scheduleItems empty) yields no films at all —
 # main() turns this into a non-zero exit rather than clobbering catalog.json
 empty = {**BLOB, "items": [{**BLOB["items"][0], "scheduleItems": []}]}
