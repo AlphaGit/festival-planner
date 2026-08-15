@@ -1387,7 +1387,7 @@
     {
       "title": "Bucking Fastard",
       "authors": "Werner Herzog",
-      "blurb": "Director Werner Herzog and real-life sisters Kate and Rooney Mara enliven the wild true story of twin sisters who speak as one, fall in love with the same person, and eventually spiral in a peculiar case that grabbed national headlines in 1980s Britain.",
+      "blurb": "Director Werner Herzog and real-life sisters Kate and Rooney Mara enliven the story of siblings who speak as one, fall in love with the same person, and eventually spiral.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3gz5KG4Z6LDIvOFTLCkdZl/3a2912751968e2566890ce3b5c74a989/BuckingFastard_01.jpg",
       "source_url": "https://www.tiff.net/films/bucking-fastard",
       "tracks": [
@@ -1758,7 +1758,7 @@
     },
     {
       "title": "Crystal Lake",
-      "authors": "",
+      "authors": "Michael Lennox, Brad Caleb Kane",
       "blurb": "Set long before the events of <em>Friday the 13th</em>, Linda Cardellini stars as Pamela Voorhees in this captivating, A24-produced origin series.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/4hcsXOb9SicXaxTkgFUoWC/3c7da60536b297591f270ff58f514312/Crystal_Lake_01.webp",
       "source_url": "https://www.tiff.net/films/crystal-lake",
@@ -2237,7 +2237,7 @@
       "title": "Everything Else is Noise",
       "authors": "Nicolás Pereda",
       "blurb": "Prolific Mexican-Canadian auteur Nicolás Pereda has delivered his sharpest and most amusing film yet with <em>Everything Else is Noise</em>, a sly, self-reflexive comedy of manners and mishaps involving a trio of women classical composers and musicians.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2VNzSUXF2ZYjrDlVs7mxqR/166667fafa7ab3f3761ce8b15045dfcb/Everything-Else-is-Noise_01.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/DvRKrtC6cwKHtCnLl4Qvy/7c64c2e7d472a8deed6d468cea94ccd0/Everything-Else-is-Noise_07.webp",
       "source_url": "https://www.tiff.net/films/everything-else-is-noise",
       "tracks": [
         "wavelengths"
@@ -3561,12 +3561,20 @@
       "tracks": [
         "tiff-classics"
       ],
-      "runtime_minutes": 124,
+      "runtime_minutes": 114,
       "screenings": [
         {
           "start": "2026-09-10 13:30",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
+        },
+        {
+          "start": "2026-09-14 10:00",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12",
+          "accessTiers": [
+            "press-industry"
+          ]
         }
       ]
     },
@@ -4842,22 +4850,6 @@
       ],
       "runtime_minutes": 110,
       "screenings": [
-        {
-          "start": "2026-09-10 09:05",
-          "venue": "Scotiabank 7",
-          "location": "scotiabank-7",
-          "accessTiers": [
-            "press-industry"
-          ]
-        },
-        {
-          "start": "2026-09-11 11:50",
-          "venue": "Scotiabank 6",
-          "location": "scotiabank-6",
-          "accessTiers": [
-            "press-industry"
-          ]
-        },
         {
           "start": "2026-09-13 14:00",
           "venue": "Roy Thomson Hall",
@@ -6209,7 +6201,7 @@
       "title": "Tehran, Under the Skin",
       "authors": "Afsaneh Salari",
       "blurb": "In an age of body anxiety, filmmaker Afsaneh Salari embeds herself in the offices of Iranian plastic surgeons to interview their clients with humour and empathy.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3bfBSW91Led0h66rsIc5H6/0f7dcfb738e6fab6116200ff28cfb67c/Tehran-Under-the-Skin_Still_01.jpg",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3bfBSW91Led0h66rsIc5H6/b83a3c56c78282fe55941e257545de15/31d2559a-bb7a-4632-862d-bfb2286a5a87.jpg",
       "source_url": "https://www.tiff.net/films/tehran-under-the-skin",
       "tracks": [
         "tiff-docs"
