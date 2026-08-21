@@ -3,21 +3,21 @@
 
 TIFF serves the entire festival as one JSON blob at /festivalfilmlist — no
 per-film page scraping needed. We keep non-cancelled, in-person screenings and
-classify each by audience: public screenings carry no access tier, Press &
-Industry / Market ones are tagged `accessTiers: ["press-industry"]` (a
-screening-level axis, distinct from movie-level curatorial tracks). Digital and
-other restricted audiences are dropped. We emit the same shape app.js /
-solver.js already consume.
+classify each by audience: public screenings carry no access tier, accredited
+ones (Press & Market, Market, Buyer) are tagged `accessTiers` (a screening-level
+axis, distinct from movie-level curatorial tracks). Cancelled and digital rows
+are dropped. We emit the same shape app.js / solver.js already consume.
 
     python3 scrape_tiff.py                 # fetch live -> catalog.json
     python3 scrape_tiff.py raw.json        # use a saved blob instead of fetching
     python3 scrape_tiff.py - out.json      # fetch live -> out.json
 
-runtime_minutes = shortest screening block across ALL listings (incl. P&I),
+runtime_minutes = shortest screening block across ALL listings (incl. press),
 which is the pure film runtime; public blocks include intros/Q&A and run longer.
 
-P&I ships disabled by default (disabledAccessTiers): most users can't attend
-press screenings, so they're hidden until a user marks they hold that access.
+Accredited tiers ship disabled by default (disabledAccessTiers): most users
+can't attend them, so they stay hidden — and a film with nothing but accredited
+screenings drops out of the app's list entirely — until a user says otherwise.
 """
 import json
 import os
@@ -36,8 +36,23 @@ PROXY_URL = "https://r.jina.ai/" + URL
 FESTIVAL = "TIFF 2026"
 UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36"
 
-PI_TIER = "press-industry"
-PI_TIER_NAME = "Press & Industry"
+PM_TIER = "press-market"
+MARKET_TIER = "market"
+TIER_NAMES = {PM_TIER: "Press & Market", MARKET_TIER: "Market & Buyer"}
+
+# Every screening audience TIFF publishes, mapped to access tiers. [] = anyone
+# can buy a ticket; anything else needs accreditation. The vocabulary changed
+# under us once — "General Public" became "Public" when TIFF: The Market
+# launched, which silently reclassified all 638 public screenings as press — so
+# this is an explicit map and unknown values are reported, never guessed.
+AUDIENCE_TIERS = {
+    "Public": [],
+    "General Public": [],          # pre-2026 wording
+    "Press & Market": [PM_TIER],   # renamed from Press & Industry in 2026
+    "Market": [MARKET_TIER],
+    "Buyer": [MARKET_TIER],
+}
+UNKNOWN_AUDIENCES = set()
 
 
 KEEP_TAGS = {"em": "em", "i": "em", "strong": "strong", "b": "strong"}
@@ -103,19 +118,20 @@ def block_minutes(s):
 def access_tiers(s):
     """Access tiers for a KEPT screening, or None to drop it.
 
-    [] = public; ["press-industry"] = Press & Industry / Market. TIFF's
-    audienceType is "General Public" for public showings and a combo of
-    accreditation passes otherwise ("Buyers Pass,Pro Pass,Guest,Press Passes",
-    "Buyers Pass", ...) — every non-public accreditation is an industry/press
-    showing, so anything that isn't public (and has some audience) is P&I.
-    Cancelled, digital, and audience-less rows are dropped (None).
+    [] = public; otherwise the accreditation needed (see AUDIENCE_TIERS).
+    Cancelled, digital, and audience-less rows are dropped (None). An audience
+    we don't recognise is treated as the most restricted kind rather than
+    exposed as public, and recorded in UNKNOWN_AUDIENCES so the run can say so.
     """
-    if s.get("cancelled") or (s.get("venue") or {}).get("venueType") != "physical":
+    if s.get("cancelled") or s.get("digital") or (s.get("venue") or {}).get("venueType") != "physical":
         return None
     aud = (s.get("audienceType") or "").strip()
     if not aud:
         return None
-    return [] if "General Public" in aud else [PI_TIER]
+    if aud not in AUDIENCE_TIERS:
+        UNKNOWN_AUDIENCES.add(aud)
+        return [MARKET_TIER]
+    return AUDIENCE_TIERS[aud]
 
 
 class _TextNodes(HTMLParser):
@@ -198,7 +214,7 @@ def prior_addresses(path):
 def build(data, addresses=None):
     addresses = addresses or {}
     tracks, locations, movies = {}, {}, []
-    any_pi = False
+    tiers_used = set()
     for it in data["items"]:
         kept = [(s, t) for s in it["scheduleItems"] if (t := access_tiers(s)) is not None]
         if not kept:
@@ -215,7 +231,7 @@ def build(data, addresses=None):
             sc = {"start": s["startTime"][:16], "venue": room, "location": loc}  # "YYYY-MM-DD HH:MM"
             if tiers:
                 sc["accessTiers"] = tiers
-                any_pi = True
+                tiers_used.update(tiers)
             screenings.append(sc)
 
         # pure runtime = shortest block over every listing, not just kept ones
@@ -236,8 +252,9 @@ def build(data, addresses=None):
     return {
         "festival": FESTIVAL,
         "tracks": dict(sorted(tracks.items(), key=lambda kv: kv[1])),
-        "accessTiers": {PI_TIER: PI_TIER_NAME} if any_pi else {},
-        "disabledAccessTiers": [PI_TIER] if any_pi else [],
+        # every accredited tier ships disabled: most users can't attend them
+        "accessTiers": {t: TIER_NAMES[t] for t in TIER_NAMES if t in tiers_used},
+        "disabledAccessTiers": [t for t in TIER_NAMES if t in tiers_used],
         "locations": dict(sorted(locations.items())),
         "movies": movies,
     }
@@ -255,12 +272,17 @@ if __name__ == "__main__":
         json.dump(cat, f, indent=2, ensure_ascii=False)
         f.write("\n")
     sc = sum(len(m["screenings"]) for m in cat["movies"])
-    pi = sum(1 for m in cat["movies"] for s in m["screenings"] if s.get("accessTiers"))
-    print(f"{out}: {len(cat['movies'])} films, {sc} screenings ({pi} P&I), "
-          f"{len(cat['locations'])} venues, {len(cat['tracks'])} tracks")
+    pub = sum(1 for m in cat["movies"] for s in m["screenings"] if not s.get("accessTiers"))
+    print(f"{out}: {len(cat['movies'])} films, {sc} screenings ({pub} public, "
+          f"{sc - pub} accredited), {len(cat['locations'])} venues, {len(cat['tracks'])} tracks")
     missing = sorted(k for k, v in cat["locations"].items() if not v["address"])
     if missing:
         print(f"venues needing an address by hand: {', '.join(missing)}")
+    if UNKNOWN_AUDIENCES:
+        print("WARNING: unrecognised screening audiences, treated as accredited "
+              f"(so hidden by default): {', '.join(sorted(UNKNOWN_AUDIENCES))}. "
+              "Add them to AUDIENCE_TIERS — if one of these is really a public "
+              "audience, the catalog is currently hiding it.")
     if not markup_intact(data):
         print("WARNING: this copy came through a renderer — blurbs lost their "
               "<em>/<strong>. Schedule data is fine. For emphasis, save the raw "

@@ -230,9 +230,13 @@ function useCatalog(cat) {
 const screeningAllowed = (s) => !s.accessTiers || !s.accessTiers.length || s.accessTiers.some((t) => !TIERSOFF.has(t));
 // A movie shows in View 1 when at least one curatorial track is on (no tracks =>
 // always) AND it has at least one allowed screening (hides P&I-only when P&I off).
+// Schedulable = has a screening the user can actually attend. Films with only
+// accredited screenings (TIFF ships ~140 Market/Summit entries) are not, so they
+// stay out of both the list and the must/want/skip tally.
+const schedulable = (m) => (m.screenings || []).some(screeningAllowed);
 const movieVisible = (m) =>
   ((m.tracks || []).length === 0 || (m.tracks || []).some((t) => !TRACKSOFF.has(t)))
-  && (m.screenings || []).some(screeningAllowed);
+  && schedulable(m);
 
 // Render the two View 1 chip rows: curatorial tracks (view filter) and access
 // tiers ("allowed access" — also gates which screenings are schedulable).
@@ -280,7 +284,10 @@ function renderCatalog() {
   let rows = "";
   for (const m of (CATALOG.movies || [])) {
     const cur = effStatus(sel, m.title);
-    counts[cur]++;
+    // count what's schedulable, not what's on screen: a film hidden by a track
+    // chip is still scheduled (tracks are view-only), one hidden by an access
+    // tier is not
+    if (schedulable(m)) counts[cur]++;
     if (!movieVisible(m)) continue;
     const btns = STATUSES.map((st) =>
       `<button class="tag ${st}${cur === st ? " on" : ""}" data-title="${esc(m.title)}" data-status="${st}">${STATUS_LABEL[st]}</button>`

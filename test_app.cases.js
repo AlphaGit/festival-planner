@@ -511,4 +511,26 @@ check("expanded synopses survive a re-render (tagging must not collapse them)", 
   EXPANDED.clear();
 });
 
+check("the tally counts schedulable films, not visible ones", () => {
+  reset("CNT");
+  CATALOG = { festival: "CNT", accessTiers: { market: "Market & Buyer" },
+    disabledAccessTiers: ["market"], tracks: { galas: "Galas", summit: "Summit" }, movies: [
+    { title: "Public", tracks: ["galas"], runtime_minutes: 90,
+      screenings: [{ start: "2026-09-11 10:00", venue: "X" }] },
+    { title: "MarketOnly", tracks: ["summit"], runtime_minutes: 90,
+      screenings: [{ start: "2026-09-11 12:00", venue: "X", accessTiers: ["market"] }] },
+  ] };
+  TIERSOFF = new Set(getTiersOff());  // market off by default, per the catalog
+  TRACKSOFF = new Set();
+  assert(schedulable(CATALOG.movies[0]), "public film is schedulable");
+  assert(!schedulable(CATALOG.movies[1]), "market-only film is not");
+  assert(!movieVisible(CATALOG.movies[1]), "and is hidden from the list");
+  // a track chip hides a film from the list but it still gets scheduled, so it
+  // must stay in the tally
+  TRACKSOFF = new Set(["galas"]);
+  assert(!movieVisible(CATALOG.movies[0]), "hidden by its track");
+  assert(schedulable(CATALOG.movies[0]), "but still schedulable, so still counted");
+  TRACKSOFF = new Set(); TIERSOFF = new Set();
+});
+
 report("app");

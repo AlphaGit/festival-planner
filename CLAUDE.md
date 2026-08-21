@@ -92,6 +92,22 @@ Use a raw save whenever blurbs matter; the proxy is fine for a schedule refresh.
 until the schedule drops, every `scheduleItems` is empty and the scraper exits
 non-zero rather than overwriting `catalog.json` with a filmless catalog.
 
+**Audience wording is load-bearing.** Each screening's `audienceType` decides
+whether it's public or needs accreditation. TIFF changed the vocabulary mid-cycle
+— `"General Public"` became `"Public"`, and the industry side split into
+`"Press & Market"` / `"Market"` / `"Buyer"` when TIFF: The Market launched. The
+old substring test (`"General Public" in aud`) then quietly reclassified all 638
+public screenings as press. `AUDIENCE_TIERS` is now an explicit map; anything
+unrecognised is treated as accredited (hidden by default, never exposed as
+public) and reported at the end of the run. Add new values there, don't loosen
+the match.
+
+**The blob includes delegate-only programming.** TIFF: The Market adds ~140
+Summit / Market Screening entries with no public screening. They're kept, tagged
+with an accredited tier, and both tiers ship in `disabledAccessTiers` — so the
+app hides those films and leaves them out of the must/want/skip tally
+(`schedulable()` in app.js) until a user says they hold that access.
+
 **Venue addresses.** Each `locations[<id>].address` powers the Google Maps link
 in the timeline (View 2). The film list carries no addresses, so the scraper
 copies them forward from the existing `catalog.json` by location id — only

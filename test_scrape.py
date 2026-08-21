@@ -19,14 +19,14 @@ BLOB = {
         "webProgrammes": ["Gala Presentations"],
         "scheduleItems": [
             {"startTime": "2026-09-11 18:30:00", "endTime": "2026-09-11 20:40:00",
-             "audienceType": "General Public", "venue": {"room": "Roy Thomson Hall", "venueType": "physical"}},
+             "audienceType": "Public", "venue": {"room": "Roy Thomson Hall", "venueType": "physical"}},
             {"startTime": "2026-09-12 09:00:00", "endTime": "2026-09-12 10:35:00",
-             "audienceType": "Buyers Pass,Press Passes", "venue": {"room": "Scotiabank 3", "venueType": "physical"}},
+             "audienceType": "Press & Market", "venue": {"room": "Scotiabank 3", "venueType": "physical"}},
             {"startTime": "2026-09-13 12:00:00", "endTime": "2026-09-13 14:00:00",
-             "audienceType": "General Public", "venue": {"room": "Roy Thomson Hall", "venueType": "physical"},
+             "audienceType": "Public", "venue": {"room": "Roy Thomson Hall", "venueType": "physical"},
              "cancelled": True},
             {"startTime": "2026-09-14 12:00:00", "endTime": "2026-09-14 14:00:00",
-             "audienceType": "General Public", "venue": {"room": "Online", "venueType": "digital"}},
+             "audienceType": "Public", "venue": {"room": "Online", "venueType": "digital"}},
         ],
     }],
 }
@@ -58,9 +58,26 @@ check("nbsp wrap points collapse", st.parse_blob(RAW.replace("A & B", "A &" + ch
 # --- screening classification ----------------------------------------------
 tiers = [st.access_tiers(s) for s in BLOB["items"][0]["scheduleItems"]]
 check("public screening has no tier", tiers[0] == [])
-check("accredited screening is P&I", tiers[1] == [st.PI_TIER])
+check("press screening is accredited", tiers[1] == [st.PM_TIER])
 check("cancelled screening is dropped", tiers[2] is None)
-check("digital screening is dropped", tiers[3] is None)
+check("digital venue is dropped", tiers[3] is None)
+check("digital flag is dropped", st.access_tiers(
+    {"audienceType": "Public", "digital": True, "venue": {"room": "X", "venueType": "physical"}}) is None)
+check("no audience is dropped", st.access_tiers(
+    {"audienceType": "", "venue": {"room": "X", "venueType": "physical"}}) is None)
+# TIFF renamed the public audience mid-festival-cycle ("General Public" ->
+# "Public") and split the industry side three ways; both spellings must work
+check("pre-2026 public wording still works", st.access_tiers(
+    {"audienceType": "General Public", "venue": {"room": "X", "venueType": "physical"}}) == [])
+for aud in ("Market", "Buyer"):
+    check(f"{aud} screening is market-tier", st.access_tiers(
+        {"audienceType": aud, "venue": {"room": "X", "venueType": "physical"}}) == [st.MARKET_TIER])
+# an audience we've never seen must not be exposed as public — most restricted,
+# and recorded so the run can report it
+check("unknown audience is restricted, not public", st.access_tiers(
+    {"audienceType": "Sponsor Lounge", "venue": {"room": "X", "venueType": "physical"}}) == [st.MARKET_TIER])
+check("unknown audience is recorded", "Sponsor Lounge" in st.UNKNOWN_AUDIENCES)
+st.UNKNOWN_AUDIENCES.clear()
 
 # --- build ------------------------------------------------------------------
 cat = st.build(BLOB, {"roy-thomson-hall": "60 Simcoe St, Toronto, ON M5J 2H5"})
@@ -69,7 +86,7 @@ check("one film kept", len(cat["movies"]) == 1)
 check("cancelled and digital screenings excluded", len(m["screenings"]) == 2)
 check("screenings are chronological", [s["start"] for s in m["screenings"]]
       == ["2026-09-11 18:30", "2026-09-12 09:00"])
-check("P&I tier tagged on the right screening", m["screenings"][1]["accessTiers"] == [st.PI_TIER])
+check("tier tagged on the right screening", m["screenings"][1]["accessTiers"] == [st.PM_TIER])
 check("runtime is the shortest block", m["runtime_minutes"] == 95)
 check("blurb keeps em, unescapes entities", m["blurb"] == "<em>Wow</em> & more.")
 
@@ -92,8 +109,8 @@ check("track slugified", m["tracks"] == ["gala-presentations"] and
 check("known address carried forward",
       cat["locations"]["roy-thomson-hall"]["address"] == "60 Simcoe St, Toronto, ON M5J 2H5")
 check("new venue left blank for manual lookup", cat["locations"]["scotiabank-3"]["address"] == "")
-check("P&I tier declared and disabled by default",
-      cat["accessTiers"] == {st.PI_TIER: st.PI_TIER_NAME} and cat["disabledAccessTiers"] == [st.PI_TIER])
+check("only the tiers in use are declared, and all disabled by default",
+      cat["accessTiers"] == {st.PM_TIER: "Press & Market"} and cat["disabledAccessTiers"] == [st.PM_TIER])
 
 # --- markup loss detector ----------------------------------------------------
 # a browser-rendered copy keeps `<\\/em>` as text but swallows `<em>` as an
