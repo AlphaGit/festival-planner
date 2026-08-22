@@ -41,7 +41,8 @@ timeline), `solver.js` (the scheduling model), `logic-solver.bundle.js`
 Replace `catalog.json`. The format lists films, each with one or more screenings
 (time + venue). No per-film priority in the data — that's what you set by
 tagging. `scrape_tiff.py` (pure stdlib: `python3 scrape_tiff.py`) regenerates
-`catalog.json` from the TIFF site.
+`catalog.json` from the TIFF site, and `python3 diff_catalog.py` reports what
+changed upstream before you rebuild.
 
 ## Tests
 
@@ -51,8 +52,9 @@ node test_solver.js && node test_app.js && python3 test_scrape.py   # plain asse
 
 `test_solver.js` covers scheduling correctness; `test_app.js` covers app
 behaviour (tagging, availability, screening validation, the decision wizard,
-pick reconciliation, persistence); `test_scrape.py` covers the catalog scraper.
-The browser solver also has an in-page self-check: `TiffSolver._selfTest()`.
+pick reconciliation, persistence); `test_scrape.py` covers the catalog scraper
+and the change report. The browser solver also has an in-page self-check:
+`TiffSolver._selfTest()`.
 
 ## Contributing
 

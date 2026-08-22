@@ -69,7 +69,13 @@ Chrome.
 
 `scrape_tiff.py` — pure Python stdlib, no dependencies. Run `python3
 scrape_tiff.py` to regenerate `catalog.json` from the TIFF site. Checks:
-`python3 test_scrape.py`.
+`python3 test_scrape.py` (covers `diff_catalog.py` too).
+
+`diff_catalog.py` says what changed upstream *before* you rebuild — run it
+first; it exits 1 when anything differs. TIFF edits continuously, and most
+rounds are a handful of blurb tweaks buried in hundreds of lines of noise from
+the proxy, so it normalises that away (see below) instead of you re-deriving it
+each time.
 
 **The site is behind an AWS WAF.** A plain request to `/festivalfilmlist` gets
 HTTP 202 with an empty body (JS challenge). The scraper detects that and retries

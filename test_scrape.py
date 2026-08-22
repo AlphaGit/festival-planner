@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Checks for scrape_tiff.py: python3 test_scrape.py
+"""Checks for scrape_tiff.py and diff_catalog.py: python3 test_scrape.py
 
 Covers the input shapes the film list arrives in (raw JSON, a browser-saved
-page, the r.jina.ai proxy) and the catalog assembly around them.
+page, the r.jina.ai proxy), the catalog assembly around them, and the change
+report built on top.
 """
 import json
 
+import diff_catalog as dc
 import scrape_tiff as st
 
 BLOB = {
@@ -125,5 +127,40 @@ check("missing descriptions are fine", st.markup_intact({"items": [{}]}))
 # main() turns this into a non-zero exit rather than clobbering catalog.json
 empty = {**BLOB, "items": [{**BLOB["items"][0], "scheduleItems": []}]}
 check("film with no screenings is dropped", st.build(empty)["movies"] == [])
+
+# --- diff_catalog -----------------------------------------------------------
+# a renderer-damaged copy differs from a raw one in markup and whitespace only;
+# comparing those naively once reported 31 changes when 5 were real
+RAW_BLURB = "<em>Kissed</em>  (TIFF \u201996)\n\nis a  drama"
+RENDERED = "Kissed (TIFF \u201996) is a drama"
+check("loose compare ignores markup and whitespace",
+      dc.norm(RAW_BLURB, True) == dc.norm(RENDERED, True))
+check("strict compare does not", dc.norm(RAW_BLURB, False) != dc.norm(RENDERED, False))
+
+FILM = {"title": "F", "authors": "A", "blurb": "b", "runtime_minutes": 90,
+        "tracks": ["t"], "image_url": "i", "source_url": "u",
+        "screenings": [{"start": "2026-09-11 10:00", "venue": "X"}]}
+same = json.loads(json.dumps(FILM))
+check("identical films report nothing", dc.film_changes(FILM, same, True) == [])
+moved = json.loads(json.dumps(FILM))
+moved["screenings"] = [{"start": "2026-09-11 09:00", "venue": "X"}]
+ch = dc.film_changes(FILM, moved, True)
+check("a moved screening shows as one add and one drop",
+      ch == ["+ 2026-09-11 09:00 X [public]", "- 2026-09-11 10:00 X [public]"])
+tiered = json.loads(json.dumps(FILM))
+tiered["screenings"] = [{"start": "2026-09-11 10:00", "venue": "X", "accessTiers": ["market"]}]
+check("a screening changing tier is reported",
+      dc.film_changes(FILM, tiered, True) == ["+ 2026-09-11 10:00 X [market]",
+                                              "- 2026-09-11 10:00 X [public]"])
+retimed = json.loads(json.dumps(FILM)); retimed["runtime_minutes"] = 100
+check("a field change is reported", dc.film_changes(FILM, retimed, True) == ["~ runtime_minutes: 90 -> 100"])
+reworded = json.loads(json.dumps(FILM)); reworded["blurb"] = "b, and more"
+check("a blurb change is reported", dc.film_changes(FILM, reworded, True)[0] == "~ blurb:")
+restyled = json.loads(json.dumps(FILM)); restyled["blurb"] = "<em>b</em>"
+check("markup-only change is invisible to a loose compare",
+      dc.film_changes(FILM, restyled, True) == [])
+check("...but caught by a strict one", dc.film_changes(FILM, restyled, False) != [])
+check("public screenings counted",
+      dc.public({"movies": [FILM, tiered]}) == 1)
 
 print("\nall scrape checks passed")
