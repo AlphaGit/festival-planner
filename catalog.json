@@ -29,6 +29,10 @@
     "market"
   ],
   "locations": {
+    "innovation-hub": {
+      "name": "Innovation Hub",
+      "address": "255 Front St W, Toronto, ON M5V 2W6"
+    },
     "john-bassett-theatre": {
       "name": "John Bassett Theatre",
       "address": "255 Front St W, Toronto, ON M5V 2W6"
@@ -1226,6 +1230,27 @@
       ]
     },
     {
+      "title": "BABY BANGKOK",
+      "authors": "Hu Xinyun",
+      "blurb": "Set in Bangkok in 2059, William, a data obstetrician, implants the life memories of his deceased aborted daughter into an AI robot called \"Bangkok Baby\". Endowed with human emotional memories, the AI girl travels across the city in search of her mother. From an artificial intelligence perspective, the film interweaves oriental family affection with futuristic technology, exploring the boundaries between AI, life and maternal love. Blending soft sci-fi storytelling with human warmth, it depicts the struggles and bonds of innate human emotions amid rapid technological advancement.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "source_url": "https://www.tiff.net/films/baby-bangkok",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 115,
+      "screenings": [
+        {
+          "start": "2026-09-13 18:35",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Back in Black",
       "authors": "Ron Murphy",
       "blurb": "Christopher Walken leads a terrific cast in director Ron Murphy’s hilarious satire about a failing family funeral home that experiences a reversal of fortune thanks to their town’s suspicious spike in fatality rates.",
@@ -1555,7 +1580,7 @@
       "tracks": [
         "tiff-docs"
       ],
-      "runtime_minutes": 94,
+      "runtime_minutes": 97,
       "screenings": [
         {
           "start": "2026-09-11 18:45",
@@ -3599,6 +3624,27 @@
       ]
     },
     {
+      "title": "Frontières at TIFF: The Market",
+      "authors": "",
+      "blurb": "Frontières is the world’s leading international co-production market and networking platform focused on genre film financing and co-production.  Co-presented by the Fantasia International Film Festival and TIFF: The Market, this Frontières event is a showcase of genre projects presenting a majority of Canadian titles, aiming to facilitate connections between the project teams and industry members such as producers, financiers, sales agents, distributors and festival programmers.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4ZXdJXkWQ8oQyBDonXrCe6/c94457ffa0e95cbfe276a6eb678349af/3ed364c1-820b-4d22-a72a-839f2f4e2a4a.webp",
+      "source_url": "https://www.tiff.net/films/frontires-at-tiff-the-market",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 56,
+      "screenings": [
+        {
+          "start": "2026-09-12 09:00",
+          "venue": "Scotiabank 5",
+          "location": "scotiabank-5",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Furies",
       "authors": "Rami Kodeih",
       "blurb": "Set in a bankrupt and sweaty Beirut, Rami Kodeih’s impressive thriller follows two sisters in need of money for an important surgery.",
@@ -3975,8 +4021,16 @@
       "tracks": [
         "midnight-madness"
       ],
-      "runtime_minutes": 111,
+      "runtime_minutes": 96,
       "screenings": [
+        {
+          "start": "2026-09-13 08:15",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
+          "accessTiers": [
+            "market"
+          ]
+        },
         {
           "start": "2026-09-14 11:30",
           "venue": "Scotiabank 4",
@@ -4324,7 +4378,7 @@
       "tracks": [
         "platform"
       ],
-      "runtime_minutes": 89,
+      "runtime_minutes": 93,
       "screenings": [
         {
           "start": "2026-09-10 09:10",
@@ -4632,6 +4686,89 @@
           "start": "2026-09-18 21:00",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
+        }
+      ]
+    },
+    {
+      "title": "Innovation Hub",
+      "authors": "",
+      "blurb": "A designated space featuring a selection of projects that demonstrate the year’s best immersive  storytelling, including interactive virtual reality experiences, mixed reality installations and AI glasses.\r\n\r\nPress & Market Pass Holders: \r\nFirst-come, first-served access. Open Thursday, Sept. 10 – Monday, Sept. 14, 9:00 AM – 6:00 PM.\r\n\r\nLimited Public Tickets Available Starting Aug 31st.\r\nTimed Entry. 3 Hour Access. Open Tuesday, Sept. 15 - Wednesday, Sept. 16, 9:00 AM – 6:00 PM.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5WPRZShIeKV3zDk43Gi0dc/85bac5e822d24b4cb82e14bf50b87184/1200x600---Innovation-Hub-_1_.jpg",
+      "source_url": "https://www.tiff.net/films/innovation-hub",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 180,
+      "screenings": [
+        {
+          "start": "2026-09-10 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
+          "start": "2026-09-11 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
+          "start": "2026-09-12 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
+          "start": "2026-09-13 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
+          "start": "2026-09-14 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
+          "start": "2026-09-15 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub"
+        },
+        {
+          "start": "2026-09-15 12:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub"
+        },
+        {
+          "start": "2026-09-15 15:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub"
+        },
+        {
+          "start": "2026-09-16 09:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub"
+        },
+        {
+          "start": "2026-09-16 12:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub"
+        },
+        {
+          "start": "2026-09-16 15:00",
+          "venue": "Innovation Hub",
+          "location": "innovation-hub"
         }
       ]
     },
@@ -5067,7 +5204,7 @@
       "tracks": [
         "special-presentations"
       ],
-      "runtime_minutes": 155,
+      "runtime_minutes": 160,
       "screenings": [
         {
           "start": "2026-09-15 17:45",
@@ -7094,7 +7231,7 @@
     {
       "title": "PERSPECTIVES In Short: What Short Film Programmers Want",
       "authors": "",
-      "blurb": "Explore the power of short film programming as an act of artistic advocacy. A panel of festival programmers from Clermont-Ferrand, FNC and Palm Springs join moderator and TIFF Short Cuts programmer Sonja Baska to discuss how they construct distinct curatorial voices, champion experimental and non-linear forms, and defend short cinema as a vital, uncompromising medium in its own right.",
+      "blurb": "Explore the power of short film programming as an act of artistic advocacy. A panel of festival programmers from Clermont-Ferrand, FNC and Palm Springs join moderator and TIFF Short Cuts programmer Sonja Baksa to discuss how they construct distinct curatorial voices, champion experimental and non-linear forms, and defend short cinema as a vital, uncompromising medium in its own right.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
       "source_url": "https://www.tiff.net/films/perspectives-in-short-what-short-film-programmers-want",
       "tracks": [
@@ -8427,48 +8564,6 @@
       ]
     },
     {
-      "title": "Stage to Screen, The New Creator Economy",
-      "authors": "",
-      "blurb": "This session will explore the evolving creator economy, the relationship between creators and audiences, how creators are making films, and the growing opportunities in event cinema, featuring a special case study on Hadestown and what it means for the ﻿future of theatrical exhibition.\r\n\r\nThis 30-minute session will be directly followed by a 30-minute Fireside Chat",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
-      "source_url": "https://www.tiff.net/films/stage-to-screen-the-new-creator-economy",
-      "tracks": [
-        "summit"
-      ],
-      "runtime_minutes": 60,
-      "screenings": [
-        {
-          "start": "2026-09-11 12:00",
-          "venue": "Stage 2",
-          "location": "stage-2",
-          "accessTiers": [
-            "press-market"
-          ]
-        }
-      ]
-    },
-    {
-      "title": "State of the Industry: State of Finance + International Partnerships & Co-Productions",
-      "authors": "",
-      "blurb": "A Winston Baker signature session taking the pulse of the entertainment business and the money behind it. Leading voices unpack where the industry stands, where capital is moving, and what the changing financing landscape means for the next generation of projects.\r\n<em>Fireside Chats</em>\r\nExclusive, in-depth sit-downs with some of the industry’s most influential voices. Expect candid conversations that go beyond the headlines to reveal the ideas, strategies and decisions shaping entertainment today.\r\n<em>International Partnerships & Co - Productions</em>\r\nThe next big opportunity may be across borders. Explore how international partnerships and co-productions are unlocking financing, expanding audiences and creating new pathways for projects to travel globally.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
-      "source_url": "https://www.tiff.net/films/state-of-the-industry-state-of-finance-international-partnerships-co-productions",
-      "tracks": [
-        "summit"
-      ],
-      "runtime_minutes": 120,
-      "screenings": [
-        {
-          "start": "2026-09-10 15:00",
-          "venue": "Stage 2",
-          "location": "stage-2",
-          "accessTiers": [
-            "press-market"
-          ]
-        }
-      ]
-    },
-    {
       "title": "Still Night, Burning House",
       "authors": "Carol Nguyen",
       "blurb": "A once-close family comes together to say goodbye to an uncle who struggled with mental health issues, in award-winning short filmmaker Carol Nguyen’s tender and emotional feature-length documentary debut.",
@@ -9415,6 +9510,14 @@
           "location": "royal-alexandra-theatre"
         },
         {
+          "start": "2026-09-12 12:15",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7",
+          "accessTiers": [
+            "market"
+          ]
+        },
+        {
           "start": "2026-09-12 14:15",
           "venue": "Scotiabank 12",
           "location": "scotiabank-12",
@@ -9426,6 +9529,14 @@
           "start": "2026-09-12 21:55",
           "venue": "Scotiabank 14",
           "location": "scotiabank-14"
+        },
+        {
+          "start": "2026-09-13 13:45",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
+          "accessTiers": [
+            "market"
+          ]
         },
         {
           "start": "2026-09-18 21:40",
@@ -9753,6 +9864,30 @@
       ],
       "runtime_minutes": 124,
       "screenings": [
+        {
+          "start": "2026-09-11 11:30",
+          "venue": "Scotiabank 5",
+          "location": "scotiabank-5",
+          "accessTiers": [
+            "market"
+          ]
+        },
+        {
+          "start": "2026-09-12 21:30",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
+          "accessTiers": [
+            "market"
+          ]
+        },
+        {
+          "start": "2026-09-13 16:30",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
+          "accessTiers": [
+            "market"
+          ]
+        },
         {
           "start": "2026-09-15 09:00",
           "venue": "Scotiabank 1",
@@ -11402,6 +11537,48 @@
           "start": "2026-09-11 14:00",
           "venue": "John Bassett Theatre",
           "location": "john-bassett-theatre",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Winston Baker’s Entertainment Finance Forum Toronto",
+      "authors": "",
+      "blurb": "State of the Industry (30 min)\r\nA Winston Baker signature session taking the pulse of the entertainment business and the money behind it. Leading voices unpack where the industry stands, where capital is moving, and what the changing financing landscape means for the next generation of projects.\r\nSpeakers: Zach Glueck - Co-CEO, Manifest Pictures, Siena Oberman - Founder, Artemis, Dave Bishop - CEO, Protagonist Pictures\r\nFireside Chat (30 min)\r\nExclusive, in-depth sit-downs with some of the industry’s most influential voices. Expect candid conversations that go beyond the headlines to reveal the ideas, strategies and decisions shaping entertainment today.\r\nInternational Partnerships + Co-Productions (30 min)\r\nThe next big opportunity may be across borders. Explore how international partnerships and co-productions are unlocking financing, expanding audiences and creating new pathways for projects to travel globally.\r\nSpeakers: Paula Paizes - COO and President of Production of Pressman Film.\r\nFireside Chat (30 min)\r\nExclusive, in-depth sit-downs with some of the industry’s most influential voices. Expect candid conversations that go beyond the headlines to reveal the ideas, strategies and decisions shaping entertainment today.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/winston-bakers-entertainment-finance-forum-toronto",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 120,
+      "screenings": [
+        {
+          "start": "2026-09-10 15:00",
+          "venue": "Stage 2",
+          "location": "stage-2",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Winston Baker’s Entertainment Finance Forum Toronto Part 2",
+      "authors": "",
+      "blurb": "Stage to Screen - The New Creator Economy\r\n12:00pm - 12:30pm\r\n\r\nThis session will explore the evolving creator economy, the relationship between creators and audiences, how creators are making films, and the growing opportunities in event cinema, featuring a special case study on Hadestown and what it means for the ﻿future of theatrical exhibition.\r\n\r\nKent Sanderson - CEO, Bleecker Street\r\n\r\nElsa Ramo - Founder & Managing Partner, Ramo Law\r\n\r\nModerated by: Kevin Iwashina - Founder, Audiovisuel\r\n———\r\nFilm as a Catalyst to Social & Policy Change\r\n12:30pm - 1:00pm\r\n\r\nFilm has the power to shape how we see the world, whose stories we understand, and which experiences enter the public consciousness. Those stories can influence culture, shift public opinion, and ultimately create pressure for social and policy change.\r\n\r\nAshley Callingbull – Actress & Producer\r\n\r\nKeith Sam - Partner, Vū Origins\r\n\r\nLydia Storie - Director, Culture Change - Caring Across Generations & Head of Content - Give Not Take Media\r\n\r\nModerated by: Zahra Liberté Aldünia - Founder/CEO, Precedent Productions</P",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/winston-bakers-entertainment-finance-forum-toronto-part-2",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-11 12:00",
+          "venue": "Stage 2",
+          "location": "stage-2",
           "accessTiers": [
             "press-market"
           ]
