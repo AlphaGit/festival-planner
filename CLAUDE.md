@@ -134,8 +134,15 @@ by hand (research the address online); they persist through later re-scrapes.
   The latter evals the un-modularised app headlessly behind a tiny DOM shim — its
   cases live in `test_app.cases.js`. Both share `test_harness.js` (check/assert/
   eq/report). Keep the in-browser `TiffSolver._selfTest()` smoke check too.
-- All development happens on `main` — no feature branches. Commit and push
-  straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.
+- All development happens on `main` — no feature branches, no PRs. Commit and
+  push straight to `main`. Remote: `git@github.com:AlphaGit/festival-planner.git`.
+  A session started in a worktree lands on a branch anyway (Orca names it after
+  the task). That branch is scaffolding, not a feature branch: commit on it, then
+  push it to `main` from the worktree with `git push origin HEAD:main` — never
+  `cd` to the primary checkout and never open a PR. It's a fast-forward as long
+  as nobody else moved `main`; if it isn't, rebase onto `origin/main` first. The
+  primary checkout's local `main` stays behind until it next pulls — say so
+  rather than trying to move a branch that's checked out elsewhere.
 - Service worker cache: every requested change must bump `CACHE` in `sw.js`
   using semantic versioning (`planner-vMAJOR.MINOR.PATCH`) — patch for fixes,
   minor for features, major for breaking changes. Bumping purges old caches so
