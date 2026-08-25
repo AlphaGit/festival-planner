@@ -11623,7 +11623,7 @@
     },
     {
       "title": "YAGA",
-      "authors": "Rachel Talalay, David Frazee",
+      "authors": "Rachel Talalay, David Frazee, Kat Sandler",
       "blurb": "Starring Canadians Hudson Williams, Noah Reid, and Carrie-Anne Moss, this adaptation of Kat Sandler’s award-winning play unfurls the truth behind a mysterious disappearance in a small coastal town.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/1icDjXXYVZ8nNj9BKpXDFz/dd6111b7ba3ff49a61a76fa21ace0f79/YAGA_STILL_Hero.JPG",
       "source_url": "https://www.tiff.net/films/yaga",
@@ -11633,9 +11633,9 @@
       "runtime_minutes": 56,
       "screenings": [
         {
-          "start": "2026-09-10 21:00",
-          "venue": "Scotiabank 3",
-          "location": "scotiabank-3",
+          "start": "2026-09-16 14:15",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12",
           "accessTiers": [
             "press-market"
           ]
