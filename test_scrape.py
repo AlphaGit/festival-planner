@@ -6,6 +6,8 @@ page, the r.jina.ai proxy), the catalog assembly around them, and the change
 report built on top.
 """
 import json
+import pathlib
+import subprocess
 
 import diff_catalog as dc
 import scrape_tiff as st
@@ -162,5 +164,16 @@ check("markup-only change is invisible to a loose compare",
 check("...but caught by a strict one", dc.film_changes(FILM, restyled, False) != [])
 check("public screenings counted",
       dc.public({"movies": [FILM, tiered]}) == 1)
+
+# --- fetch_blob.mjs ---------------------------------------------------------
+# It drives Chrome, so there is nothing here to unit-test — but it hard-codes
+# the film-list URL, and a copy that silently points somewhere else would hand
+# diff_catalog a stale blob and report "no changes" forever.
+BLOB_JS = pathlib.Path("fetch_blob.mjs").read_text(encoding="utf-8")
+check("fetch_blob.mjs fetches the URL the scraper scrapes",
+      f"'{st.URL}'" in BLOB_JS)
+check("fetch_blob.mjs is valid node",
+      subprocess.run(["node", "--check", "fetch_blob.mjs"],
+                     capture_output=True).returncode == 0)
 
 print("\nall scrape checks passed")

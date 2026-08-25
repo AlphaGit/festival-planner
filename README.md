@@ -42,7 +42,14 @@ Replace `catalog.json`. The format lists films, each with one or more screenings
 (time + venue). No per-film priority in the data — that's what you set by
 tagging. `scrape_tiff.py` (pure stdlib: `python3 scrape_tiff.py`) regenerates
 `catalog.json` from the TIFF site, and `python3 diff_catalog.py` reports what
-changed upstream before you rebuild.
+changed upstream before you rebuild. The site sits behind a WAF, so the usual
+refresh downloads the film list through a real browser first:
+
+```sh
+node fetch_blob.mjs                             # -> festivalfilmlist.json
+python3 diff_catalog.py festivalfilmlist.json   # exits 1 if anything changed
+python3 scrape_tiff.py festivalfilmlist.json    # only if it did
+```
 
 ## Tests
 

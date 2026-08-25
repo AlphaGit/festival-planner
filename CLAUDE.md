@@ -77,12 +77,37 @@ rounds are a handful of blurb tweaks buried in hundreds of lines of noise from
 the proxy, so it normalises that away (see below) instead of you re-deriving it
 each time.
 
+**Start with `fetch_blob.mjs`, then work from that file.** It is the whole
+routine refresh:
+
+```sh
+node fetch_blob.mjs                          # -> festivalfilmlist.json (raw)
+python3 diff_catalog.py festivalfilmlist.json   # exits 1 if anything changed
+python3 scrape_tiff.py festivalfilmlist.json    # only if it did
+```
+
+One download feeds both, so the diff and the rebuild can't disagree, and the
+blob is a raw save — blurb markup intact (see below), no proxy in the path.
+
 **The site is behind an AWS WAF.** A plain request to `/festivalfilmlist` gets
-HTTP 202 with an empty body (JS challenge). The scraper detects that and retries
-through `r.jina.ai`, which renders the page in a real browser. If that proxy ever
-fails, open the URL in your own browser, save the page, and pass the file:
-`python3 scrape_tiff.py saved.html` — `parse_blob` handles a saved DOM (inline
-blurb tags promoted to elements, soft-wrap newlines) as well as raw JSON.
+HTTP 202 with an empty body (JS challenge). `fetch_blob.mjs` clears it by
+driving a real Chrome; `scrape_tiff.py` on its own falls back to `r.jina.ai`,
+which renders the page in a browser. If both fail, open the URL yourself, save
+the page, and pass the file: `python3 scrape_tiff.py saved.html` — `parse_blob`
+handles a saved DOM (inline blurb tags promoted to elements, soft-wrap
+newlines) as well as raw JSON.
+
+**Don't attach to the Chrome you browse with.** `fetch_blob.mjs` launches its
+own Chrome on a scratch profile (`$TMPDIR/tiff-scrape-chrome`, kept between
+runs for its WAF cookie) and quits it afterwards. Chrome only serves the CDP
+HTTP endpoints (`/json/version`, `/json/new`) to an instance started with
+`--remote-debugging-port`; a live session that enabled debugging from
+`chrome://inspect` 404s them all, and every WebSocket connection to it raises
+an *"Allow remote debugging?"* dialog that grants full access to your cookies
+and saved data. That dialog also renders outside the accessibility tree, so a
+UI agent cannot reliably click it, and unanswered prompts stack up invisibly
+while each connection hangs. The scratch profile has none of those problems.
+Override the binary with `CHROME=<path>` and the port with `TIFF_CDP_PORT`.
 
 **Anything browser-rendered loses blurb emphasis.** TIFF serves the blob as
 `text/html` and writes closing tags as `<\/em>` (JSON escapes the slash). An HTML
@@ -90,8 +115,9 @@ parser keeps that as text but treats `<em>` as a real tag, so it becomes an
 element and disappears — the proxy and a saved page both return orphan closers.
 Schedule data is unaffected; only `<em>`/`<strong>` are lost, and once a whole
 catalog shipped without italics because of it. `markup_intact()` detects the
-orphans and the run prints how to fix it: open the URL in a browser and save the
-raw response with `fetch(location.href).then(r=>r.text())`, then pass that file.
+orphans and the run prints how to fix it. `fetch_blob.mjs` avoids the whole
+problem: it re-fetches the URL from *inside* a tab that already cleared the WAF,
+so what lands on disk is the bytes TIFF sent, not a DOM someone re-serialised.
 Use a raw save whenever blurbs matter; the proxy is fine for a schedule refresh.
 
 **Screenings appear late.** TIFF publishes the lineup weeks before the schedule;
