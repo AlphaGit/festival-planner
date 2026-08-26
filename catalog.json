@@ -29,6 +29,10 @@
     "market"
   ],
   "locations": {
+    "food-hall": {
+      "name": "Food Hall",
+      "address": "255 Front St W, Toronto, ON M5V 2W6"
+    },
     "innovation-hub": {
       "name": "Innovation Hub",
       "address": "255 Front St W, Toronto, ON M5V 2W6"
@@ -143,6 +147,10 @@
     },
     "tiff-lightbox-7": {
       "name": "TIFF Lightbox 7",
+      "address": "350 King St W, Toronto, ON M5V 3X5"
+    },
+    "tlb-founders-lounge": {
+      "name": "TLB Founders Lounge",
       "address": "350 King St W, Toronto, ON M5V 3X5"
     },
     "visa-screening-room-at-the-princess-of-wales-theatre": {
@@ -765,6 +773,27 @@
       ]
     },
     {
+      "title": "Alphas",
+      "authors": "Liam O'Donnell",
+      "blurb": "After a series of great white shark attacks threaten a quiet surfing beach, the sharks’ only natural enemy - killer whales - are enlisted to drive out the great whites. However, when the alpha of the great white sharks proves to be too powerful to stop, a former local surfing legend and a retired orca trainer come together to unleash the most dangerous killer whale.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "source_url": "https://www.tiff.net/films/alphas",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 95,
+      "screenings": [
+        {
+          "start": "2026-09-09 13:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Always Lalisa",
       "authors": "Sue Kim",
       "blurb": "K-pop idol–turned–global superstar Lisa stars in this intimate and transformative documentary tracing her journey from childhood ambition through BLACKPINK stardom into the artist she is today.",
@@ -961,7 +990,7 @@
       "title": "Apparition",
       "authors": "Cuauhtemoc Velazquez Lopez",
       "blurb": "A Tokyo family prays for a miracle to save their struggling restaurant, and against all odds, it is the Virgin Mary who answers. But she arrives with an agenda of her own, asking the family to help spread her message in unfamiliar lands. As awe, confusion, prosperity, and hope ripple through the neighborhood, beliefs, rituals, and even the Virgin’s message itself are challenged.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5WnGMvgALqEix5bK8wEsXp/9e77b8d3ba3e0d7a7ab45180741af266/Apparition_01.webp",
       "source_url": "https://www.tiff.net/films/apparition",
       "tracks": [
         "market-screening"
@@ -1233,7 +1262,7 @@
       "title": "BABY BANGKOK",
       "authors": "Hu Xinyun",
       "blurb": "Set in Bangkok in 2059, William, a data obstetrician, implants the life memories of his deceased aborted daughter into an AI robot called \"Bangkok Baby\". Endowed with human emotional memories, the AI girl travels across the city in search of her mother. From an artificial intelligence perspective, the film interweaves oriental family affection with futuristic technology, exploring the boundaries between AI, life and maternal love. Blending soft sci-fi storytelling with human warmth, it depicts the struggles and bonds of innate human emotions amid rapid technological advancement.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1kuYAAHoqpD8qdeHS6hf3w/501fdc3320db4ab013d68c08c4dddf92/BABY_BANGKOK_01.webp",
       "source_url": "https://www.tiff.net/films/baby-bangkok",
       "tracks": [
         "market-screening"
@@ -1267,14 +1296,6 @@
           "location": "scotiabank-12",
           "accessTiers": [
             "press-market"
-          ]
-        },
-        {
-          "start": "2026-09-13 11:00",
-          "venue": "TIFF Lightbox 7",
-          "location": "tiff-lightbox-7",
-          "accessTiers": [
-            "market"
           ]
         },
         {
@@ -1449,7 +1470,7 @@
     },
     {
       "title": "Below",
-      "authors": "Jamie Childs",
+      "authors": "Jamie Childs, Jesse McKeown",
       "blurb": "Something monstrous lurks off the coast in this suspenseful, Newfoundland-set limited series, starring Josh Hartnett (<em>Trap</em>) and Mackenzie Davis (<em>Station Eleven</em>).",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/27RuOBOr9HASJ0ljbcaxCW/3a0c6afb471580a10e52315659aa6989/Below_01.webp",
       "source_url": "https://www.tiff.net/films/below",
@@ -1522,7 +1543,7 @@
     {
       "title": "Beyond Culture",
       "authors": "",
-      "blurb": "Beyond Culture Launch at TIFF\r\n\r\nVisionary Filmmakers, Jennifer DeLia and Mark Webber, are Co-Founders of Beyond Culture, a new artist-driven film and media studio, dedicated to transformational work that will push the medium and uphold a standard of excellence. B.C. honors powerful vision, supporting creativity that expands consciousness, celebrates shared humanity, and moves culture forward.\r\nAs part of the TIFF Speakers Summit, Beyond Culture will host an evening of conversation, community, and performance on September 15th 4-7pm at the Malaparte Rooftop in the TIFF Lightbox.\r\n\r\nThe evening will feature a curated panel of notable artists and visionaries exploring the future and power of storytelling, followed by a reception with food, bar and a special live performance by internationally-acclaimed artist, Marieme.\r\n\r\nSpeakers Include: Co-Founder/ Moderator, Jennifer DeLia; Filmmaker/ Co-Founder, Mark Webber; Actress/Producer Karen Strassman, Actress Eugenia Kuzmina, Singer/ Actress, Marieme, Actress/ Producer, Taylor Olandt; Artist/ Humanitarian Joel Bergner , Filmmaker/ Visual Artist, Matt Smiley",
+      "blurb": "Beyond Culture Launch at TIFF\r\n\r\nVisionary Filmmakers, Jennifer DeLia and Mark Webber, are Co-Founders of Beyond Culture, a new artist-driven film and media studio, dedicated to transformational work that will push the medium and uphold a standard of excellence. B.C. honors powerful vision, supporting creativity that expands consciousness, celebrates shared humanity, and moves culture forward.\r\nAs part of the TIFF Speakers Summit, Beyond Culture will host an evening of conversation, community, and performance on September 15th 4-7pm at the Malaparte Rooftop in the TIFF Lightbox.\r\n\r\nThe evening will feature a curated panel of notable artists and visionaries exploring the future and power of storytelling, followed by a reception with food, bar and a special live performance by internationally-acclaimed artist, Marieme.\r\n\r\nSpeakers Include: Co-Founder/ Moderator, Jennifer DeLia; Filmmaker/ Co-Founder, Mark Webber; Actress/Producer Karen Strassman, Actress Eugenia Kuzmina, Singer/ Actress, Marieme, Actress/ Producer, Taylor Olandt; Artist/ Humanitarian Joel Bergner , Filmmaker/ Visual Artist, Matt Smiley, Actor, Brionne Davis & Actress, Taryn Manning",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/beyond-culture",
       "tracks": [
@@ -1534,6 +1555,27 @@
           "start": "2026-09-15 16:00",
           "venue": "Malaparte",
           "location": "malaparte",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Big World",
+      "authors": "Lina Yang",
+      "blurb": "Liu Chunhe, a young man with cerebral palsy, overcomes physical and mental barriers while fulfilling his grandmother's dream and discovering his life's purpose, leading to transformation and a fresh start.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/34jx2P9I0RsDoGEKc6qTIA/f9c5f7be17c2250861e1ac7610055190/Big_World_01.webp",
+      "source_url": "https://www.tiff.net/films/big-world",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 131,
+      "screenings": [
+        {
+          "start": "2026-09-15 22:00",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
           "accessTiers": [
             "market"
           ]
@@ -2179,13 +2221,13 @@
     {
       "title": "Compound",
       "authors": "James Mulcahy",
-      "blurb": "Constructed from a leaked archive (shot entirely on security cameras) , Compound documents the Williams family's final months leading to the June 10th, 2025 massacre. A year after Sarah's death, Noel raises his 4 children at the family's fortified homestead. Clara,17, wants out; Amelia,15 - scarred by the loss - lives by the family code: assume harm, invite de-escalation, protect our own. When Child Protective Services checks on the family - including Avery,11, and Livvy,8 - life on the compound may have to change. To Amelia, that's a betrayal of her mother's vision. When one member is shot during a hunt, the others cover it up, sparking a Lord of the Flies-style battle for the compound’s future, with the outside world closing in.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "blurb": "What happens when a family goes too far off the grid? Shot entirely on home security cameras - the same tech in millions of American homes - Compound documents the Williams family in the months leading up to the violent incident of June 10, 2025. Isolation breeds paranoia as the family fractures over their way of life, but when the outside world shows up to question their values, they are ready for battle.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3zcW9fsJWc56bPVAsodnZA/5a1d6e3880923771b5f44116f7f03165/Compound_01.webp",
       "source_url": "https://www.tiff.net/films/compound",
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 93,
+      "runtime_minutes": 120,
       "screenings": [
         {
           "start": "2026-09-09 14:30",
@@ -2393,6 +2435,48 @@
           "start": "2026-09-19 13:45",
           "venue": "Scotiabank 13",
           "location": "scotiabank-13"
+        }
+      ]
+    },
+    {
+      "title": "DAU",
+      "authors": "Ilya Khrzhanovsky",
+      "blurb": "Inspired by the physicists who built the Soviet atomic bomb, the film DAU follows a brilliant Greek-born physicist from 1928 through four tumultuous decades in the USSR. Driven to uncover the laws of the universe, the idealistic Dau is drawn into state service to help create one of history’s deadliest weapons. Inside a secret research institute, life is governed by scientific ambition, power, surveillance and privilege. As his autonomy erodes, Dau seeks freedom beyond his marriage through a succession of affairs, gradually losing both himself and his capacity to love. At once an intimate portrait of a man in pursuit of happiness and freedom and a vast fresco of a society founded on violence and ideology, DAU traces the small compromises that shape a life and alter the course of history.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "source_url": "https://www.tiff.net/films/dau",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 225,
+      "screenings": [
+        {
+          "start": "2026-09-16 12:15",
+          "venue": "Scotiabank 7",
+          "location": "scotiabank-7",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Dead to Rights",
+      "authors": "Shen Ao",
+      "blurb": "During the 1937 Nanjing Massacre, a young postman named A Chang disguised himself as a photo lab technician to survive. He worked for Japanese military journalist Ito, developing photos, while secretly sheltering Chinese civilians and soldiers—including the photo studio owner Lao Jin and his family—turning the studio into a temporary refuge.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3mIm8WcVBCODyT31INbHuN/abc4cb9e337c7445ab45cb39236cc110/Dead_to_Rights__01.webp",
+      "source_url": "https://www.tiff.net/films/dead-to-rights",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 137,
+      "screenings": [
+        {
+          "start": "2026-09-14 21:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -4825,27 +4909,6 @@
       ]
     },
     {
-      "title": "Into The Breach",
-      "authors": "Freddie Fox",
-      "blurb": "Into the Breach is a feature-length documentary on how British theatre has responded to national crises by challenging prejudice, confronting complacency and expanding public imagination. Featuring Judi Dench, Ian McKellen, Anthony Hopkins, Gary Oldman and other leading theatre voices, the film traces a century of artistic courage, from post-war radicalism to today’s cultural debates. Produced by Kenneth Branagh and Tamar Thomas, and directed and produced by Freddie Fox, with a screenplay by Richard Fullerton, Into the Breach combines rare archive, intimate interviews and restored footage. It reveals the backstage battles, political flashpoints and creative breakthroughs that shaped modern British theatre, showing how artists repeatedly stepped into the breach to speak truth to power and reimagine Britain.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2Wh0Uvdqo9R5n8Hx62P6ok/49f55b5332c78b5ac31ba05476e33d82/Into_the_Breach_01.webp",
-      "source_url": "https://www.tiff.net/films/into-the-breach",
-      "tracks": [
-        "market-screening"
-      ],
-      "runtime_minutes": 88,
-      "screenings": [
-        {
-          "start": "2026-09-14 17:50",
-          "venue": "Scotiabank 6",
-          "location": "scotiabank-6",
-          "accessTiers": [
-            "market"
-          ]
-        }
-      ]
-    },
-    {
       "title": "Iron Boy",
       "authors": "Louis Clichy",
       "blurb": "Winner of the Special Jury Prize at Cannes last spring, Pixar animator Louis Clichy’s gorgeous hand-painted animation tells the story of a boy in need of a back brace who seeks the courage to stand alone.",
@@ -4960,9 +5023,9 @@
       "runtime_minutes": 85,
       "screenings": [
         {
-          "start": "2026-09-10 10:45",
-          "venue": "TIFF Lightbox 6",
-          "location": "tiff-lightbox-6",
+          "start": "2026-09-10 16:30",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
           "accessTiers": [
             "market"
           ]
@@ -6170,6 +6233,27 @@
       ]
     },
     {
+      "title": "Muganga: The One Who Treats",
+      "authors": "Marie-Hélène Roux",
+      "blurb": "SOME BATTLES CAN CHANGE THE COURSE OF HISTORY.  Inspired by a true story Denis Mukwege, a Congolese doctor and future Nobel Peace Prize laureate, treats — at the risk of his life — thousands of women who are victims of sexual violence in the Democratic Republic of the Congo. His encounter with Guy Cadière, a Belgian surgeon, will breathe new life into his mission.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/782LEgHifQdYXPZImIdqn/eff1eaeb45fb18aba56fed6b06e7dc93/Muganga_01.webp",
+      "source_url": "https://www.tiff.net/films/muganga-the-one-who-treats",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 125,
+      "screenings": [
+        {
+          "start": "2026-09-11 21:45",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Mushroom Cloud: A Hibakusha Story",
       "authors": "James Medina",
       "blurb": "The documentary portrays the aftermath of atomic bombings of Hiroshima and Nagasaki. Through the voices of Hibakusha—atomic bomb survivors—the film transforms history into memories of devastation, trauma, and survival. Hidankyo officers: Michiko Kodama, Terumi Tanaka, Jiro Hamasumi, and Toshiko Hamanaka reveal enduring physical and emotional scars, as well as discrimination. They describe the political and international obstacles that shaped efforts to support atomic bomb victims and abolish nuclear weapons. The narrative explores the pivotal 1954 Bikini Atoll Incident, which broke the silence and led to Hidankyo’s founding in 1956, with members attending UN conferences to advocate for peace.  Professor Peter Kuznick discusses how Eisenhower and many military leaders considered the bombings unnecessary, as Japan had already surrendered. He provides context on nuclear diplomacy, failure of the NPT and persistence of nine nuclear powers. Hidankyo officers persevere through adversity, culminating in the organization’s 2024 Nobel Peace Prize.",
@@ -6541,7 +6625,7 @@
       "tracks": [
         "platform"
       ],
-      "runtime_minutes": 148,
+      "runtime_minutes": 145,
       "screenings": [
         {
           "start": "2026-09-12 20:15",
@@ -6638,6 +6722,27 @@
           "location": "tiff-lightbox-6",
           "accessTiers": [
             "market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Ontario Creates Happy Hour",
+      "authors": "",
+      "blurb": "Open to all accredited delegates, the Ontario Creates Happy Hour is an open invitation to mix, mingle and build new connections with Market colleagues.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/ontario-creates-happy-hour",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-15 17:00",
+          "venue": "Food Hall",
+          "location": "food-hall",
+          "accessTiers": [
+            "press-market"
           ]
         }
       ]
@@ -6764,9 +6869,9 @@
       "runtime_minutes": 96,
       "screenings": [
         {
-          "start": "2026-09-10 16:30",
-          "venue": "TIFF Lightbox 7",
-          "location": "tiff-lightbox-7",
+          "start": "2026-09-10 10:45",
+          "venue": "TIFF Lightbox 6",
+          "location": "tiff-lightbox-6",
           "accessTiers": [
             "market"
           ]
@@ -7617,9 +7722,9 @@
     },
     {
       "title": "Rainbow The Killer",
-      "authors": "Rupan Bal",
+      "authors": "Rupan Bal, Rainbow The Actor",
       "blurb": "In a confined Toronto takeaway, a courteous immigrant chef hides a violent past that resurfaces when racism, crime, and blackmail push him to the brink. Beneath his composed appearance lies a history shaped by violence, poverty, and torment. When a racist altercation with a local turns deadly, Rainbow’s repressed anger resurfaces. As he desperately tries to cover his tracks, he must contend with nosy customers, a susceptible health inspector, and an unrelenting police officer. When venomous drug cartel enforcers raid his kitchen, Rainbow is forced into a vicious struggle for survival. His nightmare deepens when a shadowy figure threatens to expose his secret, forcing him into another deadly crime. Caught between exposure and his own violent tendencies, Rainbow must decide how much of the man he once was remains—and how far he is willing to go. As his world unravels, he becomes both villain and vigilante.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/39vftwJHmvkUD0cts9tSZW/d71fd813b6d8e75e0b02d8aa04b7223f/Rainbow_the_Killer_01.webp",
       "source_url": "https://www.tiff.net/films/rainbow-the-killer",
       "tracks": [
         "market-screening"
@@ -8322,7 +8427,7 @@
     {
       "title": "Silent Life: The Rudolph Valentino Centennial Final Cut",
       "authors": "Vladislav Kozlov",
-      "blurb": "A twenty-year cinematic experiment and a director's personal confession, \"Silent Life: The Rudolph Valentino Centennial Final Cut\" is a genre-defying hybrid that blurs fiction, documentary, and silent cinema. The film follows the haunting legacy of Rudolph Valentino - the silent screen icon whose 1926 death sparked mass hysteria. One hundred years later, his story is reborn through three interconnected figures: surviving Golden Era star Terry Moore as the legendary Lady in Black; Franco Nero (who played Valentino in 1975) voicing his ghost; and director Vladislav Kozlov himself, who appears as Valentino. Kozlov, who struggled with a severe stutter since childhood, found his voice through silent films - where actors spoke with their eyes. His personal journey becomes woven into the fabric of the film: what begins as a tribute to Valentino transforms into a meditation on dreams, silence, and the nature of cinematic immortality. Completed in 2026 to mark the 100th anniversary of Valentino's death, this Final Cut captures a historic moment - Franco Nero's newly installed star on the Hollywood Walk of Fame, now forever positioned beside Valentino's and Terry Moore's. Three generations of legends, side by side in a single frame. More than a film, \"Silent Life\" is a living document.",
+      "blurb": "Silent Life is not a biopic. It is a confession — a poetic meditation on fame, mortality, and the price of a dream, told through the spirit of Rudolph Valentino. The filmmaker, who spent 20 years bringing this vision to life, does not simply perform as Valentino — he merges with him, channeling his own journey as an immigrant and a stutterer into the tragedy of the silent icon. His story is interwoven with three legendary figures: Isabella Rossellini as the mother of the Great Lover; Franco Nero (who played Valentino in 1975) voicing his spirit; and Terry Moore, the last surviving star of Hollywood's Golden Era, as the mysterious Lady in Black. What begins as a tribute to Valentino transforms into a meditation on dreams, silence, and cinematic immortality. It is the story of a man who carried a dream for 50 years, and finally found his voice in the silence of a legend.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
       "source_url": "https://www.tiff.net/films/silent-life-the-rudolph-valentino-centennial-final-cut",
       "tracks": [
@@ -8518,7 +8623,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 151,
+      "runtime_minutes": 155,
       "screenings": [
         {
           "start": "2026-09-11 12:45",
@@ -8542,6 +8647,27 @@
           "start": "2026-09-20 13:00",
           "venue": "Scotiabank 1",
           "location": "scotiabank-1"
+        }
+      ]
+    },
+    {
+      "title": "Spotlight: Italy Offers Everything You Need",
+      "authors": "",
+      "blurb": "Discover why Italy is the ideal partner for your next production. Explore outstanding filming locations, competitive tax incentives, funding schemes, and co-production opportunities that make Italy a leading destination for international projects. Connect with industry experts and producers, gain practical insights into the Italian production landscape, and unlock new opportunities to finance, develop, and bring your stories to the screen.\r\n\r\nSpeakers:\r\nAlessandro Cattaneo | Ambassador of Italy to Canada\r\nCarlo Bocchi | Director, Italian Trade Agency – Canada Office\r\nRoberto Stabile | Director of the International Department, Cinecittà\r\nCristina Giubbetti | Vice President, APE (ASSOCIATION OF EXECUTIVE PRODUCERS)\r\nGuido Cassano | Film Commissioner, Friuli Venezia Giulia Film Commission\r\nLuca Ferrario | Director, Trentino Film Commission\r\n\r\nThe Italian delegation will also be represented by leading Italian producers, who will share their experience and perspectives on international collaboration and co-production opportunities:\r\nAlessandro Mascheroni | INDIANA Production\r\nNiccolò Tubini | K+\r\nGianluca Curti | Minerva Pictures Group\r\nCarlo Cresto-Dina | Tempesta\r\nChiara Silvia Baccarini | Salice Production\r\nGaetano Maiorino | Tramp Limited\r\nAnd come visit us at Booth D22 to meet the Italian sales companies and discover their latest titles:\r\nFandango Sales\r\nIntramovies\r\nMinerva Pictures\r\nPiperPlay\r\nRai Cinema International Distribution\r\nTrue Colours\r\nVision Distribution",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/spotlight-italy-offers-everything-you-need",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 120,
+      "screenings": [
+        {
+          "start": "2026-09-11 11:00",
+          "venue": "TLB Founders Lounge",
+          "location": "tlb-founders-lounge",
+          "accessTiers": [
+            "press-market"
+          ]
         }
       ]
     },
@@ -9588,7 +9714,7 @@
       "title": "The First Dinosaur",
       "authors": "J.J. Johnson",
       "blurb": "In the wake of Earth’s greatest extinction event, a new creature rises that will change the planet forever: the first dinosaur. When young dinosaur expert Dex discovers a mysterious baby that may hold the key to this ancient mystery, he sets off on an epic road trip adventure with his older sister Dana and his fearless best friend Kayla. Together, they journey across spectacular landmarks, uncovering clues that could rewrite the origins of dinosaurs. As Dex races to solve the mystery of what makes a dinosaur a dinosaur, he discovers that the strongest force connecting the past and present is family. Funny, thrilling, and filled with wonder, The First Dinosaur is a cinematic family adventure millions of years in the making.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2tnmLmAqdtrgpSlGTUAxd6/cf7603c3f2aaf0bbff498437f5b2ba74/The_First_Dinosaur_01.webp",
       "source_url": "https://www.tiff.net/films/the-first-dinosaur",
       "tracks": [
         "market-screening"
@@ -9972,6 +10098,27 @@
           "start": "2026-09-14 21:40",
           "venue": "Scotiabank 9",
           "location": "scotiabank-9"
+        }
+      ]
+    },
+    {
+      "title": "The Lychee Road",
+      "authors": "Da Peng",
+      "blurb": "The film is adapted from the novel of the same name by Ma Boyong. Set during the Tang Dynasty's Tianbao era, it follows Li Shande (played by Da Peng), a middle-aged man who grumbles his way through countless tasks and pinches every penny, only to remain an insignificant low-ranking official. However, things seem to take a turn when he's suddenly summoned—someone has arranged for him to take on the lucrative role of “Litchi Envoy.” If he succeeds, glory and wealth await, a chance to turn his life around. But if he fails...",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5pn3QNVTJidDabKP1U9W1n/f5a3fa02e46c0c1e7e026766d207b4e8/The_Lychee_Road_01.webp",
+      "source_url": "https://www.tiff.net/films/the-lychee-road",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 123,
+      "screenings": [
+        {
+          "start": "2026-09-15 21:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -10811,7 +10958,7 @@
         "tiff-docs",
         "luminaries"
       ],
-      "runtime_minutes": 106,
+      "runtime_minutes": 110,
       "screenings": [
         {
           "start": "2026-09-11 12:10",
@@ -11498,6 +11645,14 @@
       "runtime_minutes": 105,
       "screenings": [
         {
+          "start": "2026-09-10 17:50",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6",
+          "accessTiers": [
+            "market"
+          ]
+        },
+        {
           "start": "2026-09-11 12:10",
           "venue": "Scotiabank 10",
           "location": "scotiabank-10",
@@ -11623,7 +11778,7 @@
     },
     {
       "title": "YAGA",
-      "authors": "Rachel Talalay, David Frazee, Kat Sandler",
+      "authors": "Rachel Talalay, David Frazee",
       "blurb": "Starring Canadians Hudson Williams, Noah Reid, and Carrie-Anne Moss, this adaptation of Kat Sandler’s award-winning play unfurls the truth behind a mysterious disappearance in a small coastal town.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/1icDjXXYVZ8nNj9BKpXDFz/dd6111b7ba3ff49a61a76fa21ace0f79/YAGA_STILL_Hero.JPG",
       "source_url": "https://www.tiff.net/films/yaga",
