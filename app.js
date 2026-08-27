@@ -24,6 +24,9 @@ let TREE = null, OPT = {}, REASONS = {}, PRIO = {}, DAYS = [], NOPT = 0, ALWAYS_
 // catalog, so the open/closed state has to live outside the markup or every
 // must/want/skip would snap the blurb shut again. Not persisted — view state.
 const EXPANDED = new Set();
+// Choices carried over from an imported plan file, applied by the next solve
+// (the tree they refer to doesn't exist until then). See applyImport.
+let PENDING_CHOICES = null;
 const setExpanded = (title, open) => { open ? EXPANDED.add(title) : EXPANDED.delete(title); return open; };
 
 // ---- small utils
@@ -140,6 +143,14 @@ async function init() {
     if (painting) { painting = false; saveJSON("unavail", [...UNAVAIL]); }
   });
   $("availreset").addEventListener("click", () => { UNAVAIL.clear(); saveJSON("unavail", []); renderAvailGrid(); });
+  // footer backup links (only useful once a catalog is loaded)
+  $("export").addEventListener("click", (e) => { e.preventDefault(); if (CATALOG) downloadPlan(); });
+  $("import").addEventListener("click", (e) => { e.preventDefault(); if (CATALOG) $("importfile").click(); });
+  $("importfile").addEventListener("change", (e) => {
+    const f = e.target.files && e.target.files[0];
+    e.target.value = ""; // so re-picking the same file fires change again
+    if (f) importPlanFile(f);
+  });
   // timeline: select a screening block to reveal its action bar (ignore venue links)
   $("board").addEventListener("click", (e) => {
     if (e.target.closest("a")) return;
@@ -382,23 +393,37 @@ function buildIncluded() {
 // stable identity of a branch choice: the film you end up watching at this slot —
 // b.watch for a "watch X" branch, else the film(s) gained by skipping. Uses film
 // titles (stable across re-solves), not option indices (which are reassigned).
-const branchSig = (n, b) => { const before = inter(nodeOpts(n), "keep"); return b.watch || inter(b.options, "keep").filter((t) => !before.includes(t)).sort().join("|"); };
+// Returns an ARRAY of titles, never a joined string: at least one real TIFF
+// title contains a "|" ("REDEFINED | Short Film Showcase"), so any delimiter
+// would be ambiguous. Compared (and stored in a plan file) element-wise.
+const branchSig = (n, b) => { const before = inter(nodeOpts(n), "keep"); return b.watch ? [b.watch] : inter(b.options, "keep").filter((t) => !before.includes(t)).sort(); };
+const sameSig = (a, b) => a.length === b.length && a.every((t, i) => t === b[i]);
 // describe current picks as (when, sig) against the live TREE, so we can re-apply
 // the ones that still exist after the tree is rebuilt.
 const picksToChoices = (picks) => { const out = []; let n = TREE; for (const i of picks) { if (!n || !n.branches || !n.branches[i]) break; const b = n.branches[i]; out.push({ when: b.when, sig: branchSig(n, b) }); n = b.child; } return out; };
 // re-apply choices to a new tree, keeping the longest matching prefix (user only
 // re-picks where the new options actually diverge from before).
-const choicesToPicks = (choices, tree) => { const picks = []; let n = tree; for (const c of choices) { if (!n.branches) break; const idx = n.branches.findIndex((b) => b.when === c.when && branchSig(n, b) === c.sig); if (idx < 0) break; picks.push(idx); n = n.branches[idx].child; } return picks; };
+const choicesToPicks = (choices, tree) => { const picks = []; let n = tree; for (const c of choices) { if (!n.branches) break; const idx = n.branches.findIndex((b) => b.when === c.when && sameSig(branchSig(n, b), c.sig)); if (idx < 0) break; picks.push(idx); n = n.branches[idx].child; } return picks; };
 
-function solveAndShow() {
-  const prevChoices = TREE ? picksToChoices(getPicks()) : null; // null = fresh load, use stored picks as-is
+// Solve and rebuild TREE/OPT/DAYS from the current settings, without touching
+// the view. Split out of solveAndShow so an export can derive stable choices
+// even when the user never reached View 2 this session.
+function buildTree() {
   LOCKS = getLocks();
   const included = buildIncluded();
   MOVIES = included;
   PRIO = Object.fromEntries(included.map((m) => [m.title, m.priority]));
   const { cost, plans } = TiffSolver.solve(included, BUF, SAMEBUF, MAXPLANS, PRIOFIRST);
-  const groups = groupPlans(plans, MAXPLANS);
-  computeView(groups);
+  computeView(groupPlans(plans, MAXPLANS));
+  return cost;
+}
+
+function solveAndShow() {
+  // An import hands us choices for a tree that doesn't exist yet; otherwise
+  // re-derive them from the live tree. null = fresh load, use stored picks as-is.
+  const prevChoices = PENDING_CHOICES || (TREE ? picksToChoices(getPicks()) : null);
+  PENDING_CHOICES = null;
+  const cost = buildTree();
   renderOverrides();
   saveJSON("cost", cost);
   let picks = prevChoices ? choicesToPicks(prevChoices, TREE) : getPicks();
@@ -699,6 +724,188 @@ function render(picks) {
   }
   if (picks.length) h += '<button class="wreset" onclick="render([])">↺ start over</button>';
   $("wiz").innerHTML = h;
+}
+
+// ================================================  BACKUP (export / import)
+// A plan file is a portable snapshot of everything the user chose: View 1 tags
+// and settings, blocked times, held tickets / sold-out screenings, and where
+// they are in the View 2 wizard. Purely local — the file never leaves the device
+// unless the user shares it.
+//
+// Films and screenings are referenced by CATALOG id, never by display text: a
+// film is its source_url slug ("100-days"), a screening is that slug plus the
+// start time and the location id ("scotiabank-5"). Titles and venue names are
+// editorial and TIFF rewrites them mid-cycle; ids survive that. localStorage
+// itself still keys by title (scrKey) — the translation happens only at the
+// file boundary, in filmId/byFilmId and screeningRef/refToScrKey.
+const SCHEMA = 1;
+
+// Stable per-film id: the trailing slug of source_url. Catalogs without
+// source_url (hand-written ones) fall back to the title, which is what
+// localStorage keys by anyway.
+const filmId = (m) => {
+  const u = String(m.source_url || "").split(/[?#]/)[0].replace(/\/+$/, "");
+  return u.slice(u.lastIndexOf("/") + 1) || m.title;
+};
+const byFilmId = () => Object.fromEntries((CATALOG.movies || []).map((m) => [filmId(m), m]));
+const idByTitle = () => Object.fromEntries((CATALOG.movies || []).map((m) => [m.title, filmId(m)]));
+
+// A screening as it appears in a file: { film, start, loc }. `start` is
+// wall-clock UTC ms (what scrKey already stores); `loc` is the catalog location
+// id, which maps 1:1 to a venue name but doesn't change when TIFF relabels one.
+function screeningRef(scrK, ids) {
+  const [title, start, venue] = scrK.split(SEP);
+  const m = (CATALOG.movies || []).find((x) => x.title === title);
+  if (!m) return null; // the film left the catalog; nothing stable to point at
+  // loc stays "" if that screening is already gone — refToScrKey then falls back
+  // to matching on the start time alone rather than dropping the entry.
+  const s = (m.screenings || []).find((x) => parseDT(x.start) === +start && (x.venue || "?") === venue);
+  return { film: ids[title] || title, start: +start, loc: (s && s.location) || "" };
+}
+
+// Inverse: resolve a file ref back to the internal scrKey. Returns null when the
+// film or that particular screening is gone from the catalog — the caller drops
+// it and reports the count rather than resurrecting a screening that no longer
+// exists.
+function refToScrKey(ref, films) {
+  const m = ref && films[ref.film];
+  if (!m) return null;
+  // Match on (film, start) — a film can't screen twice at the same instant, so
+  // that pair is already unique. The location id only picks between them if the
+  // catalog somehow lists several, which means a screening moved rooms (TIFF
+  // does that) still resolves instead of silently dropping the user's ticket.
+  const at = (m.screenings || []).filter((x) => parseDT(x.start) === +ref.start);
+  const s = at.find((x) => (x.location || "") === ref.loc) || (at.length === 1 ? at[0] : null);
+  if (!s) return null;
+  return scrKey(m.title, parseDT(s.start), s.venue || "?");
+}
+
+// Everything under tiff:<festival>: — swept generically so a setting added later
+// is backed up without touching this code. The three title-keyed ones and picks
+// are handled explicitly below; `cost` is derived output, not a setting.
+const RAW_SKIP = new Set(["sel", "locks", "soldout", "picks", "cost"]);
+
+// The unprefixed names of every stored key for the current festival. Snapshotted
+// into an array so callers can delete while iterating.
+function ownKeys() {
+  const prefix = nsKey(""), out = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const full = localStorage.key(i);
+    if (full && full.indexOf(prefix) === 0) out.push(full.slice(prefix.length));
+  }
+  return out;
+}
+
+// Build the plan object. Split from downloadPlan so it's testable without a DOM.
+function exportObject(nowISO) {
+  const ids = idByTitle(), state = {};
+  for (const k of ownKeys()) {
+    if (RAW_SKIP.has(k)) continue;
+    try { state[k] = JSON.parse(localStorage.getItem(nsKey(k))); } catch { /* skip unreadable */ }
+  }
+  // tags, keyed by film id; films no longer in the catalog are dropped
+  const sel = getSel(), tags = {};
+  for (const title in sel) if (ids[title]) tags[ids[title]] = sel[title];
+  state.sel = tags;
+  // held tickets: film id -> the screening it's locked to
+  const locks = getLocks(), outLocks = {};
+  for (const title in locks) { const r = screeningRef(locks[title], ids); if (r) outLocks[r.film] = { start: r.start, loc: r.loc }; }
+  state.locks = outLocks;
+  // screenings the user marked unavailable
+  state.soldout = [...getSoldOut()].map((k) => screeningRef(k, ids)).filter(Boolean);
+  // wizard position, as the stable (when, sig) form — sig being a list of film ids
+  if (!TREE && getPicks().length) buildTree(); // never solved this session, but picks are stored
+  const choices = TREE ? picksToChoices(getPicks()) : [];
+  state.choices = choices.map((c) => ({ when: c.when, sig: c.sig.map((t) => ids[t] || t) }));
+  return { app: "festival-planner", schema: SCHEMA, festival: CATALOG.festival, exportedAt: nowISO, state };
+}
+
+const slug = (s) => String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "festival";
+
+function downloadPlan() {
+  const now = new Date();
+  const obj = exportObject(now.toISOString());
+  const name = `${slug(CATALOG.festival)}-plan-${now.toISOString().slice(0, 10)}.json`;
+  const url = URL.createObjectURL(new Blob([JSON.stringify(obj, null, 2)], { type: "application/json" }));
+  const a = document.createElement("a");
+  a.href = url; a.download = name; a.click();
+  URL.revokeObjectURL(url);
+}
+
+// Check a parsed file WITHOUT writing anything. -> { error } or { summary }.
+// Split from applyImport so the UI can confirm before any damage and the tests
+// don't need a confirm()/alert() shim.
+function validateImport(obj) {
+  if (!obj || typeof obj !== "object" || obj.app !== "festival-planner" || !obj.state || typeof obj.state !== "object")
+    return { error: "That's not a planner backup file." };
+  if (obj.schema !== SCHEMA)
+    return { error: `This backup uses format version ${obj.schema}; this app reads version ${SCHEMA}.` };
+  if (obj.festival !== CATALOG.festival)
+    return { error: `This backup is for “${obj.festival}”, but “${CATALOG.festival}” is loaded. Nothing was changed.` };
+  const sel = obj.state.sel || {};
+  const n = (st) => Object.values(sel).filter((v) => v === st).length;
+  return { summary: { must: n("must"), want: n("want"), locks: Object.keys(obj.state.locks || {}).length, unavail: (obj.state.unavail || []).length } };
+}
+
+// Replace this festival's stored state with the file's. Assumes validateImport
+// passed. Returns what had to be dropped because the catalog moved on.
+function applyImport(obj) {
+  const st = obj.state, films = byFilmId();
+  for (const k of ownKeys()) localStorage.removeItem(nsKey(k)); // true replace: no stale keys survive
+  const dropped = { films: 0, screenings: 0 };
+  for (const k in st) {
+    if (k === "sel" || k === "locks" || k === "soldout" || k === "choices") continue;
+    saveJSON(k, st[k]);
+  }
+  // Empty collections are left unwritten: absent and empty read the same (loadJSON
+  // falls back to the default), and skipping keeps export -> import -> export a
+  // byte-for-byte fixed point instead of accreting "[]" keys.
+  const sel = {};
+  for (const id in (st.sel || {})) { const m = films[id]; if (m) sel[m.title] = st.sel[id]; else dropped.films++; }
+  if (Object.keys(sel).length) setSel(sel);
+  const locks = {};
+  for (const id in (st.locks || {})) {
+    const key = refToScrKey({ film: id, ...st.locks[id] }, films);
+    if (key) locks[films[id].title] = key; else dropped.screenings++;
+  }
+  if (Object.keys(locks).length) setLocks(locks);
+  const so = new Set();
+  for (const ref of (st.soldout || [])) { const key = refToScrKey(ref, films); if (key) so.add(key); else dropped.screenings++; }
+  if (so.size) setSoldOut(so);
+  // Choices can't become picks yet — the tree they index doesn't exist until the
+  // next solve. Hand them to solveAndShow, which already knows how to replay a
+  // choice list onto a fresh tree (longest matching prefix wins).
+  PENDING_CHOICES = (st.choices || []).map((c) => ({
+    when: c.when,
+    sig: (c.sig || []).map((id) => (films[id] ? films[id].title : id)),
+  }));
+  return dropped;
+}
+
+// UI glue: read the file, validate, confirm, apply, re-render from scratch.
+function importPlanFile(file) {
+  file.text().then((txt) => {
+    let obj;
+    try { obj = JSON.parse(txt); } catch { alert("That file isn't valid JSON."); return; }
+    const v = validateImport(obj);
+    if (v.error) { alert(v.error); return; }
+    const s = v.summary;
+    const ok = confirm(`Replace your current plan for ${CATALOG.festival}?\n\n`
+      + `The backup has ${s.must} must, ${s.want} want, ${s.locks} locked ticket${s.locks === 1 ? "" : "s"}, `
+      + `${s.unavail} blocked time slot${s.unavail === 1 ? "" : "s"}.\n\n`
+      + "Your current selections on this device will be overwritten.");
+    if (!ok) return;
+    const dropped = applyImport(obj);
+    SELECTED = null; EXPANDED.clear(); TREE = null;
+    useCatalog(CATALOG); // re-reads every setting from storage, and solves if everything's tagged
+    // useCatalog only auto-solves a fully-tagged catalog; a backup with a wizard
+    // position was made from a real schedule, so restore that view too rather
+    // than dropping the user on View 1 to press the button again.
+    if (PENDING_CHOICES && PENDING_CHOICES.length && !$("solve").disabled) solveAndShow();
+    if (dropped.films || dropped.screenings)
+      alert(`Restored. ${dropped.films} film${dropped.films === 1 ? "" : "s"} and ${dropped.screenings} screening${dropped.screenings === 1 ? "" : "s"} `
+        + "in the backup are no longer in the catalog and were skipped.");
+  }, () => alert("Could not read that file."));
 }
 
 // ---- navigation

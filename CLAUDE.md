@@ -60,6 +60,19 @@ Chrome.
 - The decision wizard is a chronological tree: each choice is the earliest slot
   where surviving options disagree; choosing narrows the rest (dependent, not
   independent — picking a film's time frees other slots). Leaves = options.
+- **Plan files (footer Export/Import) are id-keyed, not title-keyed.** The app's
+  `localStorage` keys everything by film title (`sel`, `locks`, `scrKey`), but a
+  backup file must survive TIFF retitling a film or relabelling a venue, so the
+  translation happens at the file boundary: a film is its `source_url` slug, a
+  screening is that slug + start ms + `location` id. `schema` (currently 1) gates
+  imports and is deliberately *not* tied to the app version — bump it only when
+  the file shape changes, and add a migration then. Unknown `tiff:<festival>:*`
+  keys are swept in generically, so a new setting is backed up for free; only
+  `sel`/`locks`/`soldout`/`picks`/`cost` are special-cased. Import refuses a file
+  from another festival and replaces (never merges) after one `confirm`.
+- **`branchSig` returns an array, never a joined string.** One real TIFF title
+  contains a `|` (`REDEFINED | Short Film Showcase`), so no delimiter is safe.
+  Compare signatures with `sameSig`, and keep the array shape in plan files.
 - **Solver choice is load-bearing.** A hand-rolled JS search was tried and
   abandoned: it's exact but blows up (30–85s) on a real ~50-film catalog because
   of the large equal-cost plateau when enumerating options. logic-solver does it

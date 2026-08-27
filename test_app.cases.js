@@ -337,7 +337,7 @@ check("picks re-apply by film signature, surviving option-index reshuffles", () 
     { watch: "C", when: "S", options: [2], child: { option: 2 } },
   ] };
   const choices = picksToChoices([0]); // user chose "watch B"
-  eq(choices.length, 1); eq(choices[0].sig, "B");
+  eq(choices.length, 1); eqJSON(choices[0].sig, ["B"]);
   // a rebuilt tree where the SAME "watch B" branch now sits at index 1
   const tree2 = { when: "S", branches: [
     { watch: "C", when: "S", options: [1], child: { option: 1 } },
@@ -351,7 +351,7 @@ check("choicesToPicks keeps the longest still-valid prefix and drops the diverge
   const tree2 = { when: "S1", branches: [
     { watch: "X", when: "S1", options: [1], child: { when: "S2", branches: [{ watch: "Y", when: "S2", options: [1], child: { option: 1 } }] } },
   ] };
-  eqJSON(choicesToPicks([{ when: "S1", sig: "X" }, { when: "S2", sig: "NOPE" }], tree2), [0],
+  eqJSON(choicesToPicks([{ when: "S1", sig: ["X"] }, { when: "S2", sig: ["NOPE"] }], tree2), [0],
     "first level matches, second no longer exists -> stop there");
 });
 
@@ -532,5 +532,190 @@ check("the tally counts schedulable films, not visible ones", () => {
   assert(schedulable(CATALOG.movies[0]), "but still schedulable, so still counted");
   TRACKSOFF = new Set(); TIERSOFF = new Set();
 });
+
+// =============================================================================
+// 12. Backup export / import — a plan file must restore the exact same state
+// =============================================================================
+
+// A catalog with real source_urls (so films have ids), two screenings on the
+// film we lock, and a third film to be dropped/tagged.
+const backupCat = () => ({
+  festival: "Fest X",
+  disabledAccessTiers: [],
+  tracks: { galas: "Galas", docs: "Docs" },
+  movies: [
+    { title: "Alpha", source_url: "https://www.tiff.net/films/alpha", tracks: ["galas"], runtime_minutes: 60,
+      screenings: [{ start: "2026-09-11 10:00", venue: "Scotiabank 4", location: "scotiabank-4" },
+                   { start: "2026-09-11 18:00", venue: "Lightbox 1", location: "lightbox-1" }] },
+    { title: "Beta", source_url: "https://www.tiff.net/films/beta", tracks: ["docs"], runtime_minutes: 60,
+      screenings: [{ start: "2026-09-11 10:30", venue: "Lightbox 1", location: "lightbox-1" }] },
+    // a "|" in the title: branchSig joins sigs with "|", so the file must not
+    // rely on that delimiter (TIFF really ships "REDEFINED | Short Film Showcase")
+    { title: "Gam|ma", source_url: "https://www.tiff.net/films/gamma", tracks: ["docs"], runtime_minutes: 60,
+      screenings: [{ start: "2026-09-12 10:00", venue: "Scotiabank 4", location: "scotiabank-4" }] },
+  ],
+});
+
+// Snapshot every stored key for the current festival, so a round-trip can be
+// compared byte-for-byte rather than field-by-field.
+const snapshot = () => Object.fromEntries(ownKeys().sort().map((k) => [k, localStorage.getItem(nsKey(k))]));
+
+// Put a rich, fully-populated state into storage: tags, every setting, blocked
+// times, a held ticket and a sold-out screening.
+function seedState() {
+  reset("Fest X");
+  CATALOG = backupCat();
+  setSel({ Alpha: "must", Beta: "want", "Gam|ma": "skip" });
+  saveJSON("buf", 45); saveJSON("samebuf", 5); saveJSON("prioritizefirst", false);
+  setTracksOff(["docs"]); setTiersOff(["market"]); setVenuePref(["scotiabank"]);
+  saveJSON("unavail", ["1757548800000|9", "1757548800000|10"]);
+  setLocks({ Alpha: scrKey("Alpha", parseDT("2026-09-11 18:00"), "Lightbox 1") });
+  setSoldOut(new Set([scrKey("Beta", parseDT("2026-09-11 10:30"), "Lightbox 1")]));
+  TREE = null; PENDING_CHOICES = null;
+}
+
+check("film ids come from the source_url slug, falling back to the title", () => {
+  eq(filmId({ title: "Alpha", source_url: "https://www.tiff.net/films/alpha" }), "alpha");
+  eq(filmId({ title: "Alpha", source_url: "https://www.tiff.net/films/alpha/" }), "alpha", "trailing slash");
+  eq(filmId({ title: "Alpha", source_url: "https://www.tiff.net/films/alpha?utm=x" }), "alpha", "query string");
+  eq(filmId({ title: "Hand Made" }), "Hand Made", "no source_url -> title");
+});
+
+check("the plan file references films and screenings by id, never by display text", () => {
+  seedState();
+  const f = exportObject("2026-08-26T00:00:00.000Z");
+  eq(f.app, "festival-planner"); eq(f.schema, 1); eq(f.festival, "Fest X");
+  eqJSON(f.state.sel, { alpha: "must", beta: "want", gamma: "skip" }, "tags keyed by film id");
+  eqJSON(f.state.locks, { alpha: { start: parseDT("2026-09-11 18:00"), loc: "lightbox-1" } },
+    "a held ticket is film id + start + location id");
+  eqJSON(f.state.soldout, [{ film: "beta", start: parseDT("2026-09-11 10:30"), loc: "lightbox-1" }]);
+  const text = JSON.stringify(f);
+  assert(!text.includes("Scotiabank 4") && !text.includes("Lightbox 1"), "no venue display names in the file");
+  assert(!text.includes("Alpha") && !text.includes("Gam|ma"), "no film titles in the file");
+});
+
+check("settings the backup code doesn't know about are still carried through", () => {
+  seedState();
+  saveJSON("somefuturesetting", { nested: [1, 2] }); // a key added after this test was written
+  const f = exportObject("2026-08-26T00:00:00.000Z");
+  eqJSON(f.state.somefuturesetting, { nested: [1, 2] }, "generic sweep picks it up");
+  assert(!("cost" in f.state) && !("picks" in f.state), "derived/index-based keys are excluded");
+});
+
+check("import restores byte-identical state (full round-trip)", () => {
+  seedState();
+  saveJSON("cost", 1234); // derived: not exported, and must not survive the wipe
+  const before = snapshot();
+  const file = JSON.parse(JSON.stringify(exportObject("2026-08-26T00:00:00.000Z")));
+  // wipe everything and confirm it's really gone before importing
+  for (const k of ownKeys()) localStorage.removeItem(nsKey(k));
+  eqJSON(getSel(), {}, "storage really was cleared");
+  eq(validateImport(file).error, undefined, "the file we just wrote validates");
+  const dropped = applyImport(file);
+  eqJSON(dropped, { films: 0, screenings: 0 }, "nothing dropped against the same catalog");
+  const after = snapshot();
+  delete before.cost; // derived output, deliberately not backed up
+  eqJSON(after, before, "every stored key is restored exactly");
+  // and the values are usable, not just equal strings
+  eqJSON(getSel(), { Alpha: "must", Beta: "want", "Gam|ma": "skip" }, "tags are back under their titles");
+  eqJSON(getLocks(), { Alpha: scrKey("Alpha", parseDT("2026-09-11 18:00"), "Lightbox 1") }, "lock resolved to a venue name again");
+  eqJSON([...getSoldOut()], [scrKey("Beta", parseDT("2026-09-11 10:30"), "Lightbox 1")]);
+  eq(getBuf(), 45); eq(getSameBuf(), 5); eq(getPrioFirst(), false);
+  eqJSON(getTracksOff(), ["docs"]); eqJSON(getVenuePref(), ["scotiabank"]);
+  eqJSON(loadJSON("unavail", []), ["1757548800000|9", "1757548800000|10"]);
+});
+
+check("import survives a festival renamed in the catalog only if the file matches", () => {
+  seedState();
+  const file = exportObject("2026-08-26T00:00:00.000Z");
+  CATALOG = { ...backupCat(), festival: "Fest Y" };
+  assert(validateImport(file).error.includes("Fest X"), "refuses a file for a different festival");
+});
+
+check("a stale plan file is refused and leaves storage untouched", () => {
+  seedState();
+  const good = exportObject("2026-08-26T00:00:00.000Z");
+  const before = snapshot();
+  const bad = [
+    { obj: { app: "something-else", schema: 1, festival: "Fest X", state: {} }, want: "not a planner backup" },
+    { obj: { app: "festival-planner", schema: 1, festival: "Fest X" }, want: "not a planner backup" },
+    { obj: { ...good, schema: 2 }, want: "format version 2" },
+    { obj: { ...good, festival: "Other Fest" }, want: "Other Fest" },
+    { obj: null, want: "not a planner backup" },
+  ];
+  for (const { obj, want } of bad) {
+    const v = validateImport(obj);
+    assert(v.error && v.error.includes(want), `expected an error mentioning "${want}", got ${JSON.stringify(v)}`);
+  }
+  eqJSON(snapshot(), before, "no rejected file wrote anything");
+});
+
+check("the confirm summary counts what's actually in the file", () => {
+  seedState();
+  const s = validateImport(exportObject("2026-08-26T00:00:00.000Z")).summary;
+  eqJSON(s, { must: 1, want: 1, locks: 1, unavail: 2 });
+});
+
+check("films and screenings dropped from the catalog are skipped and counted", () => {
+  seedState();
+  const file = exportObject("2026-08-26T00:00:00.000Z");
+  // upstream refresh: Beta is gone entirely, Alpha's evening screening moved venue
+  const cat = backupCat();
+  cat.movies = cat.movies.filter((m) => m.title !== "Beta");
+  cat.movies[0].screenings[1] = { start: "2026-09-11 18:00", venue: "Scotiabank 9", location: "scotiabank-9" };
+  CATALOG = cat;
+  const dropped = applyImport(file);
+  eq(dropped.films, 1, "Beta's tag has nowhere to go");
+  eq(dropped.screenings, 1, "the sold-out Beta screening is unresolvable");
+  eqJSON(getSel(), { Alpha: "must", "Gam|ma": "skip" }, "surviving tags restore");
+  eqJSON([...getSoldOut()], [], "the vanished screening isn't resurrected");
+  eqJSON(getLocks(), { Alpha: scrKey("Alpha", parseDT("2026-09-11 18:00"), "Scotiabank 9") },
+    "the lock follows the film+time to its new venue");
+});
+
+check("wizard position survives a round-trip as film ids, delimiter-safe", () => {
+  seedState();
+  // A tree whose branch signature is a title containing the "|" that branchSig
+  // uses as its own separator — the file stores an array of ids, so it can't split wrong.
+  OPT = { 1: { keep: ["Alpha", "Gam|ma"], drop: [] }, 2: { keep: ["Alpha", "Beta"], drop: [] } };
+  TREE = { when: "Fri Sep 11 10:00", branches: [
+    { watch: "Gam|ma", when: "Fri Sep 11 10:00", options: [1], child: { option: 1 } },
+    { watch: "Beta", when: "Fri Sep 11 10:00", options: [2], child: { option: 2 } },
+  ] };
+  setPicks([0]);
+  const f = exportObject("2026-08-26T00:00:00.000Z");
+  eqJSON(f.state.choices, [{ when: "Fri Sep 11 10:00", sig: ["gamma"] }], "sig is an array of ids, not a joined string");
+  applyImport(f);
+  eqJSON(PENDING_CHOICES, [{ when: "Fri Sep 11 10:00", sig: ["Gam|ma"] }], "ids map back to titles for choicesToPicks");
+  // and the pending choices actually place the wizard on the same branch, even
+  // after the branch order is reshuffled by a re-solve
+  const reshuffled = { when: "Fri Sep 11 10:00", branches: [TREE.branches[1], TREE.branches[0]] };
+  eqJSON(choicesToPicks(PENDING_CHOICES, reshuffled), [1], "follows the film, not the old index");
+});
+
+check("solveAndShow consumes PENDING_CHOICES once, then falls back to the live tree", () => {
+  seedState();
+  PENDING_CHOICES = [{ when: "Fri Sep 11 10:00", sig: ["Beta"] }];
+  setSel({ Alpha: "must", Beta: "want" });
+  setLocks({}); setSoldOut(new Set()); saveJSON("unavail", []);
+  TRACKSOFF = new Set(); TIERSOFF = new Set(); VENUEPREF = new Set();
+  BUF = 30; SAMEBUF = 10; PRIOFIRST = true;
+  solveAndShow();
+  eq(PENDING_CHOICES, null, "cleared after one solve, so a later re-solve uses the live tree");
+});
+
+check("export works from View 1, before the user has ever reached the wizard", () => {
+  seedState();
+  setSel({ Alpha: "must", Beta: "want" });
+  setLocks({}); setSoldOut(new Set()); saveJSON("unavail", []);
+  TRACKSOFF = new Set(); TIERSOFF = new Set(); VENUEPREF = new Set();
+  BUF = 30; SAMEBUF = 10; PRIOFIRST = true;
+  setPicks([0]);
+  TREE = null; // never solved this session
+  const f = exportObject("2026-08-26T00:00:00.000Z");
+  assert(Array.isArray(f.state.choices), "buildTree() ran so the stored picks could be described");
+  assert(TREE, "and the tree is now available");
+});
+
 
 report("app");

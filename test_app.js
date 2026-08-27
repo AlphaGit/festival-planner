@@ -16,7 +16,8 @@ globalThis.window = globalThis;
 globalThis.document = { getElementById: () => fakeNode, addEventListener: () => {}, title: "", createElement: () => fakeNode };
 globalThis.fetch = () => Promise.reject(new Error("no fetch in tests"));
 globalThis.scrollTo = () => {};
-globalThis.localStorage = (() => { const m = new Map(); return { getItem:(k)=>m.has(k)?m.get(k):null, setItem:(k,v)=>m.set(k,String(v)), removeItem:(k)=>m.delete(k), clear:()=>m.clear() }; })();
+// length/key below are real: exportObject sweeps the tiff:<festival>:* namespace
+globalThis.localStorage = (() => { const m = new Map(); return { getItem:(k)=>m.has(k)?m.get(k):null, setItem:(k,v)=>m.set(k,String(v)), removeItem:(k)=>m.delete(k), clear:()=>m.clear(), key:(i)=>[...m.keys()][i] ?? null, get length(){ return m.size; } }; })();
 `;
 eval(
   r("logic-solver.bundle.js") + "\nglobalThis.LogicSolver = LogicSolver;\n" +

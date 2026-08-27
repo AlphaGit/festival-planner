@@ -2,7 +2,7 @@
 // to network. Bump CACHE (semver) on every requested change so old caches are
 // purged and clients pick up the new assets — see CLAUDE.md.
 // ponytail: precache the whole app — it's 5 files, no need for runtime caching.
-const CACHE = "planner-v1.8.5";
+const CACHE = "planner-v1.9.0";
 const ASSETS = [
   ".",
   "index.html",

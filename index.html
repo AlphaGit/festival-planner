@@ -297,7 +297,10 @@ a.bvenue{display:inline-block;color:var(--accent-ink);text-decoration:none} a.bv
 <footer class="muted footer">
   Built with ♥ by <a href="https://github.com/AlphaGit">Alpha</a> ·
   <a href="#" onclick="document.getElementById('support').showModal();return false">Support me</a> ·
-  <a href="https://github.com/AlphaGit/festival-planner">Source</a><span id="ver"></span>
+  <a href="https://github.com/AlphaGit/festival-planner">Source</a> ·
+  <a href="#" id="export" title="Save your tags, tickets, blocked times and wizard choices to a file">Export</a> ·
+  <a href="#" id="import" title="Restore a plan from a previously exported file">Import</a><span id="ver"></span>
+  <input type="file" id="importfile" accept=".json,application/json" hidden>
 </footer>
 
 <dialog id="support">

@@ -23,6 +23,15 @@ until you're left with one schedule to follow.
 The app runs entirely in your browser. No accounts, no server, nothing leaves
 your device. It's also a PWA — installable and works offline.
 
+**Export / Import** (footer links) save that whole plan to a JSON file and read
+it back: tags, solver settings, blocked times, held tickets, sold-out
+screenings, and where you are in the wizard. Use it to move a plan between
+browsers or devices, or to keep a backup before re-tagging. Films and screenings
+are referenced by catalog id, so a file still applies after TIFF retitles a film
+or renames a venue; anything genuinely dropped from the catalog is skipped and
+reported. Importing replaces the current plan for that festival, and a file from
+a different festival is refused.
+
 ## Running it
 
 Static client-side app, no build step. Serve over HTTP (the catalog is
@@ -59,8 +68,8 @@ node test_solver.js && node test_app.js && python3 test_scrape.py   # plain asse
 
 `test_solver.js` covers scheduling correctness; `test_app.js` covers app
 behaviour (tagging, availability, screening validation, the decision wizard,
-pick reconciliation, persistence); `test_scrape.py` covers the catalog scraper
-and the change report. The browser solver also has an in-page self-check:
+pick reconciliation, persistence, export/import round-trips); `test_scrape.py`
+covers the catalog scraper and the change report. The browser solver also has an in-page self-check:
 `TiffSolver._selfTest()`.
 
 ## Contributing
