@@ -1187,7 +1187,7 @@
       "tracks": [
         "tiff-docs"
       ],
-      "runtime_minutes": 93,
+      "runtime_minutes": 103,
       "screenings": [
         {
           "start": "2026-09-15 09:30",
@@ -2586,27 +2586,6 @@
       ]
     },
     {
-      "title": "DIALOGUES Having a Moment: Canadian Documentaries",
-      "authors": "",
-      "blurb": "Canadian documentaries are more plentiful at TIFF than ever before. We’ll hear from the directors behind three of those works making their World Premieres. In the Gala programme, Scot McFayden pays tribute to the legendary Rush drummer with <em>Neil Peart: No One’s Disciple</em>. In the TIFF Docs programme, Mila Aung-Thwin profiles a one-time bank robber who now tests the levels of human endurance in <em>The Ultra Runner</em>, and Alexandra Lazarowich follows three aspiring Indigenous hip-hop artists in <em>Turtle Island Rap</em>. Moderated by <em>Real Screen</em> editor Barry Walsh.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
-      "source_url": "https://www.tiff.net/films/dialogues-having-a-moment-canadian-documentaries",
-      "tracks": [
-        "summit"
-      ],
-      "runtime_minutes": 60,
-      "screenings": [
-        {
-          "start": "2026-09-12 16:30",
-          "venue": "Stage 2",
-          "location": "stage-2",
-          "accessTiers": [
-            "press-market"
-          ]
-        }
-      ]
-    },
-    {
       "title": "DIALOGUES Holding the Center: Producing Under Pressure",
       "authors": "",
       "blurb": "Independent producers are the creative, financial, and emotional backbone of the screen industry, yet their own wellbeing is rarely addressed. Drawing on the findings of the EAVE Impact Think Tank 2026 Report, <em>Producers in Focus: Mental Health, Resilience, and Support</em>, this conversation explores the unseen pressures producers carry and shares practical strategies for care, resilience, and sustainable practice. Together, the panel will examine how producers and the wider screen sector can share responsibility for creating a healthier production culture.",
@@ -2703,6 +2682,48 @@
       "screenings": [
         {
           "start": "2026-09-14 16:00",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "DIALOGUES Producing in Times of Conflict",
+      "authors": "",
+      "blurb": "Bringing together an exceptional panel of international filmmakers and producers, whose films are screening at TIFF, this conversation explores the realities of making cinema in regions shaped by political conflict. Drawing on their lived experiences, the filmmakers reflect on how they successfully navigate the ethical, practical, and artistic challenges of creating under extraordinary circumstances, from protecting cast and crew to overcoming censorship and production barriers. Together, they discuss what it takes to sustain creative freedom, adapt, and continue telling urgent stories through challenging times.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
+      "source_url": "https://www.tiff.net/films/dialogues-producing-in-times-of-conflict",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-15 12:30",
+          "venue": "Stage 2",
+          "location": "stage-2",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "DIALOGUES Serial Thrills: Writing Genre Series",
+      "authors": "",
+      "blurb": "Audiences love the suspense of a mystery, the thrill of a scare—all things expected with genre storytelling.  But how do you do that across many episodes? Join Kat Sandler, showrunner of <em>Yaga</em> and Brad Kane, showrunner of <em>Crystal Lake</em>, in a conversion on their highly anticipated official series selections. They will pull back the curtain on how to sustain high-stakes tension, build deeply immersive worlds and keep viewers hooked episode to episode.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
+      "source_url": "https://www.tiff.net/films/dialogues-serial-thrills-writing-genre-series",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-16 14:00",
           "venue": "John Bassett Theatre",
           "location": "john-bassett-theatre",
           "accessTiers": [
@@ -3141,7 +3162,7 @@
       "title": "Eleven Days",
       "authors": "Peter Landesman",
       "blurb": "ELEVEN DAYS is the true story of the longest prison hostage siege in American history—a gripping thriller about courage, sacrifice, and the ordinary people who chose humanity over fear. What does courage look like when survival is no longer possible? In the summer of 1974, as Watergate shakes America's faith in its institutions, the maximum-security Walls Unit in Huntsville, Texas is led by Jim Estelle, an idealistic corrections director who believes prisons exist not for vengeance but for redemption. Inside its walls, guards, teachers, librarians, and inmates live within an uneasy system built on trust—a fragile peace shattered when notorious Mexican outlaw Federico \"Fred\" Carrasco launches a meticulously planned escape that erupts into an eleven-day hostage crisis.  As Carrasco and his armed followers seize the prison library, a small group of civilian employees find themselves trapped between fanatical violence and the overwhelming force gathering outside. Among them are librarians Judy Standley and Von Beseda, whose compassion and unassuming strength become the moral heart of the siege. Refusing to abandon one another or surrender their humanity, they repeatedly place themselves in danger to protect others—even volunteering to serve as human shields in the desperate hope that innocent lives might be spared. Their extraordinary courage stands in stark contrast to the brutality consuming the prison, culminating in a heartbreaking act of sacrifice that forever defines the legacy of those eleven days.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6i4Ezh1ZbkOpY2tG2UWxah/721e05b000b4482dd682579cacf8db55/Eleven_Days_01.webp",
       "source_url": "https://www.tiff.net/films/eleven-days",
       "tracks": [
         "market-screening"
@@ -4178,6 +4199,27 @@
           "start": "2026-09-20 12:50",
           "venue": "Scotiabank 6",
           "location": "scotiabank-6"
+        }
+      ]
+    },
+    {
+      "title": "Having a Moment: Canadian Documentaries",
+      "authors": "",
+      "blurb": "Canadian documentaries are more plentiful at TIFF than ever before. We’ll hear from the directors behind three of those works making their World Premieres. In the Gala programme, Scot McFayden pays tribute to the legendary Rush drummer with <em>Neil Peart: No One’s Disciple</em>. In the TIFF Docs programme, Mila Aung-Thwin profiles a one-time bank robber who now tests the levels of human endurance in <em>The Ultra Runner</em>, and Alexandra Lazarowich follows three aspiring Indigenous hip-hop artists in <em>Turtle Island Rap</em>. Moderated by <em>Real Screen</em> editor Barry Walsh.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
+      "source_url": "https://www.tiff.net/films/dialogues-having-a-moment-canadian-documentaries",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-12 16:30",
+          "venue": "Stage 2",
+          "location": "stage-2",
+          "accessTiers": [
+            "press-market"
+          ]
         }
       ]
     },
@@ -6291,7 +6333,7 @@
       "tracks": [
         "tiff-docs"
       ],
-      "runtime_minutes": 230,
+      "runtime_minutes": 235,
       "screenings": [
         {
           "start": "2026-09-13 09:00",
@@ -6529,7 +6571,7 @@
       ]
     },
     {
-      "title": "North is Now: Indigenous Storytelling in the Artic",
+      "title": "North is Now: Indigenous Storytelling in the Arctic",
       "authors": "",
       "blurb": "As the Arctic becomes increasingly important on the world stage, Indigenous storytellers are creating new opportunities for collaboration, co-production, and international partnerships. Bringing together leaders from across the circumpolar North, this discussion explores how Indigenous-led institutions are building sustainable screen industries, strengthening narrative sovereignty, and positioning Canada as a key partner in the future of Arctic film and television.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
@@ -7069,11 +7111,11 @@
       ]
     },
     {
-      "title": "PERSPECTIVES Demystifying Private Equity",
+      "title": "PERSPECTIVES Demystifying Film Financing",
       "authors": "",
       "blurb": "Art is unpredictable. The financing doesn’t have to be. You’ve got the script. You’ve got the budget. Now it’s time to raise the funds. Where are those elusive wealthy investors and financiers and how do you navigate equity, debt financing, and what exactly is a waterfall? This crucial conversation will dive into risk engineering in the creative industries: slate diversification, completion bonds, multiple revenue streams, and more. This peek behind the financier’s curtain will set you on the right path because you may not be able to eliminate your creative risk, but you can learn to structure your financial risk.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
-      "source_url": "https://www.tiff.net/films/perspectives-demystifying-private-equity",
+      "source_url": "https://www.tiff.net/films/perspectives-demystifying-film-financing",
       "tracks": [
         "summit"
       ],
