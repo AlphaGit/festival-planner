@@ -3,6 +3,7 @@
   "tracks": {
     "centrepiece": "Centrepiece",
     "discovery": "Discovery",
+    "festival-street": "Festival Street",
     "gala-presentations": "Gala Presentations",
     "in-conversation-with": "In Conversation With...",
     "luminaries": "Luminaries",
@@ -29,6 +30,10 @@
     "market"
   ],
   "locations": {
+    "cinema-park-at-david-pecaut-square": {
+      "name": "Cinema Park at David Pecaut Square",
+      "address": "55 John St, Toronto, ON M5V 3C6"
+    },
     "food-hall": {
       "name": "Food Hall",
       "address": "255 Front St W, Toronto, ON M5V 2W6"
@@ -598,9 +603,9 @@
       ]
     },
     {
-      "title": "Alice",
+      "title": "Alice: Pioneer of Cinema",
       "authors": "Virginie Verrier, Guillaume Lonergan",
-      "blurb": "Amidst the advent of modern cinema, trailblazing artist Alice Guy becomes the first female film director in this lush historical series starring Academy Award–nominee Bérénice Bejo (<em>The Artist</em>).",
+      "blurb": "Amidst the advent of modern cinema, trailblazing artist Alice Guy becomes the first woman film director in this lush historical series starring Academy Award–nominee Bérénice Bejo (<em>The Artist</em>).",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/9b0RWzItqw8FTdVR5B468/3f5d04922d73f088a8e953a7328e4ba5/ALICE_01.webp",
       "source_url": "https://www.tiff.net/films/alice",
       "tracks": [
@@ -1267,10 +1272,10 @@
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 115,
+      "runtime_minutes": 110,
       "screenings": [
         {
-          "start": "2026-09-13 18:35",
+          "start": "2026-09-13 18:15",
           "venue": "TIFF Lightbox 5",
           "location": "tiff-lightbox-5",
           "accessTiers": [
@@ -1402,6 +1407,35 @@
       ]
     },
     {
+      "title": "Before It's Too Late / If You Run Out of Ramyun",
+      "authors": "Se-yeon Oh, Tae-yeoup Kim",
+      "blurb": "Before It's Too Late: While searching for her grandmother who vanished without a trace from a calligraphy studio, jisu encounters a mysterious woman delivering ramyun.\r\nIf You Run Out of Ramyun: Mom left, leaving a young brother and sister behind. The older brother lies to his youger sister, saying that mom will return if she eats all the ramyun.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3GFADpEhgrkfrReIoYvXpf/cece86d42375edfb4426519279fabbc7/Before_It_s_Too_Late_01.webp",
+      "source_url": "https://www.tiff.net/films/before-it-s-too-late-if-you-run-out-of-ramyun",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 53,
+      "screenings": [
+        {
+          "start": "2026-09-16 12:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
+        },
+        {
+          "start": "2026-09-16 15:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Being Heumann",
       "authors": "Siân Heder",
       "blurb": "Featuring a breakout performance by Ruth Madeley and Oscar nominee Mark Ruffalo (TIFF ’15’s <em>Spotlight</em>), this inspiring historical drama from Oscar-winning filmmaker Siân Heder (<em>CODA</em>) celebrates the paradigm-shifting activist Judy Heumann, “Mother of the Disability Rights Movement.”",
@@ -1470,7 +1504,7 @@
     },
     {
       "title": "Below",
-      "authors": "Jamie Childs, Jesse McKeown",
+      "authors": "Jamie Childs",
       "blurb": "Something monstrous lurks off the coast in this suspenseful, Newfoundland-set limited series, starring Josh Hartnett (<em>Trap</em>) and Mackenzie Davis (<em>Station Eleven</em>).",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/27RuOBOr9HASJ0ljbcaxCW/3a0c6afb471580a10e52315659aa6989/Below_01.webp",
       "source_url": "https://www.tiff.net/films/below",
@@ -1543,7 +1577,7 @@
     {
       "title": "Beyond Culture",
       "authors": "",
-      "blurb": "Beyond Culture Launch at TIFF\r\n\r\nVisionary Filmmakers, Jennifer DeLia and Mark Webber, are Co-Founders of Beyond Culture, a new artist-driven film and media studio, dedicated to transformational work that will push the medium and uphold a standard of excellence. B.C. honors powerful vision, supporting creativity that expands consciousness, celebrates shared humanity, and moves culture forward.\r\nAs part of the TIFF Speakers Summit, Beyond Culture will host an evening of conversation, community, and performance on September 15th 4-7pm at the Malaparte Rooftop in the TIFF Lightbox.\r\n\r\nThe evening will feature a curated panel of notable artists and visionaries exploring the future and power of storytelling, followed by a reception with food, bar and a special live performance by internationally-acclaimed artist, Marieme.\r\n\r\nSpeakers Include: Co-Founder/ Moderator, Jennifer DeLia; Filmmaker/ Co-Founder, Mark Webber; Actress/Producer Karen Strassman, Actress Eugenia Kuzmina, Singer/ Actress, Marieme, Actress/ Producer, Taylor Olandt; Artist/ Humanitarian Joel Bergner , Filmmaker/ Visual Artist, Matt Smiley, Actor, Brionne Davis & Actress, Taryn Manning",
+      "blurb": "Beyond Culture Launch at TIFF\r\n\r\nVisionary Filmmakers, Jennifer DeLia and Mark Webber, are Co-Founders of Beyond Culture, a new artist-driven film and media studio, dedicated to transformational work that will push the medium and uphold a standard of excellence. B.C. honors powerful vision, supporting creativity that expands consciousness, celebrates shared humanity, and moves culture forward.\r\nAs part of the TIFF Speakers Summit, Beyond Culture will host an evening of conversation, community, and performance on September 15th 4-7pm at the Malaparte Rooftop in the TIFF Lightbox.\r\n\r\nThe evening will feature a curated panel of notable artists and visionaries exploring the future and power of storytelling, followed by a reception with food, bar and a special live performance by internationally-acclaimed artist, Marieme. Nick Cannon set to DJ joined by Abby de La Rosa.\r\n\r\nSpeakers Include: Co-Founder/ Moderator, Jennifer DeLia; Filmmaker/ Co-Founder, Mark Webber; Actress/Producer Karen Strassman, Actress Eugenia Kuzmina, Singer/ Actress, Marieme, Actress/ Producer, Taylor Olandt; Artist/ Humanitarian Joel Bergner , Filmmaker/ Visual Artist, Matt Smiley, Actor, Brionne Davis & Actress, Taryn Manning, Nick Cannon.\r\n\r\nconnect@beyondculture.global",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/beyond-culture",
       "tracks": [
@@ -2100,6 +2134,24 @@
       ]
     },
     {
+      "title": "City Lights",
+      "authors": "Charlie Chaplin",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/21nv4NFAV1gHkEO4GfP9fi/f1a99a022a25419aae75df2dd3d467ab/City_Lights_01.webp",
+      "source_url": "https://www.tiff.net/films/city-lights",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 96,
+      "screenings": [
+        {
+          "start": "2026-09-10 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
       "title": "Clarissa",
       "authors": "Arie Esiri, Chuko Esiri",
       "blurb": "Led by a stellar cast including Sophie Okonedo and David Oyelowo, filmmaking brothers Arie and Chuko Esiri’s second feature is a beguiling adaptation of Virginia Woolf’s <em>Mrs. Dalloway</em> set in contemporary Lagos.",
@@ -2525,7 +2577,7 @@
     {
       "title": "DIALOGUES Betting on Cinema: Warner Brothers’ Pam Abdy & Mike De Luca",
       "authors": "",
-      "blurb": "In an era of industry consolidation, shifting windows, and evolving audience habits, Warner Bros. Motion Picture Group Co-Chairs and Co-CEOs Pam Abdy and Mike De Luca have proven that backing bold, director-led cinema remains a winning strategy. Grounded in a 30-year partnership, the executive duo defied market cynicism by delivering a record-breaking $4 billion slate, balancing major franchise IP with high-stakes original hits like <em>Sinners</em> and <em>One Battle After Another</em>. In this candid conversation, the two pull back the curtain on modern studio leadership to discuss the mechanics of building a risk-tolerant slate, tailoring distribution for next-generation moviegoers and — as De Luca is quoted — putting the \"tent\" back in \"tentpole.\"",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nIn an era of industry consolidation, shifting windows, and evolving audience habits, Warner Bros. Motion Picture Group Co-Chairs and Co-CEOs Pam Abdy and Mike De Luca have proven that backing bold, director-led cinema remains a winning strategy. Grounded in a 30-year partnership, the executive duo defied market cynicism by delivering a record-breaking $4 billion slate, balancing major franchise IP with high-stakes original hits like <em>Sinners</em> and <em>One Battle After Another</em>. In this candid conversation, the two pull back the curtain on modern studio leadership to discuss the mechanics of building a risk-tolerant slate, tailoring distribution for next-generation moviegoers and — as De Luca is quoted — putting the \"tent\" back in \"tentpole.\"",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-betting-on-cinema-warner-brothers-pam-abdy-mike-de-luca",
       "tracks": [
@@ -2609,7 +2661,7 @@
     {
       "title": "DIALOGUES Expanding the Blade Runner Universe: A Multiplatform Evolution",
       "authors": "",
-      "blurb": "The <em>Blade Runner</em> universe is expanding. As the legendary franchise transitions from the big screen to a highly anticipated television series, it is now entering the frontier of immersive entertainment. This case study breaks down the blueprint of adapting a massive intellectual property into a world-class immersive experience. Panellists will delve into the creative, technical, and business complexities of translating globally recognized IP into a compelling, interactive world that resonates with existing fans and captures new audiences.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nThe <em>Blade Runner</em> universe is expanding. As the legendary franchise transitions from the big screen to a highly anticipated television series, it is now entering the frontier of immersive entertainment. This case study breaks down the blueprint of adapting a massive intellectual property into a world-class immersive experience. Panellists will delve into the creative, technical, and business complexities of translating globally recognized IP into a compelling, interactive world that resonates with existing fans and captures new audiences.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-expanding-the-blade-runner-universe",
       "tracks": [
@@ -2714,7 +2766,7 @@
     {
       "title": "DIALOGUES On Adaptation: Hirokazu Kore-eda & Yeon Sang-ho",
       "authors": "",
-      "blurb": "Hirokazu Kore-eda and Yeon Sang-ho are two of East Asian cinema's most compelling storytellers. While their stylistic approaches seem to sit on opposite ends of the genre spectrum – from Kore-eda’s gentle, naturalistic humanism to Yeon’s explosive, high-concept genre allegories – their thematic interests sharply overlap. With their latest films premiering at the Festival, Kore-eda’s tender manga adaptation <em>Look Back</em> and Yeon’s chilling psychological thriller <em>Paradise Lost</em> adapted from a novel, these celebrated directors take the Summit stage for an unmissable conversation on the mechanics and the art of adaptation.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nHirokazu Kore-eda and Yeon Sang-ho are two of East Asian cinema's most compelling storytellers. While their stylistic approaches seem to sit on opposite ends of the genre spectrum – from Kore-eda’s gentle, naturalistic humanism to Yeon’s explosive, high-concept genre allegories – their thematic interests sharply overlap. With their latest films premiering at the Festival, Kore-eda’s tender manga adaptation <em>Look Back</em> and Yeon’s chilling psychological thriller <em>Paradise Lost</em> adapted from a novel, these celebrated directors take the Summit stage for an unmissable conversation on the mechanics and the art of adaptation.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-approaching-adaptation-hirokazu-kore-eda-yeon-sang-ho",
       "tracks": [
@@ -2756,7 +2808,7 @@
     {
       "title": "DIALOGUES Serial Thrills: Writing Genre Series",
       "authors": "",
-      "blurb": "Audiences love the suspense of a mystery, the thrill of a scare—all things expected with genre storytelling.  But how do you do that across many episodes? Join Kat Sandler, showrunner of <em>Yaga</em> and Brad Kane, showrunner of <em>Crystal Lake</em>, in a conversion on their highly anticipated official series selections. They will pull back the curtain on how to sustain high-stakes tension, build deeply immersive worlds and keep viewers hooked episode to episode.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nAudiences love the suspense of a mystery, the thrill of a scare—all things expected with genre storytelling.  But how do you do that across many episodes? Join Kat Sandler, showrunner of <em>Yaga</em> and Brad Kane, showrunner of <em>Crystal Lake</em>, in a conversion on their highly anticipated official series selections. They will pull back the curtain on how to sustain high-stakes tension, build deeply immersive worlds and keep viewers hooked episode to episode.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-serial-thrills-writing-genre-series",
       "tracks": [
@@ -2777,7 +2829,7 @@
     {
       "title": "DIALOGUES Shorts to First Features",
       "authors": "",
-      "blurb": "Three of the Festival's most exciting emergent directors — including alumni directors of TIFF Short Cuts and Industry Talent — discuss their journeys thus far, from learning their craft and making short films to developing and directing their first features. Hear how Reed Van Dyk (<em>Atonement</em>), Carol Nguyen (<em>Still Night, Burning House</em>), and Marie-Clémentine Dusabejambo (<em>Ben’Imana</em>)  honed their projects, found the collaborators they needed, and coped with challenges, all while protecting their creative visions.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nThree of the Festival's most exciting emergent directors — including alumni directors of TIFF Short Cuts and Industry Talent — discuss their journeys thus far, from learning their craft and making short films to developing and directing their first features. Hear how Reed Van Dyk (<em>Atonement</em>), Carol Nguyen (<em>Still Night, Burning House</em>), and Marie-Clémentine Dusabejambo (<em>Ben’Imana</em>)  honed their projects, found the collaborators they needed, and coped with challenges, all while protecting their creative visions.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-shorts-to-first-features",
       "tracks": [
@@ -2798,7 +2850,7 @@
     {
       "title": "DIALOGUES South-South Co-Productions: New Routes, New Alliances",
       "authors": "",
-      "blurb": "What happens when filmmakers stop looking North for their creative and production partners? Across Latin America and Africa, a new generation of bold, unexpected co-productions is challenging the traditional pathways that have long connected both regions primarily to Europe. This panel brings together the producers and creators behind <em>Furies</em> and <em>The Smell of Apples</em>, both premiering at the Festival, to explore the possibilities of building meaningful South-South collaborations: sharing talent, resources, audiences, and creative perspectives across continents. A conversation about breaking established models, forging new cinematic alliances, and imagining a truly global film ecosystem from the Global South outward.",
+      "blurb": "What happens when filmmakers stop looking North for their creative and production partners? Across Latin America and Africa, a new generation of bold, unexpected co-productions is challenging the traditional pathways that have long connected both regions primarily to Europe. This panel brings together the producer and director of <em>The Smell of Apples</em>, premiering at the festival, using it as a case study to explore the possibilities of building meaningful South-South collaborations: sharing talent, resources, audiences, and creative perspectives across continents. A conversation about breaking established models, forging new cinematic alliances, and imagining a truly global film ecosystem from the Global South outward.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-south-south-co-productions-new-routes-new-alliances",
       "tracks": [
@@ -2840,7 +2892,7 @@
     {
       "title": "DIALOGUES The OBSESSION Obsession with Curry Barker & Inde Navarrette",
       "authors": "",
-      "blurb": "Following its explosive premiere at TIFF’s Midnight Madness, Curry Barker’s indie horror <em>Obsession</em> proved that original, high-voltage genre cinema is alive and thriving. Powered by a visceral breakout performance from Inde Navarrette, the film showcased how two digital-native creators could leverage their online roots to reignite the theatrical moviegoing experience. Now, with major projects on the horizon, this conversation brings together two of the industry’s most exciting rising talents to reflect on their beginnings, unpack the transition from digital platforms to the silver screen, and discuss the collaborative craft behind modern genre storytelling.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nFollowing its explosive premiere at TIFF’s Midnight Madness, Curry Barker’s indie horror <em>Obsession</em> proved that original, high-voltage genre cinema is alive and thriving. Powered by a visceral breakout performance from Inde Navarrette, the film showcased how two digital-native creators could leverage their online roots to reignite the theatrical moviegoing experience. Now, with major projects on the horizon, this conversation brings together two of the industry’s most exciting rising talents to reflect on their beginnings, unpack the transition from digital platforms to the silver screen, and discuss the collaborative craft behind modern genre storytelling.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/qudYfhV41bhJ09L2MjVGx/0d2d10f262bd9886ae7d24a69cf66175/summit_-_Dialogues.webp",
       "source_url": "https://www.tiff.net/films/dialogues-the-obsession-obsession-with-curry-barker-inde-navarrette",
       "tracks": [
@@ -2909,7 +2961,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 115,
+      "runtime_minutes": 119,
       "screenings": [
         {
           "start": "2026-09-11 11:15",
@@ -2985,6 +3037,27 @@
           "start": "2026-09-18 21:00",
           "venue": "Scotiabank 10",
           "location": "scotiabank-10"
+        }
+      ]
+    },
+    {
+      "title": "Don't Fence Me In: Queer Country",
+      "authors": "Colette Johnson-Vosberg",
+      "blurb": "Canada boasts a rich legacy of country stars, from Shania Twain and Hank Snow to Anne Murray, and the iconic k.d. lang. In “Don’t Fence Me In: Queer Country,” our documentary shines a spotlight on LGBTQ+ musicians who are fearlessly redefining Canadian country music, carving out space in an industry that has often been slow to embrace change. These artists share their deeply personal stories, navigating the complexities of identity, tradition, and artistry while challenging stereotypes and breaking new ground. Their journeys are marked by resilience, creativity, and undeniable talent. The film not only celebrates trailblazers like k.d. lang but also gives voice to the new generation, showcasing the richness of their music and the vibrant community they’re building.  Through exclusive interviews, heartfelt performances, and candid conversations, “Don’t Fence Me In: Queer Country” offers an intimate look at how these singers are illuminating the genre with authenticity and pride.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "source_url": "https://www.tiff.net/films/don-t-fence-me-in-queer-country",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 89,
+      "screenings": [
+        {
+          "start": "2026-09-16 11:30",
+          "venue": "Scotiabank 5",
+          "location": "scotiabank-5",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -3500,6 +3573,27 @@
       ]
     },
     {
+      "title": "Filmmaking, Social Platforms & the Massive × CapCut Announcement",
+      "authors": "",
+      "blurb": "Join MASSIVE Studios at TIFF for a conversation about the changing landscape of filmmaking, the growing role of social platforms and new technology, and what it all means for how films are made and reach audiences today.\r\n\r\nThe conversation will culminate in the announcement of a new filmmaking project with CapCut, with the creative team sharing what they’re setting out to make, why they’re approaching it differently, and what’s ahead.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/filmmaking-social-platforms-the-massive-capcut-announcement",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-14 15:00",
+          "venue": "Stage 3",
+          "location": "stage-3",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Fjord",
       "authors": "Cristian Mungiu",
       "blurb": "Winner of the prestigious Palme d’Or at this year’s Cannes Film Festival, the latest from writer-director Cristian Mungiu is a gripping high-stakes courtroom drama driven by a profound moral dilemma.",
@@ -3645,6 +3739,24 @@
       ]
     },
     {
+      "title": "Freaky Friday",
+      "authors": "Gary Nelson",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/69NwXSclMHu7F7ajLbuXB0/020d6f705f47172908f66dcdffec57fa/Freaky-Friday_01.webp",
+      "source_url": "https://www.tiff.net/films/freaky-friday",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 108,
+      "screenings": [
+        {
+          "start": "2026-09-15 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
       "title": "Freeing Flipper",
       "authors": "Barney Douglas",
       "blurb": "Executive produced by Academy Award winner Leonardo DiCaprio, Freeing Flipper is the extraordinary story of Ric O'Barry, once the world's highest-paid dolphin trainer, who has spent the last fifty years risking his life and liberty to set dolphins free. In the 1960s, Ric trained the dolphins behind Flipper, the television phenomenon that made America fall in love with dolphins on screen. Everything changed when his dolphin Kathie died in his arms in what he believed was an act of despair, transforming the industry's golden boy into its fiercest opponent. As founder of Dolphin Project, Ric has spent five decades exposing the hidden world of dolphin captivity, from marine parks to Japan's notorious dolphin hunts. Revered by some, reviled by others, he remains driven by one unshakeable belief: every captive dolphin deserves a way home. Built on rare family archives, dolphin-POV underwater cinematography, and covert footage, this is the story of a man who dedicated his life to freeing others—and now, at 85, must confront whether he can finally free himself.",
@@ -3772,14 +3884,14 @@
     },
     {
       "title": "Frontières at TIFF: The Market",
-      "authors": "",
+      "authors": "Fantasia International Film Festival",
       "blurb": "Frontières is the world’s leading international co-production market and networking platform focused on genre film financing and co-production.  Co-presented by the Fantasia International Film Festival and TIFF: The Market, this Frontières event is a showcase of genre projects presenting a majority of Canadian titles, aiming to facilitate connections between the project teams and industry members such as producers, financiers, sales agents, distributors and festival programmers.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/4ZXdJXkWQ8oQyBDonXrCe6/c94457ffa0e95cbfe276a6eb678349af/3ed364c1-820b-4d22-a72a-839f2f4e2a4a.webp",
       "source_url": "https://www.tiff.net/films/frontires-at-tiff-the-market",
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 56,
+      "runtime_minutes": 90,
       "screenings": [
         {
           "start": "2026-09-12 09:00",
@@ -4302,6 +4414,27 @@
       ]
     },
     {
+      "title": "Heated Regulations, Local Content Rivalries",
+      "authors": "",
+      "blurb": "Countries around the world are introducing rules to promote and protect local content production in response to the rise of global streaming services and the threat of content homogenization. What do these measures mean for local producers in practice? How can laws and regulations support domestic production, while also ensuring local content can reach global audiences?\r\n\r\nJoin Canadian producer Brendan Brady (Accent Aigu Entertainment / <em>Heated Rivalry</em>), Australian producer David Jowsey (Bunya Productions / <em>Prima Facie</em>), and Irish Producer Darach Ó Tuairisg (Fíbín Media), who will discuss the importance of local content rules with the Globe and Mail’s Barry Hertz.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/heated-regulations-local-content-rivalries",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-15 13:00",
+          "venue": "Stage 4",
+          "location": "stage-4",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "HOLY WOOD DUST",
       "authors": "Victor Kossakovsky",
       "blurb": "Two-time Oscar-shortlisted director Victor Kossakovsky and superstar botanist Stefano Mancuso take us on an unprecedented journey into the life of trees. What happens to a stump the second after a tree is cut down? What does that tree think and feel at that very moment? \"Holy Wood Dust\" is an invitation to radically reimagine the plant kingdom from a new, groundbreaking perspective.",
@@ -4363,6 +4496,24 @@
           "start": "2026-09-19 14:00",
           "venue": "Scotiabank 14",
           "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
+      "title": "Hoosiers",
+      "authors": "David Anspaugh",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1p1UqwujWbnlEOJ7cw2TxM/7e7f567cd76f78c43071aafe4af36e01/Hoosiers_01.webp",
+      "source_url": "https://www.tiff.net/films/hoosiers",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 125,
+      "screenings": [
+        {
+          "start": "2026-09-16 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
         }
       ]
     },
@@ -4860,7 +5011,7 @@
     {
       "title": "Innovation Hub",
       "authors": "",
-      "blurb": "A designated space featuring a selection of projects that demonstrate the year’s best immersive  storytelling, including interactive virtual reality experiences, mixed reality installations and AI glasses.\r\n\r\nPress & Market Pass Holders: \r\nFirst-come, first-served access. Open Thursday, Sept. 10 – Monday, Sept. 14, 9:00 AM – 6:00 PM.\r\n\r\nLimited Public Tickets Available Starting Aug 31st.\r\nTimed Entry. 3 Hour Access. Open Tuesday, Sept. 15 - Wednesday, Sept. 16, 9:00 AM – 6:00 PM.",
+      "blurb": "An exhibition of award-winning and audience favourite projects that demonstrate the year’s best immersive storytelling, including interactive virtual reality experiences, mixed reality installations and AI glasses.\r\n\r\nThe Innovation Hub is located on Level 200 of the Metro Toronto Convention Centre.\r\nRead more about the Innovation Hub's eight projects here.\r\n\r\nPress & Market Pass Holders: \r\nFirst-come, first-served access. Open Thursday, Sept. 10 – Monday, Sept. 14, 9:00 AM – 6:00 PM.\r\n\r\nPublic Access:\r\nPublic Tickets available to be purchased for Tuesday, Sept. 15 - Wednesday, Sept. 16.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/5WPRZShIeKV3zDk43Gi0dc/85bac5e822d24b4cb82e14bf50b87184/1200x600---Innovation-Hub-_1_.jpg",
       "source_url": "https://www.tiff.net/films/innovation-hub",
       "tracks": [
@@ -5032,7 +5183,7 @@
       "tracks": [
         "special-presentations"
       ],
-      "runtime_minutes": 109,
+      "runtime_minutes": 103,
       "screenings": [
         {
           "start": "2026-09-10 21:00",
@@ -5252,7 +5403,7 @@
       "title": "Kissed",
       "authors": "Lynne Stopkewich",
       "blurb": "World Premiere of 4K restoration!\r\n\r\nInitially a controversial outlier, Lynne Stopkewich’s singular debut <em>Kissed</em> (TIFF ’96) is a subversive, tender drama about sexual awakening that shares the same ethereal atmosphere as erotic Canadian classics David Cronenberg’s <em>Crash</em> (1996) and Atom Egoyan’s <em>Exotica</em> (1994).",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1GqjIM8IHJSgqCgSWlDopW/70dbb2703b3871a5bccecde55cd04edd/Kissed_01.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/5SYhjwIfwWXCRN4BcH9kTI/2fff46e626514ac0eecb4c7dd6bfdfcb/Kissed_Still_01_Hero.jpg",
       "source_url": "https://www.tiff.net/films/kissed",
       "tracks": [
         "tiff-classics"
@@ -5811,7 +5962,7 @@
     {
       "title": "Love is the monster",
       "authors": "Neto Villalobos Brenes",
-      "blurb": "In a chilling dystopian thriller shaped by fear and inequality, Neto Villalobos Brenes follows a grandmother, powerfully portrayed by Paulina García, whose granddaughter's kidnapping forces her into impossible moral choices.",
+      "blurb": "In a chilling dystopian thriller shaped by fear and inequality, Neto Villalobos Brenes follows a grandmother, powerfully portrayed by Paulina García, whose granddaughter becomes the centre of a devastating turn of events that forces her into impossible moral choices.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/1gevrl7enEPtAj7ABEebyL/fb34ace307c8260143cd9f37de0a5a53/Love_Is_The_Monster_01_Bendita_Film_Sales.jpg",
       "source_url": "https://www.tiff.net/films/love-is-the-monster",
       "tracks": [
@@ -5917,6 +6068,24 @@
       ]
     },
     {
+      "title": "Madagascar",
+      "authors": "Eric Darnell, Tom McGrath",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1pbEeWwo5D8f9dgwKXYxo2/1ad098198b9e7738404594599586b799/Madagascar_01.webp",
+      "source_url": "https://www.tiff.net/films/madagascar",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 106,
+      "screenings": [
+        {
+          "start": "2026-09-12 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
       "title": "Magazine",
       "authors": "Alexandra Pechman",
       "blurb": "Set in New York’s cliquish literary scene, writer-director Alexandra Pechman’s feature debut chronicles the sentimental education of an aspiring poet (Lily McInerny, TIFF ’24’s <em>Bonjour Tristesse</em>) who becomes tangled in a web of eros, cultural gatekeeping, and office intrigue.",
@@ -6004,6 +6173,27 @@
           "start": "2026-09-19 09:30",
           "venue": "Scotiabank 4",
           "location": "scotiabank-4"
+        }
+      ]
+    },
+    {
+      "title": "Man of Valor",
+      "authors": "Tearepa Kahi",
+      "blurb": "At midnight on 19 April 1943, a young Māori Battalion soldier from Lake Rotorua, New Zealand, climbed a sheer desert fortress in Tunisia that Allied commanders had declared impossible to take. His name was Haane Manahi. Three generals and a field marshal signed his Victoria Cross recommendation. An anonymous official struck it out. No reason was ever given.  From award-winning director Tearepa Kahi (Muru, TIFF 2022, New Zealand's 2023 Oscar submission), MAN OF VALOR weaves visceral battle drama with living memory into an unforgettable story – moving between Rotorua today, where Haane's descendants still carry his name in haka and waiata (song), and Tunisia, 1943, where a band of cousins storm Axis machine gun posts in darkness. Alex Tarrant (The Rings of Power) embodies Haane with quiet, extraordinary restraint – a man who says almost everything through action – to fight another country's war.  A true story of memory, honour, and refusing to let a man disappear.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "source_url": "https://www.tiff.net/films/man-of-valor",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 89,
+      "screenings": [
+        {
+          "start": "2026-09-12 19:00",
+          "venue": "TIFF Lightbox 6",
+          "location": "tiff-lightbox-6",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -6670,6 +6860,24 @@
       ]
     },
     {
+      "title": "Now You See Me",
+      "authors": "Louis Leterrier",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/257BlLZOGRv8XQrFFCKL7s/813e87c1ab72b2fa53b469437ac78f92/Now-You-See-Me_01.webp",
+      "source_url": "https://www.tiff.net/films/now-you-see-me",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 125,
+      "screenings": [
+        {
+          "start": "2026-09-13 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
       "title": "Obsession",
       "authors": "Curry Barker",
       "blurb": "When a hopeless romantic makes a wish that his long-time crush falls in love with him, a sinister enchantment ensues in writer-director Curry Barker’s freaky and frightening feature debut.",
@@ -7072,6 +7280,27 @@
       ]
     },
     {
+      "title": "Partner with Australia",
+      "authors": "",
+      "blurb": "From production and post to visual effects, co-productions and creative collaboration, discover how Australia’s globally connected screen ecosystem can help take projects from concept to screen. Featuring <em>Tenzing</em> director Jennifer Peedom with VFX Supervisor Jason Hawkins, <em>Prima Facie</em> post-production representative Kurt Royan, Ausfilm’s Erin Stam and Screen Australia’s Grainne Brunsdon, the session will explore the talent, expertise, incentives and partnerships behind world-class storytelling, moderated by producer and lawyer Sonia Borella.\r\n\r\nAustralia is open for collaboration, and everyone’s invited.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/partner-with-australia",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-13 13:00",
+          "venue": "Stage 3",
+          "location": "stage-3",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Pelechian Project",
       "authors": "",
       "blurb": "North American premiere of 4K restorations!\r\n\r\nOne of the year’s greatest cinematic gifts, this programme brings together five newly restored films by the pioneering Armenian filmmaker Artavazd Pelechian, each a harrowing ode to humanity, and its natural cycles of existence.",
@@ -7197,7 +7426,7 @@
     {
       "title": "PERSPECTIVES Equity and Parity in Independent Film: The Ethos Model with Clint Bentley, Greg Kwedar, and Colman Domingo",
       "authors": "",
-      "blurb": "Join Clint Bentley, Greg Kwedar, and moderator Colman Domingo for a discussion on the challenges facing independent film and how a parity model pioneered by Bentley and Kwedar on their films <em>Jockey</em> (TIFF ’21) and <em>Sing Sing</em> (TIFF ’23) made these films possible and gave them a chance to succeed for every artist, creative, and stakeholder.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nJoin Clint Bentley, Greg Kwedar, and moderator Colman Domingo for a discussion on the challenges facing independent film and how a parity model pioneered by Bentley and Kwedar on their films <em>Jockey</em> (TIFF ’21) and <em>Sing Sing</em> (TIFF ’23) made these films possible and gave them a chance to succeed for every artist, creative, and stakeholder.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
       "source_url": "https://www.tiff.net/films/perspectives-equity-and-parity-in-independent-film",
       "tracks": [
@@ -7491,7 +7720,7 @@
     {
       "title": "PERSPECTIVES Producers with Killer Instincts",
       "authors": "",
-      "blurb": "As the creative force behind Killer Films, legendary producers Christine Vachon and Pamela Koffler are the blueprint for how bold independent cinema survives. From helping shape New Queer Cinema to shepherding classics like <em>Boys Don’t Cry</em>, <em>Carol</em>, and <em>Past Lives</em>, they have spent thirty years turning risky, uncompromising stories into award-winning cultural touchstones. Hear how they defy industry odds, champion visionary directors, and navigate today’s shifting film landscape.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nAs the creative force behind Killer Films, legendary producers Christine Vachon and Pamela Koffler are the blueprint for how bold independent cinema survives. From helping shape New Queer Cinema to shepherding classics like <em>Boys Don’t Cry</em>, <em>Carol</em>, and <em>Past Lives</em>, they have spent thirty years turning risky, uncompromising stories into award-winning cultural touchstones. Hear how they defy industry odds, champion visionary directors, and navigate today’s shifting film landscape.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
       "source_url": "https://www.tiff.net/films/perspectives-producers-with-killer-instincts",
       "tracks": [
@@ -7554,7 +7783,7 @@
     {
       "title": "PERSPECTIVES The Global Sales Playbook",
       "authors": "",
-      "blurb": "Join sales heavyweights Roeg Sutherland (<em>CAA</em>) and Glen Basner (<em>FilmNation Entertainment</em>) for a spirited discussion about evolving cinema networks, how leaders package and represent films, and how the screen sector is building global bridges to support creators and connect audiences worldwide. \r\n\r\nDesigned for filmmakers, sales agents, and producers eager to maximize their impact, this session reveals what it takes to leverage your content for international sales, navigate distribution, and connect with audiences both overseas and in your own backyard.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nJoin sales heavyweights Roeg Sutherland (<em>CAA</em>) and Glen Basner (<em>FilmNation Entertainment</em>) for a spirited discussion about evolving cinema networks, how leaders package and represent films, and how the screen sector is building global bridges to support creators and connect audiences worldwide. \r\n\r\nDesigned for filmmakers, sales agents, and producers eager to maximize their impact, this session reveals what it takes to leverage your content for international sales, navigate distribution, and connect with audiences both overseas and in your own backyard.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
       "source_url": "https://www.tiff.net/films/perspectives-the-global-sales-playbook",
       "tracks": [
@@ -7587,6 +7816,27 @@
           "start": "2026-09-10 12:00",
           "venue": "Stage 3",
           "location": "stage-3",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "PERSPECTIVES The State of Distribution",
+      "authors": "",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nMaking a great movie is only half the battle—getting it seen, and monetized, is where the game is won or lost. So how do you release an indie film when the rules keep changing? Join leading distribution executives, Michael Barker Co-President, Sony Pictures Classics and Noah Segal, Co-President, Elevation Pictures, as they reveal how to survive squeezed mid-budget films, unpredictable release windows, and shifting audience habits. Essential for filmmakers, producers, distributors, and investors seeking actionable strategies and frameworks to navigate the theatrical landscape.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
+      "source_url": "https://www.tiff.net/films/perspectives-the-state-of-distribution",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 60,
+      "screenings": [
+        {
+          "start": "2026-09-15 14:00",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
           "accessTiers": [
             "press-market"
           ]
@@ -7720,7 +7970,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 106,
+      "runtime_minutes": 109,
       "screenings": [
         {
           "start": "2026-09-13 17:45",
@@ -8757,7 +9007,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 155,
+      "runtime_minutes": 134,
       "screenings": [
         {
           "start": "2026-09-11 12:45",
@@ -8787,7 +9037,7 @@
     {
       "title": "Spotlight: Italy Offers Everything You Need",
       "authors": "",
-      "blurb": "Discover why Italy is the ideal partner for your next production. Explore outstanding filming locations, competitive tax incentives, funding schemes, and co-production opportunities that make Italy a leading destination for international projects. Connect with industry experts and producers, gain practical insights into the Italian production landscape, and unlock new opportunities to finance, develop, and bring your stories to the screen.\r\n\r\nPresented by:\r\nH.E. Alessandro Cattaneo / Ambassador of Italy to Canada\r\nCarlo Angelo Bocchi / Italian Trade Commissioner to Canada\r\n\r\nPanel\r\nRoberto Stabile | Director of the International Department, Cinecittà\r\nCristina Giubbetti | Vice President, APE (ASSOCIATION OF EXECUTIVE PRODUCERS)\r\nGuido Cassano | Film Commissioner, Friuli Venezia Giulia Film Commission\r\nLuca Ferrario | Director, Trentino Film Commission\r\n\r\nThe Italian delegation will also be represented by leading Italian producers, who will share their experience and perspectives on international collaboration and co-production opportunities:\r\nAlessandro Mascheroni | INDIANA Production\r\nNiccolò Tubini | K+\r\nGianluca Curti | Minerva Pictures Group\r\nCarlo Cresto-Dina | Tempesta\r\nChiara Silvia Baccarini | Salice Production\r\nGaetano Maiorino | Tramp Limited\r\n\r\nVisit the T﻿IFF.ITATRADE.CA to book appointments with the Italian Producers at TIFF 2026 or visit us at Booth D22 to meet the Italian sales companies and discover their latest titles:\r\n\r\nFandango Sales\r\nIntramovies\r\nMinerva Pictures\r\nPiperPlay\r\nRai Cinema International Distribution\r\nTrue Colours\r\nVision Distribution",
+      "blurb": "Discover why Italy is the ideal partner for your next production. Explore outstanding filming locations, competitive tax incentives, funding schemes, and co-production opportunities that make Italy a leading destination for international projects. Connect with industry experts and producers, gain practical insights into the Italian production landscape, and unlock new opportunities to finance, develop, and bring your stories to the screen.\r\nPresented by:\r\nCarlo Angelo Bocchi / Italian Trade Commissioner to Canada\r\nPanel\r\nRoberto Stabile | Director of the International Department, Cinecittà\r\nCristina Giubbetti | Vice President, APE (ASSOCIATION OF EXECUTIVE PRODUCERS)\r\nGuido Cassano | Film Commissioner, Friuli Venezia Giulia Film Commission\r\nLuca Ferrario | Director, Trentino Film Commission\r\n\r\nThe Italian delegation will also be represented by leading Italian producers, who will share their experience and perspectives on international collaboration and co-production opportunities:\r\nAlessandro Mascheroni | INDIANA Production\r\nNiccolò Tubini | K+\r\nGianluca Curti | Minerva Pictures Group\r\nCarlo Cresto-Dina | Tempesta\r\nChiara Silvia Baccarini | Salice Production\r\nGaetano Maiorino | Tramp Limited\r\n\r\nVisit the T﻿IFF.ITATRADE.CA to book appointments with the Italian Producers at TIFF 2026 or visit us at Booth D22 to meet the Italian sales companies and discover their latest titles:\r\n\r\nFandango Sales\r\nIntramovies\r\nMinerva Pictures\r\nPiperPlay\r\nRai Cinema International Distribution\r\nTrue Colours\r\nVision Distribution",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/spotlight-italy-offers-everything-you-need",
       "tracks": [
@@ -8820,6 +9070,24 @@
           "start": "2026-09-16 13:00",
           "venue": "TIFF Lightbox 4",
           "location": "tiff-lightbox-4"
+        }
+      ]
+    },
+    {
+      "title": "Spy Kids",
+      "authors": "Robert Rodriguez",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1HFHdRlkSL8yRMlh8vmW3p/c2c2bc6a6618e525d4cb8c7f91fc2f91/spy_kida_01.webp",
+      "source_url": "https://www.tiff.net/films/spy-kids",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 98,
+      "screenings": [
+        {
+          "start": "2026-09-17 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
         }
       ]
     },
@@ -8885,6 +9153,24 @@
           "accessTiers": [
             "market"
           ]
+        }
+      ]
+    },
+    {
+      "title": "Strangers on a Train",
+      "authors": "Alfred Hitchcock",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7f5zgKxTvgne2PuZ7Gozsd/b7905e3e0a489ee6cf7ee6ef48b45635/Strangers-on-a-Train_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/strangers-on-a-train",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 111,
+      "screenings": [
+        {
+          "start": "2026-09-14 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
         }
       ]
     },
@@ -9278,7 +9564,7 @@
     {
       "title": "The Ankler's Pure Nonfiction with Alex Gibney",
       "authors": "",
-      "blurb": "Oscar-winning filmmaker Alex Gibney is acclaimed for his investigations into some of the world’s most formidable, powerful institutions and individuals. Now he takes on his most epic and ambitious project in <em>Musk</em>, looking at the first trillionaire whose reach extends to electric cars, space travel, social media, AI, and more. TIFF Docs programmer Thom Powers interviews Gibney to explore all the journalistic and artistic choices behind the scenes of this project making its North American Premiere at TIFF.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nOscar-winning filmmaker Alex Gibney is acclaimed for his investigations into some of the world’s most formidable, powerful institutions and individuals. Now he takes on his most epic and ambitious project in <em>Musk</em>, looking at the first trillionaire whose reach extends to electric cars, space travel, social media, AI, and more. TIFF Docs programmer Thom Powers interviews Gibney to explore all the journalistic and artistic choices behind the scenes of this project making its North American Premiere at TIFF.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/the-anklers-pure-nonfiction-with-alex-gibney",
       "tracks": [
@@ -9754,6 +10040,24 @@
       ]
     },
     {
+      "title": "The F Word",
+      "authors": "Michael Dowse",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6twRavpVy5Dxzr2P9FagwS/75034f698d3da91b4fc609835165259d/the_F_word_01.webp",
+      "source_url": "https://www.tiff.net/films/the-f-word",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 108,
+      "screenings": [
+        {
+          "start": "2026-09-11 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
       "title": "The Face of Horror",
       "authors": "Anna Biller",
       "blurb": "<em>The Love Witch</em>’s Anna Biller stunningly adapts the famous Japanese ghost story <em>Yotsuya Kaidan</em> for 14th-century England in this gory tribute to classic Technicolor shockers.",
@@ -9944,6 +10248,24 @@
       ]
     },
     {
+      "title": "The Great Muppet Caper",
+      "authors": "Jim Henson",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2Wi8cacDhCyq5o2HuJimJc/573cbe1635f7557a6cac6c204f9b0cc1/The-Great-Muppet-Cape_Still_02.jpg",
+      "source_url": "https://www.tiff.net/films/the-great-muppet-caper",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 107,
+      "screenings": [
+        {
+          "start": "2026-09-19 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
+        }
+      ]
+    },
+    {
       "title": "THE HELPERS",
       "authors": "Peter Wayne",
       "blurb": "Embedding directly within five active warzones, this urgent hybrid documentary blends raw frontline footage with stunning 2D animation to follow the humanitarian heroes risking everything for strangers. Transforming the testimonies of 100 refugees and aid workers into a global call to action, the film operates as a 100% non-profit rescue mission engineered to secure vital aid for half a million people a year before time runs out.",
@@ -10110,6 +10432,24 @@
           "start": "2026-09-20 09:25",
           "venue": "Scotiabank 14",
           "location": "scotiabank-14"
+        }
+      ]
+    },
+    {
+      "title": "The Last Photograph",
+      "authors": "Zack Snyder",
+      "blurb": "Starring Stuart Martin, Fra Fee, and Costanza Andrade, the latest from Zack Snyder (<em>300</em>) follows an ex-DEA agent seeking revenge in a South American jungle where dangerous terrain and inner demons intermingle.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2rwH6c4QWEM3HTWxS0h43F/d52627e2bc331a75776d509a75d8c4b3/TLP_TIFF_Still_Select_01_v2_-_Reformatted.webp",
+      "source_url": "https://www.tiff.net/films/the-last-photograph",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 165,
+      "screenings": [
+        {
+          "start": "2026-09-13 18:30",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre"
         }
       ]
     },
@@ -10667,7 +11007,7 @@
     {
       "title": "The Town with Matt Belloni and Matthew Greenfield",
       "authors": "",
-      "blurb": "In this special live session of The Town recorded at TIFF: The Market, Matthew Belloni sits down with Matthew Greenfield, President of Searchlight Pictures, to unpack how prestige cinema survives in today’s theatrical landscape. Together, they pull back the curtain on how Searchlight maintains its distinct arthouse identity under the broader Disney, the uphill battle for mid-budget adult dramas, and what it actually takes to engineer an Oscar campaign in today's fragmented media environment.\r\n\r\nMatthew Belloni’s The Town is the place to go for industry truths, big picture reporting, and hard-hitting conversations with sources unlikely to interview anywhere else, with anyone else.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nIn this special live session of The Town recorded at TIFF: The Market, Matthew Belloni sits down with Matthew Greenfield, President of Searchlight Pictures, to unpack how prestige cinema survives in today’s theatrical landscape. Together, they pull back the curtain on how Searchlight maintains its distinct arthouse identity under the broader Disney, the uphill battle for mid-budget adult dramas, and what it actually takes to engineer an Oscar campaign in today's fragmented media environment.\r\n\r\nMatthew Belloni’s The Town is the place to go for industry truths, big picture reporting, and hard-hitting conversations with sources unlikely to interview anywhere else, with anyone else.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/the-town-with-matt-belloni-and-matthew-greenfield",
       "tracks": [
@@ -11005,7 +11345,7 @@
       "tracks": [
         "centrepiece"
       ],
-      "runtime_minutes": 112,
+      "runtime_minutes": 106,
       "screenings": [
         {
           "start": "2026-09-17 09:25",
@@ -11260,7 +11600,7 @@
     {
       "title": "VISIONARIES Danny Boyle",
       "authors": "",
-      "blurb": "Marked by bold visual storytelling, Academy-Award winner Danny Boyle is one of cinema's most adaptable directors. From groundbreaking films to massive live spectacles like the 2012 London Olympics, his fearless vision has defined a generation of filmmaking. Following in the footsteps of his Oscar-winning <em>Slumdog Millionaire</em> — which won TIFF's People's Choice Award in 2008 — Boyle joins us to reflect on his iconic career and discuss his highly anticipated new feature, <em>Ink</em>. Danny Boyle is a British filmmaker, producer, and writer from Radcliffe, Manchester. His directing credits include <em>Trainspotting</em> (96), <em>28 Days Later</em> (02), and TIFF People’s Choice Award winner <em>Slumdog Millionaire</em> (08), for which he won the Academy Award for Best Director. His other films include <em>127 Hours</em> (10), <em>Steve Jobs</em> (15), and <em>28 Years Later</em> (25). <em>INK</em> (26) is his latest film.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nMarked by bold visual storytelling, Academy-Award winner Danny Boyle is one of cinema's most adaptable directors. From groundbreaking films to massive live spectacles like the 2012 London Olympics, his fearless vision has defined a generation of filmmaking. Following in the footsteps of his Oscar-winning <em>Slumdog Millionaire</em> — which won TIFF's People's Choice Award in 2008 — Boyle joins us to reflect on his iconic career and discuss his highly anticipated new feature, <em>Ink</em>. Danny Boyle is a British filmmaker, producer, and writer from Radcliffe, Manchester. His directing credits include <em>Trainspotting</em> (96), <em>28 Days Later</em> (02), and TIFF People’s Choice Award winner <em>Slumdog Millionaire</em> (08), for which he won the Academy Award for Best Director. His other films include <em>127 Hours</em> (10), <em>Steve Jobs</em> (15), and <em>28 Years Later</em> (25). <em>INK</em> (26) is his latest film.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2g0WAD0nf3isHlcFEHXpn1/bfdb3524473f16073dad4a2edcf7615a/summit_-_Visionaries.webp",
       "source_url": "https://www.tiff.net/films/visionaries-danny-boyle",
       "tracks": [
@@ -11281,7 +11621,7 @@
     {
       "title": "VISIONARIES Lee Chang-dong",
       "authors": "",
-      "blurb": "Korean auteur Lee Chang-dong earned international acclaim as one of cinema’s most vital and empathetic voices for his compassionate portrayals of isolated characters. With a poignant body of work, including <em>Peppermint Candy</em>, <em>Secret Sunshine</em>, and <em>Burning</em>, his films offer complex, poetic expressions of rage, despair, and ordinariness. At TIFF for the North American Premiere of <em>Possible Love</em>, Chang-dong dives into his singular approach to filmmaking for a special onstage conversation.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nKorean auteur Lee Chang-dong earned international acclaim as one of cinema’s most vital and empathetic voices for his compassionate portrayals of isolated characters. With a poignant body of work, including <em>Peppermint Candy</em>, <em>Secret Sunshine</em>, and <em>Burning</em>, his films offer complex, poetic expressions of rage, despair, and ordinariness. At TIFF for the North American Premiere of <em>Possible Love</em>, Chang-dong dives into his singular approach to filmmaking for a special onstage conversation.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2g0WAD0nf3isHlcFEHXpn1/bfdb3524473f16073dad4a2edcf7615a/summit_-_Visionaries.webp",
       "source_url": "https://www.tiff.net/films/visionaries-lee-chang-dong",
       "tracks": [
@@ -11302,13 +11642,13 @@
     {
       "title": "VISIONARIES Robbie Brenner",
       "authors": "",
-      "blurb": "As President of Mattel Studios and Chief Content Officer, two-time Oscar nominee Robbie Brenner produced Greta Gerwig’s <em>Barbie</em> (2023), the $1.4 billion global phenomenon that scored a Best Picture nomination. At TIFF with the premiere of her new film, <em>The Housewife</em>, Brenner reflects on a career bridging acclaimed indie cinema, like <em>Dallas Buyers Club</em> (2013), with major studio blockbusters, cementing her role as one of Hollywood's leading creative visionaries.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nAs President of Mattel Studios and Chief Content Officer, two-time Oscar nominee Robbie Brenner produced Greta Gerwig’s <em>Barbie</em> (2023), the $1.4 billion global phenomenon that scored a Best Picture nomination. At TIFF with the premiere of her new film, <em>The Housewife</em>, Brenner reflects on a career bridging acclaimed indie cinema, like <em>Dallas Buyers Club</em> (2013), with major studio blockbusters, cementing her role as one of Hollywood's leading creative visionaries.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2g0WAD0nf3isHlcFEHXpn1/bfdb3524473f16073dad4a2edcf7615a/summit_-_Visionaries.webp",
       "source_url": "https://www.tiff.net/films/visionaries-robbie-brenner",
       "tracks": [
         "summit"
       ],
-      "runtime_minutes": 60,
+      "runtime_minutes": 45,
       "screenings": [
         {
           "start": "2026-09-13 14:00",
@@ -11323,7 +11663,7 @@
     {
       "title": "VISIONARIES Seth Rogen",
       "authors": "",
-      "blurb": "Award-winning Canadian actor, producer, writer, and potter Seth Rogen is the epitome of an entertainment polymath with a career both in front of and behind the screen as well as across series and film. This year, Rogen stars in two films at TIFF – <em>Babies</em>, directed by Lauren Miller Rogen, and <em>Tangles</em>, an animated film which Rogen and Miller Rogen produced. The prolific Rogen delves into these two films as well as his numerous other projects, including <em>The Studio</em>’s upcoming season two.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nAward-winning Canadian actor, producer, writer, and potter Seth Rogen is the epitome of an entertainment polymath with a career both in front of and behind the screen as well as across series and film. This year, Rogen stars in two films at TIFF – <em>Babies</em>, directed by Lauren Miller Rogen, and <em>Tangles</em>, an animated film which Rogen and Miller Rogen produced. The prolific Rogen delves into these two films as well as his numerous other projects, including <em>The Studio</em>’s upcoming season two.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2g0WAD0nf3isHlcFEHXpn1/bfdb3524473f16073dad4a2edcf7615a/summit_-_Visionaries.webp",
       "source_url": "https://www.tiff.net/films/visionaries-seth-rogen",
       "tracks": [
@@ -11344,9 +11684,9 @@
     {
       "title": "VISIONARIES Sir Gary Oldman",
       "authors": "",
-      "blurb": "From Sid Vicious to Winston Churchill to Sirius Black, Sir Gary Oldman has long been cinema’s ultimate chameleon, fully embodying each character. And in <em>Slow Horses</em>, he delivers one of the most compelling performances as the brilliant and hopelessly cynical Jackson Lamb. With the premiere of <em>Slow Horses</em>’ sixth season at TIFF, Academy Award winner Oldman joins us for an intimate conversation on the process of transforming Mick Herron’s celebrated novel into a subversive onscreen spy thriller and crafting the unorthodox signature anti-hero.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nFrom Sid Vicious to Winston Churchill to Sirius Black, Sir Gary Oldman has long been cinema’s ultimate chameleon, fully embodying each character. And in <em>Slow Horses</em>, he delivers one of the most compelling performances as the brilliant and hopelessly cynical Jackson Lamb. With the premiere of <em>Slow Horses</em>’ sixth season at TIFF, Academy Award winner Oldman joins us for an intimate conversation on the process of transforming Mick Herron’s celebrated novel into a subversive onscreen spy thriller and crafting the unorthodox signature anti-hero.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2g0WAD0nf3isHlcFEHXpn1/bfdb3524473f16073dad4a2edcf7615a/summit_-_Visionaries.webp",
-      "source_url": "https://www.tiff.net/films/visionaries-gary-oldman",
+      "source_url": "https://www.tiff.net/films/visionaries-sir-gary-oldman",
       "tracks": [
         "summit"
       ],
@@ -11835,7 +12175,7 @@
     {
       "title": "Wildwood: Inside the Performance",
       "authors": "",
-      "blurb": "Be among the first to journey into WILDWOOD, LAIKA’s epic new fantasy adventure and its most ambitious film to date. Featuring an exclusive sneak peek at never-before-seen footage, Inside the Performance brings together voice actor Jacob Tremblay with LAIKA animators Brad Schiff, Rachelle Lambden, and Tom Carey for a behind-the-scenes look at how WILDWOOD’s handcrafted characters come to life. Moderated by Simon Thompson, the conversation explores how actors create emotionally authentic performances, how animators interpret those performances frame by frame, and how the collaboration between the two brings handcrafted characters to life. From the studio behind five Academy Award®-nominated animated features, WILDWOOD arrives in theaters October 23.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nBe among the first to journey into WILDWOOD, LAIKA’s epic new fantasy adventure and its most ambitious film to date. Featuring an exclusive sneak peek at never-before-seen footage, Inside the Performance brings together voice actor Jacob Tremblay with LAIKA animators Brad Schiff, Rachelle Lambden, and Tom Carey for a behind-the-scenes look at how WILDWOOD’s handcrafted characters come to life. Moderated by Simon Thompson, the conversation explores how actors create emotionally authentic performances, how animators interpret those performances frame by frame, and how the collaboration between the two brings handcrafted characters to life. From the studio behind five Academy Award®-nominated animated features, WILDWOOD arrives in theaters October 23.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/wildwood-inside-the-performance",
       "tracks": [
@@ -11850,6 +12190,24 @@
           "accessTiers": [
             "press-market"
           ]
+        }
+      ]
+    },
+    {
+      "title": "Willy Wonka & the Chocolate Factory",
+      "authors": "Mel Stuart",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/4F6mEtDHohjf9SGwn3MFvP/471e7aa2d3a4ef02f3ecbc1874b6ad1c/WillWonka_still2_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/willy-wonka-and-the-chocolate-factory",
+      "tracks": [
+        "festival-street"
+      ],
+      "runtime_minutes": 110,
+      "screenings": [
+        {
+          "start": "2026-09-18 22:00",
+          "venue": "Cinema Park at David Pecaut Square",
+          "location": "cinema-park-at-david-pecaut-square"
         }
       ]
     },
