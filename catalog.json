@@ -530,6 +530,27 @@
       ]
     },
     {
+      "title": "African Works in Progress (WIP) powered by CANEX Creations Inc.",
+      "authors": "",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/gxBEYxcqNXGZ15sWSOu7K/091f01636c6c3ae126b736356d02a376/CANEX_African_Works_in_Progress_01.webp",
+      "source_url": "https://www.tiff.net/films/african-works-in-progress-wip-powered-by-canex-creations-inc",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 120,
+      "screenings": [
+        {
+          "start": "2026-09-12 11:00",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "After Elena",
       "authors": "Shawn Garry",
       "blurb": "When a family's matriarch dies, four relatives are forced to confront decades of silence, resentment, and buried affection. Led by Alfredo Castro, this sharp ensemble balances humour and melancholy in a moving portrait of grief and reconciliation.",
@@ -3373,6 +3394,27 @@
           "start": "2026-09-19 14:15",
           "venue": "Scotiabank 12",
           "location": "scotiabank-12"
+        }
+      ]
+    },
+    {
+      "title": "Every Living Thing",
+      "authors": "Uzair Merchant",
+      "blurb": "Every Living Thing is an India–Canada–United Arab Emirates  co-production, directed by award-winning filmmaker Uzair Merchant and narrated by the legendary Kabir Bedi. Filmed across seven countries, the documentary brings together scientists, policymakers, educators, innovators, entrepreneurs, and communities to present a deeply human and cinematic perspective on water, resilience, and our shared future.  More than a documentary, we see Every Living Thing as the catalyst for a global conversation. Alongside the film, we are building an impact ecosystem through educational outreach, community engagement, strategic partnerships, and international collaborations to extend its reach beyond the screen.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/32OiexkAYpuCrs572EJeUC/e1ac7e10890e956cf4275c4e92bf6b2e/Every_Living_Thing_04.webp",
+      "source_url": "https://www.tiff.net/films/every-living-thing",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 113,
+      "screenings": [
+        {
+          "start": "2026-09-09 16:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -6503,7 +6545,7 @@
       "title": "Moon Star",
       "authors": "Mohammad Ali Baig",
       "blurb": "'Chand Tara' is based on the legend of Taramati, the 17th century singer of Golconda Kingdom in South India. A truly devoted artiste who lived only for  her art. Her music was a form of prayer, touching hearts and leaving a  lasting impression over Hyderabad’s history for three centuries.   Sultan Abdullah Qutb Shah, a cultured ruler of the Qutub Shahi Dynasty, a patron of arts and a poet himself patronized her art with great admiration, respecting her dedication, seeing in her something greater than a mere love interest. Through their eyes, we see an evolved bond that is not just about romance, but about respect, understanding and the power of devotion  through art. Their bond grows from reluctance to shared love for art in ways  that words cannot fully describe. Eventually, responsibility taking  over emotion, head over heart, in an unrequited love story. The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6q9tEF8ayRFahO5Mbu7hJp/bcc4f9baa864a3a1f61df912972e9cab/Moon_Star_01.webp",
       "source_url": "https://www.tiff.net/films/moon-star",
       "tracks": [
         "market-screening"
@@ -6565,7 +6607,7 @@
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 125,
+      "runtime_minutes": 130,
       "screenings": [
         {
           "start": "2026-09-11 21:45",
@@ -6941,7 +6983,7 @@
       "title": "ODDITIES",
       "authors": "Tyler Savage",
       "blurb": "Two self-destructive best friends accidentally kill someone. After finding refuge in a roadside antique shop, an older woman initially offers help, but things soon take a dark turn.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1O6PdZxug4N845fNAW0hkZ/ff9c768f0b7aa544f3311f30deeb20ef/ODDITIES_01.webp",
       "source_url": "https://www.tiff.net/films/oddities",
       "tracks": [
         "market-screening"
@@ -8382,7 +8424,7 @@
     {
       "title": "Rock Bottom",
       "authors": "Rodolfo Riva Palacio, Gabriel Riva Palacio",
-      "blurb": "",
+      "blurb": "A clueless caveman prince must lead a misfit crew to reclaim his tribe, outwit a power-hungry rival, and win the ultimate prehistoric showdown.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
       "source_url": "https://www.tiff.net/films/rock-bottom",
       "tracks": [
@@ -11414,7 +11456,7 @@
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 46,
+      "runtime_minutes": 69,
       "screenings": [
         {
           "start": "2026-09-14 13:45",
