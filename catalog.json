@@ -154,10 +154,6 @@
       "name": "TIFF Lightbox 7",
       "address": "350 King St W, Toronto, ON M5V 3X5"
     },
-    "tlb-founders-lounge": {
-      "name": "TLB Founders Lounge",
-      "address": "350 King St W, Toronto, ON M5V 3X5"
-    },
     "visa-screening-room-at-the-princess-of-wales-theatre": {
       "name": "VISA Screening Room at the Princess of Wales Theatre",
       "address": "300 King St W, Toronto, ON M5V 1J2"
@@ -533,7 +529,7 @@
       "title": "African Works in Progress (WIP) powered by CANEX Creations Inc.",
       "authors": "",
       "blurb": "",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/gxBEYxcqNXGZ15sWSOu7K/091f01636c6c3ae126b736356d02a376/CANEX_African_Works_in_Progress_01.webp",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/23IBkhGO25rJIMMZrVVWL0/17639f7cea0590a7d18a5b593e83497a/CANEX_African_Works_in_Progress_Film_Still_2.webp",
       "source_url": "https://www.tiff.net/films/african-works-in-progress-wip-powered-by-canex-creations-inc",
       "tracks": [
         "market-screening"
@@ -754,6 +750,27 @@
           "start": "2026-09-20 19:30",
           "venue": "Scotiabank 1",
           "location": "scotiabank-1"
+        }
+      ]
+    },
+    {
+      "title": "All Wishes Come True!",
+      "authors": "Mu Zhengyang",
+      "blurb": "On a wondrous island where mortals and Immortals dwell as one, a legendary vault holds a fortune beyond dreaming.   Lü Dongbin and Zhongli Quan have a plan. To crack that vault, these two mortals will pull off the impossible: pose as Immortals themselves. They gather six more misfits along the way: He Xiangu, Tieguai Li, Han Xiangzi, Cao Guojiu, Lan Caihe, and Zhang Guolao. Eight ordinary souls, one extraordinary heist, and death waiting for anyone caught trying to outsmart the heavens.   But something far worse is already closing in: a shadow conspiracy that could undo the balance of all things. And our eight bumbling schemers stand right in its path.   Inspired by the beloved Chinese legend of the Eight Immortals crossing the sea, All Wishes Come True! opens in theaters this summer.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6B4G8UQ4PoYBS9RICdEX7T/9075cd62f61736aa2212ddde06e99a4a/All-Wishes-Come-True_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/all-wishes-come-true-2",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 144,
+      "screenings": [
+        {
+          "start": "2026-09-16 21:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -1257,7 +1274,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 96,
+      "runtime_minutes": 97,
       "screenings": [
         {
           "start": "2026-09-12 17:30",
@@ -1496,6 +1513,21 @@
           "location": "tiff-lightbox-1"
         },
         {
+          "start": "2026-09-18 15:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5"
+        },
+        {
+          "start": "2026-09-18 18:30",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5"
+        },
+        {
+          "start": "2026-09-19 14:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5"
+        },
+        {
           "start": "2026-09-19 18:00",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
@@ -1598,7 +1630,7 @@
     {
       "title": "Beyond Culture",
       "authors": "",
-      "blurb": "Beyond Culture Launch at TIFF\r\n\r\nVisionary Filmmakers, Jennifer DeLia and Mark Webber, are Co-Founders of Beyond Culture, a new artist-driven film and media studio, dedicated to transformational work that will push the medium and uphold a standard of excellence. B.C. honors powerful vision, supporting creativity that expands consciousness, celebrates shared humanity, and moves culture forward.\r\nAs part of the TIFF Speakers Summit, Beyond Culture will host an evening of conversation, community, and performance on September 15th 4-7pm at the Malaparte Rooftop in the TIFF Lightbox.\r\n\r\nThe evening will feature a curated panel of notable artists and visionaries exploring the future and power of storytelling, followed by a reception with food, bar and a special live performance by internationally-acclaimed artist, Marieme. Nick Cannon set to DJ joined by Abby de La Rosa.\r\n\r\nSpeakers Include: Co-Founder/ Moderator, Jennifer DeLia; Filmmaker/ Co-Founder, Mark Webber; Actress/Producer Karen Strassman, Actress Eugenia Kuzmina, Singer/ Actress, Marieme, Actress/ Producer, Taylor Olandt; Artist/ Humanitarian Joel Bergner , Filmmaker/ Visual Artist, Matt Smiley, Actor, Brionne Davis & Actress, Taryn Manning, Nick Cannon.\r\n\r\nconnect@beyondculture.global",
+      "blurb": "Beyond Culture Launch at TIFF\r\n\r\nVisionary Filmmakers, Jennifer DeLia and Mark Webber, are Co-Founders of Beyond Culture, a new artist-driven film and media studio, dedicated to transformational work that will push the medium and uphold a standard of excellence. B.C. honors powerful vision, supporting creativity that expands consciousness, celebrates shared humanity, and moves culture forward.\r\nAs part of the TIFF Speakers Summit, Beyond Culture will host an evening of conversation, community, and performance on September 15th 4-7pm at the Malaparte Rooftop in the TIFF Lightbox.\r\n\r\nThe evening will feature a curated panel of notable artists and visionaries exploring the future and power of storytelling, followed by a reception with food, bar and a special live performance by internationally-acclaimed artist, Marieme.\r\n\r\nSpeakers Include: Co-Founder/ Moderator, Jennifer DeLia; Filmmaker/ Co-Founder, Mark Webber; Actress/Producer Karen Strassman, Actress Eugenia Kuzmina, Singer/ Actress, Marieme, Actress/ Producer, Taylor Olandt; Artist/ Humanitarian Joel Bergner , Filmmaker/ Visual Artist, Matt Smiley, Actor, Brionne Davis & Actress, Taryn Manning\r\n\r\nconnect@beyondculture.global",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/beyond-culture",
       "tracks": [
@@ -1611,7 +1643,7 @@
           "venue": "Malaparte",
           "location": "malaparte",
           "accessTiers": [
-            "market"
+            "press-market"
           ]
         }
       ]
@@ -2412,7 +2444,7 @@
     },
     {
       "title": "Crystal Lake",
-      "authors": "Michael Lennox, Brad Caleb Kane",
+      "authors": "Michael Lennox",
       "blurb": "Set long before the events of <em>Friday the 13th</em>, Linda Cardellini stars as Pamela Voorhees in this captivating, A24-produced origin series.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/4hcsXOb9SicXaxTkgFUoWC/3c7da60536b297591f270ff58f514312/Crystal_Lake_01.webp",
       "source_url": "https://www.tiff.net/films/crystal-lake",
@@ -2547,6 +2579,27 @@
           "start": "2026-09-14 21:00",
           "venue": "TIFF Lightbox 5",
           "location": "tiff-lightbox-5",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Dear You",
+      "authors": "Lan Hongchun",
+      "blurb": "After her debt-ridden grandson secretly travels to Thailand in search of her supposedly billionaire husband, a humble Chaoshan grandmother discovers that her husband died long ago — and that an unknown woman’s decades of remittance letters have quietly revealed a timeless bond of love, sacrifice, and the most moving “love letter” she never expected.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1yLU5VtkMYA8WG04YJdw3H/45c17118b6c370414d1ab5df02939f71/Dear-You_Still_01.jpg",
+      "source_url": "https://www.tiff.net/films/dear-you-2",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 118,
+      "screenings": [
+        {
+          "start": "2026-09-15 13:45",
+          "venue": "TIFF Lightbox 7",
+          "location": "tiff-lightbox-7",
           "accessTiers": [
             "market"
           ]
@@ -3324,7 +3377,7 @@
       "tracks": [
         "special-presentations"
       ],
-      "runtime_minutes": 104,
+      "runtime_minutes": 111,
       "screenings": [
         {
           "start": "2026-09-12 18:30",
@@ -4146,7 +4199,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 98,
+      "runtime_minutes": 103,
       "screenings": [
         {
           "start": "2026-09-11 17:30",
@@ -4300,6 +4353,27 @@
           "start": "2026-09-13 12:00",
           "venue": "Scotiabank 11",
           "location": "scotiabank-11"
+        }
+      ]
+    },
+    {
+      "title": "GUGU'S WORLD",
+      "authors": "Allan Deberton",
+      "blurb": "With a football at his feet and a heart that doesn’t fit the lines drawn for him, a boy watches the place, where he feels whole, beginning to slip away.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/7itZBWdO1cej37uKiTEZHS/16c0166b57004418d26be16ab81d23d5/TIFF2026_no_image_available.webp",
+      "source_url": "https://www.tiff.net/films/gugu-s-world",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 92,
+      "screenings": [
+        {
+          "start": "2026-09-10 16:00",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -6067,7 +6141,7 @@
       "tracks": [
         "special-presentations"
       ],
-      "runtime_minutes": 106,
+      "runtime_minutes": 109,
       "screenings": [
         {
           "start": "2026-09-13 20:30",
@@ -9063,7 +9137,7 @@
       "tracks": [
         "centrepiece"
       ],
-      "runtime_minutes": 96,
+      "runtime_minutes": 102,
       "screenings": [
         {
           "start": "2026-09-12 21:15",
@@ -9178,27 +9252,6 @@
           "start": "2026-09-20 13:00",
           "venue": "Scotiabank 1",
           "location": "scotiabank-1"
-        }
-      ]
-    },
-    {
-      "title": "Spotlight: Italy Offers Everything You Need",
-      "authors": "",
-      "blurb": "Discover why Italy is the ideal partner for your next production. Explore outstanding filming locations, competitive tax incentives, funding schemes, and co-production opportunities that make Italy a leading destination for international projects. Connect with industry experts and producers, gain practical insights into the Italian production landscape, and unlock new opportunities to finance, develop, and bring your stories to the screen.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
-      "source_url": "https://www.tiff.net/films/spotlight-italy-offers-everything-you-need",
-      "tracks": [
-        "special-events"
-      ],
-      "runtime_minutes": 120,
-      "screenings": [
-        {
-          "start": "2026-09-11 11:00",
-          "venue": "TLB Founders Lounge",
-          "location": "tlb-founders-lounge",
-          "accessTiers": [
-            "press-market"
-          ]
         }
       ]
     },
@@ -9640,7 +9693,7 @@
       "tracks": [
         "gala-presentations"
       ],
-      "runtime_minutes": 128,
+      "runtime_minutes": 125,
       "screenings": [
         {
           "start": "2026-09-15 21:30",
@@ -10499,7 +10552,7 @@
       "tracks": [
         "tiff-docs"
       ],
-      "runtime_minutes": 88,
+      "runtime_minutes": 90,
       "screenings": [
         {
           "start": "2026-09-12 12:45",
@@ -12382,7 +12435,7 @@
     {
       "title": "Winston Baker’s Entertainment Finance Forum Toronto",
       "authors": "",
-      "blurb": "State of the Industry; State of Finance\r\nA Winston Baker signature session taking the pulse of the entertainment business and the money behind it. Leading voices unpack where the industry stands, where capital is moving, and what the changing financing landscape means for the next generation of projects.\r\nSpeakers: Zach Glueck - Co-CEO, Manifest Pictures, Siena Oberman - Founder, Artemis, Dave Bishop - CEO, Protagonist Pictures, Peter Saraf - Chair of NYU\r\nFireside Chat\r\nExclusive, in-depth sit-downs with some of the industry’s most influential voices. Expect candid conversations that go beyond the headlines to reveal the ideas, strategies and decisions shaping entertainment today.\r\nInternational Partnerships + Co-Productions\r\nThe next big opportunity may be across borders. Explore how international partnerships and co-productions are unlocking financing, expanding audiences and creating new pathways for projects to travel globally.\r\nSpeakers: Paula Paizes - COO & President of Production, Pressman Film\r\nNaoaki Kitajima - Producer, Optimistic Pictures, Professor, NYU Film & TV",
+      "blurb": "State of the Industry: State of Finance\nA Winston Baker signature session taking the pulse of the entertainment business and the money behind it. Leading voices unpack where the industry stands, where capital is moving, and what the changing financing landscape means for the next generation of projects.\nZach Glueck - Co-CEO, Manifest Pictures\nSiena Oberman - Founder, Artemis\nDave Bishop - CEO, Protagonist Pictures\nPeter Saraf - Producer, Optimistic Pictures, Professor, NYU Film & TV\nModerated by: Jeff Bazoian - Managing Director, Head of Media & Entertainment, Fifth Third Bank\n\nFireside Chat \nAn exclusive, in-depth sit-down with some of the industry’s most influential voices. Expect candid conversations that go beyond the headlines to reveal the ideas, strategies and decisions shaping entertainment today.\n\nInternational Partnerships & Co-Productions\nThe next big opportunity may be across borders. Explore how international partnerships and co-productions are unlocking financing, expanding audiences and creating new pathways for projects to travel globally.\nPaula Paizes - COO and President of Production, Pressman Film\nNaoaki Kitajima - Producer & Associate Managing Director, Film Business, Content Strategy, NIPPON TV\nAnne Loi - President, Canada, Entertainment Partners\nDaniel Baur - CEO, K5 International\nModerated by: Amy Baker, CEO & Co-Founder, Winston Baker",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/winston-bakers-entertainment-finance-forum-toronto",
       "tracks": [
@@ -12403,7 +12456,7 @@
     {
       "title": "Winston Baker’s Entertainment Finance Forum Toronto Part 2",
       "authors": "",
-      "blurb": "Stage to Screen - The New Creator Economy\r\n12:00pm - 12:30pm\r\n\r\nThis session will explore the evolving creator economy, the relationship between creators and audiences, how creators are making films, and the growing opportunities in event cinema, featuring a special case study on Hadestown and what it means for the ﻿future of theatrical exhibition.\r\n\r\nKent Sanderson - CEO, Bleecker Street\r\n\r\nElsa Ramo - Founder & Managing Partner, Ramo Law\r\n\r\nModerated by: Kevin Iwashina - Founder, Audiovisuel\r\n———\r\nFilm as a Catalyst to Social & Policy Change\r\n12:30pm - 1:00pm\r\n\r\nFilm has the power to shape how we see the world, whose stories we understand, and which experiences enter the public consciousness. Those stories can influence culture, shift public opinion, and ultimately create pressure for social and policy change.\r\n\r\nAshley Callingbull – Actress & Producer\r\n\r\nKeith Sam - Partner, Vū Origins\r\n\r\nLydia Storie - Director, Culture Change - Caring Across Generations & Head of Content - Give Not Take Media\r\n\r\nModerated by: Zahra Liberté Aldünia - Founder/CEO, Precedent Productions</P",
+      "blurb": "Stage to Screen - The New Creator Economy\nThis session will explore the evolving creator economy, the relationship between creators and audiences, how creators are making films, and the growing opportunities in event cinema, featuring a special case study on Hadestown and what it means for the future of theatrical exhibition.\nKent Sanderson - CEO, Bleecker Street\nElsa Ramo - Founder & Managing Partner, Ramo Law\nModerated by: Kevin Iwashina - Founder, Audiovisuel\n———\nFilm as a Catalyst to Social & Policy Change \nFilm has the power to shape how we see the world, whose stories we understand, and which experiences enter the public consciousness. Those stories can influence culture, shift public opinion, and ultimately create pressure for social and policy change.\n\nAshley Callingbull – Actress & Producer\nKeith Sam - Partner, Vū Origins\nLydia Storie - Director, Culture Change, Caring Across Generations & Head of Content, Give Not Take Media\nPhil Hunt - Founder and CEO, Head Gear & Bankside Films\nModerated by: Zahra Liberté Aldünia - Founder/CEO, Precedent Productions",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/winston-bakers-entertainment-finance-forum-toronto-part-2",
       "tracks": [
