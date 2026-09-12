@@ -154,6 +154,14 @@
       "name": "TIFF Lightbox 7",
       "address": "350 King St W, Toronto, ON M5V 3X5"
     },
+    "tlb-founders-lounge": {
+      "name": "TLB Founders Lounge",
+      "address": "350 King St W, Toronto, ON M5V 3X5"
+    },
+    "tlb-luma": {
+      "name": "TLB Luma",
+      "address": "350 King St W, Toronto, ON M5V 3X5"
+    },
     "visa-screening-room-at-the-princess-of-wales-theatre": {
       "name": "VISA Screening Room at the Princess of Wales Theatre",
       "address": "300 King St W, Toronto, ON M5V 1J2"
@@ -1485,16 +1493,6 @@
       "runtime_minutes": 127,
       "screenings": [
         {
-          "start": "2026-09-10 18:00",
-          "venue": "VISA Screening Room at the Princess of Wales Theatre",
-          "location": "visa-screening-room-at-the-princess-of-wales-theatre"
-        },
-        {
-          "start": "2026-09-10 20:00",
-          "venue": "Roy Thomson Hall",
-          "location": "roy-thomson-hall"
-        },
-        {
           "start": "2026-09-11 08:45",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1",
@@ -1513,21 +1511,6 @@
           "location": "tiff-lightbox-1"
         },
         {
-          "start": "2026-09-18 15:00",
-          "venue": "TIFF Lightbox 5",
-          "location": "tiff-lightbox-5"
-        },
-        {
-          "start": "2026-09-18 18:30",
-          "venue": "TIFF Lightbox 5",
-          "location": "tiff-lightbox-5"
-        },
-        {
-          "start": "2026-09-19 14:00",
-          "venue": "TIFF Lightbox 5",
-          "location": "tiff-lightbox-5"
-        },
-        {
           "start": "2026-09-19 18:00",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
@@ -1543,7 +1526,7 @@
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 21,
+      "runtime_minutes": 98,
       "screenings": [
         {
           "start": "2026-09-16 16:30",
@@ -2093,6 +2076,27 @@
       ]
     },
     {
+      "title": "Chand Tara",
+      "authors": "Mohammad Ali Baig",
+      "blurb": "'Chand Tara' is based on the legend of Taramati, the 17th century singer of Golconda Kingdom in South India. A truly devoted artiste who lived only for  her art. Her music was a form of prayer, touching hearts and leaving a  lasting impression over Hyderabad’s history for three centuries.   Sultan Abdullah Qutb Shah, a cultured ruler of the Qutub Shahi Dynasty, a patron of arts and a poet himself patronized her art with great admiration, respecting her dedication, seeing in her something greater than a mere love interest. Through their eyes, we see an evolved bond that is not just about romance, but about respect, understanding and the power of devotion  through art. Their bond grows from reluctance to shared love for art in ways  that words cannot fully describe. Eventually, responsibility taking  over emotion, head over heart, in an unrequited love story. The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6q9tEF8ayRFahO5Mbu7hJp/bcc4f9baa864a3a1f61df912972e9cab/Moon_Star_01.webp",
+      "source_url": "https://www.tiff.net/films/moon-star",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 93,
+      "screenings": [
+        {
+          "start": "2026-09-16 19:00",
+          "venue": "TIFF Lightbox 6",
+          "location": "tiff-lightbox-6",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Chernobyl-2: Life After",
       "authors": "Olga Antimony",
       "blurb": "Thirty years ago, a little girl watched her parents’ wedding, remembering the lilies in her mother’s hands. Today, she is getting married herself in Dnipro, a Ukrainian city living through years of war and air raid sirens.  Katya’s father was a liquidator of the Chernobyl nuclear disaster. He called himself and his friends “larks” — birds that are the first to rise into the spring sky — and called his struggle to survive after the catastrophe “Chernobyl-2.”  In 2022, a new catastrophe enters the lives of his wife Tanya and daughter Katya: Russia’s full-scale invasion of Ukraine.  Combining archival footage filmed more than twenty years ago with material shot during the current war, Chernobyl-2: Life After traces how one catastrophe echoes through another — and how a family living in the shadow of Chernobyl and war continues to love, laugh, endure, and move forward.",
@@ -2439,6 +2443,24 @@
           "start": "2026-09-14 17:45",
           "venue": "Scotiabank 2",
           "location": "scotiabank-2"
+        }
+      ]
+    },
+    {
+      "title": "CRE[AI]TE: New Voices in AI Filmmaking",
+      "authors": "",
+      "blurb": "Join CapCut at TIFF for a special screening showcasing standout films from the first-ever CRE[AI]TE, CapCut’s global AI festival bringing together creators and filmmakers from around the world to explore new possibilities in storytelling.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1gkRZFAerWIVMlMbyRpfC5/aef368873b6ffabdf6533879ecdc0f4c/capcut-creAIte_2026.webp",
+      "source_url": "https://www.tiff.net/films/cre-ai-te-new-voices-in-ai-filmmaking",
+      "tracks": [
+        "summit"
+      ],
+      "runtime_minutes": 90,
+      "screenings": [
+        {
+          "start": "2026-09-13 16:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5"
         }
       ]
     },
@@ -5039,7 +5061,7 @@
     {
       "title": "Independent Film is Dead. Long Live Independent Film!",
       "authors": "",
-      "blurb": "An incredible tool was developed in Toronto in the 1960's. Marshall McLuhan's lens into the nature of our relationship with media and technology was compared to Einstein's E = mc². Now more than ever that lens is needed.\r\n\r\nMany of us were inspired by the idea of the \"independent\" part of the film business. Where original stories could be born and then find a path to a big audience. The purpose of the independence was to encourage the originality. \r\n\r\n But what if the originality is getting zapped out of existence by the mediums in our hands and homes?\r\n\r\n The medium is the message, and the roar of the algorithm is drowning out the voices of our great storytellers.\r\n\r\nOriginality is to cinema as nutrients are to food. The most virulently addictive stuff tends to be low in both. Imagine taking the ingredients you lovingly grew in your garden and putting them on sensor-reheat in your microwave. All those good intentions don’t stand a chance in there.\r\n\r\nWhat kind of new medium would carry a message more compatible with the delicious and nutritious kinds of stories we’re actually in short supply of? How can we move toward a future where these technologies enrich our stories rather than weaponize them?\r\n\r\nJoin this discussion with leading independent filmmakers and Andrew McLuhan. We will explore how to build true independence in today's industry, and unveil a new platform designed to empower the thousands of people whose labour makes the movies we love.",
+      "blurb": "Join this discussion with indie filmmakers who are both uncompromising in their visions – Bruce LaBruce and Karen Chapman – and who have made some of the biggest hits in decades – Haley Johnson and Kori Adelson, producers of Obsession and Backrooms.\r\n\r\nMany of us were inspired by the \"independent\" part of the film business. Where original stories could be born then find a path to a big audience. The purpose of the independence was to encourage the originality.\r\n\r\nBut what if the originality is getting zapped out of existence by the mediums in our hands and homes?\r\n\r\nAn incredible tool was developed in Toronto in the 1960's, Marshall McLuhan’s lens on media and technology – The Medium is the Message.\r\n\r\nThat lens is needed now more than ever, because the roar of the algorithm – (the internal message of our media) – is drowning out the voices of our great storytellers.\r\n\r\nAndrew McLuhan and I will frame this all up and explore how to build true independence in today's industry. There will also be the unveiling of a new platform designed to empower the thousands of people whose labour makes the movies we love.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
       "source_url": "https://www.tiff.net/films/independent-film-is-dead-long-live-independent-film",
       "tracks": [
@@ -5898,7 +5920,7 @@
       "tracks": [
         "wavelengths"
       ],
-      "runtime_minutes": 340,
+      "runtime_minutes": 334,
       "screenings": [
         {
           "start": "2026-09-14 08:50",
@@ -6616,27 +6638,6 @@
       ]
     },
     {
-      "title": "Moon Star",
-      "authors": "Mohammad Ali Baig",
-      "blurb": "'Chand Tara' is based on the legend of Taramati, the 17th century singer of Golconda Kingdom in South India. A truly devoted artiste who lived only for  her art. Her music was a form of prayer, touching hearts and leaving a  lasting impression over Hyderabad’s history for three centuries.   Sultan Abdullah Qutb Shah, a cultured ruler of the Qutub Shahi Dynasty, a patron of arts and a poet himself patronized her art with great admiration, respecting her dedication, seeing in her something greater than a mere love interest. Through their eyes, we see an evolved bond that is not just about romance, but about respect, understanding and the power of devotion  through art. Their bond grows from reluctance to shared love for art in ways  that words cannot fully describe. Eventually, responsibility taking  over emotion, head over heart, in an unrequited love story. The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.The story shows how pure art and devotion lasts longer than power or fame. 'Chand Tara' is about choices that ask for sacrifice, and the ways people  leave their mark in others' lives. It is a gentle, moving tale of art with dignity  and self-respect, and the lasting impact of those who live for others.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6q9tEF8ayRFahO5Mbu7hJp/bcc4f9baa864a3a1f61df912972e9cab/Moon_Star_01.webp",
-      "source_url": "https://www.tiff.net/films/moon-star",
-      "tracks": [
-        "market-screening"
-      ],
-      "runtime_minutes": 93,
-      "screenings": [
-        {
-          "start": "2026-09-16 19:00",
-          "venue": "TIFF Lightbox 6",
-          "location": "tiff-lightbox-6",
-          "accessTiers": [
-            "market"
-          ]
-        }
-      ]
-    },
-    {
       "title": "Mr. Nelson, Did You Kill People?",
       "authors": "Shinya Tsukamoto",
       "blurb": "Cult Japanese filmmaker Shinya Tsukamoto directs acclaimed Broadway actor Rodney Hicks and Oscar winner Geoffrey Rush in a harrowing, visceral, and morally urgent portrait of Vietnam veteran Allen Nelson.",
@@ -7208,14 +7209,14 @@
     {
       "title": "Onwards and Sideways",
       "authors": "John Madden",
-      "blurb": "The latest from Oscar-nominated director John Madden (<em>Shakespeare in Love</em>) stars Oscar nominee Laura Linney (TIFF ’08’s <em>The Savages</em>) and Rhys Ifans (TIFF ’23’s <em>Mother Couch</em>) as strangers whose lives become entwined when both are diagnosed with Parkinson disease.",
+      "blurb": "The latest from Oscar-nominated director John Madden (<em>Shakespeare in Love</em>) stars Oscar nominee Laura Linney (TIFF ’08’s <em>The Savages</em>) and Rhys Ifans (TIFF ’23’s <em>Mother Couch</em>) as strangers whose lives become entwined when both are diagnosed with Parkinson’s disease.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/4tjAiz3WJkWXzG5aicOLWx/ad52a56074753dd4c6101de8da07a984/Onwards-and-Sideways_Hero.webp",
       "source_url": "https://www.tiff.net/films/onwards-and-sideways",
       "tracks": [
         "gala-presentations",
         "unhidden-gems-presented-by-redbreast"
       ],
-      "runtime_minutes": 110,
+      "runtime_minutes": 115,
       "screenings": [
         {
           "start": "2026-09-10 09:05",
@@ -7983,7 +7984,7 @@
     {
       "title": "PERSPECTIVES The State of Distribution",
       "authors": "",
-      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nMaking a great movie is only half the battle—getting it seen, and monetized, is where the game is won or lost. So how do you release an indie film when the rules keep changing? Join leading distribution executives, Michael Barker Co-President, Sony Pictures Classics and Noah Segal, Co-President, Elevation Pictures, as they reveal how to survive squeezed mid-budget films, unpredictable release windows, and shifting audience habits. Essential for filmmakers, producers, distributors, and investors seeking actionable strategies and frameworks to navigate the theatrical landscape.",
+      "blurb": "There is a designated number of public tickets to this event. Tickets can be purchased here. Pass holders have first come, first served access.\r\n\r\nMaking a great movie is only half the battle—getting it seen, and monetized, is where the game is won or lost. So how do you release an indie film when the rules keep changing? Join leading distribution executives, Michael Barker Co-President, Sony Pictures Classics and Noah Segal, President, Elevation Pictures, as they reveal how to survive squeezed mid-budget films, unpredictable release windows, and shifting audience habits. Essential for filmmakers, producers, distributors, and investors seeking actionable strategies and frameworks to navigate the theatrical landscape.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3DRqY4sYaDIPuE4hib2UtF/a6a5ceb9c050e55b66c703df26d43b5a/summit-_Perspectives.webp",
       "source_url": "https://www.tiff.net/films/perspectives-the-state-of-distribution",
       "tracks": [
@@ -9256,6 +9257,48 @@
       ]
     },
     {
+      "title": "SPOTLIGHT Gold Pitch Filmmaker Showcase",
+      "authors": "",
+      "blurb": "Gold House's Gold Pitch Filmmaker Showcase gives emerging APAC and North American filmmakers the stage to pitch their feature-length films and series to Gold House Studios, industry professionals, independent financiers, and the TIFF community. A mixer will conclude the event to give filmmakers and their audience the opportunity to meet and continue the conversation.\r\n\r\nAs capacity is limited, attendance will be granted on a first-come, first-served basis.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/spotlight-gold-pitch-filmmaker-showcase",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 180,
+      "screenings": [
+        {
+          "start": "2026-09-14 09:30",
+          "venue": "TLB Luma",
+          "location": "tlb-luma",
+          "accessTiers": [
+            "market"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Spotlight: Italy Offers Everything You Need",
+      "authors": "",
+      "blurb": "Discover why Italy is the ideal partner for your next production. Explore outstanding filming locations, competitive tax incentives, funding schemes, and co-production opportunities that make Italy a leading destination for international projects. Connect with industry experts and producers, gain practical insights into the Italian production landscape, and unlock new opportunities to finance, develop, and bring your stories to the screen.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eQmTcirGeB7Jdp8CV3VHA/b36a4402168b35a166b8fa8a490b9ae7/summit_-_Special_Event.webp",
+      "source_url": "https://www.tiff.net/films/spotlight-italy-offers-everything-you-need",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 120,
+      "screenings": [
+        {
+          "start": "2026-09-11 11:00",
+          "venue": "TLB Founders Lounge",
+          "location": "tlb-founders-lounge",
+          "accessTiers": [
+            "press-market"
+          ]
+        }
+      ]
+    },
+    {
       "title": "Spring in a Small Town",
       "authors": "Fei Mu",
       "blurb": "World Premiere of 4K restoration!\r\n\r\nCrowned the greatest Chinese film ever made by the Hong Kong Film Critics Society, director Fei Mu’s poetic, romantic 1948 masterpiece observes a bored wife enlivened by a surprise visit from an old flame, whose presence threatens to upend the matrimonial home.",
@@ -9383,7 +9426,7 @@
       "tracks": [
         "discovery"
       ],
-      "runtime_minutes": 88,
+      "runtime_minutes": 82,
       "screenings": [
         {
           "start": "2026-09-11 14:00",
@@ -10826,16 +10869,8 @@
       "tracks": [
         "special-presentations"
       ],
-      "runtime_minutes": 97,
+      "runtime_minutes": 127,
       "screenings": [
-        {
-          "start": "2026-09-10 21:30",
-          "venue": "Scotiabank 4",
-          "location": "scotiabank-4",
-          "accessTiers": [
-            "press-market"
-          ]
-        },
         {
           "start": "2026-09-16 15:00",
           "venue": "VISA Screening Room at the Princess of Wales Theatre",
@@ -11457,6 +11492,35 @@
           "start": "2026-09-20 10:00",
           "venue": "TIFF Lightbox 3",
           "location": "tiff-lightbox-3"
+        }
+      ]
+    },
+    {
+      "title": "TIFF & YouTube Creator Show Premieres, in partnership with Variety",
+      "authors": "",
+      "blurb": "YouTube and TIFF present Creator Show Premieres, in partnership with Variety.\r\n\r\nRegistration is now closed for this event, and is by invitation only.",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1ecVZK1wLVX8qHwtD08xES/5fb0efa17bf31480b6e45af2aa494d7d/CP-youtube-event_03.webp",
+      "source_url": "https://www.tiff.net/films/youtube-and-tiff-creator-show-premieres-in-partnership-with-variety",
+      "tracks": [
+        "market-screening"
+      ],
+      "runtime_minutes": 79,
+      "screenings": [
+        {
+          "start": "2026-09-10 10:30",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4",
+          "accessTiers": [
+            "market"
+          ]
+        },
+        {
+          "start": "2026-09-10 13:30",
+          "venue": "TIFF Lightbox 4",
+          "location": "tiff-lightbox-4",
+          "accessTiers": [
+            "market"
+          ]
         }
       ]
     },
@@ -12350,7 +12414,7 @@
       ]
     },
     {
-      "title": "Wild Wild East",
+      "title": "Wild, Wild East",
       "authors": "Jan Holoubek",
       "blurb": "Set in occupied Poland in the middle of the Second World War, Jan Holoubek’s tour-de-force is part suspenseful western, part gritty wartime noir.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/7Jt7OHuFgdXK7nmyLkGbL5/dba81cdb1bffef208455fc52ac8d0668/Wild-Wild-East_Still_01.jpg",
@@ -12360,14 +12424,6 @@
       ],
       "runtime_minutes": 108,
       "screenings": [
-        {
-          "start": "2026-09-10 17:50",
-          "venue": "Scotiabank 6",
-          "location": "scotiabank-6",
-          "accessTiers": [
-            "market"
-          ]
-        },
         {
           "start": "2026-09-11 12:10",
           "venue": "Scotiabank 10",
@@ -12574,35 +12630,6 @@
           "start": "2026-09-18 14:30",
           "venue": "VISA Screening Room at the Princess of Wales Theatre",
           "location": "visa-screening-room-at-the-princess-of-wales-theatre"
-        }
-      ]
-    },
-    {
-      "title": "YouTube and Variety present Creator Premieres at TIFF",
-      "authors": "",
-      "blurb": "YouTube and TIFF present Creator Show Premieres, in partnership with Variety.\n\nJoin us on September 10 at TIFF Lightbox as we showcase groundbreaking shows from two world-class creators, and celebrate the future of entertainment.",
-      "image_url": "https://images.ctfassets.net/22n7d68fswlw/1ecVZK1wLVX8qHwtD08xES/5fb0efa17bf31480b6e45af2aa494d7d/CP-youtube-event_03.webp",
-      "source_url": "https://www.tiff.net/films/youtube-and-tiff-creator-show-premieres-in-partnership-with-variety",
-      "tracks": [
-        "market-screening"
-      ],
-      "runtime_minutes": 79,
-      "screenings": [
-        {
-          "start": "2026-09-10 10:30",
-          "venue": "TIFF Lightbox 4",
-          "location": "tiff-lightbox-4",
-          "accessTiers": [
-            "market"
-          ]
-        },
-        {
-          "start": "2026-09-10 13:30",
-          "venue": "TIFF Lightbox 4",
-          "location": "tiff-lightbox-4",
-          "accessTiers": [
-            "market"
-          ]
         }
       ]
     },
