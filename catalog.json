@@ -3254,6 +3254,11 @@
           "location": "scotiabank-12"
         },
         {
+          "start": "2026-09-17 14:15",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        },
+        {
           "start": "2026-09-18 20:30",
           "venue": "Scotiabank 2",
           "location": "scotiabank-2"
@@ -8338,7 +8343,7 @@
     {
       "title": "REDEFINED | Short Film Showcase",
       "authors": "",
-      "blurb": "Catch the premiere of REDEFINED at the Toronto International Film Festival and streaming worldwide on the NFB. Following the screening, join us for a Q&A with the filmmakers.",
+      "blurb": "Catch the premiere of REDEFINED at the Toronto International Film Festival and streaming worldwide on the NFB. Following the screening, join us for a Q&A with the filmmakers.\r\n\r\n<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2OT2NTcgolVYhX4NR9pgp1/211111cbee0bcfdc2e772ba71a1455bf/Redefined_TIFF",
       "source_url": "https://www.tiff.net/films/redefined-short-film-showcase",
       "tracks": [
@@ -8717,7 +8722,7 @@
     {
       "title": "Short Cuts 2026 / Strange Cuts",
       "authors": "",
-      "blurb": "",
+      "blurb": "<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/2PtXUohqqwu2ipRmIc6e1S/b4e2d609a539aeda76a2fbecc46527ed/The-Dream-Is-A-Snail_HERO.jpg",
       "source_url": "https://www.tiff.net/films/short-cuts-2026-strange-cuts",
       "tracks": [
@@ -8779,27 +8784,14 @@
     {
       "title": "Short Cuts 2026 Programme 02",
       "authors": "",
-      "blurb": "",
+      "blurb": "<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3h7akRtI8be3jFshp83IQA/99597e492c343a9a734a23a87a93e3f9/The-Comet_Still_01.jpg",
       "source_url": "https://www.tiff.net/films/short-cuts-2026-programme-02",
       "tracks": [
         "short-cuts"
       ],
-      "runtime_minutes": 101,
+      "runtime_minutes": 131,
       "screenings": [
-        {
-          "start": "2026-09-11 09:15",
-          "venue": "Scotiabank 11",
-          "location": "scotiabank-11",
-          "accessTiers": [
-            "press-market"
-          ]
-        },
-        {
-          "start": "2026-09-11 21:20",
-          "venue": "Scotiabank 13",
-          "location": "scotiabank-13"
-        },
         {
           "start": "2026-09-16 15:30",
           "venue": "Scotiabank 4",
@@ -8810,27 +8802,14 @@
     {
       "title": "Short Cuts 2026 Programme 03",
       "authors": "",
-      "blurb": "",
+      "blurb": "<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/4XWbEYpIZDYtvJR6mGgo4x/8d488f08a7a8772adcbab24a47cb62d2/A-Tenderness_Still_05.jpg",
       "source_url": "https://www.tiff.net/films/short-cuts-2026-programme-03",
       "tracks": [
         "short-cuts"
       ],
-      "runtime_minutes": 103,
+      "runtime_minutes": 133,
       "screenings": [
-        {
-          "start": "2026-09-12 09:15",
-          "venue": "Scotiabank 3",
-          "location": "scotiabank-3",
-          "accessTiers": [
-            "press-market"
-          ]
-        },
-        {
-          "start": "2026-09-12 15:15",
-          "venue": "Scotiabank 4",
-          "location": "scotiabank-4"
-        },
         {
           "start": "2026-09-17 15:30",
           "venue": "Scotiabank 7",
@@ -8841,7 +8820,7 @@
     {
       "title": "Short Cuts 2026 Programme 04",
       "authors": "",
-      "blurb": "",
+      "blurb": "<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/6Zr4eZMLyw4LEvOEmOQ8BL/06b51a274673877d9e12385664fccdb8/El-Aumento_Still_03.jpg",
       "source_url": "https://www.tiff.net/films/short-cuts-2026-programme-04",
       "tracks": [
@@ -8872,7 +8851,7 @@
     {
       "title": "Short Cuts 2026 Programme 05",
       "authors": "",
-      "blurb": "",
+      "blurb": "<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/3W0urzZEdGaJLpnzNlHOl6/1d4025dc642cadfb6e1b7391dda24dcc/Bloodline_Still_01.jpg",
       "source_url": "https://www.tiff.net/films/short-cuts-2026-programme-05",
       "tracks": [
@@ -8903,7 +8882,7 @@
     {
       "title": "Short Cuts 2026 Programme 06",
       "authors": "",
-      "blurb": "",
+      "blurb": "<em>This programme will be presented with closed captioning for English-language titles and subtitles for non-English-language titles.</em>",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/7gmwtRNkMSsA0CkZSjvVza/822eed2a8a60dc2509c82ce8c72b4a56/Aman_Still_05.jpg",
       "source_url": "https://www.tiff.net/films/short-cuts-2026-programme-06",
       "tracks": [
@@ -10333,37 +10312,19 @@
       "runtime_minutes": 120,
       "screenings": [
         {
-          "start": "2026-09-11 23:59",
-          "venue": "Royal Alexandra Theatre",
-          "location": "royal-alexandra-theatre"
-        },
-        {
-          "start": "2026-09-12 12:15",
-          "venue": "Scotiabank 7",
-          "location": "scotiabank-7",
-          "accessTiers": [
-            "market"
-          ]
-        },
-        {
-          "start": "2026-09-12 14:15",
-          "venue": "Scotiabank 12",
-          "location": "scotiabank-12",
-          "accessTiers": [
-            "press-market"
-          ]
-        },
-        {
-          "start": "2026-09-12 21:55",
-          "venue": "Scotiabank 14",
-          "location": "scotiabank-14"
-        },
-        {
           "start": "2026-09-13 13:45",
           "venue": "TIFF Lightbox 7",
           "location": "tiff-lightbox-7",
           "accessTiers": [
             "market"
+          ]
+        },
+        {
+          "start": "2026-09-14 21:30",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
+          "accessTiers": [
+            "press-market"
           ]
         },
         {
@@ -10992,11 +10953,6 @@
       ],
       "runtime_minutes": 153,
       "screenings": [
-        {
-          "start": "2026-09-11 18:30",
-          "venue": "TIFF Lightbox 4",
-          "location": "tiff-lightbox-4"
-        },
         {
           "start": "2026-09-13 21:15",
           "venue": "TIFF Lightbox 4",
