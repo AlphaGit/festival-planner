@@ -1285,22 +1285,12 @@
       "runtime_minutes": 97,
       "screenings": [
         {
-          "start": "2026-09-12 17:30",
-          "venue": "Roy Thomson Hall",
-          "location": "roy-thomson-hall"
-        },
-        {
-          "start": "2026-09-13 11:45",
-          "venue": "Scotiabank 3",
-          "location": "scotiabank-3",
+          "start": "2026-09-15 21:45",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
           "accessTiers": [
             "press-market"
           ]
-        },
-        {
-          "start": "2026-09-13 18:10",
-          "venue": "Scotiabank 2",
-          "location": "scotiabank-2"
         },
         {
           "start": "2026-09-18 09:15",
@@ -9510,14 +9500,6 @@
       "runtime_minutes": 82,
       "screenings": [
         {
-          "start": "2026-09-11 15:30",
-          "venue": "Scotiabank 9",
-          "location": "scotiabank-9",
-          "accessTiers": [
-            "press-market"
-          ]
-        },
-        {
           "start": "2026-09-14 18:25",
           "venue": "Scotiabank 8",
           "location": "scotiabank-8"
@@ -11553,22 +11535,12 @@
       "runtime_minutes": 90,
       "screenings": [
         {
-          "start": "2026-09-11 17:45",
-          "venue": "Scotiabank 1",
-          "location": "scotiabank-1"
-        },
-        {
-          "start": "2026-09-12 12:25",
-          "venue": "Scotiabank 3",
-          "location": "scotiabank-3",
+          "start": "2026-09-15 09:10",
+          "venue": "Scotiabank 9",
+          "location": "scotiabank-9",
           "accessTiers": [
             "press-market"
           ]
-        },
-        {
-          "start": "2026-09-12 21:00",
-          "venue": "Scotiabank 11",
-          "location": "scotiabank-11"
         },
         {
           "start": "2026-09-19 17:30",
