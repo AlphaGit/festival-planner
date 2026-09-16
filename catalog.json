@@ -714,6 +714,11 @@
           "location": "tiff-lightbox-2"
         },
         {
+          "start": "2026-09-16 10:00",
+          "venue": "Scotiabank 8",
+          "location": "scotiabank-8"
+        },
+        {
           "start": "2026-09-19 14:15",
           "venue": "Scotiabank 10",
           "location": "scotiabank-10"
@@ -1501,6 +1506,11 @@
           "location": "tiff-lightbox-1"
         },
         {
+          "start": "2026-09-18 15:00",
+          "venue": "TIFF Lightbox 5",
+          "location": "tiff-lightbox-5"
+        },
+        {
           "start": "2026-09-19 18:00",
           "venue": "TIFF Lightbox 1",
           "location": "tiff-lightbox-1"
@@ -2257,6 +2267,11 @@
           "start": "2026-09-13 14:45",
           "venue": "Scotiabank 2",
           "location": "scotiabank-2"
+        },
+        {
+          "start": "2026-09-18 20:30",
+          "venue": "Scotiabank 5",
+          "location": "scotiabank-5"
         }
       ]
     },
@@ -2304,6 +2319,11 @@
           "start": "2026-09-13 21:00",
           "venue": "TIFF Lightbox 2",
           "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2026-09-16 20:50",
+          "venue": "Scotiabank 6",
+          "location": "scotiabank-6"
         },
         {
           "start": "2026-09-18 21:30",
@@ -2564,7 +2584,7 @@
       "tracks": [
         "market-screening"
       ],
-      "runtime_minutes": 225,
+      "runtime_minutes": 217,
       "screenings": [
         {
           "start": "2026-09-16 12:15",
@@ -4834,6 +4854,11 @@
           "start": "2026-09-13 11:15",
           "venue": "VISA Screening Room at the Princess of Wales Theatre",
           "location": "visa-screening-room-at-the-princess-of-wales-theatre"
+        },
+        {
+          "start": "2026-09-17 21:20",
+          "venue": "Scotiabank 2",
+          "location": "scotiabank-2"
         },
         {
           "start": "2026-09-18 17:45",
@@ -11804,6 +11829,14 @@
           ]
         },
         {
+          "start": "2026-09-16 11:30",
+          "venue": "Scotiabank 13",
+          "location": "scotiabank-13",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
           "start": "2026-09-17 21:55",
           "venue": "Scotiabank 3",
           "location": "scotiabank-3"
@@ -12553,6 +12586,14 @@
           "start": "2026-09-13 11:15",
           "venue": "TIFF Lightbox 2",
           "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2026-09-16 21:30",
+          "venue": "John Bassett Theatre",
+          "location": "john-bassett-theatre",
+          "accessTiers": [
+            "press-market"
+          ]
         },
         {
           "start": "2026-09-18 14:30",
