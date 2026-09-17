@@ -629,7 +629,7 @@
     },
     {
       "title": "Alice: Pioneer of Cinema",
-      "authors": "Virginie Verrier, Guillaume Lonergan",
+      "authors": "Guillaume Lonergan, Virginie Verrier",
       "blurb": "Amidst the advent of modern cinema, trailblazing artist Alice Guy becomes the first woman film director in this lush historical series starring Academy Award–nominee Bérénice Bejo (<em>The Artist</em>).",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/9b0RWzItqw8FTdVR5B468/3f5d04922d73f088a8e953a7328e4ba5/ALICE_01.webp",
       "source_url": "https://www.tiff.net/films/alice",
@@ -3636,6 +3636,14 @@
           "location": "scotiabank-1"
         },
         {
+          "start": "2026-09-17 10:00",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12",
+          "accessTiers": [
+            "press-market"
+          ]
+        },
+        {
           "start": "2026-09-18 21:20",
           "venue": "Scotiabank 13",
           "location": "scotiabank-13"
@@ -5682,7 +5690,7 @@
     },
     {
       "title": "La Bola Negra",
-      "authors": "Javier Calvo, Javier Ambrossi",
+      "authors": "Javier Ambrossi, Javier Calvo",
       "blurb": "Los Javis’ ambitious and captivating homage to Federico García Lorca sees the lives of three men intertwined in love and loss across eras. Featuring powerful performances by Guitarricadelafuente, Carlos González, and Miguel Bernardeau.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/1kuTkPXDdc6h53I6xPV9cD/85ea7b11b8652e5dc7deff9b62b61296/LA_BOLA_NEGRA_01.webp",
       "source_url": "https://www.tiff.net/films/la-bola-negra",
@@ -10592,7 +10600,7 @@
     },
     {
       "title": "The Idiot(s)",
-      "authors": "Michał Englert, Małgorzata Szumowska",
+      "authors": "Małgorzata Szumowska, Michał Englert",
       "blurb": "Aimee Lou Wood and Johnny Flynn bring to life the story of Anna and Fyodor Dostoevsky, showcasing the troubled author and the woman who pushed him to write one of his greatest works.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/7Ky6GMh7WOGhD8iPOjej75/cde88034e41e73d8806a7d0887a51b01/The_Idiots_Still_01.jpg",
       "source_url": "https://www.tiff.net/films/the-idiots",
@@ -12604,7 +12612,7 @@
     },
     {
       "title": "Zjili: A Story of Sisterhood and The Burdens of Excess",
-      "authors": "Hajara Musah Chambas, Christine Boateng",
+      "authors": "Christine Boateng, Hajara Musah Chambas",
       "blurb": "In their poignant debut feature, co-directors Christine Boateng and Hajara Musah Chambas depict the journey of three Ghanaian women eking out a living as <em>kayayei</em> or porters in the trenches of the world’s largest secondhand clothing market.",
       "image_url": "https://images.ctfassets.net/22n7d68fswlw/7BF1actRMhXnNrz0CTeHQ6/6e94955468c4396d6d2a31378bc024cf/Zjili_Still_01.jpg",
       "source_url": "https://www.tiff.net/films/zjili-a-story-of-sisterhood-and-the-burdens-of-excess",
