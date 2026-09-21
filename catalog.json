@@ -3147,6 +3147,24 @@
       ]
     },
     {
+      "title": "Documentary People's Choice Award Winner Screening",
+      "authors": "",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/bSPeJPZyqVu3HgkaR3Nat/3b4e2629749fb25a87d14170d5550d66/Darlene-Love-I-Know-Where-I-ve-Been_Still_02.jpg",
+      "source_url": "https://www.tiff.net/films/documentary-peoples-choice-award-winner-screening-2026",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 160,
+      "screenings": [
+        {
+          "start": "2026-09-20 19:45",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        }
+      ]
+    },
+    {
       "title": "Don't Fence Me In: Queer Country",
       "authors": "Colette Johnson-Vosberg",
       "blurb": "Canada boasts a rich legacy of country stars, from Shania Twain and Hank Snow to Anne Murray, and the iconic k.d. lang. In “Don’t Fence Me In: Queer Country,” our documentary shines a spotlight on LGBTQ+ musicians who are fearlessly redefining Canadian country music, carving out space in an industry that has often been slow to embrace change. These artists share their deeply personal stories, navigating the complexities of identity, tradition, and artistry while challenging stereotypes and breaking new ground. Their journeys are marked by resilience, creativity, and undeniable talent. The film not only celebrates trailblazers like k.d. lang but also gives voice to the new generation, showcasing the richness of their music and the vibrant community they’re building.  Through exclusive interviews, heartfelt performances, and candid conversations, “Don’t Fence Me In: Queer Country” offers an intimate look at how these singers are illuminating the genre with authenticity and pride.",
@@ -5336,6 +5354,29 @@
       ]
     },
     {
+      "title": "International People's Choice Award Winner Screening",
+      "authors": "",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/2eap3k3ZAC58Y5sQBwF2NA/96aeab21f0a0a328946864d4260147a1/ELSINORE_STILL_HERO.jpg",
+      "source_url": "https://www.tiff.net/films/international-peoples-choice-award-winner-screening-2026",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 160,
+      "screenings": [
+        {
+          "start": "2026-09-20 15:45",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
+        },
+        {
+          "start": "2026-09-20 19:00",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        }
+      ]
+    },
+    {
       "title": "Iron Boy",
       "authors": "Louis Clichy",
       "blurb": "Winner of the Special Jury Prize at Cannes last spring, Pixar animator Louis Clichy’s gorgeous hand-painted animation tells the story of a boy in need of a back brace who seeks the courage to stand alone.",
@@ -6557,6 +6598,24 @@
       ]
     },
     {
+      "title": "Midnight Madness People's Choice Award Winner Screening",
+      "authors": "",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/64pLhpBuon5ZL4VSLvs6q4/6008b7e066cfe2bbd46bf310a13d264f/LADIES-AND-GENTLEMEN_-BRIAN-MULRONEY_still_03.jpg",
+      "source_url": "https://www.tiff.net/films/midnight-madness-peoples-choice-award-winner-screening-2026",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 130,
+      "screenings": [
+        {
+          "start": "2026-09-20 19:30",
+          "venue": "Scotiabank 12",
+          "location": "scotiabank-12"
+        }
+      ]
+    },
+    {
       "title": "MILO",
       "authors": "Nicole Garcia",
       "blurb": "Alice arrives in a quiet provincial town and takes a job at a local café, blending easily into a life that isn’t hers. Her presence is no coincidence. She is there because of Milo, a young mechanic who works at a nearby garage. To him, Alice is a stranger. To her, he is someone tied to a past she has never truly left behind. As buried tensions begin to surface and Milo drifts toward uncertain ground, both are pushed to a crossroads: is it possible to rebuild a bond that shattered decades ago?",
@@ -7511,6 +7570,34 @@
       ]
     },
     {
+      "title": "People's Choice Award Winner Screening",
+      "authors": "",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/27e4l5rR0uM8WN5iJqyb2M/4652d5934f8f74c5b2c4e2e5c03fed43/La-bola-negra_hERO.jpg",
+      "source_url": "https://www.tiff.net/films/peoples-choice-award-winner-screening-2026",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 160,
+      "screenings": [
+        {
+          "start": "2026-09-20 12:45",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2026-09-20 16:00",
+          "venue": "TIFF Lightbox 2",
+          "location": "tiff-lightbox-2"
+        },
+        {
+          "start": "2026-09-20 19:30",
+          "venue": "TIFF Lightbox 1",
+          "location": "tiff-lightbox-1"
+        }
+      ]
+    },
+    {
       "title": "PERSPECTIVES Academy Conversation: International Feature Film",
       "authors": "",
       "blurb": "Now in its 70th year, the Oscar® for International Feature Film honours outstanding achievement in global cinema. For the first time, winners from select international film festivals, including the recipient of TIFF’s Platform Award, will be eligible for consideration in this category for the 99th Academy Awards®. This new eligibility criterion provides filmmakers with another avenue for their work to be recognized, championed, and celebrated. This panel brings together Academy leaders and global filmmakers to discuss the category’s legacy and impact.",
@@ -8068,6 +8155,24 @@
           "start": "2026-09-19 14:30",
           "venue": "Scotiabank 5",
           "location": "scotiabank-5"
+        }
+      ]
+    },
+    {
+      "title": "Platform Prize Winner Screening",
+      "authors": "",
+      "blurb": "",
+      "image_url": "https://images.ctfassets.net/22n7d68fswlw/6obAaSOmIrhxff4EEdQ77A/a695be6a0480cdee3ec1b062ced37bc9/Angh_hero_01.webp",
+      "source_url": "https://www.tiff.net/films/platform-prize-winner-screening-2026",
+      "tracks": [
+        "special-events"
+      ],
+      "runtime_minutes": 160,
+      "screenings": [
+        {
+          "start": "2026-09-20 12:30",
+          "venue": "TIFF Lightbox 3",
+          "location": "tiff-lightbox-3"
         }
       ]
     },
